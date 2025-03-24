@@ -1,0 +1,115 @@
+
+
+
+<nav class="navbar navbar-expand-lg desktop-navbar">
+  <div class="container-fluid d-flex align-items-center">
+    <!-- الشعار -->
+    <div class="" routerLink="home"><img [src]="logoSrc" alt="Logo"></div>
+
+    <!-- قائمة التنقل العادية -->
+    <div class="collapse navbar-collapse" id="navbarContent">
+
+      <ul class="navbar-nav me-auto align-items-end">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="home">{{ "second-navbar.home" | transloco }}</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="explore-courses">{{ "second-navbar.explore" | transloco }}</a>
+        </li>
+      </ul>
+
+      <form class="d-flex mx-auto" style="flex-grow: 1; max-width: 500px;">
+        <input class="form-control text-end" type="search" [attr.placeholder]="'second-navbar.search' | transloco" aria-label="Search" style="border-radius: 20px;">
+      </form>
+
+      <ul class="navbar-nav ms-auto align-items-end">
+
+        <li class="nav-item">
+          <a class="nav-link" routerLink="about">{{ "navbar.about us" | transloco }}</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="about">{{ "navbar.teach in Makhekh" | transloco }}</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-black " routerLink="wishlist" ><app-wishlist-icon></app-wishlist-icon></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-black " routerLink="shippingCart" ><app-cart-icon></app-cart-icon></a>
+        </li>
+        <li class="nav-item">
+          <button class="btn btn-outline-primary " routerLink="login"> {{ "navbar.login" | transloco }}</button>
+        </li>
+        <li class="nav-item mx-2">
+          <button class="btn btn-primary" routerLink="register">{{ "navbar.register" | transloco }}</button>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-black" (click)="changeLang()" ><i class="fa-sharp fa-solid fa-globe"></i></a>
+        </li>
+
+      </ul>
+    </div>
+    <!-- صورة الملف الشخصي -->
+    <!-- <div class="profile-circle">H</div> -->
+  </div>
+</nav>
+
+
+
+<!-- ✅ Navbar للأجهزة الصغيرة (Mobile & Tablet) -->
+<nav class="navbar mobile-navbar">
+  <div class="container-fluid d-flex justify-content-between align-items-center">
+    <!-- زر القائمة الجانبية -->
+    <button class="navbar-toggler" type="button" (click)="toggleSidebar()">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- الشعار -->
+
+    <div class="logo-img"><img [src]="logoSrc" alt="Logo"></div>
+
+    <!-- صورة الملف الشخصي -->
+  </div>
+</nav>
+
+<!-- ✅ القائمة الجانبية (Sidebar) -->
+<div class="offcanvas offcanvas-start" [class.show]="isSidebarOpen">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title">Menu</h5>
+    <button class="close-btn" (click)="toggleSidebar()">✖</button>
+  </div>
+
+
+
+  <div class="offcanvas-body">
+    <ul class="navbar-nav">
+
+
+      <li class="nav-item">
+        <a class="nav-link" routerLink="about">{{ "navbar.about us" | transloco }}</a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" routerLink="explore-courses">{{ "second-navbar.explore" | transloco }}</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="about">{{ "navbar.teach in Makhekh" | transloco }}</a>
+      </li>
+
+
+
+      <li class="nav-item"><a class="nav-link"  routerLink="shippingCart" >{{ "second-navbar.My Cart" | transloco }}</a></li>
+      <li class="nav-item"><a class="nav-link"  routerLink="wishlist" >{{ "second-navbar.Wishlist" | transloco }} </a></li>
+      <li class="nav-item"><a class="nav-link"   >{{ "second-navbar.Account Settings" | transloco }}</a></li>
+      <li class="nav-item"><a class="nav-link" (click)="changeLang()"  >{{ "second-navbar.Language" | transloco }}</a></li>
+
+
+      <li class="nav-item"><a class="nav-link"   >{{ "second-navbar.Help and Support" | transloco }}</a></li>
+      <li class="nav-item">
+        <button class="nav-link" routerLink="login"> {{ "navbar.login" | transloco }}</button>
+      </li>
+      <li class="nav-item">
+        <button class="nav-link" routerLink="register">{{ "navbar.register" | transloco }}</button>
+      </li>    </ul>
+  </div>
+</div>
+

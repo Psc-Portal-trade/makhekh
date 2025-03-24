@@ -1,0 +1,472 @@
+/* وضع عام للغة */
+html[dir="rtl"] {
+  direction: rtl;
+  text-align: right;
+}
+.navbar {
+    background-color: #2196F3;
+    color: white;
+}
+.container-fluid {
+  max-width: 100% !important;
+  width: 100%;
+  padding: 0px 20px 0px 20px;
+}
+
+.course-header {
+    position: relative;
+    text-align: center;
+    background-color: #000;
+}
+.course-header img {
+    width: 100%;
+    height: auto;
+}
+
+.list-group-item {
+    border: none;
+}
+.instructor {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+.instructor img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+}
+e-title {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+  }
+
+  .lecture-duration {
+    font-size: 14px;
+    color: #666;
+  }
+
+  .bi-play-circle {
+    color: #3498db;
+    font-size: 18px;
+  }
+  .progress-container {
+    position: relative;
+    display: inline-block;
+
+  }
+
+  .progress-btn {
+    background-color: #343a40;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+  }
+
+  .tooltip-en {
+    position: absolute;
+    top: 120%;
+    /* right: 80% !important; */
+    transform: translateX(-50%);
+    background: white;
+    color: black;
+    border-radius: 5px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    font-size: 14px;
+    white-space: nowrap;
+    display: none;
+    z-index: 1000;
+}
+
+.tooltip-ar {
+    position: absolute;
+    top: 120%;
+    /* left: 80% !important; */
+    /* transform: translateX(-50%); */
+    background: white;
+    color: black;
+    border-radius: 5px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    font-size: 14px;
+    white-space: nowrap;
+    display: none;
+    z-index: 1;
+}
+
+:dir(ltr) .tooltip-ar {
+  left: -60px !important;
+  right: 0px;
+  }
+
+  /* للغة العربية (RTL) */
+  :dir(rtl) .tooltip-ar {
+  right: -100px !important;
+  left: 0;
+  }
+
+  .tooltip-box.show {
+    display: block;
+  }
+  .sidebar {
+    background-color: white;
+    padding: 15px;
+  }
+
+  .accordion-item {
+    border: none;
+  }
+
+  .accordion-button {
+    background-color: #f1f1f1;
+    font-weight: bold;
+  }
+  .accordion-header{
+    width: 100%;
+  }
+
+  .lecture-list {
+    list-style: none;
+    padding: 0;
+  }
+
+  .lecture-list li {
+    display: flex;
+    flex-direction: column; /* يضع العناصر في عمود */
+    align-items: start;
+    padding: 10px 0;
+    border-bottom: 1px solid #ddd;
+  }
+
+  .first-part {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .second-part {
+    font-size: 14px;
+    color: #888;
+    margin-top: 2px; /* تباعد بين العنوان والمدة */
+    padding-left: 25px;
+  }
+
+
+  .lecture-list li.completed {
+    background-color: #e0e0e0;
+    text-decoration: line-through;
+  }
+
+  .lecture-list li:hover {
+    background-color: #d8e3fc;
+  }
+
+  .lecture-title {
+    flex-grow: 1;
+    margin-left: 8px;
+  }
+
+  .lecture-duration {
+    font-size: 0.9em;
+    color: gray;
+  }
+
+  .logo-container {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* مسافة بين العناصر */
+}
+
+.divider {
+    width: 2px;
+    height: 35px;
+    background-color: white; /* لون الخط */
+}
+.logo1 {
+    width: 35px; /* أو أي حجم مناسب */
+    height: auto;
+    max-width: 35px;
+    background-color: white; /* تأكد أنه لا يصبح كبيرًا جدًا */
+  }
+
+
+  /* ✅ تغيير لون الـ checkbox عند التحديد */
+.custom-checkbox:checked {
+    accent-color: #007bff; /* أزرق Bootstrap */
+}
+
+/* ✅ إضافة تأثير مرئي عند اختيار الدرس */
+.lecture-list li.completed {
+    background-color: rgba(0, 123, 255, 0.1); /* لون خلفية خفيف عند التحديد */
+    border-left: 4px solid #007bff; /* خط أزرق على الجانب */
+    transition: background 0.3s ease;
+    text-decoration: none;
+}
+
+.accordion-button:not(.collapsed)::after {
+    background-image: var(--bs-accordion-btn-active-icon);
+    transform:none;
+}
+.accordion-button::after {
+  flex-shrink: 0;
+  width: var(--bs-accordion-btn-icon-width);
+  height: var(--bs-accordion-btn-icon-width);
+  margin-left: auto;
+  content: "";
+  background-image: var(--bs-accordion-btn-icon);
+  background-repeat: no-repeat;
+  background-size: var(--bs-accordion-btn-icon-width);
+  transition: var(--bs-accordion-btn-icon-transition);
+}
+
+/* عند تفعيل اللغة العربية */
+body[dir="rtl"] .accordion-button::after {
+  margin-left: unset; /* إزالة الهامش الأيسر */
+  margin-right: auto; /* تطبيق الهامش الأيمن */
+}
+
+
+
+
+.section-info {
+  font-size: 14px;
+  color: gray;
+  padding-left: 10px;
+  margin-bottom: 5px;
+  background-color: #F1F1F1;
+}
+
+.title1{
+  font-size: 13px;
+}
+
+
+.btn1{
+  background-color: white;
+  color: #007bff;
+}
+textarea{
+   resize:none;
+}
+
+.container {
+  margin: auto;
+}
+
+button {
+  width: auto;
+}
+
+.list-group-item {
+  background-color: #f8f9fa;
+  border: 1px solid #ddd;
+  margin-top: 5px;
+  padding: 10px;
+  font-size: 16px;
+}
+.accordion-button:not(.collapsed) {
+  width: 100%;
+}
+
+
+
+
+
+/*  */
+.certificate-container {
+display: flex;
+justify-content: center;
+align-items: center;
+margin: 20px;
+}
+
+canvas {
+border: 2px solid #ccc;
+box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.buttons {
+display: flex;
+justify-content: center;
+gap: 10px;
+margin-top: 20px;
+}
+
+button {
+background-color: #007bff;
+color: white;
+border: none;
+padding: 10px 15px;
+cursor: pointer;
+border-radius: 5px;
+transition: 0.3s;
+}
+
+.accordion-button::after {
+margin-left: auto; /* للتأكد أن الأيقونة تبقى في أقصى اليمين في الوضع LTR */
+}
+
+[dir="rtl"] .accordion-button .ms-auto {
+margin-left: 0;
+margin-right: auto;
+}
+
+body[dir="rtl"] .accordion-button {
+text-align: right;
+justify-content: space-between;
+padding-right: 1rem;
+}
+
+body[dir="rtl"] .accordion-button .ms-auto {
+margin-left: 0 !important;
+margin-right: auto !important;
+}
+
+body[dir="rtl"] .accordion-button::after {
+margin-left: auto !important;  /* يجعل الأيقونة تذهب لأقصى اليسار */
+margin-right: 0 !important;    /* يزيل أي هامش غير مرغوب فيه على اليمين */
+}
+
+.container {
+  counter-reset: span-counter 0;
+}
+
+
+.container span {
+  display: block;
+}
+
+.container span:nth-child(-n+19) {
+  content: "";
+  display: block;
+}
+
+
+
+
+
+
+
+
+.course-header, .course-card {
+  border-radius: 10px;
+  padding: 20px;
+}
+
+.course-headerr {
+  background-color: #2D91EE;
+  color: white;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.course-card {
+  border: 1px solid #ddd;
+}
+
+.btn-custom {
+  width: 100%;
+}
+
+.btn-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto auto;
+  gap: 10px;
+}
+
+.full-width {
+  grid-column: span 2;
+}
+
+.wishlist-btn {
+  border: none;
+  background: transparent;
+  font-size: 24px;
+  color: #007bff;
+  margin-top: 10px;
+}
+.nav-item{
+  cursor: pointer;
+}
+.content-container {
+  text-align: start;
+}
+
+.accordion-button, .section-button {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  transition: background-color 0.3s ease;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.accordion-button[aria-expanded="true"] {
+  background-color: #f5f5f5 !important;
+}
+
+.section-title, .lecture-title {
+  flex-grow: 1;
+  text-align: left;
+}
+
+.lecture-count, .lecture-duration {
+  flex-shrink: 0;
+  text-align: center;
+}
+
+.lecture-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 10px;
+}
+
+.instructor-img img {
+  width: 125px;
+  height: 125px;
+  border-radius: 100%;
+}
+
+ul {
+  list-style: none;
+}
+
+.container {
+  max-width: 100%;
+}
+
+
+
+@media (max-width: 768px) {
+  table {
+    display: none;
+  }
+
+  .card {
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    padding: 10px;
+    font-size: 14px;
+  }
+
+  .card div {
+    margin-bottom: 5px;
+  }
+}
+
+
+.btn-design1 {
+  border: 1px solid #2d91ee;
+  color: #2d91ee;
+}
+.custom-dropdown-scroll {
+  max-height: 300px; /* يمكنك تغيير القيمة حسب الحاجة */
+  overflow-y: auto;
+}

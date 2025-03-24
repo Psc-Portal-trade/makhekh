@@ -1,0 +1,121 @@
+<app-sidebar></app-sidebar>
+
+<div>
+  <div class="head1 d-flex justify-content-end align-items-center px-3">
+
+
+    <div class="mx-3 second-sec">
+      <i class="fa-solid fa-bell"></i>
+      <a class="pe-3 text-decoration-none text-black " routerLink="student-profile">  student View  <i class="fa-solid fa-people-arrows px-1"></i></a>
+    </div>
+    <div class="position-relative text-end my-3">
+
+      <div class="first-letter">
+        <span>H</span>
+        <div class="profile-menu">
+          <div class="text-center">
+            <div class="d-flex align-items-center mb-3 gap-3">
+              <div class="first-letterr">
+                <span class="rounded-circle  text-white d-flex justify-content-center align-items-center" style="width: 50px; height: 50px; font-size: 24px;">
+                  H
+                </span>
+              </div>
+              <div class="text-start">
+                <h5 class="mb-0">Name</h5>
+                <p class="text-muted mb-0">Email</p>
+              </div>
+            </div>
+           </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item" routerLink="studentHome">{{ "second-navbar.home" | transloco }}</li>
+            <li class="list-group-item">{{ "second-navbar.my courses" | transloco }}</li>
+            <li class="list-group-item" routerLink="cart">{{ "second-navbar.My Cart" | transloco }} </li>
+            <li class="list-group-item" routerLink="wishedList">{{ "second-navbar.Wishlist" | transloco }}</li>
+            <li class="list-group-item" >{{ "second-navbar.Instructor Dashboard" | transloco }}</li>
+            <li class="divider"></li>
+
+            <li class="list-group-item" >{{ "second-navbar.Notifications" | transloco }}</li>
+            <li class="list-group-item">{{ "second-navbar.Messages" | transloco }}</li>
+            <li class="divider"></li>
+
+            <li class="list-group-item">{{ "second-navbar.Account Settings" | transloco }}</li>
+            <li class="list-group-item">{{ "second-navbar.Payment Methods" | transloco }}</li>
+            <li class="divider"></li>
+
+            <li class="list-group-item"  (click)="changeLang()">{{ "second-navbar.Language" | transloco }}</li>
+            <li class="divider"></li>
+
+            <li class="list-group-item">{{ "second-navbar.Help and Support" | transloco }}</li>
+            <li class="list-group-item text-danger" routerLink="logOut"> {{ "second-navbar.Log out" | transloco }}</li>
+          </ul>
+
+        </div>
+      </div>
+
+    </div>
+    </div>
+
+
+
+    <div class="big d-flex justify-content-end p-3">
+      <div class="container first p-3">
+          <!-- Header -->
+          <div class="content d-flex justify-content-between align-items-center">
+              <div class="head d-flex align-items-center">
+                  <h2 class="me-3">{{ 'overview.title' | transloco }}</h2>
+                  <div class="dropdown">
+                      <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                          {{ selectedCourse$ | async }}
+                      </button>
+                      <ul class="dropdown-menu">
+                          <li><a class="dropdown-item" (click)="changeCourse('AllCourses')">{{ 'AllCourses' | transloco }}</a></li>
+                          <li><a class="dropdown-item" (click)="changeCourse('course 1')">{{ 'course 1' | transloco }}</a></li>
+                          <li><a class="dropdown-item" (click)="changeCourse('course 2')">{{ 'course 2' | transloco }}</a></li>
+                          <li><a class="dropdown-item" (click)="changeCourse('course 3')">{{ 'course 3' | transloco }}</a></li>
+                      </ul>
+                  </div>
+              </div>
+              <button class="btn btn-outline-primary" (click)="exportReport()">{{ 'overview.extract_report' | transloco }}</button>
+          </div>
+      
+          <!-- Nav Tabs -->
+          <ul class="nav nav-tabs mt-4">
+              <li class="nav-item">
+                  <a class="nav-link active" [ngClass]="{'active': activeTab === 'revenue'}" (click)="setActiveTab('revenue')">
+                      {{ 'overview.total_revenue' | transloco }}
+                  </a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" [ngClass]="{'active': activeTab === 'enrollments'}" (click)="setActiveTab('enrollments')">
+                      {{ 'overview.total_enrollments' | transloco }}
+                  </a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" [ngClass]="{'active': activeTab === 'sales'}" (click)="setActiveTab('sales')">
+                      {{ 'overview.total_sales' | transloco }}
+                  </a>
+              </li>
+          </ul>
+      
+          <!-- Tab Content -->
+          <div class="tab-content card p-4 mt-3">
+              <div class="tab-pane fade" [ngClass]="{'show active': activeTab === 'revenue'}">
+                  <h5>{{ 'overview.total_revenue' | transloco }}</h5>
+                  <p class="fs-5 fw-bold">{{ totalRevenue }} {{'LE' | transloco}}</p>
+              </div>
+              <div class="tab-pane fade" [ngClass]="{'show active': activeTab === 'enrollments'}">
+                  <h5>{{ 'overview.total_enrollments' | transloco }}</h5>
+                  <p class="fs-5 fw-bold">{{ totalEnrollments }}</p>
+              </div>
+              <div class="tab-pane fade" [ngClass]="{'show active': activeTab === 'sales'}">
+                  <h5>{{ 'overview.total_sales' | transloco }}</h5>
+                  <p class="fs-5 fw-bold">{{ totalSales }}</p>
+              </div>
+          </div>
+      </div>
+  </div>
+
+</div>
+
+
+

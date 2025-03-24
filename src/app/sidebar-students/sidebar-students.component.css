@@ -1,0 +1,206 @@
+/* General Layout */
+ /*
+.dashboard {
+    display: flex;
+    height: 100vh;
+  }
+
+  .container {
+    padding: 10px;
+  }
+
+  .list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .nav-item {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    color: white;
+    cursor: pointer;
+  }
+
+  .nav-item i {
+    margin-right: 10px;
+  }
+
+  .nav-item a {
+    text-decoration: none;
+    color: white;
+  }
+
+  .submenu {
+    padding-left: 20px;
+  }
+
+  .submenu li {
+    padding: 5px 0;
+  }
+
+
+  .main-content {
+    flex: 1;
+    background: #f4f6f8;
+    padding: 20px;
+  }
+
+  .qa-container {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+  }
+
+  .qa-box {
+    border: 1px solid #ddd;
+    padding: 50px;
+    text-align: center;
+    color: #aaa;
+    border-radius: 10px;
+    margin-top: 10px;
+  }
+
+  .dropdown {
+    font-size: 14px;
+    color: gray;
+    cursor: pointer;
+  }
+  .sidebar {
+    width: 6=80px;
+    background: #007bff;
+    transition: width 0.3s ease-in-out;
+    overflow: hidden;
+  }
+
+  .sidebar.expanded {
+    width: 220px;
+  }
+     */
+
+     .sidebar.expanded {
+      width: 200px;
+    }
+    .sidebar {
+      width: 60px; /* أو أي عرض يناسبك */
+      background-color: #3498db; /* لون الخلفية */
+      display: flex;
+      flex-direction: column;
+      align-items: center; /* توسيط العناصر أفقيًا */
+      transition: width 0.3s; /* تأثير عند التوسيع */
+      top: 0;
+      left: 0;
+      position: fixed;
+      z-index: 1050;
+
+    }
+
+    .sidebar1 {
+      width: 300px; /* أو أي عرض يناسبك */
+      background-color: #EFF3F6; /* لون الخلفية */
+      display: flex;
+      transition: width 0.3s; /* تأثير عند التوسيع */
+      top: 0;
+      left: 4.5%;
+      position: fixed;
+      z-index: 1050;
+    }
+
+    .logo {
+      width: 30px;
+      height: 30px;
+      background-color: white;
+      margin-bottom: 15px; /* مسافة بين اللوجو والعناصر الأخرى */
+
+    }
+
+    .list {
+      list-style: none;
+      padding: 0;
+      margin: 30px 0px 0px 0px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+
+
+    }
+
+    .list li {
+      display: flex;
+      flex-direction: row; /* جعل الأيقونة والنص بجانب بعض */
+      align-items: center; /* توسيط العناصر أفقيًا */
+      color: white;
+      padding: 10px 10px 20px 4px;
+      cursor: pointer;
+      gap: 20px; /* مسافة بين الأيقونة والنص */
+
+
+    }
+
+    .list li i {
+      font-size: 25px; /* تكبير الأيقونة */
+    }
+
+
+    .list li a{
+    text-decoration: none;
+    color: white;
+    }
+
+    .nav-item {
+      position: relative;
+      display: flex;
+      align-items: center;
+      padding-left: 15px; /* لضمان المساحة الكافية للخط */
+    }
+    .content-item {
+      margin-left: 60px; /* جعل المحتوى الأساسي في مكانه بدون تأثر */
+      transition: margin-left 0.3s ease-in-out;
+  }
+
+  .bi-globe{
+      color: #2D91EE;
+
+  }
+
+  .input-group input{
+      background-color: #EFF3F6;
+  }
+
+
+
+    .container .list1{
+      padding-top: 90px;
+    }
+
+
+    h3{
+      font-weight: 500;
+      font-size: 24px;
+      line-height: 28.13px;
+    }
+
+    .container .list1 ul li {
+      border-bottom: 1px solid #CBC8C8; /* خط سفلي رمادي */
+
+    }
+    .container .list1 ul {
+     padding-left: 0%;
+    }
+
+
+    li:hover {
+      background:#79baf7 ; /* لون عند تمرير الماوس */
+    }
+
+
+       .list1 li.active {
+          background: white !important; /* جعل العنصر المحدد أبيض */
+          font-weight: bold;
+        }
+
+
+        a{
+          text-decoration: none;
+        }

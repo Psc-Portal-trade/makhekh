@@ -1,0 +1,22 @@
+.form-check .form-check-input {
+    float: left;
+    margin-left: 0% !important;
+}
+
+.form-check {
+margin: 0;
+
+}
+
+section{
+    background-color: #EFF3F6;
+}
+form div{
+  margin-bottom: 8px;
+}
+.form-input{
+  padding: 10px;
+}
+.register-img img{
+  width: 100%;
+}

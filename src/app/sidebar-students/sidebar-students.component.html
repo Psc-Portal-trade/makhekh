@@ -1,0 +1,103 @@
+<!-- <div class="dashboard d-flex">
+
+    <div class="sidebar min-vh-100"
+         [class.expanded]="isExpanded || activeSection"
+         (mouseover)="expandSidebar()"
+         (mouseleave)="collapseSidebar()">
+      <div class="container">
+        <ul class="list" style="color: white;">
+          <li><img class="logo" src="../../assets/Logo EN.png" alt=""></li>
+
+
+          <li class="nav-item" (click)="toggleSection('courses')">
+            <i class="fa fa-book-open"></i>
+            <a><span *ngIf="isExpanded || activeSection">Courses</span></a>
+          </li>
+          <ul *ngIf="activeSection === 'courses'" class="submenu">
+            <li><a href="#">All Courses</a></li>
+            <li><a href="#">My Courses</a></li>
+          </ul>
+
+
+          <li class="nav-item" (click)="toggleSection('communication')">
+            <i class="fa-regular fa-message"></i>
+            <a><span *ngIf="isExpanded || activeSection">Communication</span></a>
+          </li>
+          <ul *ngIf="activeSection === 'communication'" class="submenu">
+            <li><a href="#">Q&A</a></li>
+            <li><a href="#">Messages</a></li>
+            <li><a href="#">Student Engagements</a></li>
+          </ul>
+
+
+          <li class="nav-item" (click)="toggleSection('performance')">
+            <i class="fa-solid fa-chart-simple"></i>
+            <a><span *ngIf="isExpanded || activeSection">Performance</span></a>
+          </li>
+          <ul *ngIf="activeSection === 'performance'" class="submenu">
+            <li><a href="#">Reports</a></li>
+            <li><a href="#">Analytics</a></li>
+          </ul>
+        </ul>
+      </div>
+    </div>
+
+
+    <div class="main-content" (click)="closeSections()">
+      <div class="qa-container">
+        <h2>Q&A <span class="dropdown">All Courses ▼</span></h2>
+        <div class="qa-box">
+          <p>No Questions Yet</p>
+        </div>
+      </div>
+    </div>
+  </div>
+    -->
+
+    <div class="d-flex">
+      <div class="sidebar min-vh-100"  [class.expanded]="isExpanded" (mouseover)="expandSidebar()" (mouseleave)="collapseSidebar()">
+          <div class="container">
+            <ul class="list">
+              <li><img class="logo" src="../../assets/Logo EN.png" alt="" srcset=""></li>
+              <a ><li class="nav-item"  routerLink="create-course"><i class="fa fa-book-open" style="color:#fff;"></i><a><span *ngIf="isExpanded">Courses</span></a></li>          </a>
+              <li class="nav-item" (click)="toggleSection('communication')"><i class="fa-regular fa-message" style="color:#fff;"></i><a><span *ngIf="isExpanded">Communication</span></a></li>
+              <li class="nav-item" (click)="toggleSection('performance')"><i class="fa-solid fa-chart-simple" style="color:#fff;"></i><a><span *ngIf="isExpanded">Performance</span></a></li>
+            </ul>
+          </div>
+        </div>
+
+  </div>
+
+
+
+  <div *ngIf="activeSection === 'communication'" class="submenu d-flex " class="sidebar1 min-vh-100" [class.expanded]="isExpanded || activeSection" (mouseover)="expandSidebar()" (mouseleave)="collapseSidebar()">
+      <div class="container">
+        <ul class="list list1 ">
+          <h3 class="text-center">communication</h3>
+          <ul style="color:black; padding-top: 15px;">
+              <li  routerLink="qa"  (click)="selectItem('qna')" [class.active]="selectedItem === 'qna'" class="pb-3 "><a style="color:black; font-size: 16px; font-weight: 500; line-height: 18.75px;">Q&A</a></li>
+              <li routerLink="messages" (click)="selectItem('messages')" [class.active]="selectedItem === 'messages'" class="pb-3"><a style="color:black;  font-size: 16px; font-weight: 500; line-height: 18.75px;">Messages</a></li>
+              <li  routerLink="student-suggestions" (click)="selectItem('suggestions')" [class.active]="selectedItem === 'suggestions'" class="pb-3"><a style="color:black;  font-size: 16px; font-weight: 500; line-height: 18.75px;">Student suggestions</a></li>
+            </ul>
+        </ul>
+      </div>
+  </div>
+
+
+
+  <div *ngIf="activeSection === 'performance'" class="submenu d-flex " class="sidebar1 min-vh-100" [class.expanded]="isExpanded || activeSection" (mouseover)="expandSidebar()" (mouseleave)="collapseSidebar()">
+      <div class="container">
+        <ul class="list list1 ">
+          <h3 class="text-center">performance</h3>
+          <ul style="color:black; padding-top: 15px;">
+              <li routerLink="overview" (click)="selectItem('overview')" [class.active]="selectedItem === 'overview'" class="pb-3"><a style="color:black; font-size: 16px; font-weight: 500; line-height: 18.75px;">Overview</a></li>
+              <li routerLink="students" (click)="selectItem('students')" [class.active]="selectedItem === 'students'" class="pb-3"><a style="color:black;  font-size: 16px; font-weight: 500; line-height: 18.75px;">Students</a></li>
+              <li routerLink="reviews" (click)="selectItem('reviews')" [class.active]="selectedItem === 'reviews'" class="pb-3"><a style="color:black;  font-size: 16px; font-weight: 500; line-height: 18.75px;">Reviews</a></li>
+            </ul>
+        </ul>
+      </div>
+  </div>
+
+
+
+

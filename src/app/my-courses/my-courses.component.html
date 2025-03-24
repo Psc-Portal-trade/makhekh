@@ -1,0 +1,111 @@
+<app-second-nav></app-second-nav>
+
+<div class="container-fluid bg-section mt-3">
+  <div class="container py-5">
+    <h2 class="fw-bold py-5 text-white">{{"my-courses.My Courses" | transloco}}</h2>
+  </div>
+</div>
+
+<div class="container my-5">
+  <ul class="nav nav-tabs">
+    <li class="nav-item">
+      <a class="nav-link active" data-bs-toggle="tab" data-bs-target="#all-courses">{{"my-courses.All Courses" | transloco}}</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" data-bs-toggle="tab" data-bs-target="#wishlist">{{"my-courses.Wishlist" | transloco}}</a>
+    </li>
+  </ul>
+
+  <div class="tab-content mt-3">
+    <!-- Tab: All Courses -->
+    <div id="all-courses" class="tab-pane fade show active">
+      <input *ngIf="filteredCourses.length > 0" type="text" class="form-control mb-3"
+             placeholder="Search for a course..." [(ngModel)]="searchQuery" />
+
+      <div class="container">
+        <div class="row gy-3">
+          <div class="no-items" *ngIf="filteredCourses.length === 0"
+          >
+            <img src="assets/no items yet.jpg" alt="No items yet">
+            <p>{{"my-courses.No items yet" | transloco}}</p>
+          </div>
+
+          <div class="col-md-4" *ngFor="let course of paginatedCourses"
+          (click)="goToCourseDetails(course)" style="cursor: pointer;">
+            <div class="card course-card">
+              <div class="course-image">
+                <img [src]="course.src" class="card-img-top" alt="{{ course.courseTitle }}">
+              </div>
+              <div class="card-body">
+                <h5 class="card-title">{{ course.courseTitle }}</h5>
+                <p class="card-text instructor">{{course.instructor}}</p>
+                <p class="progress-text">{{ course.progress }}% {{"my-courses.complete" | transloco}}</p>
+                <div class="progress">
+                  <div class="progress-bar" [style.width.%]="course.progress"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Pagination -->
+        <div class="pagination-controls" *ngIf="filteredCourses.length > 0">
+          <button *ngFor="let page of getPagesArray()" (click)="goToPage(page)" [class.active]="page === currentPage">
+            {{ page }}
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tab: Wishlist -->
+    <div id="wishlist" class="tab-pane fade">
+      <div class="no-items" *ngIf="filteredWishlistCourses.length === 0">
+        <img src="assets/no items yet.jpg" alt="No items yet">
+        <p>{{"my-courses.No items yet" | transloco}}</p>
+      </div>
+
+      <div class="container mt-4">
+        <input *ngIf="filteredWishlistCourses.length > 0" type="text" class="form-control mb-3"
+               placeholder="Search for a course..." [(ngModel)]="searchQueryWishlist" />
+
+        <div class="row g-3">
+          <div class="col-lg-4 col-md-6 col-sm-12 mb-4" *ngFor="let course of paginatedWishlistCourses">
+            <div class="card lecture-card">
+              <div class="video-thumbnail">
+                <img alt="" [src]="course.src" class="w-100">
+              </div>
+              <div class="card-body">
+                <h5 class="card-title">{{ course.courseTitle }}</h5>
+                <p class="card-text small text-muted">{{ course.landingPage.describtion }}</p>
+                <p class="content">
+                  {{ course.rate }}
+                  <i class="fa-solid fa-star text-warning"></i>
+                  <span class="text-muted"> {{ course.watched }}</span>
+                </p>
+                <p>{{ course.pricing.price }} LE</p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <button class="btn btn-design1" *ngIf="!course.isInCart" (click)="addToCart(course)">{{"my-courses.Add to Cart" | transloco}}</button>
+                  <button class="btn btn-design2" *ngIf="course.isInCart" (click)="removeFromCart(course)">{{"my-courses.Remove from Cart" | transloco}}</button>
+                  <button class="btn heart" *ngIf="!course.isInWishList" (click)="addToWishList(course)">
+                    <i class="fa-regular fa-heart"></i>
+                  </button>
+                  <button class="btn heart text-danger" *ngIf="course.isInWishList" (click)="removeFromWishList(course)">
+                    <i class="fa-solid fa-heart"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Pagination for Wishlist -->
+        <div class="pagination-controls mt-3" *ngIf="filteredWishlistCourses.length > 0">
+          <button *ngFor="let page of getPagesArrayWishlist()" (click)="goToPageWishlist(page)"
+                  [class.active]="page === currentPageWishlist">
+            {{ page }}
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

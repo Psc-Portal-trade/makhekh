@@ -1,0 +1,4 @@
+
+<div class="cart-icon mx-2">
+  <i class="fa-solid fa-heart"></i> <span *ngIf="(wishlistService.listCount$ | async) as count">{{ count }}</span>
+</div>

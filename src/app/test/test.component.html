@@ -1,0 +1,91 @@
+<div class="container-fluid head mt-5 P-0">
+  <div class="container">
+      <div class="d-flex justify-content-between align-items-center pb-4">
+          <h5>
+              <img src="../../assets/Logo EN.png" style="width: 35px; height: 35px; padding-right: 5px;">| 
+              <small>{{ 'step' | transloco }} {{ step }} {{ 'of' | transloco }} 4</small>
+          </h5>
+          <a routerLink="/instructor-profile/create-course" class="text-decoration-none" style="color: #2D91EE; line-height: 42.19px; font-weight: 400; font-size: 25px; padding-bottom:10px ;">
+              {{ 'exit' | transloco }}
+          </a>
+      </div>
+  </div>
+</div>
+
+<div class="content" *ngIf="step === 1">
+  <div class="container cards">
+    <h3 class="text-center pb-4">{{ 'step1.title' | transloco }}</h3>
+    <div class="row">
+      <div class="col-md-6 pb-3" *ngFor="let course of courses; let i = index">
+        <div class="card course-card p-3 text-center" (click)="selectCourse(i)" [ngClass]="{ 'active': selectedCourse === i }">
+          <div class="card-body justify-content-center align-content-center">
+            <img [src]="course.image">
+            <h5 class="card-title fw-bold pb-3 pt-3">{{ course.title | transloco }}</h5>
+            <p class="card-text">{{ course.description | transloco }}</p>
+          </div>
+        </div>
+      </div>
+    </div>   
+  </div>
+</div>
+
+
+<div *ngIf="step === 1" class="container-fluid p-4 button mt-1">
+  <div class="container">
+      <button class="btn btn-primary" (click)="continue()">{{ 'continue' | transloco }}</button>
+  </div>
+</div>
+
+<div *ngIf="step === 2" class="content2">
+  <div class="container cards text-center">
+      <h3 class="pb-4">{{ 'step2_title' | transloco }}</h3>
+      <input type="text" class="form-control mx-auto" style="width: 90%;" [(ngModel)]="courseTitle" [placeholder]="'enter_course_title' | transloco">
+  </div>
+</div>
+
+<div *ngIf="step === 2" class="container-fluid p-4 button mt-1">
+  <div class="container d-flex justify-content-between">
+      <button *ngIf="step > 1" class="btn1 btn" (click)="previous()">{{ 'previous' | transloco }}</button>
+      <button class="btn btn-primary" (click)="continue()">{{ 'continue' | transloco }}</button>
+  </div>
+</div>
+
+<!-- Step 3 -->
+<div *ngIf="step === 3" class="content2">
+  <div class="container cards text-center">
+    <h3 class="pb-4">{{ 'step3.title' | transloco }}</h3>
+    <select class="form-control mx-auto" [(ngModel)]="selectedCategory" data-bs-toggle="dropdown" appendToBody="true">
+      <option value="" disabled selected>{{ 'step3.selectCategory' | transloco }}</option>
+      <option *ngFor="let category of categories" [value]="category">{{ 'categories.' + category | transloco }}</option>
+    </select>
+  </div>
+</div>
+
+
+<div *ngIf="step === 3" class="container-fluid p-4 button mt-1">
+  <div class="container d-flex justify-content-between">
+      <button *ngIf="step > 1" class="btn1 btn" (click)="previous()">{{ 'previous' | transloco }}</button>
+      <button class="btn btn-primary" (click)="continue()">{{ 'continue' | transloco }}</button>
+  </div>
+</div>
+
+<!-- Step 4 -->
+<div *ngIf="step === 4" class="content4">
+  <div class="container cards text-center">
+      <h3>{{ 'step4_learning' | transloco }}</h3>
+      <textarea class="form-control fixed-textarea mx-auto mb-4 mt-3" style="width: 90%;" [(ngModel)]="learningObjectives"></textarea>
+
+      <h3>{{ 'step4_requirements' | transloco }}</h3>
+      <textarea class="form-control fixed-textarea mx-auto mb-4 mt-3" style="width: 90%;" [(ngModel)]="requirements"></textarea>
+
+      <h3>{{ 'step4_target' | transloco }}</h3>
+      <textarea class="form-control fixed-textarea mx-auto mb-4 mt-3" style="width: 90%;" [(ngModel)]="targetAudience"></textarea>
+  </div>
+</div>
+
+<div *ngIf="step === 4" class="container-fluid p-4 button mt-1">
+  <div class="container d-flex justify-content-between">
+      <button *ngIf="step > 1" class="btn1 btn" (click)="previous()">{{ 'previous' | transloco }}</button>
+      <button class="btn btn-primary" (click)="submitCourse()">{{ 'create_course' | transloco }}</button>
+  </div>
+</div>

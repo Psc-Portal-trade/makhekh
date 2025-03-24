@@ -1,0 +1,42 @@
+<section class="pt-5 pb-3" *ngIf="lectures && lectures.length > 0">
+  <div class="container-fluid px-3">
+    <h2 class="Continue-learning fw-bold">
+      {{ "secondHome.Continue learning" | transloco }}
+    </h2>
+
+    <div class="container-fluid mt-4">
+      <div class="scroll-container"
+        (touchstart)="onTouchStart($event)"
+        (touchmove)="onTouchMove($event)"
+        (touchend)="onTouchEnd()"
+        (mousemove)="onMouseMove($event)">
+
+        <div class="scroll-content d-flex">
+          <div class="card lecture-card" *ngFor="let item of lectures"
+          (click)="goToCourseDetails(item)" style="cursor: pointer;" >
+            <div class="row g-0">
+              <div class="col-md-12 video-thumbnail w-100">
+                <div class="vid-img">
+                  <img alt="" [src]="item.src">
+                </div>
+                <div class="play-icon">
+                  <i class="fa-solid fa-play"></i>
+                </div>
+              </div>
+              <div class="col-md-12 card-body">
+                <p class="card-text small">Lorem ipsum dolor sit amet</p>
+                <h5 class="card-title">{{ item.id }}. {{ item.courseTitle }}</h5>
+                <p class="lecture-meta">
+                  <strong>Lecture</strong> {{ item.duration }} min
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+

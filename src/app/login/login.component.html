@@ -1,0 +1,68 @@
+<app-navbar></app-navbar>
+
+
+
+<section class=" pb-5">
+  <div class="container pt-5">
+   <div class="row">
+
+      <div class="col-md-6 form1 pt-0  register-img justify-content-center">
+          <img src="assets/login.png" alt="">
+      </div>
+       <div class="col-md-6 form pt-5 justify-content-center align-items-center">
+
+
+         <h2 class="">{{"login.login in to your account" | transloco}}</h2>
+         <form [formGroup]="loginForm" >
+           <div>
+               <label for="email"></label>
+               <input  id="email" type="email" class="form-control border-black form-input" [attr.placeholder]="'login.email' | transloco" formControlName="email">
+                          </div>
+
+           <div>
+               <label for="password"></label>
+               <input id="password" type="password" class="form-control border-black .form-input" [attr.placeholder]="'login.password' | transloco" formControlName="password">
+           </div>
+
+           <button type="submit" routerLink="studentHome" class="btn bg-primary text-white w-100 mt-2">{{"login.log in" | transloco}}</button>
+
+          <div class="text-center pt-2">
+              <a  href="#" class="">{{"login.Forget password" | transloco}}</a>
+
+          </div>
+         </form>
+         <div class="container-section">
+          <div class="line"></div>
+          <div class="text">{{"login.Other login options" | transloco}}</div>
+          <div class="line">
+
+          </div>
+        </div>
+        <div class="social-container">
+          <div class="social-box">
+              <i class="fa-brands fa-google"></i>
+          </div>
+          <div class="social-box">
+              <i class="fa-brands fa-facebook"></i>
+          </div>
+          <div class="social-box">
+              <i class="fa-brands fa-apple"></i>
+          </div>
+      </div>
+
+      <div class="container mt-3">
+        <button class="w-100 p-3 bg-white border-0 rounded-2">{{"login.dont have account" | transloco}} <a class="text-decoration-underline" routerLink="register">{{"login.sign up" | transloco}}</a></button>
+      </div>
+
+       </div>
+
+
+
+   </div>
+  </div>
+</section>
+
+
+
+
+

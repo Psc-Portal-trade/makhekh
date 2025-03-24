@@ -1,0 +1,207 @@
+<div class="d-flex ">
+
+<!-- <app-sidebar-students></app-sidebar-students> -->
+
+<div class="container  content-item">
+
+
+<div class="d-flex align-items-center">
+  <div class="position-relative text-end my-3">
+
+    <div class="first-letter">
+      <span>H</span>
+      <div class="profile-menu">
+        <div class="text-center">
+          <div class="d-flex align-items-center mb-3 gap-3">
+            <div class="first-letterr">
+              <span class="rounded-circle  text-white d-flex justify-content-center align-items-center" style="width: 50px; height: 50px; font-size: 24px;">
+                H
+              </span>
+            </div>
+            <div class="text-start">
+              <h5 class="mb-0">Name</h5>
+              <p class="text-muted mb-0">Email</p>
+            </div>
+          </div>
+         </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item" routerLink="studentHome">{{ "second-navbar.home" | transloco }}</li>
+          <li class="list-group-item">{{ "second-navbar.my courses" | transloco }}</li>
+          <li class="list-group-item" routerLink="cart">{{ "second-navbar.My Cart" | transloco }}</li>
+          <li class="list-group-item" routerLink="wishedList">{{ "second-navbar.Wishlist" | transloco }}</li>
+          <li class="list-group-item" >{{ "second-navbar.Instructor Dashboard" | transloco }}</li>
+          <li class="divider"></li>
+
+          <li class="list-group-item">{{ "second-navbar.Notifications" | transloco }}</li>
+          <li class="list-group-item">{{ "second-navbar.Messages" | transloco }}</li>
+          <li class="divider"></li>
+
+          <li class="list-group-item">{{ "second-navbar.Account Settings" | transloco }}</li>
+          <li class="list-group-item">{{ "second-navbar.Payment Methods" | transloco }}</li>
+          <li class="divider"></li>
+
+          <li class="list-group-item"  (click)="changeLang()">{{ "second-navbar.Language" | transloco }}</li>
+          <li class="divider"></li>
+
+          <li class="list-group-item">{{ "second-navbar.Help and Support" | transloco }}</li>
+          <li class="list-group-item text-danger" routerLink="logOut"> {{ "second-navbar.Log out" | transloco }}</li>
+        </ul>
+
+      </div>
+    </div>
+
+  </div>
+
+  <div class="mx-3 second-sec">
+    <i class="fa-solid fa-bell"></i>
+    <a class="pe-3 text-decoration-none text-black" routerLink="instructor-profile">
+      {{ 'profile.instructorView' | transloco }}
+      <i class="fa-solid fa-people-arrows px-1"></i>
+    </a>
+  </div>
+</div>
+
+
+
+
+<div class="responsive-class">
+  <div class="">
+    <h2 class="mb-5 mt-5">{{ 'profile.pageTitle' | transloco }}</h2>
+    <ul class="nav nav-tabs mb-4">
+      <li class="nav-item">
+        <a class="nav-link " [class.active]="activeTab === 'profile'" (click)="setActiveTab('profile')">{{ 'profile.profileTab' | transloco }}</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link " [class.active]="activeTab === 'suggestions'" (click)="setActiveTab('suggestions')">{{ 'profile.suggestionsTab' | transloco }}</a>
+      </li>
+    </ul>
+
+    <div class="row " id="profile" *ngIf="activeTab === 'profile'">
+      <div class="col-s-3">
+        <img [src]="profileImage" class="rounded-circle profile-img" style="width: 200px; height: 200px;" alt="{{ 'profile.photoAlt' | transloco }}" />
+
+        <!-- زر تحميل الصورة -->
+        <div *ngIf="!isPhotoUploaded" class="mt-4 d-flex align-items-center gap-2">
+          <label for="file-input" class="btn btn-primary fs-6">{{ 'profile.uploadPhoto' | transloco }}</label>
+          <input type="file" id="file-input" class="d-none" accept="image/*" (change)="onFileSelected($event)" />
+          <button class="btn text-primary border-0">{{ 'profile.edit' | transloco }}</button>
+        </div>
+
+        <!-- زر تعديل الصورة -->
+        <div *ngIf="isPhotoUploaded" class="mt-4 d-flex align-items-center gap-2">
+          <button disabled type="submit" class="btn btn-primary">{{ 'profile.uploadPhoto' | transloco }}</button>
+          <label for="edit-input" class="btn text-primary border-0 fs-6">{{ 'profile.edit' | transloco }}</label>
+          <input type="file" id="edit-input" class="d-none" accept="image/*" (change)="onFileSelected($event)" />
+        </div>
+      </div>
+
+      <div class="col-s-9 pt-4">
+        <form>
+          <div class="mb-3">
+            <label for="firstName" class="form-label">{{ 'profile.firstName' | transloco }}</label>
+            <input type="text" class="form-control" id="firstName" />
+          </div>
+          <div class="mb-3">
+            <label for="lastName" class="form-label">{{ 'profile.lastName' | transloco }}</label>
+            <input type="text" class="form-control" id="lastName" />
+          </div>
+          <div class="mb-3">
+            <label for="email" class="form-label">{{ 'profile.email' | transloco }}</label>
+            <input type="email" class="form-control" id="email" />
+          </div>
+          <div class="mb-3">
+            <label for="occupation" class="form-label">{{ 'profile.occupation' | transloco }}</label>
+            <input type="text" class="form-control" id="occupation" />
+          </div>
+          <div class="mb-3">
+            <label for="facebook" class="form-label">{{ 'profile.facebook' | transloco }}</label>
+            <input type="text" class="form-control" id="facebook" placeholder="{{ 'profile.copyLink' | transloco }}" />
+          </div>
+          <div class="mb-3">
+            <label for="linkedin" class="form-label">{{ 'profile.linkedin' | transloco }}</label>
+            <input type="text" class="form-control" id="linkedin" placeholder="{{ 'profile.copyLink' | transloco }}" />
+          </div>
+          <div class="mb-3">
+            <label for="language" class="form-label">{{ 'profile.language' | transloco }}</label>
+            <div class="input-group">
+              <span class="input-group-text">
+                <i class="fa fa-globe"></i>
+              </span>
+              <select class="form-select" id="language">
+                <option value="en" selected>{{ 'profile.english' | transloco }}</option>
+                <option value="ar">{{ 'profile.arabic' | transloco }}</option>
+              </select>
+            </div>
+          </div>
+          <button disabled type="submit" class="btn btn-primary me-2">{{ 'profile.save' | transloco }}</button>
+          <button type="button" class="btn text-primary border-0">{{ 'profile.edit' | transloco }}</button>
+        </form>
+      </div>
+    </div>
+    <div class="row">
+      <div *ngIf="activeTab === 'suggestions'" class="mb-4">
+        <form class="mb-2">
+          <div class="row">
+            <!-- Address -->
+            <div class="col-md-6 mb-3">
+              <label for="address" class="form-label">{{ 'profile.address' | transloco }} <span class="text-danger">*</span></label>
+              <input type="text" class="form-control" id="address" [(ngModel)]="address" name="address">
+            </div>
+    
+            <!-- File Upload -->
+            <div class="col-md-6 mb-3">
+              <label for="file" class="form-label">{{ 'profile.file' | transloco }}</label>
+              <div class="input-group">
+                <input type="file" class="form-control text-muted" id="file" (change)="Selected($event)">
+              </div>
+            </div>
+    
+            <!-- Add Proposal -->
+            <div class="col-md-6 mb-3">
+              <label for="proposal" class="form-label">{{ 'profile.addProposal' | transloco }} <span class="text-danger">*</span></label>
+              <input type="text" class="form-control" id="proposal" [(ngModel)]="proposal" name="proposal">
+            </div>
+    
+            <!-- Proposal Description -->
+            <div class="col-md-6 mb-3">
+              <label for="description" class="form-label">{{ 'profile.proposalDescription' | transloco }}</label>
+              <input type="text" class="form-control" id="description" [(ngModel)]="description" name="description">
+            </div>
+    
+            <!-- Category Dropdown -->
+            <div class="col-md-6 mb-3">
+              <label for="category" class="form-label">{{ 'profile.category' | transloco }}</label>
+              <select class="form-select" id="category" [(ngModel)]="category" name="category">
+                <option value="design">{{ 'profile.design' | transloco }}</option>
+                <option value="development">{{ 'profile.development' | transloco }}</option>
+                <option value="marketing">{{ 'profile.marketing' | transloco }}</option>
+              </select>
+            </div>
+    
+            <!-- Courses Dropdown -->
+            <div class="col-md-6 mb-3">
+              <label for="courses" class="form-label">{{ 'profile.courses' | transloco }}</label>
+              <select class="form-select" id="courses" [(ngModel)]="courses" name="courses">
+                <option value="web-design">{{ 'profile.webDesign' | transloco }}</option>
+                <option value="ux-ui">{{ 'profile.uxUi' | transloco }}</option>
+                <option value="full-stack">{{ 'profile.fullStack' | transloco }}</option>
+              </select>
+            </div>
+          </div>
+    
+          <!-- Save Button -->
+          <button type="submit" class="btn btn-primary" [disabled]="!isFormValid()">{{ 'profile.save' | transloco }}</button>
+        </form>
+      </div>
+    </div>
+    
+  </div>
+</div>
+
+
+
+  </div>
+</div>
+
+
+

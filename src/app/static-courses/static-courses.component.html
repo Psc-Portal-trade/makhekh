@@ -1,0 +1,117 @@
+
+<section id="static">
+  <div class="container-fluid my-5 px-5">
+    <div class="row">
+        <div class="col-md-9">
+            <div class="course-header">
+                <nav class="breadcrumb">
+                    <a class="breadcrumb-item text-white" >Development</a>
+                    <a class="breadcrumb-item text-white" >Web Development</a>
+                </nav>
+                <h2>{{course.title}}</h2>
+                <p>⭐ {{course.rate}} ({{course.ratingsCount}} ratings) • {{course.watched}} Students</p>
+                <p>Created by <a  class="text-white">{{course.instructor}}</a></p>
+                <p>Last updates {{course.lastUpdate}} • {{course.language}} • Live Course • {{course.level}}</p>
+                <button class="btn btn-light">Book your spot</button>
+            </div>
+            <div class="mt-4 p-3 border rounded">
+              <h5>What will you learn</h5>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer sed porttitor nisl.</p>
+          </div>
+        </div>
+        <div class="col-md-3">
+            <div class="course-card text-center">
+                <img [src]="course.src" alt="Course Thumbnail" class="img-fluid w-100 rounded-2">
+                <p class="mt-2"><strong>Price: {{course.price}} LE</strong></p>
+                <p class="text-danger">{{course.seatsLeft}} seats left</p>
+                <div class="btn-container">
+                  <!-- زر Add to Cart في صف منفصل -->
+                  <button class="btn btn-design1 full-width" *ngIf="!course.isInCart" (click)="addToCart()">Add to Cart</button>
+                  <button class="btn btn-design1 full-width" *ngIf="course.isInCart" (click)="removeFromCart()">Remove From Cart</button>
+
+                  <!-- الأزرار الأخرى في صف ثاني مع تقسيم متساوٍ -->
+                  <button class="btn btn-outline-danger" *ngIf="!course.isInWishlist" (click)="addToWishlist()">Add to wishlist</button>
+                  <button class="btn btn-danger" *ngIf="course.isInWishlist" (click)="removeFromWishlist()">Remove from list</button>
+                  <button class="btn btn-design1">Buy Now</button>
+              </div>
+            </div>
+        </div>
+    </div>
+
+  </div>
+
+  <div class="container-fluid mt-2  content-container px-5" >
+    <div class="row">
+
+    <div class="col-md-6">
+  <h4>This course includes:</h4>
+  <uL>
+    <li>3 months course length</li>
+    <li>Assignments & quizzes</li>
+    <li>Live Course</li>
+    <li>Certification</li>
+
+  </uL>
+
+
+      <h4>Course Content</h4>
+      <p>{{ courseTotal.courseSections.length }} sections, {{ totalLectures() }} Lectures, 3 months total length</p>
+      <div class="accordion" id="courseAccordion">
+        <div class="accordion-item " *ngFor="let section of courseTotal.courseSections; let i = index">
+          <h2 class="accordion-header" id="heading{{ i }}">
+            <button class="accordion-button collapsed section-button" type="button" data-bs-toggle="collapse"
+              [attr.data-bs-target]="'#collapse' + i" aria-expanded="false" [attr.aria-controls]="'collapse' + i">
+              <span class="section-title">{{ section.title }}</span>
+              <span class="lecture-count mx-2">{{ section.lectures.length }} Lectures</span>
+            </button>
+          </h2>
+          <div id="collapse{{ i }}" class="accordion-collapse collapse" [attr.aria-labelledby]="'heading' + i" data-bs-parent="#courseAccordion">
+            <div class="accordion-body">
+              <ul class="list-group">
+                <li class="list-group-item lecture-item" *ngFor="let lecture of section.lectures">
+                  <span class="section-title">{{ lecture.title }}</span>
+                  <span class="lecture-duration">{{ lecture.duration }}</span>
+                </li>
+
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    </div>
+
+    </div>
+
+
+  <div class="container-fluid my-4 px-5">
+    <div class="row">
+      <div class="col-md-6">
+        <h3>Instructor</h3>
+        <h2 class="text-primary">{{course.instructor}}</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        <div class="row">
+          <div class="col-md-2 instructor-img">
+            <img [src]="course.instructorImage" alt="" class="">
+          </div>
+          <div class="col-md-8">
+            <ul class="d-flex justify-content-center flex-column ">
+              <li class="py-1"><i class="fa-solid fa-star mx-1"></i> {{instructor.Rating}}  Instructor Rating</li>
+              <li class="py-1"><i class="fa-solid fa-tv mx-1"></i> {{instructor.Courses}} Courses</li>
+              <li class="py-1"><i class="fa-solid fa-users mx-1"></i> {{instructor.Students}} Students</li>
+              <li class="py-1"><i class="fa-solid fa-comment mx-1"></i> {{instructor.Reviews}} Reviews</li>
+
+            </ul>
+
+          </div>
+
+        </div>
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Itaque optio consequuntur voluptates ipsa illum rem laudantium fugit modi saepe numquam perferendis, expedita porro quo, dolorum iure repellendus. Non culpa minus explicabo deserunt ab odit labore deleniti similique esse obcaecati perspiciatis corporis sed minima facilis quidem quibusdam, iusto omnis laudantium iure assumenda officiis consequatur nihil. Laudantium, enim, nisi error minus reprehenderit earum itaque alias ad ea numquam accusantium praesentium vel eveniet nihil, rem debitis rerum eaque quo nemo? Error, hic ratione autem deserunt doloribus aperiam rem quo nemo ab quaerat, provident expedita nesciunt distinctio ex dignissimos natus odit maiores soluta nisi.</p>
+      </div>
+    </div>
+
+  </div>
+
+</section>

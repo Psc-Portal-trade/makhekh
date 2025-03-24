@@ -1,0 +1,132 @@
+<div class="d-flex">
+<app-sidebar></app-sidebar>
+<div class="container dashboard-container mt-4 mb-5">
+
+  <div class="d-flex align-items-center">
+    <div class="position-relative text-end my-3">
+
+      <div class="first-letter">
+        <span>H</span>
+        <div class="profile-menu">
+          <div class="text-center">
+            <div class="d-flex align-items-center mb-3 gap-3">
+              <div class="first-letterr">
+                <span class="rounded-circle  text-white d-flex justify-content-center align-items-center" style="width: 50px; height: 50px; font-size: 24px;">
+                  H
+                </span>
+              </div>
+              <div class="text-start">
+                <h5 class="mb-0">Name</h5>
+                <p class="text-muted mb-0">Email</p>
+              </div>
+            </div>
+           </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item" routerLink="studentHome">{{ "second-navbar.home" | transloco }}</li>
+            <li class="list-group-item">{{ "second-navbar.my courses" | transloco }}</li>
+            <li class="list-group-item" routerLink="cart">{{ "second-navbar.My Cart" | transloco }} </li>
+            <li class="list-group-item" routerLink="wishedList">{{ "second-navbar.Wishlist" | transloco }}</li>
+            <li class="list-group-item" >{{ "second-navbar.Instructor Dashboard" | transloco }}</li>
+            <li class="divider"></li>
+
+            <li class="list-group-item" >{{ "second-navbar.Notifications" | transloco }}</li>
+            <li class="list-group-item">{{ "second-navbar.Messages" | transloco }}</li>
+            <li class="divider"></li>
+
+            <li class="list-group-item">{{ "second-navbar.Account Settings" | transloco }}</li>
+            <li class="list-group-item">{{ "second-navbar.Payment Methods" | transloco }}</li>
+            <li class="divider"></li>
+
+            <li class="list-group-item"  (click)="changeLang()">{{ "second-navbar.Language" | transloco }}</li>
+            <li class="divider"></li>
+
+            <li class="list-group-item">{{ "second-navbar.Help and Support" | transloco }}</li>
+            <li class="list-group-item text-danger" routerLink="logOut"> {{ "second-navbar.Log out" | transloco }}</li>
+          </ul>
+
+        </div>
+      </div>
+
+    </div>
+
+  <div class="mx-3 second-sec">
+    <i class="fa-solid fa-bell"></i>
+    <a class="pe-3 text-decoration-none text-black " routerLink="student-profile">  student View  <i class="fa-solid fa-people-arrows px-1"></i></a>
+  </div>
+
+  </div>
+
+
+
+    <!-- Main Content -->
+    <div class="main-content">
+      <!-- Header Section -->
+      <div class="header container d-flex justify-content-between ">
+        <h2>{{ 'dashboard.createCourse' | transloco }}</h2>
+        <a routerLink="course">
+            <button class="btn btn-primary">{{ 'dashboard.getStarted' | transloco }}</button>
+          </a>
+      </div>
+
+      <!-- Resources Section -->
+     <div class="container p-0 m-0 mt-5">
+      <h3 class="section-title text-center mb-4">{{'resources.title' | transloco}}</h3>
+      <div class="resources d-flex  gap-4 ">
+        <div class=" card p-5 w-50 container">
+         <div class="row">
+          <div class="col-md-6"><img src="../../assets/dj_online_2 1.png" class="w-100" alt="Video Tutorial"></div>
+          <div class="col-md-6 align-content-center">
+           <p>{{'resources.courseType' | transloco}}</p>
+           <a routerLink="course">{{'resources.seeMore' | transloco}}</a>
+          </div>
+         </div>
+        </div>
+        <div class=" card p-5  w-50 container ">
+            <div class="row">
+             <div class="col-md-6"><img src="../../assets/filmmaker_online_2 1.png" class="w-100" alt="Video Tutorial"></div>
+             <div class="col-md-6 align-content-center">
+              <p>{{'resources.engageLearners' | transloco}}</p>
+              <a href="#">{{'resources.seeMore' | transloco}}</a>
+             </div>
+            </div>
+           </div>
+      </div>
+     </div>
+
+<!-- Benefits Section -->
+<div class="container mt-5">
+  <h3 class="section-title mb-4 text-center">{{'benefits.title' | transloco}}</h3>
+  <div class="benefits row justify-content-between">
+    <div class="col-md-3 benefit-card d-flex flex-column align-items-center text-center p-5 ">
+      <div class="icon">
+        <img class="w-auto" src="../../assets/solar_tag-price-broken (2).png">
+      </div>
+      <div><p class="pt-3">{{'benefits.coursePrice' | transloco}}</p></div>
+    </div>
+    <div class="col-md-3 benefit-card  d-flex flex-column align-items-center text-center p-5 ">
+      <div class="icon">
+        <img class="w-auto" src="../../assets/solar_tag-price-broken.png">
+      </div>
+      <div><p class="pt-3">{{'benefits.createCoupons' | transloco}}</p></div>
+    </div>
+    <div class="col-md-3 benefit-card  d-flex flex-column align-items-center text-center p-5">
+      <div class="icon">
+        <img class="w-auto" src="../../assets/Frame 401.png">
+      </div>
+      <div><p class="pt-3">{{'benefits.promoPrices' | transloco}}</p></div>
+    </div>
+  </div>
+
+  <!-- Final Call-to-Action -->
+   <div class="container text-center mt-5">
+    <p class="cta-text pb-5">{{'cta.question' | transloco}}</p>
+    <a routerLink="course">
+     <button class="btn btn-primary cta-button" >{{'cta.createCourse' | transloco}}</button>
+    </a>
+   </div>
+
+</div>
+
+  </div>
+
+

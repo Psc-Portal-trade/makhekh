@@ -1,0 +1,91 @@
+
+
+<!-- شريط علوي يظهر في الموبايل والتابلت -->
+<div class="top-navbar">
+  <!-- زر القائمة -->
+  <div class="menu-icon" (click)="toggleMobileMenu()">
+    <i class="fa-solid fa-bars"></i> <!-- أيقونة القائمة -->
+  </div>
+
+  <!-- القائمة كدروب داون -->
+  <div class="dropdown-menu-custom" *ngIf="isMobileMenuOpen">
+    <p class="text-primary p-0 m-0">{{'navigation.createCourses' | transloco}}</p>
+    <a routerLink="create-course" (click)="closeMobileMenu()">{{'navigation.courses' | transloco}}</a>
+    <p class="text-primary p-0 m-0">{{'navigation.communication' | transloco}}</p>
+    <a routerLink="qa" (click)="closeMobileMenu()">{{'Q&A' | transloco}}</a>
+    <a routerLink="messages" (click)="closeMobileMenu()">{{'navigation.messages' | transloco}}</a>
+    <a routerLink="student-suggestions" (click)="closeMobileMenu()">{{'navigation.suggestions' | transloco}}</a>
+    <p class="text-primary p-0 m-0">{{'navigation.performance' | transloco}}</p>
+    <a routerLink="overview" (click)="closeMobileMenu()">{{'navigation.overview' | transloco}}</a>
+    <a routerLink="students" (click)="closeMobileMenu()">{{'navigation.students' | transloco}}</a>
+    <a routerLink="reviews" (click)="closeMobileMenu()">{{'navigation.reviews' | transloco}}</a>
+
+  </div>
+</div>
+
+
+
+<div class="d-flex">
+  <!-- Sidebar الرئيسي -->
+  <div class="sidebar min-vh-100" [class.expanded]="isExpanded" (mouseover)="expandSidebar()"
+    (mouseleave)="collapseSidebar()">
+    <div class="container">
+      <ul class="list">
+        <li><a routerLink="studentHome"><img class="logo" src="../../assets/Logo EN.png" alt="Logo"></a></li>
+        <a routerLink="create-course">
+          <li class="nav-item" (click)="toggleSection('courses')">
+            <i class="fa fa-book-open" style="color:#fff;"></i>
+            <span *ngIf="isExpanded">{{'navigation.courses' | transloco}}</span>
+          </li>
+        </a>
+        <li class="nav-item" (click)="toggleSection('communication')">
+          <i class="fa-regular fa-message" style="color:#fff;"></i>
+          <span *ngIf="isExpanded">{{'navigation.communication' | transloco}}</span>
+        </li>
+        <li class="nav-item" (click)="toggleSection('performance')">
+          <i class="fa-solid fa-chart-simple" style="color:#fff;"></i>
+          <span *ngIf="isExpanded">{{'navigation.performance' | transloco}}</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <!-- تجنب ظهور navigation.null -->
+  <div *ngIf="activeSection && activeSection !== 'courses'">
+    {{ 'navigation.' + activeSection | transloco }}
+  </div>
+  <!-- Sidebar1 (القائمة الفرعية) -->
+  <div *ngIf="activeSection && activeSection !== 'courses' && sidebar1Opened"
+    class="submenu d-flex sidebar1 min-vh-100">
+    <div class="container">
+      <ul class="list1">
+        <h3 class="text-center">{{'navigation.' + activeSection | transloco}}</h3>
+        <ul style="color:black; padding-top: 15px;">
+          <li *ngIf="activeSection === 'communication'" routerLink='qa' (click)="selectItem('qna')"
+            [class.active]="selectedItem === 'qna'" class="lists pb-3">
+            <a style="color:black;">{{'Q&A' | transloco}}</a>
+          </li>
+          <li *ngIf="activeSection === 'communication'" routerLink='messages' (click)="selectItem('messages')"
+            [class.active]="selectedItem === 'messages'" class="lists pb-3">
+            <a style="color:black;">{{'navigation.messages' | transloco}}</a>
+          </li>
+          <li *ngIf="activeSection === 'communication'" routerLink='student-suggestions'
+            (click)="selectItem('suggestions')" [class.active]="selectedItem === 'suggestions'" class="lists pb-3">
+            <a style="color:black;">{{'navigation.suggestions' | transloco}}</a>
+          </li>
+          <li *ngIf="activeSection === 'performance'" routerLink='overview' (click)="selectItem('overview')"
+            [class.active]="selectedItem === 'overview'" class="pb-3">
+            <a style="color:black;">{{'navigation.overview' | transloco}}</a>
+          </li>
+          <li *ngIf="activeSection === 'performance'" routerLink='students' (click)="selectItem('students')"
+            [class.active]="selectedItem === 'students'" class="pb-3">
+            <a style="color:black;">{{'navigation.students' | transloco}}</a>
+          </li>
+          <li *ngIf="activeSection === 'performance'" routerLink='reviews' (click)="selectItem('reviews')"
+            [class.active]="selectedItem === 'reviews'" class="pb-3">
+            <a style="color:black;">{{'navigation.reviews' | transloco}}</a>
+          </li>
+        </ul>
+      </ul>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,4 @@
+
+<div class="cart-icon mx-2">
+  <i class="fa-solid fa-cart-shopping"></i> <span *ngIf="(cartService.cartCount$ | async) as count">{{ count }}</span>
+</div>

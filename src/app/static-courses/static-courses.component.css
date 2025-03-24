@@ -1,0 +1,118 @@
+.course-header {
+  background-color: #2D91EE;
+  color: white;
+  padding: 20px;
+  border-radius: 10px;
+}
+.course-card {
+  border: 1px solid #ddd;
+  padding: 20px;
+  border-radius: 10px;
+}
+.btn-custom {
+  width: 100%;
+}
+.btn-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* عمودين متساويين */
+  grid-template-rows: auto auto; /* صفين */
+  gap: 10px;
+}
+
+.full-width {
+  grid-column: span 2; /* يجعل الزر يأخذ عرض العمودين */
+}
+.wishlist-btn {
+  border: none;
+  background: transparent;
+  font-size: 24px;
+  color: #007bff;
+  margin-top: 10px;
+}
+
+
+
+.content-container {
+  /* width: 50%; */
+  text-align: start;
+}
+
+.accordion-button {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  transition: background-color 0.3s ease;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+/* عند فتح السيكشن، يتغير لون الخلفية */
+.accordion-button[aria-expanded="true"] {
+  background-color: #f5f5f5 !important;
+}
+
+.accordion-button:focus,
+.section-button:focus,
+.lecture-item:focus,
+.lecture-item strong:focus {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.section-button {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 10px;
+}
+
+.section-title {
+  flex-grow: 1;
+  text-align: left;
+}
+
+.lecture-count {
+  flex-shrink: 0;
+  text-align: center;
+}
+
+.lecture-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 10px;
+}
+
+.lecture-title {
+  flex-grow: 1;
+  text-align: left;
+}
+
+.lecture-duration {
+  flex-shrink: 0;
+  text-align: center;
+  width: 80px;
+}
+.instructor-img img{
+  width: 125px;
+  height: 125px;
+  border-radius: 100%;
+}
+ul{
+  list-style: none;
+}
+.container {
+  overflow-x: hidden; /* يمنع السكرول الأفقي */
+  max-width: 100%; /* يمنع أي عنصر من الخروج عن العرض */
+}
+.row {
+  overflow: hidden;
+  flex-wrap: wrap; /* يضمن عدم تجاوز الأعمدة حجم الشاشة */
+}
+
+.btn-design1{
+  border: 1px solid #2d91ee;
+  color: #2d91ee;
+ }

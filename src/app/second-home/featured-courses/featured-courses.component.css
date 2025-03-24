@@ -1,0 +1,73 @@
+.scroll-container {
+  overflow-x: auto;
+  white-space: nowrap;
+  display: flex;
+  scrollbar-width: none; /* Hide scrollbar for Firefox */
+  -ms-overflow-style: none; /* Hide scrollbar for IE */
+}
+.scroll-container::-webkit-scrollbar {
+  display: none; /* Hide scrollbar for Chrome, Safari */
+}
+
+.scroll-content {
+  display: flex;
+  gap: 15px;
+  padding: 10px;
+}
+
+.lecture-card {
+  min-width: 300px;
+  max-width: 320px;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  background: #fff;
+}
+
+
+
+.play-icon i {
+  font-size: 24px;
+  color: black;
+  cursor: pointer;
+
+}
+.play-icon{
+
+  background-color: #fff;
+  width: 50px;
+  height: 50px;
+  border-radius: 9999px;
+  position: absolute;
+  top: 120px;
+  left: 130px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+
+}
+.card-body {
+  padding: 10px;
+}
+
+.vid-img{
+  position: relative;
+}
+.content span{
+  font-size: 16px;
+  color:#f9e200;
+}
+.heart{
+  color: red;
+  font-size: 24px;
+}
+
+.btn-design1{
+  border: 1px solid #2d91ee;
+  color: #2d91ee;
+ }
+ .btn-design2{
+   border: 1px solid red;
+   color: red;
+  }

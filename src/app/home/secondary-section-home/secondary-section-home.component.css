@@ -1,0 +1,68 @@
+.menu-1 .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+  color: black;
+  background-color: transparent;
+  border-bottom: 2px solid black;
+
+}
+
+.menu-1 .nav-link{
+  color: gray;
+}
+.menu-1 .nav-pills .nav-link {
+  border-radius: 0;
+
+}
+
+.tab-content{
+  background-color: #eff3f6;
+}
+
+.lecture-card {
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  background: #fff;
+}
+
+.tab-content .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+background-color: #2d91ee;
+color: white;
+padding: 15px;
+}
+.tab-content .nav-link{
+color: black;
+background-color: white;
+margin: 0 5px;
+padding: 15px;
+}
+
+/* .tab-content .nav-pills .nav-link {
+  border-radius: 999px;
+
+}
+.row > *{
+  padding: 0 ;
+} */
+
+.vid-img img {
+  width: 100%;
+}
+
+.content span{
+  font-size: 16px;
+  color:#f9e200;
+}
+.heart{
+  color: red;
+  font-size: 24px;
+}
+
+.btn-design1{
+  border: 1px solid #2d91ee;
+  color: #2d91ee;
+ }
+ .btn-design2{
+   border: 1px solid red;
+   color: red;
+  }
+

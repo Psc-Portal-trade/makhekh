@@ -1,0 +1,12 @@
+.container-fluid {
+    background-color: #f8f9fa; /* خلفية فاتحة */
+    border-radius: 10px;
+  }
+
+/* تخصيص لون زرار Next */
+.carousel-control-prev-icon {
+    background-color: #007bff; /* اللون الجديد (اختياري) */
+    border-radius: 50%; /* جعل الأيقونة دائرية */
+    padding: 10px;
+  }
+

@@ -1,0 +1,127 @@
+<app-sidebar></app-sidebar>
+
+<div>
+  <div class="head1 d-flex justify-content-end align-items-center px-3">
+
+
+    <div class="mx-3 second-sec">
+      <i class="fa-solid fa-bell"></i>
+      <a class="pe-3 text-decoration-none text-black " routerLink="student-profile">  student View  <i class="fa-solid fa-people-arrows px-1"></i></a>
+    </div>
+    <div class="position-relative text-end my-3">
+
+      <div class="first-letter">
+        <span>H</span>
+        <div class="profile-menu">
+          <div class="text-center">
+            <div class="d-flex align-items-center mb-3 gap-3">
+              <div class="first-letterr">
+                <span class="rounded-circle  text-white d-flex justify-content-center align-items-center" style="width: 50px; height: 50px; font-size: 24px;">
+                  H
+                </span>
+              </div>
+              <div class="text-start">
+                <h5 class="mb-0">Name</h5>
+                <p class="text-muted mb-0">Email</p>
+              </div>
+            </div>
+           </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item" routerLink="studentHome">{{ "second-navbar.home" | transloco }}</li>
+            <li class="list-group-item">{{ "second-navbar.my courses" | transloco }}</li>
+            <li class="list-group-item" routerLink="cart">{{ "second-navbar.My Cart" | transloco }} </li>
+            <li class="list-group-item" routerLink="wishedList">{{ "second-navbar.Wishlist" | transloco }}</li>
+            <li class="list-group-item" >{{ "second-navbar.Instructor Dashboard" | transloco }}</li>
+            <li class="divider"></li>
+
+            <li class="list-group-item" >{{ "second-navbar.Notifications" | transloco }}</li>
+            <li class="list-group-item">{{ "second-navbar.Messages" | transloco }}</li>
+            <li class="divider"></li>
+
+            <li class="list-group-item">{{ "second-navbar.Account Settings" | transloco }}</li>
+            <li class="list-group-item">{{ "second-navbar.Payment Methods" | transloco }}</li>
+            <li class="divider"></li>
+
+            <li class="list-group-item"  (click)="changeLang()">{{ "second-navbar.Language" | transloco }}</li>
+            <li class="divider"></li>
+
+            <li class="list-group-item">{{ "second-navbar.Help and Support" | transloco }}</li>
+            <li class="list-group-item text-danger" routerLink="logOut"> {{ "second-navbar.Log out" | transloco }}</li>
+          </ul>
+
+        </div>
+      </div>
+
+    </div>
+    </div>
+
+
+    <div class="big d-flex justify-content-end p-3">
+      <div class="container suggestions first p-4">
+          <div class="head mb-3 d-flex">
+              <h2>{{ 'suggestions.title' | transloco }}</h2>
+          </div>
+          <div class="suggestion-box container w-100 align-content-center">
+              <!-- أول تعليق -->
+              <div class="card p-4 border-primary d-flex">
+                  <div class="card-content container d-flex flex-row pb-5">
+                      <div class="row">
+                          <div class="d-flex right-section col-md-4 align-items-center">
+                              <div class="me-3 align-items-center justify-content-center">
+                                  <span class="avatar bg-primary text-white rounded-circle p-2">H</span>
+                              </div>
+                              <div class="align-items-center justify-content-center">
+                                  <h6 class="mb-0">Hana</h6>
+                                  <small class="text-muted">12.12.2024</small>
+                              </div>
+                          </div>
+                          <div class="paraghraph flex-grow-1 d-flex align-items-center justify-content-center col-md-8">
+                              <p class="d-flex">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Velit illum inventore blanditiis, expedita qui ut reiciendis molestias quas ea maiores.</p>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="button">
+                      <button class="btn w-100" (click)="reply(0)">{{ 'suggestions.reply' | transloco }}</button>
+                  </div>
+                  <div *ngIf="selectedIndex === 0" class="mt-2">
+                      <textarea [(ngModel)]="replyText" class="form-control" placeholder="{{ 'suggestions.write_reply' | transloco }}"></textarea>
+                      <button class="btn btn-success mt-2" (click)="sendReply()">{{ 'suggestions.send' | transloco }}</button>
+                  </div>
+              </div>
+
+              <h3 class="container-2 h">{{ 'suggestions.show_more' | transloco }}</h3>
+              <div class="mt-3">
+                  <div *ngIf="suggestions.length > 0">
+                      <div class="card p-4 border-primary d-flex" *ngFor="let suggestion of suggestions; let i = index">
+                          <div class="card-content d-flex flex-row">
+                              <div class="row">
+                                  <div class="d-flex right-section col-md-4 align-items-center">
+                                      <div class="me-3 align-items-center justify-content-center">
+                                          <span class="avatar bg-primary text-white rounded-circle p-2">H</span>
+                                      </div>
+                                      <div class="align-items-center justify-content-center">
+                                          <h6 class="mb-0">{{suggestion.name}}</h6>
+                                          <small class="text-muted">{{suggestion.date}}</small>
+                                      </div>
+                                  </div>
+                                  <div class="paraghraph flex-grow-1 d-flex align-items-center justify-content-center col-md-8">
+                                      <p class="d-flex">{{suggestion.text}}</p>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                  <div *ngIf="suggestions.length === 0" class="text-muted">{{ 'suggestions.no_suggestions' | transloco }}</div>
+              </div>
+          </div>
+      </div>
+  </div>
+
+
+
+
+
+</div>
+
+
+

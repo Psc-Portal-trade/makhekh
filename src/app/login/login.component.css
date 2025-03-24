@@ -1,0 +1,75 @@
+.form-check .form-check-input {
+    float: left;
+    margin-left: 0% !important;
+}
+
+
+
+section{
+    background-color: #EFF3F6;
+}
+form div{
+  margin-bottom: 8px;
+}
+.form-input{
+  padding: 10px;
+}
+.register-img img{
+  width: 90%;
+  /* width:678px ;
+  height: 670px; */
+  padding-bottom: 60px;
+  padding-right: 40px;
+}
+/* .form{
+    padding-top: 5rem;
+} */
+
+.container-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* margin: 50px 0; */
+}
+.line {
+  flex-grow: 1;
+  height: 1px;
+  background-color: #999;
+  /* margin: 0 10px; */
+}
+.text {
+  color: #666;
+  font-size: 18px;
+}
+
+
+.social-container {
+  display: flex;
+  justify-content: center;
+  gap: 15px; /* المسافة بين الأيقونات */
+  margin-top: 50px;
+}
+.social-box {
+  width: 60px;
+  height: 60px;
+  border: 2px solid black;
+  border-radius: 15px; /* زوايا مستديرة */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  transition: 0.3s ease-in-out;
+}
+.social-box{
+  cursor: pointer;
+}
+.social-box i {
+  font-size: 28px;
+}
+.social-box:hover {
+  background-color: #ddd; /* تغيير لون الخلفية عند التمرير */
+}
+.fa-google { color: #db4437; }   /* لون جوجل */
+.fa-facebook { color: #1877f2; } /* لون فيسبوك */
+.fa-apple { color: #000; }
+

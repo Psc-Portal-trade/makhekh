@@ -1,0 +1,256 @@
+/* nav img {
+  width: 30%;
+} */
+
+nav {
+  box-shadow: 5px 5px 5px #e1e1e1;
+}
+
+.first-letter {
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #2d91ee;
+  border-radius: 50%;
+  margin: 0 5px;
+  position: relative;
+}
+
+.first-letter span {
+  font-size: 1.25rem;
+  color: white;
+}
+
+.related-div {
+  position: absolute;
+  width: 100%;
+  right: 0;
+}
+
+.profile-menu {
+  display: none;
+  position: absolute;
+  top: 50px;
+  width: 300px;
+  background: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  z-index: 1000;
+  padding: 15px;
+  transition: all 0.3s ease-in-out;
+}
+
+/* للغة الإنجليزية (LTR) */
+:dir(ltr) .profile-menu {
+  left:-250px;
+  right: auto;
+}
+
+/* للغة العربية (RTL) */
+:dir(rtl) .profile-menu {
+  right: -250px;
+  left: auto;
+}
+
+
+.first-letter:hover .profile-menu,
+.profile-menu:hover {
+  display: block;
+}
+
+.first-letterr {
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #2d91ee;
+  border-radius: 50%;
+  margin: 0 5px;
+}
+
+.profile-menu .list-group-item {
+  padding: 10px 15px;
+  cursor: pointer;
+  transition: background 0.3s ease-in-out;
+  border: none;
+}
+
+.profile-menu .list-group-item:hover {
+  background: #f5f5f5;
+}
+
+.profile-menu .divider {
+  padding: 0;
+  border-bottom: 1px solid #dee2e6;
+  margin: 0;
+}
+
+ul {
+  list-style: none;
+}
+
+@media (max-width: 992px) {
+  .profile-menu {
+    width: 100%;
+    position: static;
+    box-shadow: none;
+    border-radius: 0;
+  }
+}
+
+@media (max-width: 576px) {
+  .profile-menu {
+    width: 100%;
+  }
+
+  .first-letter span {
+    width: 40px;
+    height: 40px;
+    font-size: 18px;
+  }
+}
+
+/* ضبط الناف بار */
+/* ✅ الأساسيات */
+.navbar {
+  padding: 10px 20px;
+}
+
+/* ✅ شريط البحث */
+.search-bar {
+  position: relative;
+  width: 50%;
+  max-width: 500px;
+}
+
+.search-input {
+  border-radius: 50px;
+  padding-left: 40px;
+}
+
+.search-icon {
+  position: absolute;
+  left: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 18px;
+}
+
+/* ✅ القائمة الجانبية (Offcanvas) */
+.offcanvas {
+  width: 250px;
+  height: 100vh;
+  background: #fff;
+  position: fixed;
+  top: 0;
+  left: -250px;
+  transition: left 0.3s ease-in-out;
+  box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+}
+
+.offcanvas.show {
+  left: 0;
+}
+
+/* ✅ رأس القائمة الجانبية */
+.offcanvas-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  border-bottom: 1px solid #ddd;
+}
+
+/* ✅ العنوان داخل القائمة */
+.offcanvas-title {
+  font-size: 18px;
+  font-weight: bold;
+  margin: 0;
+  flex-grow: 1;
+  text-align: left;
+  padding-left: 10px;
+}
+
+/* ✅ زر الإغلاق */
+.close-btn {
+  background: none;
+  border: none;
+  font-size: 22px;
+  font-weight: bold;
+  cursor: pointer;
+  color: #333;
+  margin-left: auto;
+  transition: color 0.3s;
+}
+
+.close-btn:hover {
+  color: #007bff;
+}
+
+/* ✅ الأيقونة الدائرية للملف الشخصي */
+.profile-circle {
+  width: 40px;
+  height: 40px;
+  background-color: #007bff;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* ✅ القائمة النشطة */
+.nav-item.active {
+  background: #eee;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+/* ✅ إشعار الرسائل */
+.badge {
+  background-color: purple;
+  color: white;
+  font-size: 12px;
+  font-weight: bold;
+  padding: 5px 8px;
+  border-radius: 50%;
+}
+
+/* ✅ إظهار القوائم المناسبة لكل شاشة */
+.desktop-navbar {
+  display: flex;
+}
+
+.mobile-navbar {
+  display: none;
+}
+
+/* ✅ إظهار Navbar الصغير فقط في الشاشات الصغيرة */
+@media (max-width: 991px) {
+  .desktop-navbar {
+    display: none;
+  }
+  .mobile-navbar {
+    display: flex;
+  }
+}
+
+/* ✅ زر القائمة الجانبية */
+.navbar-toggler {
+  border: none;
+  background: none;
+  font-size: 24px;
+  cursor: pointer;
+}
+nav img{
+  width: 30%;
+}
+.site-logo{
+  width: 150px;
+}

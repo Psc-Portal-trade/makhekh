@@ -1,0 +1,119 @@
+
+    <!-- Course Rating Section -->
+    <div class="rating-summary">
+        <h3>
+          {{"student-reviews.Student feedback" | transloco}}
+
+        </h3>
+        <div class="container">
+            <div class="row">
+                <div class="d-flex flex-column text-center pb-2 pt-2">
+                    <h1 class="text-warning me-2">{{ courseRating.toFixed(1) }}</h1>
+                    <div class="stars">
+                        <ng-container *ngFor="let starClass of starsArray">
+                            <i class="fa" [ngClass]="starClass"></i>
+                        </ng-container>
+                    </div>
+                    <p class="text-muted mb-0"> {{"student-reviews.Course Rating" | transloco}}</p>
+                </div>
+
+
+
+                <!-- Rating Distribution -->
+                <div *ngFor="let rating of ratingDistribution" class="d-flex align-items-center my-1">
+                    <span class="text-warning me-2">{{ rating.stars }} <i class="fa-solid fa-star text-warning mx-1"></i></span>
+                    <div class="progress flex-grow-1" style="height: 10px;">
+                        <div class="progress-bar bg-warning" role="progressbar" [style.width.%]="rating.percentage">
+                        </div>
+                    </div>
+                    <span class="ms-2 text-muted">{{ rating.percentage }}% ({{ rating.count || 0 }})</span>
+                </div>
+            </div>
+      </div>
+
+    </div>
+    <div class="rating-section"  *ngIf="!hasSubmittedRating" >
+      <h3 class="text-center fw-bold"> {{"student-reviews.Rate Your Instructor" | transloco}}</h3>
+      <!-- Star Rating -->
+      <div class="star-container">
+          <span *ngFor="let star of stars; let i = index"
+                (click)="rateInstructor(i + 1)"
+                (mouseenter)="hoverRating(i + 1)"
+                (mouseleave)="hoverRating(0)"
+                [class.filled]="i + 1 <= (hoverRatingValue || selectedRating)">
+                <i class="fa fa-star"></i>
+          </span>
+      </div>
+
+  <!-- Submit Button -->
+  <button class="btn btn-primary w-100 mt-3" (click)="submitReview()"  *ngIf="!hasSubmittedRating">
+     {{"student-reviews.Submit Rating" | transloco}}
+  </button>
+
+  </div>
+  <p *ngIf="successMessage" class="alert alert-success text-center">
+    {{ successMessage }}
+  </p>
+
+
+    <!-- Add Review Section -->
+    <div class="add-review mt-4 p-3 bg-light rounded">
+      <h5>      {{"student-reviews.Add Your Review" | transloco}}
+      </h5>
+      <div class="mb-2">
+        <select class="form-select w-auto" [(ngModel)]="newRating">
+          <option *ngFor="let rating of [5,4,3,2,1]" [value]="rating">{{ rating }}  {{"student-reviews.stars" | transloco}}</option>
+        </select>
+      </div>
+      <div class="mb-2">
+        <textarea class="form-control" [attr.placeholder]="'student-reviews.Write your review...' | transloco"  rows="3" [(ngModel)]="newComment"></textarea>
+      </div>
+      <button class="btn btn-primary" (click)="addReview()"> {{"student-reviews.Submit Review" | transloco}}</button>
+    </div>
+
+    <!-- Reviews Section -->
+    <div class="reviews mt-4">
+      <h3> {{"student-reviews.Reviews" | transloco}}</h3>
+
+      <!-- Search Bar -->
+      <div class="d-flex mb-3">
+        <input type="text" class="form-control me-2" [attr.placeholder]="'student-reviews.Search reviews' | transloco"  [(ngModel)]="searchQuery" (input)="filterReviews()">
+        <button class="btn btn-primary"><i class="fa fa-search"></i></button>
+      </div>
+
+      <!-- Filter Dropdown -->
+      <div class="mb-3">
+        <label for="filterRatings" class="form-label fw-bold"> {{"student-reviews.Filter ratings" | transloco}}</label>
+        <select id="filterRatings" class="form-select w-auto" [(ngModel)]="selectedFilter" (change)="filterReviews()">
+          <option value="all"> {{"student-reviews.All Ratings" | transloco}}</option>
+          <option *ngFor="let rating of ratingDistribution" [value]="rating.stars">{{ rating.stars }} {{"student-reviews.stars" | transloco}}</option>
+        </select>
+      </div>
+
+      <!-- Display Reviews -->
+    <!-- Display Reviews -->
+    <div *ngFor="let review of filteredReviews.slice(0, displayedReviewsCount)" class="card p-3 my-2">
+      <div class="d-flex align-items-center">
+        <div class="avatar-circle">{{ review.userInitials }}</div>
+        <div class="ms-3">
+          <h5 class="mb-0">{{ review.userName }}</h5>
+          <small class="text-muted">{{ review.timeAgo }}</small>
+          <div class="stars">
+            <ng-container *ngFor="let star of getStarsArray(review.rating); let i = index">
+              <i [ngClass]="star"></i>
+            </ng-container>
+          </div>
+          <p>{{ review.comment }}</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Show More Button -->
+    <div class="text-center mt-3" *ngIf="displayedReviewsCount < filteredReviews.length">
+      <button class="btn btn-primary" (click)="showMoreReviews()"> {{"student-reviews.Show More" | transloco}}</button>
+    </div>
+
+    <div *ngIf="noResultsFound" class="alert alert-warning text-center mt-3">
+       {{"student-reviews.No reviews matched your search. Try searching with another term." | transloco}}
+    </div>
+    </div>

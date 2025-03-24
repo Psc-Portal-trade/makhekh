@@ -1,0 +1,57 @@
+<app-second-nav></app-second-nav>
+<div class="container mt-4">
+  <div class="table-responsive d-none d-md-block">
+    <table class="table table-bordered text-center align-middle">
+      <thead class="table-light">
+        <tr>
+          <th>{{"wishlist.Course" | transloco}} </th>
+          <th> {{"wishlist.Price" | transloco}}</th>
+          <th> {{"wishlist.Action" | transloco}}</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of lectures">
+          <td class="d-flex align-items-center">
+            <img [src]="item.src" alt="Course Image" class="wishlist-img mx-2">
+            {{ item.courseTitle }}
+          </td>
+          <td class="text-danger fw-bold">${{ item.pricing.price }} LE</td>
+          <td>
+            <button class="btn btn-outline-secondary btn-sm mx-2"  (click)="goToCourseDetails(item)"><i class="fa-solid fa-eye mx-1"></i>  {{"wishlist.Preview" | transloco}}</button>
+            <button class="btn btn-primary btn-sm mx-2" *ngIf="!item.isInCart" (click)="addToCart(item)"><i class="fa-solid fa-cart-shopping mx-1"></i>   {{"wishlist.Cart" | transloco}}</button>
+            <button class="btn btn-primary btn-sm mx-2" *ngIf="item.isInCart" (click)="removeFromCart(item)"><i class="fa-solid fa-cart-shopping mx-1"></i>   {{"wishlist.Remove" | transloco}}</button>
+            <button class="btn btn-danger btn-sm mx-2" (click)="removeFromWishList(item)"><i class="fa-solid fa-trash mx-1"></i>  {{"wishlist.Remove" | transloco}}</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Responsive for mobile -->
+  <div class="d-block d-md-none">
+    <div *ngFor="let item of lectures" class="card mb-3">
+      <div class="row g-0 align-items-center">
+        <div class="col-3">
+          <img [src]="item.src" alt="Course Image" class="wishlist-img">
+        </div>
+        <div class="col-9 d-flex flex-column justify-content-center">
+          <div class="card-body p-2">
+            <h6 class="card-title">{{ item.title }}</h6>
+            <p class="text-danger fw-bold mb-2">${{ item.price }} LE</p>
+            <div class="d-flex ">
+              <button class="btn btn-outline-secondary btn-sm mx-2"><i class="fa-solid fa-eye mx-1"></i> {{"wishlist.Preview" | transloco}}</button>
+          <button class="btn btn-primary btn-sm mx-2" *ngIf="!item.isInCart" (click)="addToCart(item)"><i class="fa-solid fa-cart-shopping mx-1"></i>  {{"wishlist.Cart" | transloco}}</button>
+          <button class="btn btn-primary btn-sm mx-2" *ngIf="item.isInCart" (click)="removeFromCart(item)"><i class="fa-solid fa-cart-shopping mx-1"></i>  {{"wishlist.Remove" | transloco}}</button>
+          <button class="btn btn-danger btn-sm mx-2" (click)="removeFromWishList(item)"><i class="fa-solid fa-trash mx-1"></i> {{"wishlist.Remove" | transloco}}</button>
+        </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+<app-similar-courses></app-similar-courses>
+

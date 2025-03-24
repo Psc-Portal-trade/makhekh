@@ -1,0 +1,14 @@
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+  color: black;
+  background-color: transparent;
+  border-bottom: 2px solid black;
+}
+.nav-link {
+  color: black;
+  }
+  .nav-pills .nav-link {
+    border-radius: 0;
+}
+.Portfolio img {
+  width: 100%;
+}

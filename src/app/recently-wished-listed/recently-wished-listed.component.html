@@ -1,0 +1,51 @@
+<section class="pt-5">
+  <div class="container" *ngIf="lectures.length > 0">
+    <h2 class="Continue-learning fw-bold">
+      {{"recently-wished.Recently wished listed" | transloco}}
+    </h2>
+
+    <div class="container mt-4">
+      <div class="scroll-container"
+           (touchstart)="onTouchStart($event)"
+           (touchmove)="onTouchMove($event)"
+           (touchend)="onTouchEnd()">
+        <div class="scroll-content d-flex">
+          <div class="card lecture-card" *ngFor="let item of lectures">
+            <div class="row g-0">
+              <div class="col-md-12 video-thumbnail w-100">
+                <div class="vid-img"><img alt="" [src]='item.src'></div>
+                <div class="play-icon"><i class="fa-solid fa-play"></i></div>
+              </div>
+              <div class="col-md-12 card-body">
+                <h5 class="card-title">{{ item.title }}</h5>
+                <p class="card-text small text-muted">{{item.describtion}}</p>
+                <p class="content">
+                  {{item.rate}} <i class="fa-solid fa-star text-warning mx-1"></i>
+                  <span class="text-muted"> {{item.watched}} </span>
+                  <i class="fa-solid fa-eye text-primary"></i>
+                </p>
+                <p>{{item.price}}</p>
+                <div class="d-flex justify-content-between">
+                  <button class="btn btn-design1" *ngIf="!item.isInCart" (click)="addToCart(item)">
+                    {{"recently-wished.Add to Cart" | transloco}}
+                  </button>
+                  <button class="btn btn-design2" *ngIf="item.isInCart" (click)="removeFromCart(item)">
+                    {{"recently-wished.Remove from Cart" | transloco}}
+                  </button>
+                  <button class="btn heart" *ngIf="!item.isInWishList" (click)="addToWishList(item)">
+                    <i class="fa-regular fa-heart"></i>
+                  </button>
+                  <button class="btn heart" *ngIf="item.isInWishList" (click)="removeFromWishList(item)">
+                    <i class="fa-solid fa-heart"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</section>

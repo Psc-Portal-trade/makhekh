@@ -1,0 +1,10 @@
+.hidden-sec {
+  display: block; /* تظهر افتراضيًا في الشاشات الكبيرة */
+}
+
+/* إخفاء العنصر في الشاشات الأصغر من 992px (الموبايل والتابلت) */
+@media (max-width: 991px) {
+  .hidden-sec {
+    display: none;
+  }
+}

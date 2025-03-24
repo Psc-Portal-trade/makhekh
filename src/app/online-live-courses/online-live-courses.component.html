@@ -1,0 +1,127 @@
+<section id="online">
+  <div class="container-fluid my-5 px-5">
+    <div class="row">
+        <div class="col-md-9">
+            <div class="course-header">
+                <nav class="breadcrumb">
+                    <a class="breadcrumb-item text-white" >Development</a>
+                    <a class="breadcrumb-item text-white" >Web Development</a>
+                </nav>
+                <h2>{{course.title}}</h2>
+                <p>⭐ {{course.rate}} ({{course.ratingsCount}} ratings) • {{course.watched}} Students</p>
+                <p>Created by <a  class="text-white">{{course.instructor}}</a></p>
+                <p>Last updates {{course.lastUpdate}} • {{course.language}} • Live Course • {{course.level}}</p>
+                <button class="btn btn-light">Book your spot</button>
+            </div>
+            <div class="mt-4 p-3 border rounded">
+              <h5>Online Live Videos </h5>
+              <p>Reserve your seat and schedule the available time for you. Enjoy learning online from anywhere as if you are in class. Try the experience. Ask all questions and get your answers.</p>
+          </div>
+        </div>
+        <div class="col-md-3">
+            <div class="course-card text-center">
+                <img [src]="course.src" alt="Course Thumbnail" class="img-fluid w-100 rounded-2">
+                <p class="mt-2"><strong>Price: {{course.price}} LE</strong></p>
+                <p class="text-danger">{{course.seatsLeft}} seats left</p>
+                <div class="btn-container">
+                  <!-- زر Add to Cart في صف منفصل -->
+                  <button class="btn btn-design1 full-width" *ngIf="!course.isInCart" (click)="addToCart()">Add to Cart</button>
+                  <button class="btn btn-design1 full-width" *ngIf="course.isInCart" (click)="removeFromCart()">Remove From Cart</button>
+
+                  <!-- الأزرار الأخرى في صف ثاني مع تقسيم متساوٍ -->
+                  <button class="btn btn-outline-danger" *ngIf="!course.isInWishlist" (click)="addToWishlist()">Add to wishlist</button>
+                  <button class="btn btn-danger" *ngIf="course.isInWishlist" (click)="removeFromWishlist()">Remove from list</button>
+                  <button class="btn btn-design1">Buy Now</button>
+              </div>
+
+            </div>
+        </div>
+    </div>
+
+  </div>
+
+  <div class="container-fluid mt-2  content-container px-5" >
+    <div class="row">
+
+    <div class="col-md-6">
+  <h4>This course includes:</h4>
+  <uL>
+    <li>3 months course length</li>
+    <li>Assignments & quizzes</li>
+    <li>Live Course</li>
+    <li>Certification</li>
+
+  </uL>
+
+
+
+    </div>
+
+
+    </div>
+
+    </div>
+
+    <div class="container mt-4 mb-5 px-5">
+      <h4>Course Schedules and Timings</h4>
+      <div class="row d-flex flex-wrap">
+        <div class="col-12">
+          <label for="monthSelect" class="form-label">Search by</label>
+          <select id="monthSelect" class="form-select mb-3" (change)="onMonthChange($event)">
+            <option value="">Month</option>
+            <option *ngFor="let month of uniqueMonths" [value]="month">{{ month }}</option>
+          </select>
+
+          <!-- الجدول الأساسي للشاشات الكبيرة -->
+          <table class="table table-bordered d-none d-md-table">
+            <thead class="table-primary">
+              <tr>
+                <th>#</th>
+                <th>Course Title</th>
+                <th>Date</th>
+                <th>Time</th>
+                <th>Lecturer name</th>
+                <th>Status</th>
+                <th>Join Link</th>
+                <th>Reserve</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let course of filteredCourses">
+                <td>{{ course.id }}</td>
+                <td>{{ course.title }}</td>
+                <td>📅 {{ course.date }}</td>
+                <td>{{ course.time }}</td>
+                <td>{{ course.lecturer }}</td>
+                <td [ngClass]="{'text-success': course.status === 'Available', 'text-warning': course.status === 'Reserved', 'text-danger': course.status === 'Canceled'}">
+                  {{ course.status }}
+                </td>
+                <td><a [href]="course.joinLink" target="_blank">Join</a></td>
+                <td><button class="btn btn-outline-primary">Reserve</button></td>
+              </tr>
+            </tbody>
+          </table>
+
+          <!-- الجدول المخصص للموبايل -->
+          <div class="d-md-none">
+            <div *ngFor="let course of filteredCourses" class="card mb-2 p-2 border">
+              <div><strong>#:</strong> {{ course.id }}</div>
+              <div><strong>Course Title:</strong> {{ course.title }}</div>
+              <div><strong>Date:</strong> 📅 {{ course.date }}</div>
+              <div><strong>Time:</strong> {{ course.time }}</div>
+              <div><strong>Lecturer name:</strong> {{ course.lecturer }}</div>
+              <div>
+                <strong>Status:</strong>
+                <span [ngClass]="{'text-success': course.status === 'Available', 'text-warning': course.status === 'Reserved', 'text-danger': course.status === 'Canceled'}">
+                  {{ course.status }}
+                </span>
+              </div>
+              <div><strong>Join Link:</strong> <a [href]="course.joinLink" target="_blank">Join</a></div>
+              <div><button class="btn btn-outline-primary">Reserve</button></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+</section>

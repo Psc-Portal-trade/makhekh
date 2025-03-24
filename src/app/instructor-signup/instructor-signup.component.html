@@ -1,0 +1,236 @@
+<button class="btn btn-primary" (click)="openModal()">
+  {{ 'instructor.becomeInstructor' | transloco }}
+</button>
+
+<div class="container-fluid">
+    <div class="container"></div>
+</div>
+
+
+<div class="modal fade" id="signupModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content p-4">
+      <button type="button" class="btn-close position-absolute top-0 end-0 m-3" (click)="closeModal()"></button>
+      <div class="content form"  *ngIf="step === 1">
+
+        <h3 class="text-center fw-bold mb-3">{{ 'instructor.signupTitle' | transloco }}</h3>
+
+        <form [formGroup]="registerForm">
+          <div class="mb-3">
+            <input type="text" class="form-control" id="name" placeholder="{{ 'instructor.fullName' | transloco }}" formControlName="name">
+          </div>
+        
+          @if(registerForm.get('name')?.errors && registerForm.get('name')?.touched){
+            <div class="alert alert-danger w-70">
+              <p class="m-0">{{ 'instructor.nameRequired' | transloco }}</p>
+            </div>
+          }
+        
+          <div class="mb-3">
+            <input type="email" class="form-control" id="email" placeholder="{{ 'instructor.email' | transloco }}" formControlName="email">
+          </div>
+        
+          @if(registerForm.get('email')?.errors && registerForm.get('email')?.touched){
+            <div class="alert alert-danger w-70">
+              @if(registerForm.get('email')?.getError('required')){
+                <p class="m-0">{{ 'instructor.emailRequired' | transloco }}</p>
+              }
+              @else if (registerForm.get('email')?.getError('email')){
+                <p class="m-0">{{ 'instructor.validEmail' | transloco }}</p>
+              }
+            </div>
+          }
+        
+          <div class="mb-3">
+            <input type="password" class="form-control" id="password" placeholder="{{ 'instructor.password' | transloco }}" formControlName="password">
+          </div>
+        
+          @if(registerForm.get('password')?.errors && registerForm.get('password')?.touched){
+            <div class="alert alert-danger w-70">
+              @if(registerForm.get('password')?.getError('required')){
+                <p class="m-0">{{ 'instructor.passwordRequired' | transloco }}</p>
+              }
+              @else if (registerForm.get('password')?.getError('pattern')){
+                <p class="m-0">{{ 'instructor.validPassword' | transloco }}</p>
+                <p class="m-0">{{ 'instructor.passwordHint' | transloco }}</p>
+              }
+            </div>
+          }
+        
+          <div class="mb-3">
+            <input type="checkbox" id="terms">
+            <label for="terms" class="form-label" style="font-size: 10.5px; padding-left: 5px; font-weight: 600;">
+              {{ 'instructor.terms' | transloco }}
+            </label>
+          </div>
+        
+          <button [disabled]="registerForm.invalid" type="submit" class="btn btn-primary w-100" (click)="continue()">
+            {{ 'instructor.signup' | transloco }}
+          </button>
+        </form>
+        
+
+
+        <p class="text-center mt-3">
+          {{ 'auth.alreadyHaveAccount' | transloco }}
+          <a routerLink="/login">{{ 'auth.login' | transloco }}</a>
+        </p>
+            </div>
+
+            <div class="content form" *ngIf="step === 2">
+              <h3 class="text-center fw-bold mb-5 mt-3">{{ 'content2.title1' | transloco }}</h3>
+            
+              <form>
+                <div class="mb-3">
+                  <label class="form-label mb-4">{{ 'content2.title2' | transloco }}</label>
+                  <div class="mb-2">
+                    <label>
+                      <input type="radio" name="knowledge" value="Personal" [(ngModel)]="knowledge">
+                      {{ 'content2.Personal' | transloco }}
+                    </label>
+                  </div>
+                  <div class="mb-2">
+                    <label>
+                      <input type="radio" name="knowledge" value="Professional" [(ngModel)]="knowledge">
+                      {{ 'content2.Professional' | transloco }}
+                    </label>
+                  </div>
+                  <div class="mb-2">
+                    <label>
+                      <input type="radio" name="knowledge" value="Online" [(ngModel)]="knowledge">
+                      {{ 'content2.Online' | transloco }}
+                    </label>
+                  </div>
+                  <div class="mb-2">
+                    <label>
+                      <input type="radio" name="knowledge" value="Others" [(ngModel)]="knowledge">
+                      {{ 'content2.Others' | transloco }}
+                    </label>
+                  </div>
+                </div>
+                <div class="mb-3" *ngIf="knowledge === 'Others'">
+                  <input type="text" class="form-control" name="otherKnowledge"
+                    [placeholder]="'content2.text' | transloco" [(ngModel)]="otherKnowledge">
+                </div>
+              </form>
+            
+              <div class="d-flex justify-content-between mt-5">
+                <button type="button" *ngIf="step > 1" class="btn btn1" (click)="previous()">
+                  {{ 'content2.Previous' | transloco }}
+                </button>
+                <button type="button" class="btn btn2 btn-primary" (click)="continue()">
+                  {{ 'content2.Next' | transloco }}
+                </button>
+              </div>
+            </div>
+            
+            <div class="content form" *ngIf="step === 3">
+              <h3 class="text-center fw-bold mb-5 mt-3">{{ 'content3.title1' | transloco }}</h3>
+            
+              <form>
+                <div class="mb-3">
+                  <label class="form-label mb-4">{{ 'content3.title2' | transloco }}</label>
+                  <div class="mb-2">
+                    <label>
+                      <input type="radio" name="level" value="Beginner" [(ngModel)]="level">
+                      {{ 'content3.Beginner' | transloco }}
+                    </label>
+                  </div>
+                  <div class="mb-2">
+                    <label>
+                      <input type="radio" name="level" value="knowledge" [(ngModel)]="level">
+                      {{ 'content3.knowledge' | transloco }}
+                    </label>
+                  </div>
+                  <div class="mb-2">
+                    <label>
+                      <input type="radio" name="level" value="experienced" [(ngModel)]="level">
+                      {{ 'content3.experienced' | transloco }}
+                    </label>
+                  </div>
+                  <div class="mb-2">
+                    <label>
+                      <input type="radio" name="level" value="videos" [(ngModel)]="level">
+                      {{ 'content3.videos' | transloco }}
+                    </label>
+                  </div>
+                </div>
+              </form>
+            
+              <div class="d-flex justify-content-between mt-5">
+                <button type="button" *ngIf="step > 1" class="btn btn1" (click)="previous()">
+                  {{ 'content3.Previous' | transloco }}
+                </button>
+                <button type="button" class="btn btn2 btn-primary" (click)="continue()">
+                  {{ 'content3.Next' | transloco }}
+                </button>
+              </div>
+            </div>
+            
+            <div class="content form" *ngIf="step === 4">
+              <h3 class="text-center fw-bold mb-5 mt-3">{{ 'content4.title1' | transloco }}</h3>
+            
+              <form>
+                <div class="mb-3">
+                  <label class="form-label mb-4">{{ 'content4.title2' | transloco }}</label>
+                  <div class="mb-2">
+                    <label>
+                      <input type="radio" name="audience" value="Beginner" (change)="audience = 'Beginner'">
+                      {{ 'content4.Beginner' | transloco }}
+                    </label>
+                  </div>
+                  <div class="mb-2">
+                    <label>
+                      <input type="radio" name="audience" value="knowledge" (change)="audience = 'knowledge'">
+                      {{ 'content4.knowledge' | transloco }}
+                    </label>
+                  </div>
+                  <div class="mb-2">
+                    <label>
+                      <input type="radio" name="audience" value="experienced" (change)="audience = 'experienced'">
+                      {{ 'content4.experienced' | transloco }}
+                    </label>
+                  </div>
+                  <div class="mb-2">
+                    <label>
+                      <input type="radio" name="audience" value="videos" (change)="audience = 'videos'">
+                      {{ 'content4.videos' | transloco }}
+                    </label>
+                  </div>
+                </div>
+              </form>
+            
+              <div class="d-flex justify-content-between mt-5">
+                <button type="button" *ngIf="step > 1" class="btn btn1" (click)="previous()">
+                  {{ 'content4.Previous' | transloco }}
+                </button>
+                <a>
+                  <button routerLink="/login" type="button" class="btn btn2 btn-primary" (click)="continue()">
+                    {{ 'content4.Done' | transloco }}
+                  </button>
+                </a>
+              </div>
+            </div>
+            
+</div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

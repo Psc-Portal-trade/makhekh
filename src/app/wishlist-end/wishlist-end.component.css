@@ -1,0 +1,11 @@
+.wishlist-img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+.card-body .btn {
+  padding: 6px 10px;
+  font-size: 14px;
+}

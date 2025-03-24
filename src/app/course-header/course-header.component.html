@@ -1,0 +1,657 @@
+<nav class="navbar navbar-expand-lg navbar-primary bg-primary text-white mb-5 ">
+  <div class="container-fluid d-flex justify-content-between">
+    <a class="btn btn-outline-light" routerLink="instructor-profile">
+       {{ 'course-header.Back to Dashboard' | transloco }}
+    </a>
+    <span class="navbar-brand  text-white">{{courseObj.courseTitle}}</span>
+    <!-- <button class="btn btn-light">Preview</button> -->
+  </div>
+</nav>
+<div *ngIf="courseObj?.courseType === 'Recorded Educational Courses'" id="Recorded_Educational_Courses">
+  <div class="container mb-5">
+    <div class="row">
+      <div class="col-md-3 mb-3">
+        <ul class="list-group">
+          <li *ngFor="let step of stepsRecorded_Educational_Courses; let i = index"
+              class="list-group-item"
+              [class.active]="i === currentStep">
+            {{ 'course-header.Step' | transloco }} {{ i + 1 }}:   {{ activeLang === 'ar' ? step.titleAr : step.titleEn }}
+
+          </li>
+        </ul>
+      </div>
+
+      <div class="col-md-9 content-section rounded-2">
+        <!-- Step 1: Curriculum -->
+        <div *ngIf="currentStep === 0">
+          <h3> {{ 'course-header.Curriculum' | transloco }}</h3>
+
+          <div *ngFor="let section of sections; let i = index" class="card mb-3">
+            <div class="card-body">
+              <div class="d-flex justify-content-between align-items-center">
+                <input [(ngModel)]="section.name"  [attr.placeholder]="'course-header.Section Name' | transloco"  class="form-control mb-2 w-75" />
+                <button class="btn btn-danger btn-sm" (click)="removeSection(i)"> {{ 'course-header.Delete Section' | transloco }}</button>
+              </div>
+
+              <div *ngFor="let lecture of section.lectures; let j = index">
+                <div class="d-flex justify-content-between align-items-center">
+                  <strong>{{ 'course-header.Lecture' | transloco }} {{ j + 1 }}</strong>
+                  <button class="btn btn-danger btn-sm my-2" (click)="removeLecture(i, j)">{{ 'course-header.Delete Lecture' | transloco }}</button>
+                </div>
+
+                <input [(ngModel)]="lecture.title" [attr.placeholder]="'course-header.Lecture Title' | transloco"     class="form-control mb-2" />
+
+                <div class="nav nav-tabs">
+                  <button class="nav-link" [class.active]="lecture.activeTab === 'video'"
+                          (click)="changeTab(i, j, 'video')">{{ 'course-header.Video' | transloco }}</button>
+                  <button class="nav-link" [class.active]="lecture.activeTab === 'description'"
+                          (click)="changeTab(i, j, 'description')">{{ 'course-header.Description' | transloco }}</button>
+                </div>
+
+                <div *ngIf="lecture.activeTab === 'video'" class="mt-2">
+                  <div class="custom-file-upload">
+                    <span *ngIf="!lecture.videoName" class="file-placeholder">{{ 'course-header.No selected file' | transloco }}</span>
+                    <span *ngIf="lecture.videoName" class="file-name">{{ lecture.videoName }}</span>
+                    <input type="file" #fileInput (change)="onFileSelected($event, i, j)" accept="video/*" hidden />
+                    <button class="btn btn-link select-video-btn" (click)="fileInput.click()">{{ 'course-header.Select Video' | transloco }}</button>
+                  </div>
+                </div>
+
+                <div *ngIf="lecture.activeTab === 'description'" class="mt-2">
+                  <textarea [(ngModel)]="lecture.description"  [attr.placeholder]="'course-header.Enter video description' | transloco" class="form-control"></textarea>
+                </div>
+
+                <hr/>
+              </div>
+
+              <button class="btn btn-sm btn-secondary" (click)="addLecture(i)"> {{ 'course-header.+ Add Lecture' | transloco }}</button>
+            </div>
+          </div>
+
+          <button class="btn btn-primary" (click)="addSection()">{{ 'course-header.+ Add Section' | transloco }}</button>
+        </div>
+
+
+
+  <!-- Step 2: Course Landing Page -->
+  <div *ngIf="currentStep === 1" class="container mt-4">
+    <div class="card p-4">
+      <h3 class="mb-3">{{ 'course-header.Landing Page' | transloco }}</h3>
+
+      <form #courseForm="ngForm">
+        <div class="mb-3">
+          <label class="form-label">{{ 'course-header.Course Title' | transloco }}</label>
+          <input type="text" class="form-control" [(ngModel)]="course.title" name="title" required>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">{{ 'course-header.Description' | transloco }}</label>
+          <input type="text" class="form-control" [(ngModel)]="course.description" name="description" required>
+        </div>
+
+        <div class="row">
+          <div class="col-md-6">
+            <label class="form-label">{{ 'course-header.Language' | transloco }}</label>
+            <select class="form-select" [(ngModel)]="course.language" name="language" required>
+              <option>{{ 'course-header.Arabic' | transloco }}</option>
+              <option>{{ 'course-header.English' | transloco }}</option>
+            </select>
+          </div>
+          <div class="col-md-6">
+            <label class="form-label">{{ 'course-header.Set Level' | transloco }}</label>
+            <select class="form-select" [(ngModel)]="course.level" name="level" required>
+              <option> {{ 'course-header.Beginner' | transloco }}</option>
+              <option>{{ 'course-header.Intermediate' | transloco }}</option>
+              <option>{{ 'course-header.Advanced' | transloco }}</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="row mt-3">
+          <div class="col-md-6">
+            <label class="form-label">{{ 'course-header.Category' | transloco }}</label>
+            <select class="form-select" [(ngModel)]="course.category" name="category" required>
+              <option>{{ 'course-header.Design' | transloco }}</option>
+              <option>{{ 'course-header.Development' | transloco }}</option>
+              <option>{{ 'course-header.Offer Productivity' | transloco }}</option>
+              <option>{{ 'course-header.Health & Fitness' | transloco }}</option>
+              <option>{{ 'course-header.Marketing' | transloco }}</option>
+              <option>{{ 'course-header.Business' | transloco }}</option>
+              <option>{{ 'course-header.IT & Software' | transloco }}</option>
+              <option>{{ 'course-header.Finance & Accounting' | transloco }}</option>
+
+            </select>
+          </div>
+          <div class="col-md-6">
+            <label class="form-label">{{ 'course-header.Course Duration' | transloco }}</label>
+            <select class="form-select" [(ngModel)]="course.duration" name="duration" required>
+              <option value="Week">{{ 'course-header.Week' | transloco }}</option>
+              <option value="Month">{{ 'course-header.Month' | transloco }}</option>
+              <option value="2 Monthes">{{ 'course-header.2 Monthes' | transloco }}</option>
+              <option value="3 Monthes">{{ 'course-header.3 Monthes' | transloco }}</option>
+              <option value="4 Monthes">{{ 'course-header.4 Monthes' | transloco }}</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="row mt-3">
+          <div class="col-md-6">
+            <label class="form-label">{{ 'course-header.Promo Video' | transloco }}</label>
+            <input type="file" class="form-control" (change)="onFileSelectedd($event, 'video')" accept="video/*">
+          </div>
+          <div class="col-md-6">
+            <label class="form-label">{{ 'course-header.Course Photo' | transloco }}</label>
+            <input type="file" class="form-control" (change)="onFileSelectedd($event, 'photo')" accept="image/*">
+          </div>
+        </div>
+
+
+        <div class="mb-3 mt-3">
+          <label class="form-label"> {{ 'course-header.Lecturer Name' | transloco }}</label>
+          <input type="text" class="form-control" [(ngModel)]="course.lecturer" name="lecturer" required>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label"> {{ 'course-header.Lecturer Description' | transloco }}</label>
+          <input type="text" class="form-control" [(ngModel)]="course.lecturerDescription" name="lecturerDescription" required>
+        </div>
+
+      </form>
+    </div>
+  </div>
+
+
+
+  <!-- Step 3: Pricing & Promotions Page -->
+  <div *ngIf="currentStep === 2" class="container mt-4">
+    <div class="card p-4">
+
+      <div class="container mt-4">
+        <!-- Pricing Section -->
+        <div class="card mb-3">
+            <div class="card-body">
+                <h5 class="card-title"> {{ 'course-header.Pricing' | transloco }}</h5>
+                <p class="fw-bold">{{ 'course-header.Set a price for your course' | transloco }}</p>
+                <p class="text-muted">{{ 'course-header.Lorem ipsum dolor sit amet, consectetur adipiscing elit.' | transloco }}</p>
+                <div class="row g-2">
+                  <div class="col-md-6">
+                    <label class="form-label">{{ 'course-header.Price' | transloco }}</label>
+                    <input class="form-control" type="number" [(ngModel)]="courseData.price">
+                </div>
+                    <div class="col-md-6">
+                        <label class="form-label">{{ 'course-header.Currency' | transloco }}</label>
+                        <select class="form-select" [(ngModel)]="courseData.currency">
+                            <option value="USD">USD</option>
+                            <option value="EUR">EUR</option>
+                        </select>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label"> {{ 'course-header.Price Tier' | transloco }}</label>
+                        <select class="form-select" [(ngModel)]="courseData.priceTier">
+                            <option value="Free"> {{ 'course-header.Free' | transloco }}</option>
+                            <option value="Premium">{{ 'course-header.Premium' | transloco }}</option>
+                        </select>
+                    </div>
+                </div>
+                <!-- <button class="btn btn-primary mt-3" (click)="saveData()">Save</button> -->
+            </div>
+        </div>
+
+        <!-- Promotions Section -->
+        <div class="card mb-3">
+            <div class="card-body">
+                <h5 class="card-title">{{ 'course-header.Promotions' | transloco }}</h5>
+                <p class="fw-bold">{{ 'course-header.Offer Conditions' | transloco }}</p>
+                <p class="text-muted">{{ 'course-header.Each time a student uses this link, the instructor will receive 80%...' | transloco }}</p>
+                <div class="input-group">
+                    <input type="text" class="form-control" [(ngModel)]="courseData.promoLink" [attr.placeholder]="'course-header.Copy link' | transloco"   >
+                    <!-- <button class="btn btn-primary" (click)="pastePromoLink()">Paste</button> -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Purchase Vouchers Section -->
+        <div class="card mb-3">
+          <div class="card-body">
+              <h5 class="card-title"> {{ 'course-header.Purchase Vouchers' | transloco }}</h5>
+              <div class="row">
+                  <div class="col-md-6" *ngFor="let option of courseData.voucherOptions; let i = index">
+                      <div class="form-check">
+                          <input class="form-check-input" type="radio" name="voucher-option" [(ngModel)]="courseData.selectedVoucher" [value]="option.value">
+                          <label class="form-check-label"> {{ activeLang === 'ar' ? option.labelAr : option.labelEn }}</label>
+                      </div>
+                      <ul>
+                        <li *ngFor="let feature of activeLang === 'ar' ? option.featuresAr : option.featuresEn">
+                          {{ feature }}
+                        </li>
+                        
+                      </ul>
+                  </div>
+              </div>
+              <button class="btn btn-primary mt-3" (click)="saveData()"> {{ 'course-header.Purchase Vouchers' | transloco }}</button>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+
+  <!-- Step 4: Create Coupons Page -->
+
+  <div *ngIf="currentStep === 3" class="container mt-4">
+   <div class="container mt-4">
+    <div *ngFor="let coupon of coupons; let i = index" class="card shadow-sm p-4 mb-3">
+      <h5 class="fw-bold"> {{ 'course-header.Coupon' | transloco }} {{ i + 1 }}</h5>
+      <div class="mb-3">
+        <label class="form-label">{{ 'course-header.Coupon code' | transloco }}</label>
+        <input type="text" class="form-control" [(ngModel)]="coupon.code">
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">{{ 'course-header.Coupon Status' | transloco }}</label>
+        <select class="form-select" [(ngModel)]="coupon.status">
+          <option>{{ 'course-header.Free' | transloco }}</option>
+          <option>{{ 'course-header.Paid' | transloco }}</option>
+        </select>
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">{{ 'course-header.No of users' | transloco }}</label>
+        <select class="form-select" [(ngModel)]="coupon.users">
+          <option>{{ 'course-header.Limited' | transloco }}</option>
+          <option>{{ 'course-header.Unlimited' | transloco }}</option>
+        </select>
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">{{ 'course-header.Coupon start date' | transloco }}</label>
+        <input type="date" class="form-control" [(ngModel)]="coupon.startDate">
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">{{ 'course-header.Coupon end date' | transloco }}</label>
+        <input type="date" class="form-control" [(ngModel)]="coupon.endDate">
+      </div>
+
+      <button *ngIf="coupons.length > 1" class="btn btn-danger" (click)="removeCoupon(i)">{{ 'course-header.Remove' | transloco }}</button>
+    </div>
+
+    <button class="btn btn-primary" (click)="addCoupon()">{{ 'course-header.Add Coupon' | transloco }}</button>
+  </div>
+
+
+  </div>
+
+        <!-- Navigation Buttons -->
+        <button class="btn btn-secondary mt-3 m-2" *ngIf="currentStep > 0" (click)="prevStep()">Previous</button>
+        <button class="btn btn-primary mt-3 m-2"
+        *ngIf="currentStep < stepsRecorded_Educational_Courses.length - 1"
+        (click)="nextStep1()"
+        [disabled]="(currentStep === 0 && !isFirstStepValid()) || (currentStep === 1 && !isStepThreeValid())">
+  {{ 'course-header.Next' | transloco }}
+  </button>
+
+
+
+
+  <button class="btn btn-success mt-3 m-2" *ngIf="currentStep === stepsRecorded_Educational_Courses.length - 1" (click)="nextStep1()" routerLink="courseDetails">
+      {{ 'course-header.Submit for Review' | transloco }}
+
+  </button>
+      </div>
+
+
+
+
+    </div>
+  </div>
+</div>
+
+
+<div *ngIf="courseObj?.courseType === 'Live Streamed Educational Courses'"  id="Live_Streamed_Educational_Courses">
+  <div class="container mb-5">
+    <div class="row">
+      <div class="col-md-3 mb-3">
+        <ul class="list-group">
+          <li *ngFor="let step of stepsLive_Streamed_Educational_Courses; let i = index"
+              class="list-group-item"
+              [class.active]="i === currentStep">
+                  {{ 'course-header.Step' | transloco }}
+            {{ i + 1 }}:   {{ activeLang === 'ar' ? step.titleAr : step.titleEn }}
+
+          </li>
+        </ul>
+      </div>
+
+      <div class="col-md-9 content-section rounded-2">
+
+        <!-- Step 1: Schedules -->
+        <div *ngIf="currentStep === 0">
+          <h3 > {{ 'course-header.Instructor Schedules' | transloco }}</h3>
+          <button class="btn btn-success my-2" (click)="addRow()">{{ 'course-header.Add Row' | transloco }}</button>
+
+         <!-- جدول الشاشة الكبيرة -->
+<!-- <div class="d-none d-l-block">
+  <table *ngIf="selectedSchedule.length > 0" class="table table-bordered">
+    <thead class="bg-primary text-white">
+      <tr>
+        <th>Course Title</th>
+        <th>Date</th>
+        <th>Time</th>
+        <th>Lecturer Name</th>
+        <th>Registered #</th>
+        <th>Status</th>
+        <th>Join Link</th>
+        <th>Limit # of Students</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let schedule of selectedSchedule; let i = index">
+        <td>
+          <input type="text" [(ngModel)]="schedule.courseTitle" class="form-control">
+        </td>
+        <td>
+          <input type="date" [(ngModel)]="schedule.date" class="form-control">
+        </td>
+        <td>
+          <input type="time" [(ngModel)]="schedule.time" class="form-control">
+        </td>
+        <td>
+          <input type="text" [(ngModel)]="schedule.lecturerName" class="form-control">
+        </td>
+        <td>
+          <input type="number" [(ngModel)]="schedule.registered" class="form-control">
+        </td>
+        <td>
+          <input type="text" [(ngModel)]="schedule.status" class="form-control">
+        </td>
+        <td>
+          <input type="url" [(ngModel)]="schedule.joinLink" class="form-control">
+        </td>
+        <td>
+          <input type="number" [(ngModel)]="schedule.limit" class="form-control">
+        </td>
+        <td>
+          <button class="btn btn-danger btn-sm" (click)="deleteRow(i)">Delete</button>
+        </td>
+      </tr>
+
+    </tbody>
+  </table>
+</div> -->
+
+
+          <!-- جدول الشاشة الصغيرة (حقول إدخال) -->
+          <div class="my-2">
+            <div *ngFor="let schedule of selectedSchedule; let i = index" class="card mb-3 border p-3">
+              <div class="card-body">
+                <div class="mb-2">
+                  <label class="fw-bold">{{ 'course-header.Course Title' | transloco }}</label>
+                  <input type="text" [(ngModel)]="schedule.courseTitle" class="form-control">
+                </div>
+                <div class="mb-2">
+                  <label class="fw-bold">{{ 'course-header.Date' | transloco }}</label>
+                  <input type="date" [(ngModel)]="schedule.date" class="form-control">
+                </div>
+                <div class="mb-2">
+                  <label class="fw-bold">{{ 'course-header.Time' | transloco }}</label>
+                  <input type="time" [(ngModel)]="schedule.time" class="form-control">
+                </div>
+                <div class="mb-2">
+                  <label class="fw-bold">{{ 'course-header.Lecturer' | transloco }}</label>
+                  <input type="text" [(ngModel)]="schedule.lecturerName" class="form-control">
+                </div>
+                <div class="mb-2">
+                  <label class="fw-bold">{{ 'course-header.Registered' | transloco }}</label>
+                  <input type="text" [(ngModel)]="schedule.registered" class="form-control">
+                </div>
+                <div class="mb-2">
+                  <label class="fw-bold">{{ 'course-header.Status' | transloco }}</label>
+                  <input type="text" [(ngModel)]="schedule.status" class="form-control">
+                </div>
+                <div class="mb-2">
+                  <label class="fw-bold">{{ 'course-header.Join Link' | transloco }}</label>
+                  <input type="url" [(ngModel)]="schedule.joinLink" class="form-control">
+                </div>
+                <div class="mb-2">
+                  <label class="fw-bold">{{ 'course-header.Limit' | transloco }}</label>
+                  <input type="number" [(ngModel)]="schedule.limit" class="form-control">
+                </div>
+                <button class="btn btn-danger btn-sm" (click)="deleteRow(i)">{{ 'course-header.Delete' | transloco }}</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+  <!-- Step 2: Course Landing Page -->
+  <div *ngIf="currentStep === 1" class="container mt-4">
+    <div class="card p-4">
+      <h3 class="mb-3">{{ 'course-header.Landing Page' | transloco }}</h3>
+
+      <form #courseForm="ngForm">
+        <div class="mb-3">
+          <label class="form-label">{{ 'course-header.Course Title' | transloco }}</label>
+          <input type="text" class="form-control" [(ngModel)]="course.title" name="title" required>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label">{{ 'course-header.Description' | transloco }}</label>
+          <input type="text" class="form-control" [(ngModel)]="course.description" name="description" required>
+        </div>
+
+        <div class="row">
+          <div class="col-md-6">
+            <label class="form-label">{{ 'course-header.Language' | transloco }}</label>
+            <select class="form-select" [(ngModel)]="course.language" name="language" required>
+              <option>{{ 'course-header.Arabic' | transloco }}</option>
+              <option>{{ 'course-header.English' | transloco }}</option>
+            </select>
+          </div>
+          <div class="col-md-6">
+            <label class="form-label">{{ 'course-header.Set Level' | transloco }}</label>
+            <select class="form-select" [(ngModel)]="course.level" name="level" required>
+              <option> {{ 'course-header.Beginner' | transloco }}</option>
+              <option>{{ 'course-header.Intermediate' | transloco }}</option>
+              <option>{{ 'course-header.Advanced' | transloco }}</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="row mt-3">
+          <div class="col-md-6">
+            <label class="form-label">{{ 'course-header.Category' | transloco }}</label>
+            <select class="form-select" [(ngModel)]="course.category" name="category" required>
+              <option>{{ 'course-header.Design' | transloco }}</option>
+              <option>{{ 'course-header.Development' | transloco }}</option>
+              <option>{{ 'course-header.Offer Productivity' | transloco }}</option>
+              <option>{{ 'course-header.Health & Fitness' | transloco }}</option>
+              <option>{{ 'course-header.Marketing' | transloco }}</option>
+              <option>{{ 'course-header.Business' | transloco }}</option>
+              <option>{{ 'course-header.IT & Software' | transloco }}</option>
+              <option>{{ 'course-header.Finance & Accounting' | transloco }}</option>
+
+            </select>
+          </div>
+          <div class="col-md-6">
+            <label class="form-label">{{ 'course-header.Course Duration' | transloco }}</label>
+            <select class="form-select" [(ngModel)]="course.duration" name="duration" required>
+              <option value="Week">{{ 'course-header.Week' | transloco }}</option>
+              <option value="Month">{{ 'course-header.Month' | transloco }}</option>
+              <option value="2 Monthes">{{ 'course-header.2 Monthes' | transloco }}</option>
+              <option value="3 Monthes">{{ 'course-header.3 Monthes' | transloco }}</option>
+              <option value="4 Monthes">{{ 'course-header.4 Monthes' | transloco }}</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="row mt-3">
+          <div class="col-md-6">
+            <label class="form-label">{{ 'course-header.Promo Video' | transloco }}</label>
+            <input type="file" class="form-control" (change)="onFileSelectedd($event, 'video')" accept="video/*">
+          </div>
+          <div class="col-md-6">
+            <label class="form-label">{{ 'course-header.Course Photo' | transloco }}</label>
+            <input type="file" class="form-control" (change)="onFileSelectedd($event, 'photo')" accept="image/*">
+          </div>
+        </div>
+
+
+        <div class="mb-3 mt-3">
+          <label class="form-label"> {{ 'course-header.Lecturer Name' | transloco }}</label>
+          <input type="text" class="form-control" [(ngModel)]="course.lecturer" name="lecturer" required>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label"> {{ 'course-header.Lecturer Description' | transloco }}</label>
+          <input type="text" class="form-control" [(ngModel)]="course.lecturerDescription" name="lecturerDescription" required>
+        </div>
+
+      </form>
+    </div>
+  </div>
+
+
+
+  <!-- Step 3: Pricing & Promotions Page -->
+  <div *ngIf="currentStep === 2" class="container mt-4">
+    <div class="card p-4">
+
+      <div class="container mt-4">
+        <!-- Pricing Section -->
+        <div class="card mb-3">
+            <div class="card-body">
+                <h5 class="card-title"> {{ 'course-header.Pricing' | transloco }}</h5>
+                <p class="fw-bold">{{ 'course-header.Set a price for your course' | transloco }}</p>
+                <p class="text-muted">{{ 'course-header.Lorem ipsum dolor sit amet, consectetur adipiscing elit.' | transloco }}</p>
+                <div class="row g-2">
+                  <div class="col-md-6">
+                    <label class="form-label">{{ 'course-header.Price' | transloco }}</label>
+                    <input class="form-control" type="number" [(ngModel)]="courseData.price">
+                </div>
+                    <div class="col-md-6">
+                        <label class="form-label">{{ 'course-header.Currency' | transloco }}</label>
+                        <select class="form-select" [(ngModel)]="courseData.currency">
+                            <option value="USD">USD</option>
+                            <option value="EUR">EUR</option>
+                        </select>
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label"> {{ 'course-header.Price Tier' | transloco }}</label>
+                        <select class="form-select" [(ngModel)]="courseData.priceTier">
+                            <option value="Free"> {{ 'course-header.Free' | transloco }}</option>
+                            <option value="Premium">{{ 'course-header.Premium' | transloco }}</option>
+                        </select>
+                    </div>
+                </div>
+                <!-- <button class="btn btn-primary mt-3" (click)="saveData()">Save</button> -->
+            </div>
+        </div>
+
+        <!-- Promotions Section -->
+        <div class="card mb-3">
+            <div class="card-body">
+                <h5 class="card-title">{{ 'course-header.Promotions' | transloco }}</h5>
+                <p class="fw-bold">{{ 'course-header.Offer Conditions' | transloco }}</p>
+                <p class="text-muted">{{ 'course-header.Each time a student uses this link, the instructor will receive 80%...' | transloco }}</p>
+                <div class="input-group">
+                    <input type="text" class="form-control" [(ngModel)]="courseData.promoLink" [attr.placeholder]="'course-header.Copy link' | transloco"   >
+                    <!-- <button class="btn btn-primary" (click)="pastePromoLink()">Paste</button> -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Purchase Vouchers Section -->
+        <div class="card mb-3">
+          <div class="card-body">
+              <h5 class="card-title"> {{ 'course-header.Purchase Vouchers' | transloco }}</h5>
+              <div class="row">
+                  <div class="col-md-6" *ngFor="let option of courseData.voucherOptions; let i = index">
+                      <div class="form-check">
+                          <input class="form-check-input" type="radio" name="voucher-option" [(ngModel)]="courseData.selectedVoucher" [value]="option.value">
+                          <label class="form-check-label"> {{ activeLang === 'ar' ? option.labelAr : option.labelEn }}</label>
+                      </div>
+                      <ul>
+                        <li *ngFor="let feature of activeLang === 'ar' ? option.featuresAr : option.featuresEn">
+                          {{ feature }}
+                        </li>
+                        
+                      </ul>
+                  </div>
+              </div>
+              <button class="btn btn-primary mt-3" (click)="saveData()"> {{ 'course-header.Purchase Vouchers' | transloco }}</button>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+
+  <!-- Step 4: Create Coupons Page -->
+
+  <div *ngIf="currentStep === 3" class="container mt-4">
+    <div class="container mt-4">
+     <div *ngFor="let coupon of coupons; let i = index" class="card shadow-sm p-4 mb-3">
+       <h5 class="fw-bold"> {{ 'course-header.Coupon' | transloco }} {{ i + 1 }}</h5>
+       <div class="mb-3">
+         <label class="form-label">{{ 'course-header.Coupon code' | transloco }}</label>
+         <input type="text" class="form-control" [(ngModel)]="coupon.code">
+       </div>
+ 
+       <div class="mb-3">
+         <label class="form-label">{{ 'course-header.Coupon Status' | transloco }}</label>
+         <select class="form-select" [(ngModel)]="coupon.status">
+           <option>{{ 'course-header.Free' | transloco }}</option>
+           <option>{{ 'course-header.Paid' | transloco }}</option>
+         </select>
+       </div>
+ 
+       <div class="mb-3">
+         <label class="form-label">{{ 'course-header.No of users' | transloco }}</label>
+         <select class="form-select" [(ngModel)]="coupon.users">
+           <option>{{ 'course-header.Limited' | transloco }}</option>
+           <option>{{ 'course-header.Unlimited' | transloco }}</option>
+         </select>
+       </div>
+ 
+       <div class="mb-3">
+         <label class="form-label">{{ 'course-header.Coupon start date' | transloco }}</label>
+         <input type="date" class="form-control" [(ngModel)]="coupon.startDate">
+       </div>
+ 
+       <div class="mb-3">
+         <label class="form-label">{{ 'course-header.Coupon end date' | transloco }}</label>
+         <input type="date" class="form-control" [(ngModel)]="coupon.endDate">
+       </div>
+ 
+       <button *ngIf="coupons.length > 1" class="btn btn-danger" (click)="removeCoupon(i)">{{ 'course-header.Remove' | transloco }}</button>
+     </div>
+ 
+     <button class="btn btn-primary" (click)="addCoupon()">{{ 'course-header.Add Coupon' | transloco }}</button>
+   </div>
+ 
+ 
+   </div>
+
+        <!-- Navigation Buttons -->
+        <button class="btn btn-secondary mt-3 m-2" *ngIf="currentStep > 0" (click)="prevStep()"> {{ 'course-header.Previous' | transloco }}
+        </button>
+        <button class="btn btn-primary mt-3 m-2"
+        *ngIf="currentStep < stepsLive_Streamed_Educational_Courses.length - 1"
+        (click)="nextStep2()"
+        [disabled]="!isFirstRowComplete() || (currentStep === 1 && !isStepThreeValid())">
+        {{ 'course-header.Next' | transloco }}
+</button>
+
+
+
+
+  <button class="btn btn-success mt-3 m-2" *ngIf="currentStep === stepsLive_Streamed_Educational_Courses.length - 1" (click)="nextStep2()" routerLink="courseDetails">
+    {{ 'course-header.Submit for Review' | transloco }}
+  </button>
+      </div>
+
+    </div>
+  </div>
+</div>

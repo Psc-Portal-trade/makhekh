@@ -1,0 +1,85 @@
+.course-card {
+  border: 2px solid transparent;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  height: 401px;
+}
+.card.active {
+  border:solid 3px #007bff;
+  background-color: #f8f9fa;
+}
+
+
+.head{
+  width: 100%;
+  background: #ffffff; /* اللون الأبيض للخلفية */
+  box-shadow: 0px 7px 4px rgba(0, 0, 0, 0.12); /* الظل بناءً على القيم من الصورة */
+
+}
+
+.cards{
+ padding-top: 90px;
+ padding-bottom: 90px;
+
+}
+
+.content{
+  box-shadow: 0px 7px 4px rgba(0, 0, 0, 0.12); /* الظل بناءً على القيم من الصورة */
+}
+.content2{
+  box-shadow: 0px 7px 4px rgba(0, 0, 0, 0.12); /* الظل بناءً على القيم من الصورة */
+  padding-bottom: 115px;}
+
+.card{
+border: solid 1px #007bff;
+}
+
+.form-control{
+  width: 90%;
+}
+
+@media screen and (min-width: 500px) and (max-width: 1200px) {
+  .course-card {
+    height: auto;
+  }
+  .form-control{
+    width: 90%;
+  }
+}
+
+.button{
+  background-color: #EFF3F6;
+}
+
+
+.btn{
+  padding-right: 30px;
+  padding-left: 30px;
+}
+
+.btn1{
+  background-color: white;
+  color: #007bff;
+  border: solid 1px #007bff;
+}
+
+.content4 textarea{
+
+ height: 75px;
+ resize: none;      /* منع المستخدم من تغيير الحجم */
+ padding: 10px;     /* إضافة مساحة داخلية */
+
+}
+
+
+h3{
+  font-weight: 500;
+  font-size: 1.5rem;
+}
+
+button{
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 28.13px;
+}
+

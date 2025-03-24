@@ -1,0 +1,440 @@
+
+<app-second-nav></app-second-nav>
+
+
+
+<div *ngIf="course1.courseType === 'Recorded Educational Courses'">
+  <nav class="navbar navbar-expand-lg">
+    <div class="container-fluid w-100 justify-content-lg-between">
+        <div class="logo-container">
+            <a href="#"><span class="logo"><img class="logo1" src="../../assets/Logo EN.png"></span></a>
+            <span class="divider"></span>
+            <span class="course-name">{{ 'Course.name' | transloco }}</span>
+        </div>
+
+        <div class="text-white">
+            <div class="progress-container">
+                <button id="progressBtn" class="btn text-white" (click)="toggleTooltip()">
+                    <i class="fa fa-trophy p-2"></i>{{ 'progress.yourProgress' | transloco }}
+                    <i class="fa fa-chevron-down"></i>
+                </button>
+                <div id="tooltip" class="tooltip-box tooltip-ar p-3"
+                    [class.show]="tooltipVisible">
+                    <p><strong>{{ completedLectures }} {{ 'progress.of' | transloco }} {{ totalLectures }} {{ 'progress.complete' | transloco }}.</strong></p>
+                    {{ 'progress.finishCourse' | transloco }}
+                    <div class="tooltip-arrow"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+
+
+
+<div class="container-fluid mb-5">
+  <div class="row">
+      <div class="col-md-8 p-0 m-0">
+          <div class="course-header">
+              <img src="assets/course-image.jpg" alt="Course Image">
+          </div>
+          <ul class="nav nav-tabs mt-3">
+              <li class="nav-item"><a class="nav-link active" [ngClass]="{'active': activeTab === 'overview'}"
+                      (click)="setActiveTab('overview')">{{ 'tabs.overview' | transloco }}</a></li>
+              <li class="nav-item"><a class="nav-link" [ngClass]="{'active': activeTab === 'notes'}"
+                      (click)="setActiveTab('notes')">{{ 'tabs.notes' | transloco }}</a></li>
+              <li class="nav-item"><a class="nav-link" [ngClass]="{'active': activeTab === 'Q&A'}"
+                      (click)="setActiveTab('Q&A')">{{ 'tabs.qna' | transloco }}</a></li>
+              <li class="nav-item"><a class="nav-link" [ngClass]="{'active': activeTab === 'reviews'}"
+                      (click)="setActiveTab('reviews')">{{ 'tabs.reviews' | transloco }}</a></li>
+              <li class="nav-item"><a class="nav-link" [ngClass]="{'active': activeTab === 'resources'}"
+                      (click)="setActiveTab('resources')">{{ 'tabs.resources' | transloco }}</a></li>
+              <li class="nav-item"><a class="nav-link" [ngClass]="{'active': activeTab === 'certification'}"
+                      (click)="setActiveTab('certification')">{{ 'tabs.certification' | transloco }}</a></li>
+          </ul>
+
+          <div class="course-content container" *ngIf="activeTab === 'overview'">
+              <div class="row">
+                  <div class="col-md-8 mt-3">
+                      <div>
+                          <h4 class="mb-0">{{ 'Instructor.title' | transloco }}</h4>
+                          <a class="text-primary text-decoration-none">{{ course.instructorName }}</a>
+                          <p class="text-muted">{{ 'Instructor.description' | transloco }}</p>
+                          <div class="d-flex align-items-center">
+                              <img src="../../assets/image.jpg" class="rounded-circle me-3" width="100" height="100"
+                                  alt="Instructor">
+                              <div>
+                                  <p class="mb-1">
+                                      <i class="fa-solid fa-star text-warning"></i>
+                                      {{ averageRating.toFixed(1) }} {{ 'Instructor.rating' | transloco }}
+                                  </p>
+                                  <p class="mb-1"><i class="fa-solid fa-tv"></i> {{ 'Instructor.courses' | transloco }}</p>
+                                  <p class="mb-1"><i class="fa-solid fa-user"></i> {{ 'Instructor.students' | transloco }}</p>
+                                  <p class="mb-1"><i class="fa-regular fa-comment"></i> {{ totalReviewers.toFixed(1) }} {{ 'Instructor.reviews' | transloco }}</p>
+                              </div>
+                          </div>
+                      </div>
+                      <p class="instructor-description mt-3">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer sed porttitor nisl. Etiam
+                        mollis id est non convallis.
+                        In hac habitasse platea dictumst. Mauris ut magna lacus. Sed non massa in est porttitor
+                        fringilla.
+                        Nunc cursus dui et turpis sollicitudin imperdiet. Duis faucibus, eros id porttitor aliquam,
+                        sapien tortor venenatis erat.
+                    </p>
+                  </div>
+
+                  <div class="col-md-4 text-end d-flex justify-content-between">
+                      <p class="mb-0"><strong>4.6 <i class="fa-solid fa-star text-warning"></i></strong><br>{{ 'ratings.total' | transloco }}</p>
+                      <p class="mb-0"><strong>3,845</strong><br>{{ 'Students.total' | transloco }}</p>
+                      <p class="mb-0"><strong>10 hours</strong> <br>{{ 'duration.total' | transloco }}</p>
+                  </div>
+              </div>
+          </div>
+
+          <div class="container mt-4" *ngIf="activeTab === 'notes'">
+            <!-- شارة التوقيت -->
+            <div class="d-flex align-items-center mb-2">
+                <span class="badge bg-dark text-white p-2">0:00</span>
+            </div>
+
+            <!-- مربع إدخال الملاحظات -->
+            <div class="border rounded p-3">
+                <div class="d-flex justify-content-end">
+                    <span class="text-muted">{{ getRemainingChars() }}</span>
+                </div>
+                <textarea
+                    class="form-control mt-2"
+                    rows="3"
+                    [placeholder]="'notes.placeholder' | transloco"
+                    [(ngModel)]="noteInput"
+                    [maxlength]="maxChars">
+                </textarea>
+            </div>
+
+            <!-- أزرار الحفظ والإلغاء -->
+            <div class="d-flex gap-2 mt-2 justify-content-end">
+                <button class="btn btn-light">{{ 'buttons.cancel' | transloco }}</button>
+                <button class="btn btn-primary" (click)="saveNote()">{{ 'buttons.save' | transloco }}</button>
+            </div>
+
+            <!-- قائمة المحاضرات المنسدلة -->
+            <div class="d-flex gap-2 mt-3">
+                <div class="dropdown">
+                    <button class="btn btn-outline-primary dropdown-toggle" type="button" data-bs-toggle="dropdown">
+                        {{ selectedLectureTitle ? (selectedSectionTitle + ' - ' + selectedLectureTitle) : selectedLecture }}
+                    </button>
+                    <ul class="dropdown-menu custom-dropdown-scroll">
+                        <!-- اختيار جميع المحاضرات -->
+                        <li>
+                            <a class="dropdown-item" (click)="selectLecture('All lectures')">
+                                {{ 'lectures.allLectures' | transloco }}
+                            </a>
+                        </li>
+
+                        <!-- تكرار الأقسام -->
+                        <ng-container *ngFor="let section of course.courseSections">
+                            <li class="dropdown-header">{{ section.title }}</li>
+                            <!-- تكرار المحاضرات داخل كل قسم -->
+                            <li *ngFor="let lecture of section.lectures">
+                                <a class="dropdown-item" (click)="selectLecture('Current lecture', section.title, lecture.title)">
+                                    {{ lecture.title }}
+                                </a>
+                            </li>
+                        </ng-container>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- عرض الملاحظات المحفوظة -->
+            <div class="mt-4" *ngIf="notes.length > 0">
+                <div *ngFor="let note of notes">
+                    <div class="border p-2 rounded mt-2">
+                        <strong>{{ note.lecture }}</strong>
+                        <p>{{ note.text }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+          <div class="container mt-4" *ngIf="activeTab === 'Q&A'">
+              <h4 class="fw-bold">{{ 'qna.addQuestion' | transloco }}</h4>
+
+              <div class="border rounded p-3">
+                  <textarea class="form-control mt-2" rows="3" placeholder="{{ 'qna.placeholder' | transloco }}" [(ngModel)]="questionText"
+                      [maxlength]="maxChars"></textarea>
+              </div>
+
+              <div class="d-flex gap-2 mt-2 justify-content-end">
+                  <button class="btn btn-primary" (click)="sendQuestion()">{{ 'qna.send' | transloco }}</button>
+              </div>
+
+              <div class="container mt-4">
+                  <div class="mt-4" *ngIf="questions.length > 0; else noQuestions">
+                      <h3>{{ 'qna.questions' | transloco }}</h3>
+                      <table class="table table-bordered">
+                          <thead>
+                              <tr>
+                                  <th>#</th>
+                                  <th>{{ 'qna.question' | transloco }}</th>
+                                  <th>{{ 'qna.answer' | transloco }}</th>
+                              </tr>
+                          </thead>
+                          <tbody>
+                              <tr *ngFor="let q of questions; let i = index">
+                                  <td>{{ i + 1 }}</td>
+                                  <td>{{ q.question }}</td>
+                                  <td>{{ q.answer ? q.answer : 'qna.noAnswer' | transloco }}</td>
+                              </tr>
+                          </tbody>
+                      </table>
+                  </div>
+
+                  <ng-template #noQuestions>
+                      <p class="text-muted">{{ 'qna.noQuestions' | transloco }}</p>
+                  </ng-template>
+              </div>
+          </div>
+        <div class="container mt-4 text-center" *ngIf="activeTab === 'resources'">
+            <h2>{{ 'Resources.challenge' | transloco }}</h2>
+
+            <div class="d-flex justify-content-center mt-4">
+                <button class="btn btn-primary mx-2" (click)="toggleQuestions()">
+                    {{ 'Resources.onlineQuestions' | transloco }}
+                </button>
+                <button class="btn btn-primary mx-2" (click)="downloadPDF()">
+                    {{ 'Resources.downloadPDF' | transloco }}
+                </button>
+            </div>
+
+            <div *ngIf="showQuestions" class="mt-4">
+                <h3>{{ 'Resources.webDevQuestions' | transloco }}</h3>
+                <ul class="list-group">
+                    <li *ngFor="let question of webDevQuestions" class="list-group-item">
+                        {{ question | transloco }}
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="container mt-4 text-center" *ngIf="activeTab === 'certification'">
+          <!-- زر عرض الشهادة -->
+          <button id="getCertificateBtn" [disabled]="!canGetCertificate" (click)="generateCertificate()">
+              {{'certification.get' | transloco}}
+          </button>
+          <p *ngIf="!canGetCertificate" class="warning-text mt-2">
+              {{"certification.warning" | transloco}}
+            </p>
+
+          <!-- الشهادة -->
+          <div class="certificate-container" *ngIf="certificateVisible">
+              <canvas #certificateCanvas width="800" height="600"></canvas>
+          </div>
+
+          <!-- الأزرار تظهر بعد توليد الشهادة -->
+          <div class="buttons mt-3" *ngIf="certificateVisible">
+              <button class="btn btn-primary" (click)="downloadCertificate()">{{'certification.save'| transloco}}</button>
+              <button class="btn btn-outline-primary" (click)="printCertificate()">{{'certification.print' | transloco}}</button>
+          </div>
+      </div>
+          <div class="container mt-4" *ngIf="activeTab === 'reviews'">
+            <app-student-reviews></app-student-reviews>
+        </div>
+      </div>
+
+      <div class="col-md-4 sidebar p-0 m-0">
+        <h3 class="fw-bold p-3">{{ 'content.content' | transloco }}</h3>
+
+        <div class="accordion" id="courseAccordion">
+            <div class="accordion-item" *ngFor="let section of course.courseSections; let i = index">
+                <div class="accordion-header">
+                    <button class="accordion-button text-black pb-4 d-flex justify-content-between w-100"
+                            type="button"
+                            (click)="toggleSection(i)">
+                            <div class="read d-flex flex-column" [class.text-end]="isArabic">
+                              <div class="title">
+                                  {{ section.title }}
+                              </div>
+                              <div class="title1 text-muted">
+                                  {{ getLectureCount(section) }} {{ 'content.lectures' | transloco }} •
+                                  {{ getTotalDuration(section) }}
+                              </div>
+                          </div>
+
+
+                        <span *ngFor="let num of numbers" class="ms-auto"></span>
+                    </button>
+                </div>
+
+                <div [id]="'section' + section.id" class="accordion-collapse collapse"
+                     [ngClass]="{ 'show': section.expanded }">
+                    <div class="accordion-body">
+                        <ul class="lecture-list">
+                            <li *ngFor="let lecture of section.lectures" [class.completed]="lecture.completed"
+                                class="p-2">
+                                <div class="first-part">
+                                    <input type="checkbox" [(ngModel)]="lecture.completed">
+                                    <span class="lecture-title">{{ lecture.title }}</span>
+                                </div>
+                                <div class="second-part">
+                                    <i class="fa-solid fa-circle-play p-1"></i>
+                                    <span class="lecture-duration">
+                                      {{ lecture.duration.replace('min', ('content.minutes' | transloco)) }}
+                                    </span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+  </div>
+</div>
+
+</div>
+
+
+
+
+<section id="online" *ngIf="courseObj.courseType === 'Live Streamed Educational Courses'">
+  <div class="container-fluid my-5 px-5">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="course-headerr">
+                <nav class="breadcrumb">
+                    <a class="breadcrumb-item text-white" >Development</a>
+                    <a class="breadcrumb-item text-white" >Web Development</a>
+                </nav>
+                <h2>{{courseObj.courseTitle}}</h2>
+                <p>⭐ {{courseObj.rate}} ({{courseObj.ratingsCount}} ratings) • {{courseObj.watched}} Students</p>
+                <p>Created by <a  class="text-white">{{courseObj.instructor}}</a></p>
+                <p>Last updates {{courseObj.lastUpdate}} • {{courseObj.language}} • Live Course • {{courseObj.landingPage.level}}</p>
+            </div>
+            <div class="mt-4 p-3 border rounded">
+              <h5>Online Live Videos </h5>
+              <p>Reserve your seat and schedule the available time for you. Enjoy learning online from anywhere as if you are in class. Try the experience. Ask all questions and get your answers.</p>
+          </div>
+        </div>
+    </div>
+
+  </div>
+
+  <div class="container-fluid mt-2  content-container px-5" >
+    <div class="row">
+
+    <div class="col-md-6">
+  <h4>This course includes:</h4>
+  <uL>
+    <li>{{courseObj.landingPage.duration}}</li>
+    <li>Assignments & quizzes</li>
+    <li>Live Course</li>
+    <li>Certification</li>
+
+  </uL>
+
+
+
+    </div>
+
+
+    </div>
+
+    </div>
+
+    <div class="container mt-4 mb-5 px-5">
+      <h4>Course Schedules and Timings</h4>
+      <div class="row d-flex flex-wrap">
+        <div class="col-12">
+          <label for="monthSelect" class="form-label">Search by</label>
+          <select id="monthSelect" class="form-select mb-3" (change)="onMonthChange($event)">
+            <option value="">Month</option>
+            <option *ngFor="let month of uniqueMonths" [value]="month">{{ month }}</option>
+          </select>
+
+          <!-- الجدول الأساسي للشاشات الكبيرة -->
+          <table class="table table-bordered d-none d-md-table">
+            <thead class="table-primary">
+              <tr>
+                <th>#</th>
+                <th>Course Title</th>
+                <th>Date</th>
+                <th>Time</th>
+                <th>Lecturer name</th>
+                <th>Status</th>
+                <th>Join Link</th>
+                <th>Reserve</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let course of courseObj.schedules; let i = index">
+                <td>{{ i + 1 }}</td>  <!-- يبدأ العد من 1 بدلاً من 0 -->
+                <td>{{ course.courseTitle }}</td>
+                <td>📅 {{ course.date }}</td>
+                <td>{{ course.time }}</td>
+                <td>{{ course.lecturerName }}</td>
+                <td [ngClass]="{'text-success': course.status === 'Available', 'text-warning': course.status === 'Reserved', 'text-danger': course.status === 'Canceled'}">
+                  {{ course.status }}
+                </td>
+                <td><a [href]="course.joinLink" target="_blank">Join</a></td>
+                <td><button class="btn btn-outline-primary">Reserve</button></td>
+              </tr>
+
+            </tbody>
+          </table>
+
+          <!-- الجدول المخصص للموبايل -->
+          <div class="d-md-none">
+            <div *ngFor="let course of courseObj.schedules" class="card mb-2 p-2 border">
+              <div><strong>#:</strong> {{ course.id }}</div>
+              <div><strong>Course Title:</strong> {{ course.courseTitle }}</div>
+              <div><strong>Date:</strong> 📅 {{ course.date }}</div>
+              <div><strong>Time:</strong> {{ course.time }}</div>
+              <div><strong>Lecturer name:</strong> {{ course.lecturerName }}</div>
+              <div>
+                <strong>Status:</strong>
+                <span [ngClass]="{'text-success': course.status === 'Available', 'text-warning': course.status === 'Reserved', 'text-danger': course.status === 'Canceled'}">
+                  {{ course.status }}
+                </span>
+              </div>
+              <div><strong>Join Link:</strong> <a [href]="course.joinLink" target="_blank">Join</a></div>
+              <div><button class="btn btn-outline-primary">Reserve</button></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

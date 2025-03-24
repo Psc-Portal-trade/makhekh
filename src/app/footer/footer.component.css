@@ -1,0 +1,29 @@
+.footer-image img{
+  width: 35%;
+}
+footer > div{
+border-bottom: 1px solid black;}
+.footer-logo img{
+  width: 40%;
+}
+
+.p-color{
+  color: #2D91EE;
+}
+
+.head-line{
+  font-size: 36px;
+  font-weight: 700;
+}
+.footer-content p{
+  font-size: 16px;
+  font-weight: 400;
+  margin-bottom: 5px !important;
+}
+.footer-content h5{
+  font-size: 16px;
+  font-weight: 700;
+}
+footer{
+  box-shadow: -4px -4px 5px #E2E2E2;
+}

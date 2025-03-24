@@ -1,0 +1,64 @@
+.navbar {
+  padding: 10px;
+}
+
+.btn-light {
+  color: #007bff;
+  border-color: white;
+}
+
+.list-group-item {
+  cursor: pointer;
+}
+
+.list-group-item.active {
+  background-color: #007bff;
+  color: white;
+}
+
+.card {
+  padding: 10px;
+}
+
+.content-section {
+  padding: 15px;
+  background-color: #eff3f6;
+  border: 1px solid #7cbaf4;
+}
+
+.custom-file-upload {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid #ccc;
+  padding: 8px 12px;
+  width: 100%;
+  border-radius: 4px;
+  background: white;
+}
+
+.file-placeholder {
+  flex-grow: 1;
+  color: #777;
+}
+
+.file-name {
+  flex-grow: 1;
+  font-weight: bold;
+}
+
+.select-video-btn {
+  background: none;
+  border: none;
+  color: #007bff;
+  cursor: pointer;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+button:disabled {
+  background-color: #ccc !important; /* لون رمادي */
+  color: #666 !important; /* لون النص */
+  cursor: not-allowed !important; /* شكل المؤشر */
+  opacity: 0.7 !important; /* شفافية */
+}
