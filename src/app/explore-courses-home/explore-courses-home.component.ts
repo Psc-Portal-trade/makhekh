@@ -12,7 +12,7 @@ import { TranslocoPipe } from '@ngneat/transloco';
 
 @Component({
   selector: 'app-explore-courses-home',
-  imports: [NavbarComponent, CoursesHomeComponent, CommonModule, FormsModule, FooterComponent ,TranslocoPipe],
+  imports: [NavbarComponent, CoursesHomeComponent, CommonModule, FormsModule, TranslocoPipe],
   templateUrl: './explore-courses-home.component.html',
   styleUrl: './explore-courses-home.component.css'
 })

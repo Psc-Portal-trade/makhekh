@@ -843,15 +843,30 @@
   "Cart":"عربة التسوق",
   "Remove":"ازالة",
   "No items yet":"لا يوجد عناصر حتى الآن"
+  },
+
+
+
+
+"warnings": {
+    "fillFirstSection": "برجاء ملء جميع بيانات القسم الأول قبل المتابعة.",
+    "fillCourseData": "برجاء ملء جميع بيانات الكورس قبل المتابعة.",
+    "fillPriceData": "برجاء إدخال السعر."
+  },
+
+
+
+  "step 2": {
+    "course_title_required": "يجب إدخال عنوان الكورس"
+  },
+  "step 3": {
+    "category_required": "يجب اختيار فئة للكورس"
+  },
+  "step 4": {
+    "learning_objectives_required": "يجب إدخال أهداف التعلم",
+    "requirements_required": "يجب إدخال المتطلبات",
+    "target_audience_required": "يجب إدخال الجمهور المستهدف"
   }
-
-
-
-
-
-
-
-
 
 
 

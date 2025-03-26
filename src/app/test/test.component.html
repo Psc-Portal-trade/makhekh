@@ -39,8 +39,13 @@
 <div *ngIf="step === 2" class="content2">
   <div class="container cards text-center">
       <h3 class="pb-4">{{ 'step2_title' | transloco }}</h3>
-      <input type="text" class="form-control mx-auto" style="width: 90%;" [(ngModel)]="courseTitle" [placeholder]="'enter_course_title' | transloco">
-  </div>
+      <input type="text" class="form-control mx-auto" style="width: 90%;"  (keyup)="checkInputs()" 
+      [(ngModel)]="courseTitle" [placeholder]="'enter_course_title' | transloco">
+      <div *ngIf="isCourseTitleEmpty" class="alert alert-danger text-center mt-3 p-3 w-75 mx-auto">
+        {{ 'step 2.course_title_required' | transloco }}
+      </div>
+      
+    </div>
 </div>
 
 <div *ngIf="step === 2" class="container-fluid p-4 button mt-1">
@@ -54,10 +59,14 @@
 <div *ngIf="step === 3" class="content2">
   <div class="container cards text-center">
     <h3 class="pb-4">{{ 'step3.title' | transloco }}</h3>
-    <select class="form-control mx-auto" [(ngModel)]="selectedCategory" data-bs-toggle="dropdown" appendToBody="true">
+    <select class="form-control mx-auto"   (change)="checkInputs()" 
+    [(ngModel)]="selectedCategory" data-bs-toggle="dropdown" appendToBody="true">
       <option value="" disabled selected>{{ 'step3.selectCategory' | transloco }}</option>
       <option *ngFor="let category of categories" [value]="category">{{ 'categories.' + category | transloco }}</option>
     </select>
+    <div *ngIf="isCategoryEmpty" class="alert alert-danger text-center mt-3 p-3 w-75 mx-auto">
+      {{ 'step 3.category_required' | transloco }}
+    </div>
   </div>
 </div>
 
@@ -73,14 +82,25 @@
 <div *ngIf="step === 4" class="content4">
   <div class="container cards text-center">
       <h3>{{ 'step4_learning' | transloco }}</h3>
-      <textarea class="form-control fixed-textarea mx-auto mb-4 mt-3" style="width: 90%;" [(ngModel)]="learningObjectives"></textarea>
+      <textarea class="form-control fixed-textarea mx-auto mb-4 mt-3" style="width: 90%;"  (keyup)="checkInputs()" 
+      [(ngModel)]="learningObjectives"></textarea>
+      <div *ngIf="isLearningObjectivesEmpty" class="alert alert-danger text-center mt-3 p-3 w-75 mx-auto">
+        {{ 'step 4.learning_objectives_required' | transloco }}
+      </div>
 
       <h3>{{ 'step4_requirements' | transloco }}</h3>
-      <textarea class="form-control fixed-textarea mx-auto mb-4 mt-3" style="width: 90%;" [(ngModel)]="requirements"></textarea>
+      <textarea class="form-control fixed-textarea mx-auto mb-4 mt-3" style="width: 90%;" (keyup)="checkInputs()"
+        [(ngModel)]="requirements"></textarea>
+      <div *ngIf="isRequirementsEmpty" class="alert alert-danger text-center mt-3 p-3 w-75 mx-auto">
+        {{ 'step 4.requirements_required' | transloco }}
+      </div>
 
       <h3>{{ 'step4_target' | transloco }}</h3>
-      <textarea class="form-control fixed-textarea mx-auto mb-4 mt-3" style="width: 90%;" [(ngModel)]="targetAudience"></textarea>
-  </div>
+      <textarea class="form-control fixed-textarea mx-auto mb-4 mt-3" style="width: 90%;" (keyup)="checkInputs()" [(ngModel)]="targetAudience"></textarea>
+      <div *ngIf="isTargetAudienceEmpty" class="alert alert-danger text-center mt-3 p-3 w-75 mx-auto">
+        {{ 'step 4.target_audience_required' | transloco }}
+      </div>
+    </div>
 </div>
 
 <div *ngIf="step === 4" class="container-fluid p-4 button mt-1">

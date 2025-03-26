@@ -837,7 +837,27 @@
   "Cart":"Cart",
   "Remove":"Remove",
   "No items yet":"No items yet"
+  },
+
+"warnings": {
+    "fillFirstSection": "Please fill in all first section data before proceeding.",
+    "fillCourseData": "Please fill in all course details before proceeding.",
+    "fillPriceData": "Please enter the price ."
   }
+  ,
+  "step 2": {
+    "course_title_required": "Course title is required"
+  },
+  "step 3": {
+    "category_required": "You must select a category"
+  },
+  "step 4": {
+    "learning_objectives_required": "Learning objectives are required",
+    "requirements_required": "Requirements are required",
+    "target_audience_required": "Target audience is required"
+  }
+
+
 
 
 

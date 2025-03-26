@@ -16,7 +16,7 @@ import { TranslocoPipe, TranslocoService } from '@ngneat/transloco';
 export class CourseHeaderComponent implements OnInit {
   activeLang: string = 'en'; // تعيين اللغة الافتراضية
 
-  
+
   courseObj: any = {};
   originalCourseData: any = {};
   copiedCourse: any = null;
@@ -127,11 +127,43 @@ export class CourseHeaderComponent implements OnInit {
     console.log("Copied Course Data:", this.copiedCourse);
   }
 
+  // nextStep() {
+  //   if (this.currentStep === 0 && !this.isFirstStepValid()) {
+  //     this.warningMessage = 'برجاء ملء جميع بيانات القسم الأول قبل المتابعة.';
+  //     return;
+  //   }
+
+  //   if (this.currentStep === 1 && !this.isStepThreeValid()) {
+  //     this.warningMessage = 'برجاء ملء جميع بيانات الكورس قبل المتابعة.';
+  //     return;
+  //   }
+
+  //   // لو كل شيء تمام، انتقل للخطوة التالية وأزل رسالة التحذير
+  //   this.warningMessage = '';
+  // }
+
+  isStepTwoValid(): boolean {
+    return this.courseData && Object.keys(this.courseData).length > 0 && this.courseData.price > 0;
+  }
 
   nextStep1() {
+    // التحقق من صحة البيانات لكل خطوة قبل المتابعة
     if (this.currentStep === 0 && !this.isFirstStepValid()) {
+      this.warningMessageKey = 'warnings.fillFirstSection';
       return;
     }
+  
+    if (this.currentStep === 1 && !this.isStepThreeValid()) {
+      this.warningMessageKey = 'warnings.fillCourseData';
+      return;
+    }
+  
+    if (this.currentStep === 2 && !this.isStepTwoValid()) {
+      this.warningMessageKey = 'warnings.fillPriceData';
+      return;
+    }
+    // إزالة رسالة التحذير إذا كانت البيانات مكتملة
+    this.warningMessageKey = '';
 
     // حفظ بيانات كل خطوة في courseObj قبل الانتقال للخطوة التالية
     switch (this.currentStep) {
@@ -147,18 +179,38 @@ export class CourseHeaderComponent implements OnInit {
       case 3:
         this.courseObj.coupons = [...this.coupons];
         this.router.navigate(['courseDetails'], { queryParams: { data: JSON.stringify(this.courseObj) } });
-
-        break;
+        return;
     }
 
+    // الانتقال إلى الخطوة التالية فقط إذا لم تكن الأخيرة
     if (this.currentStep < this.stepsRecorded_Educational_Courses.length - 1) {
       this.currentStep++;
     }
-    console.log(this.courseObj)
+
+    console.log(this.courseObj);
   }
+
 
   nextStep2() {
     console.log("Before Saving:", this.courseObj); // لمعرفة البيانات قبل الحفظ
+    if (this.currentStep === 0 && !this.isFirstRowComplete()) {
+      this.warningMessageKey = 'warnings.fillFirstSection';
+      return;
+    }
+  
+    if (this.currentStep === 1 && !this.isStepThreeValid()) {
+      this.warningMessageKey = 'warnings.fillCourseData';
+      return;
+    }
+  
+    if (this.currentStep === 2 && !this.isStepTwoValid()) {
+      this.warningMessageKey = 'warnings.fillPriceData';
+      return;
+    }
+
+    this.warningMessageKey = '';
+
+
 
     if (this.currentStep === 0) {
       this.courseObj.schedules = this.selectedSchedule;  // احفظ بيانات الجدول
@@ -263,6 +315,8 @@ console.log("Course Object:", this.courseObj);
       activeTab: 'video'
     });
   }
+  warningMessageKey: string = '';
+
   isStepThreeValid(): boolean {
     return !!this.course.title &&
            !!this.course.description &&

@@ -176,7 +176,7 @@
                 <div class="row g-2">
                   <div class="col-md-6">
                     <label class="form-label">{{ 'course-header.Price' | transloco }}</label>
-                    <input class="form-control" type="number" [(ngModel)]="courseData.price">
+                    <input class="form-control" type="number" [(ngModel)]="courseData.price" placeholder="">
                 </div>
                     <div class="col-md-6">
                         <label class="form-label">{{ 'course-header.Currency' | transloco }}</label>
@@ -224,14 +224,14 @@
                         <li *ngFor="let feature of activeLang === 'ar' ? option.featuresAr : option.featuresEn">
                           {{ feature }}
                         </li>
-                        
+
                       </ul>
                   </div>
               </div>
               <button class="btn btn-primary mt-3" (click)="saveData()"> {{ 'course-header.Purchase Vouchers' | transloco }}</button>
           </div>
         </div>
-        
+
       </div>
     </div>
   </div>
@@ -287,10 +287,12 @@
         <button class="btn btn-primary mt-3 m-2"
         *ngIf="currentStep < stepsRecorded_Educational_Courses.length - 1"
         (click)="nextStep1()"
-        [disabled]="(currentStep === 0 && !isFirstStepValid()) || (currentStep === 1 && !isStepThreeValid())">
+       >
   {{ 'course-header.Next' | transloco }}
   </button>
-
+  <p *ngIf="warningMessageKey" class="text-danger">
+    {{ warningMessageKey | transloco }}
+  </p>
 
 
 
@@ -329,57 +331,6 @@
         <div *ngIf="currentStep === 0">
           <h3 > {{ 'course-header.Instructor Schedules' | transloco }}</h3>
           <button class="btn btn-success my-2" (click)="addRow()">{{ 'course-header.Add Row' | transloco }}</button>
-
-         <!-- جدول الشاشة الكبيرة -->
-<!-- <div class="d-none d-l-block">
-  <table *ngIf="selectedSchedule.length > 0" class="table table-bordered">
-    <thead class="bg-primary text-white">
-      <tr>
-        <th>Course Title</th>
-        <th>Date</th>
-        <th>Time</th>
-        <th>Lecturer Name</th>
-        <th>Registered #</th>
-        <th>Status</th>
-        <th>Join Link</th>
-        <th>Limit # of Students</th>
-        <th>Actions</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let schedule of selectedSchedule; let i = index">
-        <td>
-          <input type="text" [(ngModel)]="schedule.courseTitle" class="form-control">
-        </td>
-        <td>
-          <input type="date" [(ngModel)]="schedule.date" class="form-control">
-        </td>
-        <td>
-          <input type="time" [(ngModel)]="schedule.time" class="form-control">
-        </td>
-        <td>
-          <input type="text" [(ngModel)]="schedule.lecturerName" class="form-control">
-        </td>
-        <td>
-          <input type="number" [(ngModel)]="schedule.registered" class="form-control">
-        </td>
-        <td>
-          <input type="text" [(ngModel)]="schedule.status" class="form-control">
-        </td>
-        <td>
-          <input type="url" [(ngModel)]="schedule.joinLink" class="form-control">
-        </td>
-        <td>
-          <input type="number" [(ngModel)]="schedule.limit" class="form-control">
-        </td>
-        <td>
-          <button class="btn btn-danger btn-sm" (click)="deleteRow(i)">Delete</button>
-        </td>
-      </tr>
-
-    </tbody>
-  </table>
-</div> -->
 
 
           <!-- جدول الشاشة الصغيرة (حقول إدخال) -->
@@ -576,14 +527,14 @@
                         <li *ngFor="let feature of activeLang === 'ar' ? option.featuresAr : option.featuresEn">
                           {{ feature }}
                         </li>
-                        
+
                       </ul>
                   </div>
               </div>
               <button class="btn btn-primary mt-3" (click)="saveData()"> {{ 'course-header.Purchase Vouchers' | transloco }}</button>
           </div>
         </div>
-        
+
       </div>
     </div>
   </div>
@@ -598,7 +549,7 @@
          <label class="form-label">{{ 'course-header.Coupon code' | transloco }}</label>
          <input type="text" class="form-control" [(ngModel)]="coupon.code">
        </div>
- 
+
        <div class="mb-3">
          <label class="form-label">{{ 'course-header.Coupon Status' | transloco }}</label>
          <select class="form-select" [(ngModel)]="coupon.status">
@@ -606,7 +557,7 @@
            <option>{{ 'course-header.Paid' | transloco }}</option>
          </select>
        </div>
- 
+
        <div class="mb-3">
          <label class="form-label">{{ 'course-header.No of users' | transloco }}</label>
          <select class="form-select" [(ngModel)]="coupon.users">
@@ -614,24 +565,24 @@
            <option>{{ 'course-header.Unlimited' | transloco }}</option>
          </select>
        </div>
- 
+
        <div class="mb-3">
          <label class="form-label">{{ 'course-header.Coupon start date' | transloco }}</label>
          <input type="date" class="form-control" [(ngModel)]="coupon.startDate">
        </div>
- 
+
        <div class="mb-3">
          <label class="form-label">{{ 'course-header.Coupon end date' | transloco }}</label>
          <input type="date" class="form-control" [(ngModel)]="coupon.endDate">
        </div>
- 
+
        <button *ngIf="coupons.length > 1" class="btn btn-danger" (click)="removeCoupon(i)">{{ 'course-header.Remove' | transloco }}</button>
      </div>
- 
+
      <button class="btn btn-primary" (click)="addCoupon()">{{ 'course-header.Add Coupon' | transloco }}</button>
    </div>
- 
- 
+
+
    </div>
 
         <!-- Navigation Buttons -->
@@ -640,10 +591,12 @@
         <button class="btn btn-primary mt-3 m-2"
         *ngIf="currentStep < stepsLive_Streamed_Educational_Courses.length - 1"
         (click)="nextStep2()"
-        [disabled]="!isFirstRowComplete() || (currentStep === 1 && !isStepThreeValid())">
+        >
         {{ 'course-header.Next' | transloco }}
 </button>
-
+<p *ngIf="warningMessageKey" class="text-danger">
+  {{ warningMessageKey | transloco }}
+</p>
 
 
 

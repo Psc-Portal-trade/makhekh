@@ -17,7 +17,7 @@ import { TranslocoPipe } from '@ngneat/transloco';
 
 @Component({
   selector: 'app-about-us-instructor',
-  imports: [ SecondNavComponent, FooterComponent, CoursesComponent,CommonModule, FormsModule,TranslocoPipe],
+  imports: [ SecondNavComponent, CoursesComponent,CommonModule, FormsModule,TranslocoPipe],
   templateUrl: './about-us-instructor.component.html',
   styleUrl: './about-us-instructor.component.css'
 })
