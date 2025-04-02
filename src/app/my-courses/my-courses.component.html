@@ -12,6 +12,9 @@
       <a class="nav-link active" data-bs-toggle="tab" data-bs-target="#all-courses">{{"my-courses.All Courses" | transloco}}</a>
     </li>
     <li class="nav-item">
+      <a class="nav-link" data-bs-toggle="tab" data-bs-target="#tests">{{"my-courses.tests" | transloco}}</a>
+    </li>
+    <li class="nav-item">
       <a class="nav-link" data-bs-toggle="tab" data-bs-target="#wishlist">{{"my-courses.Wishlist" | transloco}}</a>
     </li>
   </ul>
@@ -56,7 +59,24 @@
         </div>
       </div>
     </div>
+    <div id="tests" class="tab-pane fade">
+<div class="container">
+  <div class="row gy-3">
+    <div class="no-items" *ngIf="filteredCourses.length === 0"
+    >
+      <img src="assets/no items yet.jpg" alt="No items yet">
+      <p>{{"my-courses.No items yet" | transloco}}</p>
+    </div>
+  </div>
+</div>
 
+      <div class="container mt-4"  *ngIf="filteredCourses.length > 0">
+
+
+
+<p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sapiente, est?</p>
+      </div>
+    </div>
     <!-- Tab: Wishlist -->
     <div id="wishlist" class="tab-pane fade">
       <div class="no-items" *ngIf="filteredWishlistCourses.length === 0">

@@ -1,0 +1,36 @@
+.container {
+    width:100%;
+  }
+  
+  .border {
+    border: 1px solid black;
+    border-radius: 8px;
+  }
+  .btn-success {
+margin-left: 10px; 
+ }
+
+ .modal-content {
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  max-width: 100%;
+}
+
+.modal{
+  background-color: rgba(0, 0, 0, 0.27);
+}
+.custom-modal {
+  max-width: 70%;
+  width: 70%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh; /* يجعل الـ modal في المنتصف دائمًا */
+}
+
+@media (max-width: 768px) {
+  .custom-modal {
+      max-width: 90%;
+      width: 90%;
+  }
+}

@@ -5,15 +5,52 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { RouterLink, ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router'; // ✅ تأكد من استيراد Router
 import { TranslocoPipe, TranslocoService } from '@ngneat/transloco';
+import { QuizFormComponent } from '../quiz-form/quiz-form.component';
+
+
+
+
 
 @Component({
   selector: 'app-course-header',
   standalone: true,
-  imports: [CommonModule, FormsModule, RouterLink, HttpClientModule,TranslocoPipe],
+  imports: [CommonModule, FormsModule, RouterLink, HttpClientModule,TranslocoPipe,QuizFormComponent],
   templateUrl: './course-header.component.html',
   styleUrls: ['./course-header.component.css']
 })
 export class CourseHeaderComponent implements OnInit {
+  
+  handleQuizData(data: any) {
+    if (this.sections.length > 0 && this.sections[this.sections.length - 1].lectures.length > 0) {
+      const lastLecture = this.sections[this.sections.length - 1].lectures[
+        this.sections[this.sections.length - 1].lectures.length - 1
+      ];
+  
+      // ✅ التأكد من أن البيانات تتوافق مع واجهة Quiz
+      const quizData = {
+        title: data.title || '',
+        duration: data.duration || 0,
+        questions: data.questions?.map((q: any) => ({
+          text: q.text || '',
+          options: q.options ? [...q.options] : [], // ✅ تأكد من أن الخيارات يتم تمريرها
+          correctAnswer: q.correctAnswer || null ,// ✅ إضافة correctAnswer
+          answerExplanation: q.answerExplanation || '' // ✅ إضافة شرح الإجابة
+
+        })) || []
+      };
+  
+      lastLecture.quizzes.push(quizData);
+  
+      // ✅ تحديث `courseObj.curriculum` لضمان تخزين البيانات داخله أيضًا
+      this.courseObj.curriculum = [...this.sections];
+  
+      console.log("✅ تحديث `courseObj` بالمعلومات الجديدة:", this.courseObj);
+    } else {
+      console.warn("⚠️ لا توجد محاضرات متاحة لإضافة الكويز!");
+    }
+  }
+  
+  
   activeLang: string = 'en'; // تعيين اللغة الافتراضية
 
 
@@ -41,11 +78,8 @@ export class CourseHeaderComponent implements OnInit {
 
   sections = [{
     name: '',
-    lectures: [{ title: '', video: null, videoName: '', description: '', activeTab: 'video' }]
+    lectures: [{ title: '', video: null, videoName: '', description: '', activeTab: 'video', quizzes: []as any[]}]
   }];
-
-
-
 
   course = {
     title: '', description: '', language: 'English', level: 'Beginner', category: 'Design', duration: 'Week',
@@ -127,20 +161,6 @@ export class CourseHeaderComponent implements OnInit {
     console.log("Copied Course Data:", this.copiedCourse);
   }
 
-  // nextStep() {
-  //   if (this.currentStep === 0 && !this.isFirstStepValid()) {
-  //     this.warningMessage = 'برجاء ملء جميع بيانات القسم الأول قبل المتابعة.';
-  //     return;
-  //   }
-
-  //   if (this.currentStep === 1 && !this.isStepThreeValid()) {
-  //     this.warningMessage = 'برجاء ملء جميع بيانات الكورس قبل المتابعة.';
-  //     return;
-  //   }
-
-  //   // لو كل شيء تمام، انتقل للخطوة التالية وأزل رسالة التحذير
-  //   this.warningMessage = '';
-  // }
 
   isStepTwoValid(): boolean {
     return this.courseData && Object.keys(this.courseData).length > 0 && this.courseData.price > 0;
@@ -303,7 +323,7 @@ console.log("Course Object:", this.courseObj);
   addSection() {
     this.sections.push({
       name: '',
-      lectures: [{ title: '', video: null, videoName: '', description: '', activeTab: 'video' }]
+      lectures: [{ title: '', video: null, videoName: '', description: '', activeTab: 'video' ,quizzes: []as any[]}]
     });
   }
   addLecture(sectionIndex: number) {
@@ -312,7 +332,8 @@ console.log("Course Object:", this.courseObj);
       video: null,
       videoName: '',
       description: '',
-      activeTab: 'video'
+      activeTab: 'video',
+      quizzes: []
     });
   }
   warningMessageKey: string = '';

@@ -12,7 +12,7 @@ import { TranslocoPipe } from '@ngneat/transloco';
 @Component({
   selector: 'app-my-courses',
   standalone: true,
-  imports: [CommonModule, FormsModule,SecondNavComponent,TranslocoPipe],
+  imports: [CommonModule, FormsModule, SecondNavComponent, TranslocoPipe],
   templateUrl: './my-courses.component.html',
   styleUrls: ['./my-courses.component.css']
 })
