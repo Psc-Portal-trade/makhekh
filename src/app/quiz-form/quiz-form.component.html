@@ -1,62 +1,80 @@
 <button class="btn btn-primary" (click)="openModal()">
-    Create New Quiz
+    {{ 'quiz.create_new' | transloco }}
 </button>
 
 <!-- Modal for Creating Quiz -->
 <div class="modal fade" id="quizModal" tabindex="-1" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-dialog modal-dialog-centered" style="max-width: 100%;">
         <div class="modal-content p-4">
             <button type="button" class="btn-close position-absolute top-0 end-0 m-3" (click)="closeModal()"></button>
 
-            <h3 class="text-center fw-bold mb-3">Create Quiz</h3>
-
+            <h3 class="text-center fw-bold mb-3">{{ 'quiz.create' | transloco }}</h3>
 
             <form [formGroup]="quizForm" (ngSubmit)="onSubmit()">
                 <!-- Quiz Title -->
                 <div class="mb-3">
-                    <label for="title" class="form-label">Quiz Title</label>
-                    <input type="text" id="title" class="form-control" formControlName="title" required>
+                    <label for="title" class="form-label">{{ 'quiz.title' | transloco }}</label>
+                    <input type="text" id="title" class="form-control" formControlName="title">
+                    <div class="text-danger mb-2" *ngIf="quizForm.get('title')?.invalid && quizForm.get('title')?.touched">
+                        {{ 'quiz.errors.title' | transloco }}
+                    </div>
                 </div>
+
                 <!-- Quiz Duration -->
                 <div class="mb-3">
-                    <label for="duration" class="form-label">Duration (minutes)</label>
-                    <input type="number" id="duration" class="form-control" formControlName="duration" required>
+                    <label for="duration" class="form-label">{{ 'quiz.duration' | transloco }}</label>
+                    <input type="number" id="duration" class="form-control" formControlName="duration">
+                    <div class="text-danger mb-2" *ngIf="quizForm.get('duration')?.invalid && quizForm.get('duration')?.touched">
+                        {{ 'quiz.errors.duration' | transloco }}
+                    </div>
                 </div>
 
                 <!-- Questions List -->
                 <div formArrayName="questions">
                     <div *ngFor="let question of questions.controls; let i = index" [formGroupName]="i"
-                        class="border p-3 mb-2">
-                        <label class="form-label">Question {{ i + 1 }}</label>
-                        <input type="text" class="form-control mb-2" formControlName="text"
-                            placeholder="Enter question">
+                        class="border p-3 mb-2 rounded shadow-sm bg-light">
+                        <label class="form-label">{{ 'quiz.question' | transloco }} {{ i + 1 }}</label>
+                        <input type="text" class="form-control mt-2" formControlName="text" placeholder="{{ 'quiz.enter_question' | transloco }}">
+                        <div class="text-danger mb-3" *ngIf="question.get('text')?.invalid && question.get('text')?.touched">
+                            {{ 'quiz.errors.question' | transloco }}
+                        </div>
 
-                        <label class="form-label">Options</label>
-                        <!-- خيارات السؤال -->
+                        <label class="form-label mt-3">{{ 'quiz.options' | transloco }}</label>
                         <div formArrayName="options">
                             <div *ngFor="let option of getOptions(i).controls; let j = index" [formGroupName]="j">
-                                <input type="text" class="form-control mb-2" [formControlName]="'optionValue'"
-                                    placeholder="Option {{ j + 1 }}">
+                                <input type="text " class="form-control mb-2" [formControlName]="'optionValue'"
+                                    placeholder="{{ 'quiz.option' | transloco }} {{ j + 1 }}">
+                                <div class="text-danger mb-3" *ngIf="option.get('optionValue')?.invalid && option.get('optionValue')?.touched">
+                                    {{ 'quiz.errors.option' | transloco }}
+                                </div>
                             </div>
                         </div>
 
+                        <label class="form-label mt-3">
+                            {{ 'quiz.correct_answer' | transloco }}
+                            <span class="text-danger">({{ 'quiz.enter_exact' | transloco }})</span>
+                        </label>
+                        <input type="text" class="form-control mt-2" formControlName="correctAnswer" placeholder="{{ 'quiz.correct_answer_placeholder' | transloco }}">
+                        <div class="text-danger mb-3" *ngIf="question.get('correctAnswer')?.invalid && question.get('correctAnswer')?.touched">
+                            {{ 'quiz.errors.correct_answer' | transloco }}
+                        </div>
 
-                        <label class="form-label">Correct Answer</label>       
-                        <input type="text" class="form-control mb-2" formControlName="correctAnswer"
-                            placeholder="Correct answer">
+                        <label class="form-label mt-3">{{ 'quiz.answer_explanation' | transloco }}</label>
+                        <textarea class="form-control mb-2" formControlName="answerExplanation" placeholder="{{ 'quiz.enter_explanation' | transloco }}"></textarea>
 
-                            <label class="form-label">Answer Explanation</label>
-                            <textarea class="form-control mb-2" formControlName="answerExplanation" placeholder="Enter explanation"></textarea>
-                            
-                        <button type="button" class="btn btn-danger btn-sm mt-2" (click)="removeQuestion(i)">Remove
-                            Question</button>
+                        <button type="button" class="btn btn-danger btn-sm mt-2" (click)="removeQuestion(i)">
+                            {{ 'quiz.remove_question' | transloco }}
+                        </button>
                     </div>
                 </div>
-                <button type="button" class="btn btn-primary mt-3" (click)="addQuestion()">Add Question</button>
-                <button type="submit" class="btn btn-success mt-3" [disabled]="!isFormValid">
-                    Save Quiz
-                </button>
 
+                <button type="button" class="btn btn-primary mt-3" (click)="addQuestion()">
+                    {{ 'quiz.add_question' | transloco }}
+                </button>
+                <button type="submit" class="btn btn-success mt-3">
+                    {{ 'quiz.save' | transloco }}
+                </button>
+                            
             </form>
         </div>
     </div>

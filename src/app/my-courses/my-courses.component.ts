@@ -115,5 +115,31 @@ export class MyCoursesComponent implements OnInit {
     return Math.ceil(this.filteredCourses.length / this.itemsPerPage);
   }
 
+  startQuiz(lecture: any, sIndex: number, lIndex: number) {
+    const attempts = this.getQuizAttempts(sIndex, lIndex);
+    const updatedAttempts = attempts + 1;
+
+    // تخزين المحاولات باستخدام sectionIndex و lectureIndex
+    localStorage.setItem(`quiz_attempts_${sIndex}_${lIndex}`, updatedAttempts.toString());
+
+    // تحديث الواجهة بعد تغيير عدد المحاولات
+    // يمكنك إضافة منطق لبدء الاختبار هنا (مثل الانتقال إلى صفحة أخرى أو عرض الامتحان)
+  }
+
+
+  getQuizAttempts(sIndex: number, lIndex: number): number {
+    // استرجاع المحاولات من localStorage باستخدام مفتاح فريد
+    const attempts = localStorage.getItem(`quiz_attempts_${sIndex}_${lIndex}`);
+    return attempts ? parseInt(attempts, 10) : 0; // إذا لم تكن هناك محاولات مسجلة، نعيد 0
+  }
+
+
+  viewResult() {
+    // من هنا يمكنك إضافة منطق لعرض نتيجة الامتحان
+    console.log('Viewing results...');
+    // localStorage.clear();
+
+  }
+
 
 }

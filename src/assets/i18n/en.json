@@ -777,8 +777,7 @@
   "No items yet":"No items yet",
   "complete":"complete",
   "Add to Cart":"Add to Cart",
-  "Remove from Cart":"Remove from Cart",
-  "tests":"Tests"
+  "Remove from Cart":"Remove from Cart"
 
 
   },
@@ -859,7 +858,35 @@
   }
 
 
-
+  ,
+    "quiz": {
+      "create_new": "Create New Quiz",
+      "create": "Create Quiz",
+      "title": "Quiz Title",
+      "duration": "Duration (minutes)",
+      "question": "Question",
+      "options": "Options",
+      "option": "Option",
+      "correct_answer": "Correct Answer",
+      "enter_exact": "Please enter the exact answer",
+      "correct_answer_placeholder": "Correct answer",
+      "answer_explanation": "Answer Explanation",
+      "enter_question": "Enter question",
+      "enter_explanation": "Enter explanation",
+      "add_question": "Add Question",
+      "remove_question": "Remove Question",
+      "save": "Save Quiz",
+      "errors": {
+        "title": "Please enter a quiz title.",
+        "duration": "Please enter a valid duration.",
+        "question": "Please enter a question.",
+        "option": "Please enter an option.",
+        "correct_answer": "Please enter the correct answer."
+      }
+    },
+    "successMessage2":"You created your quiz successfully!"
+  
+  
 
 
 

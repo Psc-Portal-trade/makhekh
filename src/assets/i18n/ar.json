@@ -786,8 +786,7 @@
     "No items yet": "لا توجد عناصر بعد",
     "complete": "مكتمل",
     "Add to Cart": "أضف إلى السلة",
-    "Remove from Cart": "إزالة من السلة",
-    "tests":"الاختبارات"
+    "Remove from Cart": "إزالة من السلة"
   },
 
 
@@ -834,7 +833,7 @@
   "Write your review...":"اكتب رأيك..."
   },
   "successMessage": "تم إرسال تقييمك بنجاح!",
-
+  
   "wishlist":{
 
   "Course":"دورة",
@@ -867,7 +866,34 @@
     "learning_objectives_required": "يجب إدخال أهداف التعلم",
     "requirements_required": "يجب إدخال المتطلبات",
     "target_audience_required": "يجب إدخال الجمهور المستهدف"
-  }
+  },
+  
+    "quiz": {
+      "create_new": "إنشاء اختبار جديد",
+      "create": "إنشاء اختبار",
+      "title": "عنوان الاختبار",
+      "duration": "المدة (بالدقائق)",
+      "question": "السؤال",
+      "options": "الخيارات",
+      "option": "الخيار",
+      "correct_answer": "الإجابة الصحيحة",
+      "enter_exact": "يرجى إدخال الإجابة بطريقة دقيقة",
+      "correct_answer_placeholder": "الإجابة الصحيحة",
+      "answer_explanation": "تفسير الإجابة",
+      "enter_question": "أدخل السؤال",
+      "enter_explanation": "أدخل التفسير",
+      "add_question": "إضافة سؤال",
+      "remove_question": "حذف السؤال",
+      "save": "حفظ الاختبار",
+      "errors": {
+        "title": "يرجى إدخال عنوان الاختبار.",
+        "duration": "يرجى إدخال مدة صحيحة.",
+        "question": "يرجى إدخال سؤال.",
+        "option": "يرجى إدخال خيار.",
+        "correct_answer": "يرجى إدخال الإجابة الصحيحة."
+      }
+    },
+    "successMessage2":"لقد قمت بإنشاء الاختبار بنجاح!"
 
 
 

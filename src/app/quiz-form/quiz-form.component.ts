@@ -1,23 +1,23 @@
 import { CommonModule } from '@angular/common';
 import { Component, EventEmitter, Output } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+import { TranslocoPipe, TranslocoService } from '@ngneat/transloco';
 
 @Component({
   selector: 'app-quiz-form',
   standalone: true,
-  imports: [FormsModule, CommonModule, ReactiveFormsModule],
+  imports: [FormsModule, CommonModule, ReactiveFormsModule,TranslocoPipe],
   templateUrl: './quiz-form.component.html',
   styleUrls: ['./quiz-form.component.css']
 })
 export class QuizFormComponent {
 
   @Output() quizData = new EventEmitter<string>(); // إنشاء حدث لإرسال البيانات
-
-
   quizForm: FormGroup;
   isFormValid = false; // متغير لمراقبة صلاحية النموذج
+  successMessage = ''; // لتخزين رسالة النجاح
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder,private translocoService: TranslocoService) {
     this.quizForm = this.fb.group({
       title: ['', Validators.required],
       duration: [10, [Validators.required, Validators.min(1)]],
@@ -40,7 +40,6 @@ export class QuizFormComponent {
     return this.questions.at(index).get('options') as FormArray;
   }
   
-
   // ✅ إضافة سؤال جديد
   addQuestion() {
     const optionsArray = this.fb.array([
@@ -65,7 +64,6 @@ export class QuizFormComponent {
     console.log("📌 تمت إضافة سؤال جديد، البيانات الحالية:", this.quizForm.value);
   }
   
-  
   // ✅ حذف سؤال معين
   removeQuestion(index: number) {
     this.questions.removeAt(index);
@@ -81,23 +79,37 @@ export class QuizFormComponent {
   this.questions.length > 0;
 
   }
-
   // ✅ عند إرسال النموذج
   onSubmit() {
-    if (this.isFormValid) {
-      console.log("Quiz Data:", this.quizForm.value);
-      this.quizData.emit(this.quizForm.value); // إرسال بيانات الكويز للأب
-      this.closeModal();
-      alert("this quiz submitted succesfully")
-      
+    if (this.quizForm.invalid) {
+      this.quizForm.markAllAsTouched(); // 🔥 جعل جميع الحقول "تم لمسها" لإظهار الأخطاء
+      return;
     }
-  }
+  
+    console.log("✅ Quiz Data:", this.quizForm.value);
+    this.quizData.emit(this.quizForm.value);
+  
+    this.closeModal();
+   
+    }
+
   openModal() {
+    this.resetForm(); // إعادة ضبط النموذج قبل فتح المودال
     const modal = document.getElementById('quizModal');
     if (modal) {
       modal.classList.add('show');
       modal.style.display = 'block';
     }
+  }
+
+  resetForm() {
+    this.quizForm = this.fb.group({
+      title: ['', Validators.required],
+      duration: [10, [Validators.required, Validators.min(1)]],
+      questions: this.fb.array([]) // تصفير الأسئلة أيضًا
+    });
+  
+    this.isFormValid = false; // إعادة تعيين صلاحية الفورم
   }
   
   closeModal() {
@@ -107,5 +119,5 @@ export class QuizFormComponent {
       modal.style.display = 'none';
     }
   }
-
+  
 }

@@ -34,3 +34,18 @@ margin-left: 10px;
       width: 90%;
   }
 }
+
+.modal{
+  padding: 0px 60px 0px 60px;
+}
+
+.modal-content {
+  max-height: 100vh; /* تعيين أقصى ارتفاع بنسبة 80% من ارتفاع الشاشة */
+  overflow-y: auto; /* السماح بالتمرير عند الحاجة */
+}
+
+
+:dir(rtl) .btn-success {
+  margin-right: 10px; 
+}
+  

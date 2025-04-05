@@ -164,3 +164,15 @@
 .nav-link{
   cursor: pointer;
 }
+
+
+.search-box {
+  width: 100%;
+  margin: 0 auto 15px; /* ضبط الهوامش */
+  display: block;
+}
+
+.no-items {
+  text-align: center;
+  margin-top: 20px;
+}
