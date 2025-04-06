@@ -1,0 +1,50 @@
+.card-header {
+  background-color: #f1f1f1;
+  font-weight: bold;
+}
+
+.card-body {
+  background-color: #f9f9f9;
+  padding: 15px;
+}
+
+h5 {
+  color: #007bff;
+}
+
+ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+ul li {
+  margin-bottom: 8px;
+}
+
+input[type="radio"] {
+  margin-right: 10px;
+}
+
+/* الباجينيشن */
+.pagination-controls {
+  display: flex;
+  gap: 8px;
+  margin-top: 20px;
+}
+
+.pagination-controls button {
+  width: 40px;
+  height: 40px;
+  border: none;
+  border-radius: 6px;
+  background-color: #e0e0e0;
+  color: #000;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.pagination-controls button.active {
+  background-color: #007bff; /* اللون الأزرق */
+  color: #fff;
+}

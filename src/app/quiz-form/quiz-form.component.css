@@ -1,13 +1,13 @@
 .container {
     width:100%;
   }
-  
+
   .border {
     border: 1px solid black;
     border-radius: 8px;
   }
   .btn-success {
-margin-left: 10px; 
+margin-left: 10px;
  }
 
  .modal-content {
@@ -46,6 +46,13 @@ margin-left: 10px;
 
 
 :dir(rtl) .btn-success {
-  margin-right: 10px; 
+  margin-right: 10px;
 }
-  
+
+
+
+.transperant{
+  background-color: transparent;
+  color: transparent;
+  opacity: 0;
+}

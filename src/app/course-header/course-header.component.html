@@ -61,8 +61,17 @@
                 <div *ngIf="lecture.activeTab === 'description'" class="mt-2 mb-2">
                   <textarea [(ngModel)]="lecture.description"  [attr.placeholder]="'course-header.Enter video description' | transloco" class="form-control"></textarea>
                 </div>
-                  <app-quiz-form (quizData)="handleQuizData($event)"></app-quiz-form>
-                <hr/>
+                <button class="btn btn-outline-primary btn-sm mt-2" (click)="openQuizModal(i, j)">
+                  {{ 'quiz.create_new' | transloco }}
+                </button>
+
+                <!-- <app-quiz-form
+                [sectionIndex]="i"
+                [lectureIndex]="j"
+                (quizData)="handleQuizData($event)">
+              </app-quiz-form> -->
+
+              <hr/>
               </div>
 
               <button class="btn btn-sm btn-secondary" (click)="addLecture(i)"> {{ 'course-header.+ Add Lecture' | transloco }}</button>
@@ -70,6 +79,13 @@
           </div>
 
           <button class="btn btn-primary" (click)="addSection()">{{ 'course-header.+ Add Section' | transloco }}</button>
+          <app-quiz-form
+  *ngIf="isQuizModalOpen"
+  [sectionIndex]="selectedSectionIndex"
+  [lectureIndex]="selectedLectureIndex"
+  (quizData)="handleQuizData($event)">
+</app-quiz-form>
+
         </div>
 
 
@@ -291,10 +307,10 @@
        >
   {{ 'course-header.Next' | transloco }}
   </button>
-  <p *ngIf="warningMessageKey" class="text-danger">  
+  <p *ngIf="warningMessageKey" class="text-danger">
     {{ warningMessageKey | transloco }}
   </p>
-  
+
 
 
   <button class="btn btn-success mt-3 m-2" *ngIf="currentStep === stepsRecorded_Educational_Courses.length - 1" (click)="nextStep1()" routerLink="courseDetails">
@@ -595,7 +611,7 @@
         >
         {{ 'course-header.Next' | transloco }}
 </button>
-<p *ngIf="warningMessageKey" class="text-danger">  
+<p *ngIf="warningMessageKey" class="text-danger">
   {{ warningMessageKey | transloco }}
 </p>
 

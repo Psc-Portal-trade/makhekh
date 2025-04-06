@@ -44,6 +44,7 @@ import { MarkitingCoursesComponent } from './explore-courses-home/courses-home/m
 import { CourseInformationComponent } from './course-information/course-information.component';
 import { CourseInformationsComponent } from './course-informations/course-informations.component';
 import { ViewOverviewComponent } from './view-overview/view-overview.component';
+import { ExamComponent } from './exam/exam.component';
 
 export const routes: Routes = [
   {path:"", redirectTo:"home",pathMatch:"full"},
@@ -66,6 +67,7 @@ export const routes: Routes = [
   {path:"course-Information",component:CourseInformationComponent},
   {path:"course-Informations",component:CourseInformationsComponent},
   {path:"course-content",component:ViewOverviewComponent},
+  {path:"exam",component:ExamComponent},
 
 
 
@@ -321,8 +323,11 @@ export const routes: Routes = [
 {path:"my-courses/student-profile",redirectTo:"student-profile",pathMatch:"full"},
 {path:"my-courses/my-courses",redirectTo:"my-courses",pathMatch:"full"},
 {path:"my-courses/course-content",redirectTo:"course-content",pathMatch:"full"},
+{path:"my-courses/exam",redirectTo:"exam",pathMatch:"full"},
 
+//  *********** exam ***********
 
+{path:"exam/my-courses",redirectTo:"my-courses",pathMatch:"full"},
 
 
 //  *********** course-Information ***********

@@ -19,38 +19,65 @@ import { QuizFormComponent } from '../quiz-form/quiz-form.component';
   styleUrls: ['./course-header.component.css']
 })
 export class CourseHeaderComponent implements OnInit {
-  
-  handleQuizData(data: any) {
-    if (this.sections.length > 0 && this.sections[this.sections.length - 1].lectures.length > 0) {
-      const lastLecture = this.sections[this.sections.length - 1].lectures[
-        this.sections[this.sections.length - 1].lectures.length - 1
-      ];
-  
-      // ✅ التأكد من أن البيانات تتوافق مع واجهة Quiz
-      const quizData = {
-        title: data.title || '',
-        duration: data.duration || 0,
-        questions: data.questions?.map((q: any) => ({
-          text: q.text || '',
-          options: q.options ? [...q.options] : [], // ✅ تأكد من أن الخيارات يتم تمريرها
-          correctAnswer: q.correctAnswer || null ,// ✅ إضافة correctAnswer
-          answerExplanation: q.answerExplanation || '' // ✅ إضافة شرح الإجابة
+  isQuizModalOpen = false;
+  selectedSectionIndex: number = 0;
+  selectedLectureIndex: number = 0;
+  openQuizModal(sectionIndex: number, lectureIndex: number) {
+    this.selectedSectionIndex = sectionIndex;
+    this.selectedLectureIndex = lectureIndex;
+    this.isQuizModalOpen = true;
 
-        })) || []
-      };
-  
-      lastLecture.quizzes.push(quizData);
-  
-      // ✅ تحديث `courseObj.curriculum` لضمان تخزين البيانات داخله أيضًا
-      this.courseObj.curriculum = [...this.sections];
-  
-      console.log("✅ تحديث `courseObj` بالمعلومات الجديدة:", this.courseObj);
-    } else {
-      console.warn("⚠️ لا توجد محاضرات متاحة لإضافة الكويز!");
-    }
+    // فتح المودال يدويًا
+    setTimeout(() => {
+      const modal = document.getElementById('quizModal');
+      if (modal) {
+        modal.classList.add('show');
+        modal.style.display = 'block';
+      }
+    });
   }
-  
-  
+
+
+
+
+  handleQuizData(payload: { data: any, sectionIndex: number, lectureIndex: number }) {
+  const { data, sectionIndex, lectureIndex } = payload;
+
+  const targetLecture = this.sections[sectionIndex].lectures[lectureIndex];
+
+  const quizData = {
+    title: data.title || '',
+    duration: data.duration || 0,
+    questions: data.questions?.map((q: any) => ({
+      text: q.text || '',
+      options: q.options ? [...q.options] : [],
+      correctAnswer: q.correctAnswer || null,
+      answerExplanation: q.answerExplanation || ''
+    })) || []
+  };
+
+  targetLecture.quizzes.push(quizData);
+  this.courseObj.curriculum = [...this.sections];
+
+  console.log("✅ تم إضافة كويز جديد في:");
+  console.log("Section Index:", sectionIndex);
+  console.log("Lecture Index:", lectureIndex);
+  console.log("Quiz Data:", quizData);
+
+  this.closeQuizModal();
+}
+
+closeQuizModal() {
+  this.isQuizModalOpen = false;
+  const modal = document.getElementById('quizModal');
+  if (modal) {
+    modal.classList.remove('show');
+    modal.style.display = 'none';
+  }
+}
+
+
+
   activeLang: string = 'en'; // تعيين اللغة الافتراضية
 
 
@@ -172,12 +199,12 @@ export class CourseHeaderComponent implements OnInit {
       this.warningMessageKey = 'warnings.fillFirstSection';
       return;
     }
-  
+
     if (this.currentStep === 1 && !this.isStepThreeValid()) {
       this.warningMessageKey = 'warnings.fillCourseData';
       return;
     }
-  
+
     if (this.currentStep === 2 && !this.isStepTwoValid()) {
       this.warningMessageKey = 'warnings.fillPriceData';
       return;
@@ -217,12 +244,12 @@ export class CourseHeaderComponent implements OnInit {
       this.warningMessageKey = 'warnings.fillFirstSection';
       return;
     }
-  
+
     if (this.currentStep === 1 && !this.isStepThreeValid()) {
       this.warningMessageKey = 'warnings.fillCourseData';
       return;
     }
-  
+
     if (this.currentStep === 2 && !this.isStepTwoValid()) {
       this.warningMessageKey = 'warnings.fillPriceData';
       return;

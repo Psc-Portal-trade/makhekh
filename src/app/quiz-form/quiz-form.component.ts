@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { TranslocoPipe, TranslocoService } from '@ngneat/transloco';
 
@@ -12,7 +12,10 @@ import { TranslocoPipe, TranslocoService } from '@ngneat/transloco';
 })
 export class QuizFormComponent {
 
-  @Output() quizData = new EventEmitter<string>(); // إنشاء حدث لإرسال البيانات
+  @Output() quizData = new EventEmitter<{ data: any, sectionIndex: number, lectureIndex: number }>();
+  @Input() sectionIndex!: number;
+  @Input() lectureIndex!: number;
+
   quizForm: FormGroup;
   isFormValid = false; // متغير لمراقبة صلاحية النموذج
   successMessage = ''; // لتخزين رسالة النجاح
@@ -39,7 +42,7 @@ export class QuizFormComponent {
   getOptions(index: number): FormArray {
     return this.questions.at(index).get('options') as FormArray;
   }
-  
+
   // ✅ إضافة سؤال جديد
   addQuestion() {
     const optionsArray = this.fb.array([
@@ -48,7 +51,7 @@ export class QuizFormComponent {
       this.fb.group({ optionValue: ['', Validators.required] }),
       this.fb.group({ optionValue: ['', Validators.required] })
     ]);
-  
+
     const questionGroup = this.fb.group({
       text: ['', Validators.required],
       options: optionsArray,
@@ -56,14 +59,14 @@ export class QuizFormComponent {
       answerExplanation: [''] // ✅ إضافة خانة شرح الإجابة
 
     });
-  
+
     this.questions.push(questionGroup);
     this.quizForm.updateValueAndValidity();
     this.checkFormValidity();
-  
+
     console.log("📌 تمت إضافة سؤال جديد، البيانات الحالية:", this.quizForm.value);
   }
-  
+
   // ✅ حذف سؤال معين
   removeQuestion(index: number) {
     this.questions.removeAt(index);
@@ -82,16 +85,23 @@ export class QuizFormComponent {
   // ✅ عند إرسال النموذج
   onSubmit() {
     if (this.quizForm.invalid) {
-      this.quizForm.markAllAsTouched(); // 🔥 جعل جميع الحقول "تم لمسها" لإظهار الأخطاء
+      this.quizForm.markAllAsTouched();
       return;
     }
-  
-    console.log("✅ Quiz Data:", this.quizForm.value);
-    this.quizData.emit(this.quizForm.value);
-  
+
+    const quiz = this.quizForm.value;
+    console.log("✅ Quiz Data:", quiz);
+
+    this.quizData.emit({
+      data: quiz,
+      sectionIndex: this.sectionIndex,
+      lectureIndex: this.lectureIndex
+    });
+
     this.closeModal();
-   
-    }
+  }
+
+
 
   openModal() {
     this.resetForm(); // إعادة ضبط النموذج قبل فتح المودال
@@ -108,10 +118,10 @@ export class QuizFormComponent {
       duration: [10, [Validators.required, Validators.min(1)]],
       questions: this.fb.array([]) // تصفير الأسئلة أيضًا
     });
-  
+
     this.isFormValid = false; // إعادة تعيين صلاحية الفورم
   }
-  
+
   closeModal() {
     const modal = document.getElementById('quizModal');
     if (modal) {
@@ -119,5 +129,5 @@ export class QuizFormComponent {
       modal.style.display = 'none';
     }
   }
-  
+
 }

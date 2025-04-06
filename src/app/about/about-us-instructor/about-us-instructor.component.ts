@@ -335,8 +335,59 @@ export class AboutUsInstructorComponent  implements OnInit{
                     "activeTab": "video",
                     "duration":"10 min",
                     "quizzes":[ {
-                      "duration": 10,
+                      "duration": 60,
                       "questions":[{
+
+                        "answerExplanation":"wwww",
+                        "correctAnswer":"w",
+                        "options":[
+                          {optionValue: 'w'},
+                          {optionValue: 'w'},
+                          {optionValue: 'w'},
+                          {optionValue: 'q'}],
+                          "text":"www",
+                      },
+                      {
+                        "answerExplanation":"qqq",
+                        "correctAnswer":"q",
+                        "options":[
+                          {optionValue: 'w'},
+                          {optionValue: 'w'},
+                          {optionValue: 'w'},
+                          {optionValue: 'q'}],
+                          "text":"qq",
+                      },
+                      {
+                        "answerExplanation":"qqq",
+                        "correctAnswer":"q",
+                        "options":[
+                          {optionValue: 'w'},
+                          {optionValue: 'w'},
+                          {optionValue: 'w'},
+                          {optionValue: 'q'}],
+                          "text":"qq",
+                      },
+                      {
+                        "answerExplanation":"wwww",
+                        "correctAnswer":"w",
+                        "options":[
+                          {optionValue: 'w'},
+                          {optionValue: 'w'},
+                          {optionValue: 'w'},
+                          {optionValue: 'q'}],
+                          "text":"ww",
+                      },
+                      {
+                        "answerExplanation":"qqq",
+                        "correctAnswer":"q",
+                        "options":[
+                          {optionValue: 'w'},
+                          {optionValue: 'w'},
+                          {optionValue: 'w'},
+                          {optionValue: 'q'}],
+                          "text":"qq",
+                      },
+                      {
                         "answerExplanation":"qqq",
                         "correctAnswer":"q",
                         "options":[
@@ -365,7 +416,107 @@ export class AboutUsInstructorComponent  implements OnInit{
                           {optionValue: 'w'},
                           {optionValue: 'q'}],
                           "text":"qq",
-                      }]
+                      },
+                      {
+                        "answerExplanation":"qqq",
+                        "correctAnswer":"q",
+                        "options":[
+                          {optionValue: 'w'},
+                          {optionValue: 'w'},
+                          {optionValue: 'w'},
+                          {optionValue: 'q'}],
+                          "text":"qq",
+                      },
+                      {
+                        "answerExplanation":"qqq",
+                        "correctAnswer":"q",
+                        "options":[
+                          {optionValue: 'w'},
+                          {optionValue: 'w'},
+                          {optionValue: 'w'},
+                          {optionValue: 'q'}],
+                          "text":"qq",
+                      },
+                      {
+                        "answerExplanation":"qqq",
+                        "correctAnswer":"q",
+                        "options":[
+                          {optionValue: 'w'},
+                          {optionValue: 'w'},
+                          {optionValue: 'w'},
+                          {optionValue: 'q'}],
+                          "text":"qq",
+                      },
+                      {
+                        "answerExplanation":"qqq",
+                        "correctAnswer":"q",
+                        "options":[
+                          {optionValue: 'w'},
+                          {optionValue: 'w'},
+                          {optionValue: 'w'},
+                          {optionValue: 'q'}],
+                          "text":"qq",
+                      },
+                      {
+                        "answerExplanation":"qqq",
+                        "correctAnswer":"q",
+                        "options":[
+                          {optionValue: 'w'},
+                          {optionValue: 'w'},
+                          {optionValue: 'w'},
+                          {optionValue: 'q'}],
+                          "text":"qq",
+                      },
+                      {
+                        "answerExplanation":"qqq",
+                        "correctAnswer":"q",
+                        "options":[
+                          {optionValue: 'w'},
+                          {optionValue: 'w'},
+                          {optionValue: 'w'},
+                          {optionValue: 'q'}],
+                          "text":"qq",
+                      }
+                    ,{
+                      "answerExplanation":"qqq",
+                      "correctAnswer":"q",
+                      "options":[
+                        {optionValue: 'w'},
+                        {optionValue: 'w'},
+                        {optionValue: 'w'},
+                        {optionValue: 'q'}],
+                        "text":"qq",
+                    },
+                    {
+                      "answerExplanation":"qqq",
+                      "correctAnswer":"q",
+                      "options":[
+                        {optionValue: 'w'},
+                        {optionValue: 'w'},
+                        {optionValue: 'w'},
+                        {optionValue: 'q'}],
+                        "text":"qq",
+                    }
+                  ,{
+                    "answerExplanation":"qqq",
+                    "correctAnswer":"q",
+                    "options":[
+                      {optionValue: 'w'},
+                      {optionValue: 'w'},
+                      {optionValue: 'w'},
+                      {optionValue: 'q'}],
+                      "text":"qq",
+                  },
+                  {
+                    "answerExplanation":"qqq",
+                    "correctAnswer":"q",
+                    "options":[
+                      {optionValue: 'w'},
+                      {optionValue: 'w'},
+                      {optionValue: 'w'},
+                      {optionValue: 'q'}],
+                      "text":"qq",
+                  }]
 
                     },]
                 },
@@ -377,8 +528,59 @@ export class AboutUsInstructorComponent  implements OnInit{
                     "activeTab": "video",
                     "duration":"14 min",
                     "quizzes":[ {
-                      "duration": 10,
+                      "duration": 60,
                       "questions":[{
+
+                        "answerExplanation":"wwww",
+                        "correctAnswer":"w",
+                        "options":[
+                          {optionValue: 'w'},
+                          {optionValue: 'w'},
+                          {optionValue: 'w'},
+                          {optionValue: 'q'}],
+                          "text":"www",
+                      },
+                      {
+                        "answerExplanation":"qqq",
+                        "correctAnswer":"q",
+                        "options":[
+                          {optionValue: 'w'},
+                          {optionValue: 'w'},
+                          {optionValue: 'w'},
+                          {optionValue: 'q'}],
+                          "text":"qq",
+                      },
+                      {
+                        "answerExplanation":"qqq",
+                        "correctAnswer":"q",
+                        "options":[
+                          {optionValue: 'w'},
+                          {optionValue: 'w'},
+                          {optionValue: 'w'},
+                          {optionValue: 'q'}],
+                          "text":"qq",
+                      },
+                      {
+                        "answerExplanation":"wwww",
+                        "correctAnswer":"w",
+                        "options":[
+                          {optionValue: 'w'},
+                          {optionValue: 'w'},
+                          {optionValue: 'w'},
+                          {optionValue: 'q'}],
+                          "text":"ww",
+                      },
+                      {
+                        "answerExplanation":"qqq",
+                        "correctAnswer":"q",
+                        "options":[
+                          {optionValue: 'w'},
+                          {optionValue: 'w'},
+                          {optionValue: 'w'},
+                          {optionValue: 'q'}],
+                          "text":"qq",
+                      },
+                      {
                         "answerExplanation":"qqq",
                         "correctAnswer":"q",
                         "options":[
@@ -407,7 +609,107 @@ export class AboutUsInstructorComponent  implements OnInit{
                           {optionValue: 'w'},
                           {optionValue: 'q'}],
                           "text":"qq",
-                      }]
+                      },
+                      {
+                        "answerExplanation":"qqq",
+                        "correctAnswer":"q",
+                        "options":[
+                          {optionValue: 'w'},
+                          {optionValue: 'w'},
+                          {optionValue: 'w'},
+                          {optionValue: 'q'}],
+                          "text":"qq",
+                      },
+                      {
+                        "answerExplanation":"qqq",
+                        "correctAnswer":"q",
+                        "options":[
+                          {optionValue: 'w'},
+                          {optionValue: 'w'},
+                          {optionValue: 'w'},
+                          {optionValue: 'q'}],
+                          "text":"qq",
+                      },
+                      {
+                        "answerExplanation":"qqq",
+                        "correctAnswer":"q",
+                        "options":[
+                          {optionValue: 'w'},
+                          {optionValue: 'w'},
+                          {optionValue: 'w'},
+                          {optionValue: 'q'}],
+                          "text":"qq",
+                      },
+                      {
+                        "answerExplanation":"qqq",
+                        "correctAnswer":"q",
+                        "options":[
+                          {optionValue: 'w'},
+                          {optionValue: 'w'},
+                          {optionValue: 'w'},
+                          {optionValue: 'q'}],
+                          "text":"qq",
+                      },
+                      {
+                        "answerExplanation":"qqq",
+                        "correctAnswer":"q",
+                        "options":[
+                          {optionValue: 'w'},
+                          {optionValue: 'w'},
+                          {optionValue: 'w'},
+                          {optionValue: 'q'}],
+                          "text":"qq",
+                      },
+                      {
+                        "answerExplanation":"qqq",
+                        "correctAnswer":"q",
+                        "options":[
+                          {optionValue: 'w'},
+                          {optionValue: 'w'},
+                          {optionValue: 'w'},
+                          {optionValue: 'q'}],
+                          "text":"qq",
+                      }
+                    ,{
+                      "answerExplanation":"qqq",
+                      "correctAnswer":"q",
+                      "options":[
+                        {optionValue: 'w'},
+                        {optionValue: 'w'},
+                        {optionValue: 'w'},
+                        {optionValue: 'q'}],
+                        "text":"qq",
+                    },
+                    {
+                      "answerExplanation":"qqq",
+                      "correctAnswer":"q",
+                      "options":[
+                        {optionValue: 'w'},
+                        {optionValue: 'w'},
+                        {optionValue: 'w'},
+                        {optionValue: 'q'}],
+                        "text":"qq",
+                    }
+                  ,{
+                    "answerExplanation":"qqq",
+                    "correctAnswer":"q",
+                    "options":[
+                      {optionValue: 'w'},
+                      {optionValue: 'w'},
+                      {optionValue: 'w'},
+                      {optionValue: 'q'}],
+                      "text":"qq",
+                  },
+                  {
+                    "answerExplanation":"qqq",
+                    "correctAnswer":"q",
+                    "options":[
+                      {optionValue: 'w'},
+                      {optionValue: 'w'},
+                      {optionValue: 'w'},
+                      {optionValue: 'q'}],
+                      "text":"qq",
+                  }]
 
                     },]
                 },

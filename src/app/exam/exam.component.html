@@ -1,0 +1,78 @@
+<nav class="navbar navbar-expand-lg navbar-primary bg-primary text-white mb-5">
+  <div class="container-fluid d-flex justify-content-between">
+    <a class="btn btn-outline-light" routerLink="my-courses">
+       {{ 'course-header.Back to Dashboard' | transloco }}
+    </a>
+    <span class="navbar-brand text-white">exam title</span>
+    <!-- عرض العدادات الزمنية -->
+    <div class="text-white">
+      <span>{{ minutes | number: '2.0' }}:{{ seconds | number: '2.0' }}</span>
+    </div>
+  </div>
+</nav>
+
+
+<div class="container my-4">
+  <h2 class="text-primary mb-3"> Exam Section </h2>
+
+  <!-- عرض الأسئلة -->
+  <div *ngIf="quiz">
+    <h4>{{ quiz.name }}</h4>
+
+    <!-- عرض الأسئلة في الصفحة الحالية مع رقم السؤال -->
+    <div *ngFor="let question of paginatedQuestions; let qIndex = index">
+     <div class="d-flex justify-content-between">
+      <h6 class="fw-bold">{{ currentPage * 10 - 10 + qIndex + 1 }}. {{ question.text }}</h6> <!-- عرض رقم السؤال -->
+      <!-- زرار unique -->
+   <!-- زرار unique -->
+   <button
+   class="btn btn-sm"
+   [ngClass]="{
+     'btn-warning text-white': question.isUnique,
+     'btn-outline-primary': !question.isUnique
+   }"
+   (click)="toggleUnique(question)"
+ >
+   <i class="fa fa-flag me-1"></i>
+   {{ question.isUnique ? 'This unique question is added' : 'Unique' }}
+ </button>
+     </div>
+      <ul class="mx-0">
+        <li *ngFor="let option of question.options">
+          <input type="radio"
+                 [name]="'question-' + question.text + '-' + qIndex"
+                 [id]="'option-' + question.text + '-' + option.optionValue"
+                 [value]="option.optionValue" />
+          <label [for]="'option-' + question.text + '-' + option.optionValue" class="mx-2">{{ option.optionValue }}</label>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Pagination controls -->
+    <div *ngIf="totalPages > 1" class="pagination-controls">
+      <button *ngFor="let page of [].constructor(totalPages); let i = index"
+              (click)="goToPage(i + 1)" [class.active]="i + 1 === currentPage">
+        {{ i + 1 }}
+      </button>
+    </div>
+
+    <!-- Submit Button - يظهر فقط في آخر صفحة -->
+    <div *ngIf="currentPage === totalPages">
+      <button class="btn btn-success mt-5" (click)="submitExam()">Submit Exam</button>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="showExamResult" class="mt-5 alert alert-info">
+  <h4 class="text-success">✅ Exam Submitted Successfully!</h4>
+  <p><strong>Answered Questions:</strong> {{ answeredQuestionsCount }}</p>
+  <p><strong>Unanswered Questions:</strong> {{ unansweredQuestionsCount }}</p>
+  <p><strong>Time Spent:</strong> {{ examDurationUsed }}</p>
+  <p><strong>Score Percentage:</strong> {{ scorePercentage | number: '1.0-2' }}%</p>
+  <p><strong>Status:</strong>
+    <span [ngClass]="{ 'text-success': isPassed, 'text-danger': !isPassed }">
+      {{ isPassed ? 'Passed' : 'Failed' }}
+    </span>
+  </p>
+  <p><strong>Exam Attempts:</strong> {{ attempts }}</p>
+</div>
