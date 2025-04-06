@@ -65,7 +65,7 @@
 
 
 
-    <div id="tests" class="tab-pane fade">
+   <div id="tests" class="tab-pane fade">
       <input *ngIf="courses.length > 0" type="text" class="form-control mb-3"
              placeholder="Search for a course..." [(ngModel)]="searchQuery" />
 
@@ -127,9 +127,18 @@
                                               <span>{{ getQuizAttempts(sIndex, lIndex) }} / 3  <span class="text-danger">Trials</span></span>
                                             </div>
                                             <div>
+
+
+
+
                                               <!-- زر البداية أو عرض النتيجة بناءً على عدد المحاولات -->
-                                              <button *ngIf="getQuizAttempts(sIndex, lIndex) < 3" class="btn btn-primary" (click)="startQuiz(lecture, sIndex, lIndex)">Start</button>
-                                              <button *ngIf="getQuizAttempts(sIndex, lIndex) >= 3" class="btn btn-secondary" (click)="viewResult()">Watch Result</button>
+                                              <button *ngIf="getQuizAttempts(sIndex, lIndex) < 3"
+        class="btn btn-primary"
+        (click)="startQuiz(lecture, sIndex, lIndex, course)">
+  Start
+</button>
+
+                                                                                    <button *ngIf="getQuizAttempts(sIndex, lIndex) >= 3" class="btn btn-secondary" (click)="viewResult()">Watch Result</button>
                                             </div>
                                           </div>
                                         </div>

@@ -5,14 +5,14 @@ import { CourseService } from '../services/course.service';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { SecondNavComponent } from '../navbar/second-nav/second-nav.component';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { CourseInformationService } from '../services/course-information.service';
 import { TranslocoPipe } from '@ngneat/transloco';
 
 @Component({
   selector: 'app-my-courses',
   standalone: true,
-  imports: [CommonModule, FormsModule, SecondNavComponent, TranslocoPipe],
+  imports: [CommonModule, FormsModule, SecondNavComponent, TranslocoPipe,RouterLink],
   templateUrl: './my-courses.component.html',
   styleUrls: ['./my-courses.component.css']
 })
@@ -114,16 +114,25 @@ export class MyCoursesComponent implements OnInit {
   get totalPages() {
     return Math.ceil(this.filteredCourses.length / this.itemsPerPage);
   }
-
-  startQuiz(lecture: any, sIndex: number, lIndex: number) {
+  startQuiz(lecture: any, sIndex: number, lIndex: number, course: any) {
     const attempts = this.getQuizAttempts(sIndex, lIndex);
     const updatedAttempts = attempts + 1;
 
-    // تخزين المحاولات باستخدام sectionIndex و lectureIndex
     localStorage.setItem(`quiz_attempts_${sIndex}_${lIndex}`, updatedAttempts.toString());
 
-    // تحديث الواجهة بعد تغيير عدد المحاولات
-    // يمكنك إضافة منطق لبدء الاختبار هنا (مثل الانتقال إلى صفحة أخرى أو عرض الامتحان)
+    const quiz = lecture.quizzes[lIndex];
+
+    if (quiz) {
+      this.router.navigate(['/exam'], {
+        state: {
+          quiz: quiz,
+          quizIndex: lIndex,
+          courseTitle: course.courseTitle // مثلاً لو حبيت تبعت اسم الكورس معاه
+        }
+      });
+    } else {
+      console.warn('No quiz found at this index!');
+    }
   }
 
 
