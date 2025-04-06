@@ -342,8 +342,8 @@ export class AboutUsInstructorComponent  implements OnInit{
                         "correctAnswer":"w",
                         "options":[
                           {optionValue: 'w'},
-                          {optionValue: 'w'},
-                          {optionValue: 'w'},
+                          {optionValue: 's'},
+                          {optionValue: 'v'},
                           {optionValue: 'q'}],
                           "text":"www",
                       },
@@ -352,8 +352,8 @@ export class AboutUsInstructorComponent  implements OnInit{
                         "correctAnswer":"q",
                         "options":[
                           {optionValue: 'w'},
-                          {optionValue: 'w'},
-                          {optionValue: 'w'},
+                          {optionValue: 'v'},
+                          {optionValue: 's'},
                           {optionValue: 'q'}],
                           "text":"qq",
                       },
@@ -362,8 +362,8 @@ export class AboutUsInstructorComponent  implements OnInit{
                         "correctAnswer":"q",
                         "options":[
                           {optionValue: 'w'},
-                          {optionValue: 'w'},
-                          {optionValue: 'w'},
+                          {optionValue: 'v'},
+                          {optionValue: 's'},
                           {optionValue: 'q'}],
                           "text":"qq",
                       },
@@ -372,8 +372,8 @@ export class AboutUsInstructorComponent  implements OnInit{
                         "correctAnswer":"w",
                         "options":[
                           {optionValue: 'w'},
-                          {optionValue: 'w'},
-                          {optionValue: 'w'},
+                          {optionValue: 'v'},
+                          {optionValue: 's'},
                           {optionValue: 'q'}],
                           "text":"ww",
                       },
@@ -382,8 +382,8 @@ export class AboutUsInstructorComponent  implements OnInit{
                         "correctAnswer":"q",
                         "options":[
                           {optionValue: 'w'},
-                          {optionValue: 'w'},
-                          {optionValue: 'w'},
+                          {optionValue: 's'},
+                          {optionValue: 'v'},
                           {optionValue: 'q'}],
                           "text":"qq",
                       },
@@ -392,8 +392,8 @@ export class AboutUsInstructorComponent  implements OnInit{
                         "correctAnswer":"q",
                         "options":[
                           {optionValue: 'w'},
-                          {optionValue: 'w'},
-                          {optionValue: 'w'},
+                          {optionValue: 'v'},
+                          {optionValue: 's'},
                           {optionValue: 'q'}],
                           "text":"qq",
                       },
@@ -402,8 +402,8 @@ export class AboutUsInstructorComponent  implements OnInit{
                         "correctAnswer":"q",
                         "options":[
                           {optionValue: 'w'},
-                          {optionValue: 'w'},
-                          {optionValue: 'w'},
+                          {optionValue: 'v'},
+                          {optionValue: 's'},
                           {optionValue: 'q'}],
                           "text":"qq",
                       },
@@ -412,8 +412,8 @@ export class AboutUsInstructorComponent  implements OnInit{
                         "correctAnswer":"q",
                         "options":[
                           {optionValue: 'w'},
-                          {optionValue: 'w'},
-                          {optionValue: 'w'},
+                          {optionValue: 'v'},
+                          {optionValue: 's'},
                           {optionValue: 'q'}],
                           "text":"qq",
                       },
@@ -422,8 +422,8 @@ export class AboutUsInstructorComponent  implements OnInit{
                         "correctAnswer":"q",
                         "options":[
                           {optionValue: 'w'},
-                          {optionValue: 'w'},
-                          {optionValue: 'w'},
+                          {optionValue: 'v'},
+                          {optionValue: 's'},
                           {optionValue: 'q'}],
                           "text":"qq",
                       },
@@ -432,8 +432,8 @@ export class AboutUsInstructorComponent  implements OnInit{
                         "correctAnswer":"q",
                         "options":[
                           {optionValue: 'w'},
-                          {optionValue: 'w'},
-                          {optionValue: 'w'},
+                          {optionValue: 'v'},
+                          {optionValue: 's'},
                           {optionValue: 'q'}],
                           "text":"qq",
                       },
@@ -442,8 +442,8 @@ export class AboutUsInstructorComponent  implements OnInit{
                         "correctAnswer":"q",
                         "options":[
                           {optionValue: 'w'},
-                          {optionValue: 'w'},
-                          {optionValue: 'w'},
+                          {optionValue: 'v'},
+                          {optionValue: 's'},
                           {optionValue: 'q'}],
                           "text":"qq",
                       },
@@ -452,8 +452,8 @@ export class AboutUsInstructorComponent  implements OnInit{
                         "correctAnswer":"q",
                         "options":[
                           {optionValue: 'w'},
-                          {optionValue: 'w'},
-                          {optionValue: 'w'},
+                          {optionValue: 'v'},
+                          {optionValue: 'ss'},
                           {optionValue: 'q'}],
                           "text":"qq",
                       },
@@ -462,8 +462,8 @@ export class AboutUsInstructorComponent  implements OnInit{
                         "correctAnswer":"q",
                         "options":[
                           {optionValue: 'w'},
-                          {optionValue: 'w'},
-                          {optionValue: 'w'},
+                          {optionValue: 'v'},
+                          {optionValue: 'vs'},
                           {optionValue: 'q'}],
                           "text":"qq",
                       },
@@ -472,8 +472,8 @@ export class AboutUsInstructorComponent  implements OnInit{
                         "correctAnswer":"q",
                         "options":[
                           {optionValue: 'w'},
-                          {optionValue: 'w'},
-                          {optionValue: 'w'},
+                          {optionValue: 's'},
+                          {optionValue: 'v'},
                           {optionValue: 'q'}],
                           "text":"qq",
                       }
@@ -482,8 +482,8 @@ export class AboutUsInstructorComponent  implements OnInit{
                       "correctAnswer":"q",
                       "options":[
                         {optionValue: 'w'},
-                        {optionValue: 'w'},
-                        {optionValue: 'w'},
+                        {optionValue: 'v'},
+                        {optionValue: 's'},
                         {optionValue: 'q'}],
                         "text":"qq",
                     },
@@ -492,8 +492,8 @@ export class AboutUsInstructorComponent  implements OnInit{
                       "correctAnswer":"q",
                       "options":[
                         {optionValue: 'w'},
-                        {optionValue: 'w'},
-                        {optionValue: 'w'},
+                        {optionValue: 'v'},
+                        {optionValue: 's'},
                         {optionValue: 'q'}],
                         "text":"qq",
                     }
@@ -502,8 +502,8 @@ export class AboutUsInstructorComponent  implements OnInit{
                     "correctAnswer":"q",
                     "options":[
                       {optionValue: 'w'},
-                      {optionValue: 'w'},
-                      {optionValue: 'w'},
+                      {optionValue: 'v'},
+                      {optionValue: 's'},
                       {optionValue: 'q'}],
                       "text":"qq",
                   },
@@ -512,8 +512,8 @@ export class AboutUsInstructorComponent  implements OnInit{
                     "correctAnswer":"q",
                     "options":[
                       {optionValue: 'w'},
-                      {optionValue: 'w'},
-                      {optionValue: 'w'},
+                      {optionValue: 'v'},
+                      {optionValue: 's'},
                       {optionValue: 'q'}],
                       "text":"qq",
                   }]
@@ -535,8 +535,8 @@ export class AboutUsInstructorComponent  implements OnInit{
                         "correctAnswer":"w",
                         "options":[
                           {optionValue: 'w'},
-                          {optionValue: 'w'},
-                          {optionValue: 'w'},
+                          {optionValue: 's'},
+                          {optionValue: 'v'},
                           {optionValue: 'q'}],
                           "text":"www",
                       },
@@ -545,8 +545,8 @@ export class AboutUsInstructorComponent  implements OnInit{
                         "correctAnswer":"q",
                         "options":[
                           {optionValue: 'w'},
-                          {optionValue: 'w'},
-                          {optionValue: 'w'},
+                          {optionValue: 'v'},
+                          {optionValue: 's'},
                           {optionValue: 'q'}],
                           "text":"qq",
                       },
@@ -555,8 +555,8 @@ export class AboutUsInstructorComponent  implements OnInit{
                         "correctAnswer":"q",
                         "options":[
                           {optionValue: 'w'},
-                          {optionValue: 'w'},
-                          {optionValue: 'w'},
+                          {optionValue: 'v'},
+                          {optionValue: 's'},
                           {optionValue: 'q'}],
                           "text":"qq",
                       },
@@ -565,8 +565,8 @@ export class AboutUsInstructorComponent  implements OnInit{
                         "correctAnswer":"w",
                         "options":[
                           {optionValue: 'w'},
-                          {optionValue: 'w'},
-                          {optionValue: 'w'},
+                          {optionValue: 'v'},
+                          {optionValue: 's'},
                           {optionValue: 'q'}],
                           "text":"ww",
                       },
@@ -575,8 +575,8 @@ export class AboutUsInstructorComponent  implements OnInit{
                         "correctAnswer":"q",
                         "options":[
                           {optionValue: 'w'},
-                          {optionValue: 'w'},
-                          {optionValue: 'w'},
+                          {optionValue: 's'},
+                          {optionValue: 'v'},
                           {optionValue: 'q'}],
                           "text":"qq",
                       },
@@ -585,8 +585,8 @@ export class AboutUsInstructorComponent  implements OnInit{
                         "correctAnswer":"q",
                         "options":[
                           {optionValue: 'w'},
-                          {optionValue: 'w'},
-                          {optionValue: 'w'},
+                          {optionValue: 'v'},
+                          {optionValue: 's'},
                           {optionValue: 'q'}],
                           "text":"qq",
                       },
@@ -595,8 +595,8 @@ export class AboutUsInstructorComponent  implements OnInit{
                         "correctAnswer":"q",
                         "options":[
                           {optionValue: 'w'},
-                          {optionValue: 'w'},
-                          {optionValue: 'w'},
+                          {optionValue: 'v'},
+                          {optionValue: 's'},
                           {optionValue: 'q'}],
                           "text":"qq",
                       },
@@ -605,8 +605,8 @@ export class AboutUsInstructorComponent  implements OnInit{
                         "correctAnswer":"q",
                         "options":[
                           {optionValue: 'w'},
-                          {optionValue: 'w'},
-                          {optionValue: 'w'},
+                          {optionValue: 'v'},
+                          {optionValue: 's'},
                           {optionValue: 'q'}],
                           "text":"qq",
                       },
@@ -615,8 +615,8 @@ export class AboutUsInstructorComponent  implements OnInit{
                         "correctAnswer":"q",
                         "options":[
                           {optionValue: 'w'},
-                          {optionValue: 'w'},
-                          {optionValue: 'w'},
+                          {optionValue: 'v'},
+                          {optionValue: 's'},
                           {optionValue: 'q'}],
                           "text":"qq",
                       },
@@ -625,8 +625,8 @@ export class AboutUsInstructorComponent  implements OnInit{
                         "correctAnswer":"q",
                         "options":[
                           {optionValue: 'w'},
-                          {optionValue: 'w'},
-                          {optionValue: 'w'},
+                          {optionValue: 'v'},
+                          {optionValue: 's'},
                           {optionValue: 'q'}],
                           "text":"qq",
                       },
@@ -635,8 +635,8 @@ export class AboutUsInstructorComponent  implements OnInit{
                         "correctAnswer":"q",
                         "options":[
                           {optionValue: 'w'},
-                          {optionValue: 'w'},
-                          {optionValue: 'w'},
+                          {optionValue: 'v'},
+                          {optionValue: 's'},
                           {optionValue: 'q'}],
                           "text":"qq",
                       },
@@ -645,8 +645,8 @@ export class AboutUsInstructorComponent  implements OnInit{
                         "correctAnswer":"q",
                         "options":[
                           {optionValue: 'w'},
-                          {optionValue: 'w'},
-                          {optionValue: 'w'},
+                          {optionValue: 'v'},
+                          {optionValue: 'ss'},
                           {optionValue: 'q'}],
                           "text":"qq",
                       },
@@ -655,8 +655,8 @@ export class AboutUsInstructorComponent  implements OnInit{
                         "correctAnswer":"q",
                         "options":[
                           {optionValue: 'w'},
-                          {optionValue: 'w'},
-                          {optionValue: 'w'},
+                          {optionValue: 'v'},
+                          {optionValue: 'vs'},
                           {optionValue: 'q'}],
                           "text":"qq",
                       },
@@ -665,8 +665,8 @@ export class AboutUsInstructorComponent  implements OnInit{
                         "correctAnswer":"q",
                         "options":[
                           {optionValue: 'w'},
-                          {optionValue: 'w'},
-                          {optionValue: 'w'},
+                          {optionValue: 's'},
+                          {optionValue: 'v'},
                           {optionValue: 'q'}],
                           "text":"qq",
                       }
@@ -675,8 +675,8 @@ export class AboutUsInstructorComponent  implements OnInit{
                       "correctAnswer":"q",
                       "options":[
                         {optionValue: 'w'},
-                        {optionValue: 'w'},
-                        {optionValue: 'w'},
+                        {optionValue: 'v'},
+                        {optionValue: 's'},
                         {optionValue: 'q'}],
                         "text":"qq",
                     },
@@ -685,8 +685,8 @@ export class AboutUsInstructorComponent  implements OnInit{
                       "correctAnswer":"q",
                       "options":[
                         {optionValue: 'w'},
-                        {optionValue: 'w'},
-                        {optionValue: 'w'},
+                        {optionValue: 'v'},
+                        {optionValue: 's'},
                         {optionValue: 'q'}],
                         "text":"qq",
                     }
@@ -695,8 +695,8 @@ export class AboutUsInstructorComponent  implements OnInit{
                     "correctAnswer":"q",
                     "options":[
                       {optionValue: 'w'},
-                      {optionValue: 'w'},
-                      {optionValue: 'w'},
+                      {optionValue: 'v'},
+                      {optionValue: 's'},
                       {optionValue: 'q'}],
                       "text":"qq",
                   },
@@ -705,53 +705,11 @@ export class AboutUsInstructorComponent  implements OnInit{
                     "correctAnswer":"q",
                     "options":[
                       {optionValue: 'w'},
-                      {optionValue: 'w'},
-                      {optionValue: 'w'},
+                      {optionValue: 'v'},
+                      {optionValue: 's'},
                       {optionValue: 'q'}],
                       "text":"qq",
                   }]
-
-                    },]
-                },
-                {
-                    "title": "www",
-                    "video": {},
-                    "videoName": "[EgyBest].Al.Ghasala.2020.WEB-DL.720p.x264.mp4",
-                    "description": "qq",
-                    "activeTab": "video",
-                    "duration":"17 min",
-                    "quizzes":[ {
-                      "duration": 10,
-                      "questions":[{
-                        "answerExplanation":"qqq",
-                        "correctAnswer":"q",
-                        "options":[
-                          {optionValue: 'w'},
-                          {optionValue: 'w'},
-                          {optionValue: 'w'},
-                          {optionValue: 'q'}],
-                          "text":"qq",
-                      },
-                      {
-                        "answerExplanation":"qqq",
-                        "correctAnswer":"q",
-                        "options":[
-                          {optionValue: 'w'},
-                          {optionValue: 'w'},
-                          {optionValue: 'w'},
-                          {optionValue: 'q'}],
-                          "text":"qq",
-                      },
-                      {
-                        "answerExplanation":"qqq",
-                        "correctAnswer":"q",
-                        "options":[
-                          {optionValue: 'w'},
-                          {optionValue: 'w'},
-                          {optionValue: 'w'},
-                          {optionValue: 'q'}],
-                          "text":"qq",
-                      }]
 
                     },]
                 }

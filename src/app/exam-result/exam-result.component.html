@@ -1,0 +1,51 @@
+<app-second-nav></app-second-nav>
+
+<div class="container my-4">
+  <h2 class="text-center text-primary mb-4">Exam Result Details</h2>
+
+  <div *ngFor="let q of paginatedQuestions; let i = index" class="mb-4">
+    <p><strong>Q{{ (currentPage - 1) * questionsPerPage + i + 1 }}:</strong> {{ q.text }}</p>
+
+    <div *ngFor="let option of q.options; let j = index" class="mb-1">
+      <span
+        [ngClass]="{
+          'text-success fw-bold': option.optionValue === q.correctAnswer,
+          'text-danger fw-bold': option.optionValue === q.studentAnswer && q.studentAnswer !== q.correctAnswer
+        }"
+      >
+        {{ getOptionLetter(j) }}) {{ option.optionValue }}
+      </span>
+
+      <i
+        *ngIf="option.optionValue === q.studentAnswer"
+        class="fa-solid fa-user text-secondary ms-2"
+      ></i>
+    </div>
+
+    <!-- Explanation -->
+    <div class="mt-1">
+      <span class="text-muted"><strong>Explanation:</strong> {{ q.answerExplanation }}</span>
+    </div>
+
+    <!-- لو الطالب لم يجب -->
+    <div *ngIf="!q.studentAnswer" class="text-danger mt-2">
+      ❌ Didn't answer
+    </div>
+
+    <hr />
+  </div>
+
+  <!-- Pagination Controls -->
+  <div *ngIf="totalPages > 1" class="text-center mt-4">
+    <button 
+      *ngFor="let page of [].constructor(totalPages); let i = index"
+      class="btn btn-sm btn-outline-primary mx-1"
+      [class.active]="currentPage === i + 1"
+      (click)="goToPage(i + 1)"
+    >
+      {{ i + 1 }}
+    </button>
+  </div>
+</div>
+
+

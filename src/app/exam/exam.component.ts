@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit, OnDestroy } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { TranslocoPipe } from '@ngneat/transloco';
 
@@ -14,7 +15,7 @@ interface Question {
 @Component({
   selector: 'app-exam',
   standalone: true,
-  imports: [CommonModule, RouterModule, TranslocoPipe],
+  imports: [CommonModule, FormsModule, RouterModule, TranslocoPipe],
   templateUrl: './exam.component.html',
   styleUrls: ['./exam.component.css']
 })
@@ -48,13 +49,17 @@ export class ExamComponent implements OnInit, OnDestroy {
     console.log('ExamComponent: Checking state:', state);
 
     if (state && state.quiz && state.quizIndex !== undefined) {
-      this.quiz = state.quiz;
+      this.quiz = Array.isArray(state.quiz) ? state.quiz[0] : state.quiz;
       this.quizIndex = state.quizIndex;
+
       console.log('Quiz data received:', this.quiz);
       console.log('Quiz Index received:', this.quizIndex);
 
+      // ✅ تهيئة خصائص كل سؤال
       this.quiz.questions.forEach((q: any, index: number) => {
         q.id = index + 1;
+        q.isUnique = q.isUnique ?? false;
+        q.studentAnswer = null;
       });
 
       this.totalPages = Math.ceil(this.quiz.questions.length / this.questionsPerPage);
@@ -67,19 +72,21 @@ export class ExamComponent implements OnInit, OnDestroy {
     }
   }
 
+  onOptionSelected(question: any, selectedValue: string) {
+    question.studentAnswer = selectedValue;
+    console.log(`Answer selected for Q${question.id}: ${selectedValue}`);
+  }
+  
 
   // دالة لتحديث الأسئلة المعروضة بناءً على الصفحة الحالية
   paginateQuestions() {
     if (this.quiz?.questions?.length) {
       const startIndex = (this.currentPage - 1) * this.questionsPerPage;
       const endIndex = startIndex + this.questionsPerPage;
-      this.paginatedQuestions = this.quiz.questions.slice(startIndex, endIndex).map((q:Question) => ({
-        ...q,
-        isUnique: q.isUnique ?? false
-      }));
+      this.paginatedQuestions = this.quiz.questions.slice(startIndex, endIndex); // لا نستخدم map هنا
     }
   }
-
+  
   // دالة للتنقل بين الصفحات
   goToPage(page: number) {
     if (page >= 1 && page <= this.totalPages) {
@@ -90,48 +97,47 @@ export class ExamComponent implements OnInit, OnDestroy {
 
   // دالة لتقديم الامتحان عند الضغط على "Submit"
   submitExam() {
-    // إيقاف التايمر
     clearInterval(this.timer);
-
-    // نحسب الوقت المستخدم
-    const totalDuration = this.quiz.duration * 60; // بالسكوند
+  
+    const totalDuration = this.quiz.duration * 60;
     const usedDuration = totalDuration - this.timeLeft;
     const usedMinutes = Math.floor(usedDuration / 60);
     const usedSeconds = usedDuration % 60;
     this.examDurationUsed = `${usedMinutes} min : ${usedSeconds} sec`;
-
-    // نحسب عدد الأسئلة المُجابة
-    const allQuestions = this.quiz.questions;
+  
     let answeredCount = 0;
-
-    allQuestions.forEach((question: any) => {
-      const selectedOption = document.querySelector(
-        `input[name="question-${question.text}-${question.id}"]:checked`
-      );
-      if (selectedOption) answeredCount++;
+  
+    this.quiz.questions.forEach((question: any, index: number) => {
+      if (question.studentAnswer !== null && question.studentAnswer !== undefined) {
+        answeredCount++;
+        console.log(`✅ Answer selected for Q${index + 1}: ${question.studentAnswer}`);
+      }
     });
-
+  
     this.answeredQuestionsCount = answeredCount;
-    this.unansweredQuestionsCount = allQuestions.length - answeredCount;
-
-    // نحسب نسبة النجاح (مثلاً كل سؤال بدرجة واحدة)
-    this.scorePercentage = (answeredCount / allQuestions.length) * 100;
+    this.unansweredQuestionsCount = this.quiz.questions.length - answeredCount;
+    this.scorePercentage = (answeredCount / this.quiz.questions.length) * 100;
     this.isPassed = this.scorePercentage >= 50;
-
-    // عدد المحاولات من localStorage
+  
     const storedAttempts = localStorage.getItem('examAttempts');
     if (storedAttempts) {
       this.attempts = Number(storedAttempts) + 1;
     }
     localStorage.setItem('examAttempts', this.attempts.toString());
-
-    // نعرض النتيجة
+  
     this.showExamResult = true;
-
-    console.log('Exam submitted!');
+  
+    console.log('✅ Quiz after submit with student answers:', this.quiz.questions);
   }
+  
 
-
+  goToExamResult() {
+    this.router.navigate(['/exam-result'], {
+      state: { quiz: this.quiz }
+    });
+    
+  }
+  
   ngOnDestroy(): void {
     if (this.timer) {
       clearInterval(this.timer);

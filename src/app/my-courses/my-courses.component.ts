@@ -120,18 +120,18 @@ export class MyCoursesComponent implements OnInit {
 
     localStorage.setItem(`quiz_attempts_${sIndex}_${lIndex}`, updatedAttempts.toString());
 
-    const quiz = lecture.quizzes[lIndex];
+    const quiz = lecture.quizzes;
 
     if (quiz) {
       this.router.navigate(['/exam'], {
         state: {
           quiz: quiz,
           quizIndex: lIndex,
-          courseTitle: course.courseTitle // مثلاً لو حبيت تبعت اسم الكورس معاه
+          courseTitle: course.courseTitle
         }
       });
     } else {
-      console.warn('No quiz found at this index!');
+      console.warn('No quiz found!');
     }
   }
 
@@ -146,7 +146,7 @@ export class MyCoursesComponent implements OnInit {
   viewResult() {
     // من هنا يمكنك إضافة منطق لعرض نتيجة الامتحان
     console.log('Viewing results...');
-    // localStorage.clear();
+    localStorage.clear();
 
   }
 

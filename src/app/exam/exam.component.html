@@ -1,9 +1,9 @@
-<nav class="navbar navbar-expand-lg navbar-primary bg-primary text-white mb-5">
+<nav  class="navbar navbar-expand-lg navbar-primary bg-primary text-white mb-5">
   <div class="container-fluid d-flex justify-content-between">
     <a class="btn btn-outline-light" routerLink="my-courses">
        {{ 'course-header.Back to Dashboard' | transloco }}
     </a>
-    <span class="navbar-brand text-white">exam title</span>
+    <span class="navbar-brand text-white">{{quiz.courseTitle}}</span>
     <!-- عرض العدادات الزمنية -->
     <div class="text-white">
       <span>{{ minutes | number: '2.0' }}:{{ seconds | number: '2.0' }}</span>
@@ -12,11 +12,11 @@
 </nav>
 
 
-<div class="container my-4">
+<div class="container my-4" *ngIf="!showExamResult">
   <h2 class="text-primary mb-3"> Exam Section </h2>
 
   <!-- عرض الأسئلة -->
-  <div *ngIf="quiz">
+  <div *ngIf="quiz && !showExamResult">
     <h4>{{ quiz.name }}</h4>
 
     <!-- عرض الأسئلة في الصفحة الحالية مع رقم السؤال -->
@@ -38,13 +38,28 @@
  </button>
      </div>
       <ul class="mx-0">
-        <li *ngFor="let option of question.options">
+        <!-- <li *ngFor="let option of question.options">
           <input type="radio"
                  [name]="'question-' + question.text + '-' + qIndex"
                  [id]="'option-' + question.text + '-' + option.optionValue"
                  [value]="option.optionValue" />
           <label [for]="'option-' + question.text + '-' + option.optionValue" class="mx-2">{{ option.optionValue }}</label>
+        </li> -->
+        <li *ngFor="let option of question.options">
+          <label class="mx-2 d-block">
+            <input
+  type="radio"
+  [name]="'question-' + question.id"
+  [value]="option.optionValue"
+  [(ngModel)]="question.studentAnswer"
+/>
+
+            {{ option.optionValue }}
+          </label>
         </li>
+        
+        
+
       </ul>
     </div>
 
@@ -63,8 +78,8 @@
   </div>
 </div>
 
-<div *ngIf="showExamResult" class="mt-5 alert alert-info">
-  <h4 class="text-success">✅ Exam Submitted Successfully!</h4>
+<div *ngIf="showExamResult" class="alert alert-info  mb-5">
+  <h3 class="text-success mt-2 mb-4">✅ Exam Submitted Successfully!</h3>
   <p><strong>Answered Questions:</strong> {{ answeredQuestionsCount }}</p>
   <p><strong>Unanswered Questions:</strong> {{ unansweredQuestionsCount }}</p>
   <p><strong>Time Spent:</strong> {{ examDurationUsed }}</p>
@@ -74,5 +89,10 @@
       {{ isPassed ? 'Passed' : 'Failed' }}
     </span>
   </p>
-  <p><strong>Exam Attempts:</strong> {{ attempts }}</p>
+  <button class="btn btn-outline-primary mt-3"
+        (click)="goToExamResult()">
+  🎯 Watch Result
+</button>
+
+  <!-- <p><strong>Exam Attempts:</strong> {{ attempts }}</p> -->
 </div>

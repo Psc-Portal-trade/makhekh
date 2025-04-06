@@ -12,9 +12,14 @@ import { TranslocoPipe, TranslocoService } from '@ngneat/transloco';
 })
 export class QuizFormComponent {
 
-  @Output() quizData = new EventEmitter<{ data: any, sectionIndex: number, lectureIndex: number }>();
+  @Output() quizData = new EventEmitter<{ data: any, sectionIndex: number, lectureIndex: number}>();
+
   @Input() sectionIndex!: number;
   @Input() lectureIndex!: number;
+
+  @Output() quizDatalive = new EventEmitter<{ data: any,rowIndex:number}>();
+  @Input() rowIndex!: number;
+ 
 
   quizForm: FormGroup;
   isFormValid = false; // متغير لمراقبة صلاحية النموذج
@@ -97,6 +102,11 @@ export class QuizFormComponent {
       sectionIndex: this.sectionIndex,
       lectureIndex: this.lectureIndex
     });
+    
+    this.quizDatalive.emit({
+      data: quiz,
+      rowIndex: this.rowIndex,
+    });
 
     this.closeModal();
   }
@@ -128,6 +138,7 @@ export class QuizFormComponent {
       modal.classList.remove('show');
       modal.style.display = 'none';
     }
-  }
+    this.resetForm();
 
+  }
 }

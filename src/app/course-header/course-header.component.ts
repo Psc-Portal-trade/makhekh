@@ -7,10 +7,6 @@ import { Router } from '@angular/router'; // ✅ تأكد من استيراد Ro
 import { TranslocoPipe, TranslocoService } from '@ngneat/transloco';
 import { QuizFormComponent } from '../quiz-form/quiz-form.component';
 
-
-
-
-
 @Component({
   selector: 'app-course-header',
   standalone: true,
@@ -22,10 +18,16 @@ export class CourseHeaderComponent implements OnInit {
   isQuizModalOpen = false;
   selectedSectionIndex: number = 0;
   selectedLectureIndex: number = 0;
+  selectedRowIndex: number = 0;
+  
+
+
   openQuizModal(sectionIndex: number, lectureIndex: number) {
     this.selectedSectionIndex = sectionIndex;
     this.selectedLectureIndex = lectureIndex;
     this.isQuizModalOpen = true;
+
+
 
     // فتح المودال يدويًا
     setTimeout(() => {
@@ -37,9 +39,7 @@ export class CourseHeaderComponent implements OnInit {
     });
   }
 
-
-
-
+ 
   handleQuizData(payload: { data: any, sectionIndex: number, lectureIndex: number }) {
   const { data, sectionIndex, lectureIndex } = payload;
 
@@ -66,6 +66,58 @@ export class CourseHeaderComponent implements OnInit {
 
   this.closeQuizModal();
 }
+
+openQuizModallive( rowIndex: number) {
+
+  this.isQuizModalOpen = true;
+  this.selectedRowIndex = rowIndex;  // حفظ الرقم الفريد للصف المحدد
+
+
+  // فتح المودال يدويًا
+  setTimeout(() => {
+    const modal = document.getElementById('quizModal');
+    if (modal) {
+      modal.classList.add('show');
+      modal.style.display = 'block';
+    }
+  });
+}
+handleQuizDatalive(payload: { data: any, rowIndex: number}) {
+  const { data, rowIndex} = payload;
+
+  const quizDatalive = {
+    title: data.title || '',
+    duration: data.duration || 0,
+    questions: data.questions?.map((q: any) => ({
+      text: q.text || '',
+      options: q.options ? [...q.options] : [],
+      correctAnswer: q.correctAnswer || null,
+      answerExplanation: q.answerExplanation || ''
+    })) || []
+  };
+
+  // إضافة الكويز إلى الصف المحدد
+  if (this.courseObj.courseType === 'Live Streamed Educational Courses') {
+    if (this.selectedSchedule.length > 0) {
+      const selectedRow = this.selectedSchedule[rowIndex];  // الحصول على الصف باستخدام rowIndex
+
+      if (!selectedRow.quizzes) {
+        selectedRow.quizzes = [];  // إذا لم تكن هناك كويزات من قبل، نقوم بإنشاء مصفوفة جديدة
+      }
+
+      selectedRow.quizzes.push(quizDatalive);  // إضافة الكويز للصف
+      this.courseObj.schedules = [...this.selectedSchedule];  // تحديث الكائن الذي يحتوي على البيانات
+      console.log("✅ تم إضافة كويز داخل الجدول:", this.courseObj);
+    } else {
+      console.warn("⚠️ لا توجد صفوف (Schedules) لإضافة الكويز!");
+    }
+  }
+}
+
+
+
+
+
 
 closeQuizModal() {
   this.isQuizModalOpen = false;
@@ -160,7 +212,7 @@ closeQuizModal() {
     while (this.selectedSchedule.length < 1) {
       this.selectedSchedule.push({
         courseTitle: '', date: '', time: '', lecturerName: '',
-        registered: '', status: '', joinLink: '', limit: ''
+        registered: '', status: '', joinLink: '', limit: '', quizzes: []as any[]
       });
     }
   }

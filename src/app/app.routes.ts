@@ -45,6 +45,7 @@ import { CourseInformationComponent } from './course-information/course-informat
 import { CourseInformationsComponent } from './course-informations/course-informations.component';
 import { ViewOverviewComponent } from './view-overview/view-overview.component';
 import { ExamComponent } from './exam/exam.component';
+import { ExamResultComponent } from './exam-result/exam-result.component';
 
 export const routes: Routes = [
   {path:"", redirectTo:"home",pathMatch:"full"},
@@ -68,6 +69,7 @@ export const routes: Routes = [
   {path:"course-Informations",component:CourseInformationsComponent},
   {path:"course-content",component:ViewOverviewComponent},
   {path:"exam",component:ExamComponent},
+  {path:"exam-result",component:ExamResultComponent},
 
 
 
@@ -328,7 +330,18 @@ export const routes: Routes = [
 //  *********** exam ***********
 
 {path:"exam/my-courses",redirectTo:"my-courses",pathMatch:"full"},
+{path:"exam/exam-result",redirectTo:"exam-result",pathMatch:"full"},
 
+//  *********** exam-result ***********
+
+{path:"exam-result/my-courses",redirectTo:"my-courses",pathMatch:"full"},
+{path:"exam-result/studentHome",redirectTo:"studentHome",pathMatch:"full"},
+{path:"exam-result/explore",redirectTo:"explore",pathMatch:"full"},
+{path:"exam-result/cart",redirectTo:"cart",pathMatch:"full"},
+{path:"exam-result/wishedList",redirectTo:"wishedList",pathMatch:"full"},
+{path:"exam-result/instructor-profile",redirectTo:"instructor-profile",pathMatch:"full"},
+{path:"exam-result/logOut",redirectTo:"home",pathMatch:"full"},
+{path:"exam-result/student-profile",redirectTo:"student-profile",pathMatch:"full"},
 
 //  *********** course-Information ***********
 
