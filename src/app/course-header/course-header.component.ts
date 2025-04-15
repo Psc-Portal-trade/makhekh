@@ -6,6 +6,7 @@ import { RouterLink, ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router'; // ✅ تأكد من استيراد Router
 import { TranslocoPipe, TranslocoService } from '@ngneat/transloco';
 import { QuizFormComponent } from '../quiz-form/quiz-form.component';
+import { InstructorCoursesService } from '../services/instructor-courses.service';
 
 @Component({
   selector: 'app-course-header',
@@ -19,7 +20,7 @@ export class CourseHeaderComponent implements OnInit {
   selectedSectionIndex: number = 0;
   selectedLectureIndex: number = 0;
   selectedRowIndex: number = 0;
-  
+
 
 
   openQuizModal(sectionIndex: number, lectureIndex: number) {
@@ -39,7 +40,7 @@ export class CourseHeaderComponent implements OnInit {
     });
   }
 
- 
+
   handleQuizData(payload: { data: any, sectionIndex: number, lectureIndex: number }) {
   const { data, sectionIndex, lectureIndex } = payload;
 
@@ -181,7 +182,8 @@ closeQuizModal() {
 
 
 
-  constructor(private http: HttpClient, private route: ActivatedRoute,  private router: Router,private translocoService: TranslocoService) {
+  constructor(private http: HttpClient, private route: ActivatedRoute,  private router: Router,private translocoService: TranslocoService,    private instructorCoursesService: InstructorCoursesService,
+  ) {
     this.translocoService.langChanges$.subscribe(lang => {
       this.activeLang = lang;
     });
@@ -277,6 +279,7 @@ closeQuizModal() {
         break;
       case 3:
         this.courseObj.coupons = [...this.coupons];
+        this.instructorCoursesService.addCourse(this.courseObj);
         this.router.navigate(['courseDetails'], { queryParams: { data: JSON.stringify(this.courseObj) } });
         return;
     }
@@ -340,6 +343,7 @@ closeQuizModal() {
     }
     else if (this.currentStep === 3) {
       this.courseObj.coupons = this.coupons;
+      this.instructorCoursesService.addCourse(this.courseObj);
       this.router.navigate(['courseDetails'], { queryParams: { data: JSON.stringify(this.courseObj) } });
 
     }

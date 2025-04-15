@@ -12,7 +12,7 @@ import { TranslocoPipe } from '@ngneat/transloco';
 @Component({
   selector: 'app-my-courses',
   standalone: true,
-  imports: [CommonModule, FormsModule, SecondNavComponent, TranslocoPipe,RouterLink],
+  imports: [CommonModule, FormsModule, SecondNavComponent, TranslocoPipe],
   templateUrl: './my-courses.component.html',
   styleUrls: ['./my-courses.component.css']
 })
@@ -36,6 +36,7 @@ export class MyCoursesComponent implements OnInit {
   ngOnInit() {
     this.courseService.purchasedCourses$.subscribe(courses => {
       this.courses = courses;
+      console.log(courses)
     });
 
     this.wishlistService.listItems$.subscribe(items => {
@@ -114,18 +115,25 @@ export class MyCoursesComponent implements OnInit {
   get totalPages() {
     return Math.ceil(this.filteredCourses.length / this.itemsPerPage);
   }
-  startQuiz(lecture: any, sIndex: number, lIndex: number, course: any) {
+  startQuiz(quizSource: any, sIndex: number, lIndex: number, course: any) {
     const attempts = this.getQuizAttempts(sIndex, lIndex);
     const updatedAttempts = attempts + 1;
-
     localStorage.setItem(`quiz_attempts_${sIndex}_${lIndex}`, updatedAttempts.toString());
-
-    const quiz = lecture.quizzes;
-
-    if (quiz) {
+  
+    let quizToPass;
+  
+    if (course.courseType === 'Live Streamed Educational Courses') {
+      // ✅ النوع Live Streamed → الـ quiz جاي جاهز
+      quizToPass = quizSource;
+    } else if (course.courseType === 'Recorded Educational Courses') {
+      // ✅ النوع Recorded → الـ quiz جواه quizzes
+      quizToPass = quizSource.quizzes;
+    }
+  
+    if (quizToPass) {
       this.router.navigate(['/exam'], {
         state: {
-          quiz: quiz,
+          quiz: quizToPass,
           quizIndex: lIndex,
           courseTitle: course.courseTitle
         }
@@ -134,7 +142,16 @@ export class MyCoursesComponent implements OnInit {
       console.warn('No quiz found!');
     }
   }
-
+  
+  isScheduleAvailable(dateStr: string, timeStr: string): boolean {
+    const now = new Date();
+  
+    // تاريخ ووقت المحاضرة
+    const fullDateTime = new Date(`${dateStr}T${timeStr}`);
+  
+    return now >= fullDateTime;
+  }
+  
 
   getQuizAttempts(sIndex: number, lIndex: number): number {
     // استرجاع المحاولات من localStorage باستخدام مفتاح فريد

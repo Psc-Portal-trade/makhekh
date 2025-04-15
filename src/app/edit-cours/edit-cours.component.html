@@ -1,0 +1,272 @@
+<app-second-nav></app-second-nav>
+<div class="container my-4" *ngIf="courseData">
+  <h2 class="mb-4 text-primary">Edit Course</h2>
+
+  <!-- ✅ Basic Info -->
+  <div class="card mb-4 p-3">
+    <h5 class="mb-3 text-primary">Basic Info</h5>
+
+    <div class="mb-3">
+      <label class="form-label">Course Title</label>
+      <input class="form-control" [(ngModel)]="courseData.courseTitle" placeholder="Enter course title">
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Course Type</label>
+      <input class="form-control" [(ngModel)]="courseData.courseType" placeholder="e.g., Live Streamed" readonly>
+    </div>
+
+
+    <div class="mb-3">
+      <label class="form-label">Category</label>
+      <input class="form-control" [(ngModel)]="courseData.category" placeholder="e.g., Design, Business">
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Learning Objectives</label>
+      <textarea class="form-control" [(ngModel)]="courseData.learningObjectives"></textarea>
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Requirements</label>
+      <textarea class="form-control" [(ngModel)]="courseData.requirements"></textarea>
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Target Audience</label>
+      <textarea class="form-control" [(ngModel)]="courseData.targetAudience"></textarea>
+    </div>
+  </div>
+
+  <!-- ✅ Schedules -->
+  <div *ngFor="let schedule of courseData.schedules; let i = index" class="card mb-4 p-3">
+    <h5 class="mb-3 text-primary">Schedule {{ i + 1 }}</h5>
+
+    <div class="mb-3">
+      <label class="form-label">Course Title</label>
+      <input class="form-control" [(ngModel)]="schedule.courseTitle">
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Date</label>
+      <input class="form-control" type="date" [(ngModel)]="schedule.date">
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Time</label>
+      <input class="form-control" type="time" [(ngModel)]="schedule.time">
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Lecturer Name</label>
+      <input class="form-control" [(ngModel)]="schedule.lecturerName">
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Registered</label>
+      <input class="form-control" [(ngModel)]="schedule.registered">
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Status</label>
+      <input class="form-control" [(ngModel)]="schedule.status">
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Join Link</label>
+      <input class="form-control" [(ngModel)]="schedule.joinLink">
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Limit</label>
+      <input class="form-control" type="number" [(ngModel)]="schedule.limit">
+    </div>
+
+    <div class="text-end" *ngIf="i !== 0">
+      <button class="btn btn-sm btn-outline-danger" (click)="removeSchedule(i)">Delete Schedule</button>
+    </div>
+  </div>
+
+  <div class="mb-4">
+    <button class="btn btn-outline-primary" (click)="addSchedule()">+ Add Schedule</button>
+  </div>
+
+  <!-- ✅ Landing Page -->
+  <div class="card mb-4 p-3">
+    <h5 class="mb-3 text-primary">Landing Page</h5>
+
+    <div class="mb-3">
+      <label class="form-label">Title</label>
+      <input class="form-control" [(ngModel)]="courseData.landingPage.title">
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Description</label>
+      <textarea class="form-control" [(ngModel)]="courseData.landingPage.description"></textarea>
+    </div>
+
+    <div class="mb-3">
+      <div class="mb-3">
+        <label class="form-label">{{ 'course-header.Language' | transloco }}</label>
+        <select class="form-select" [(ngModel)]="courseData.landingPage.language" name="language" required>
+          <option [ngValue]="'Arabic'">{{ 'course-header.Arabic' | transloco }}</option>
+          <option [ngValue]="'English'">{{ 'course-header.English' | transloco }}</option>
+        </select>
+      </div>
+
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">{{ 'course-header.Set Level' | transloco }}</label>
+      <select class="form-select" [(ngModel)]="courseData.landingPage.level" name="level" required>
+        <option [ngValue]="'Beginner'">{{ 'course-header.Beginner' | transloco }}</option>
+        <option [ngValue]="'Intermediate'">{{ 'course-header.Intermediate' | transloco }}</option>
+        <option [ngValue]="'Advanced'">{{ 'course-header.Advanced' | transloco }}</option>
+      </select>
+    </div>
+
+
+    <div class="mb-3">
+      <label class="form-label">{{ 'course-header.Category' | transloco }}</label>
+      <select class="form-select" [(ngModel)]="courseData.landingPage.category" name="category" required>
+        <option [ngValue]="'Design'">{{ 'course-header.Design' | transloco }}</option>
+        <option [ngValue]="'Development'">{{ 'course-header.Development' | transloco }}</option>
+        <option [ngValue]="'Offer Productivity'">{{ 'course-header.Offer Productivity' | transloco }}</option>
+        <option [ngValue]="'Health & Fitness'">{{ 'course-header.Health & Fitness' | transloco }}</option>
+        <option [ngValue]="'Marketing'">{{ 'course-header.Marketing' | transloco }}</option>
+        <option [ngValue]="'Business'">{{ 'course-header.Business' | transloco }}</option>
+        <option [ngValue]="'IT & Software'">{{ 'course-header.IT & Software' | transloco }}</option>
+        <option [ngValue]="'Finance & Accounting'">{{ 'course-header.Finance & Accounting' | transloco }}</option>
+      </select>
+    </div>
+
+
+    <div class="mb-3">
+      <label class="form-label">{{ 'course-header.Course Duration' | transloco }}</label>
+      <select class="form-select" [(ngModel)]="courseData.landingPage.duration" name="duration" required>
+        <option [ngValue]="'Week'">{{ 'course-header.Week' | transloco }}</option>
+        <option [ngValue]="'Month'">{{ 'course-header.Month' | transloco }}</option>
+        <option [ngValue]="'2 Monthes'">{{ 'course-header.2 Monthes' | transloco }}</option>
+        <option [ngValue]="'3 Monthes'">{{ 'course-header.3 Monthes' | transloco }}</option>
+        <option [ngValue]="'4 Monthes'">{{ 'course-header.4 Monthes' | transloco }}</option>
+      </select>
+    </div>
+
+
+    <div class="mb-3">
+      <label class="form-label">Lecturer</label>
+      <input class="form-control" [(ngModel)]="courseData.landingPage.lecturer">
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Lecturer Description</label>
+      <textarea class="form-control" [(ngModel)]="courseData.landingPage.lecturerDescription"></textarea>
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Course Photo</label>
+      <div *ngIf="!changingPhoto && courseData.landingPage.photo?.preview">
+        <img [src]="courseData.landingPage.photo.preview" class="img-thumbnail" style="max-width: 200px;">
+        <button class="btn btn-sm btn-outline-secondary mt-2" (click)="changingPhoto = true">Change Photo</button>
+      </div>
+      <div *ngIf="changingPhoto">
+        <input type="file" accept="image/*" class="form-control" (change)="onPhotoSelected($event)">
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Course Video</label>
+      <div *ngIf="!changingVideo && courseData.landingPage.video?.preview">
+        <video [src]="courseData.landingPage.video.preview" controls style="max-width: 300px;"></video>
+        <button class="btn btn-sm btn-outline-secondary mt-2" (click)="changingVideo = true">Change Video</button>
+      </div>
+      <div *ngIf="changingVideo">
+        <input type="file" accept="video/*" class="form-control" (change)="onVideoSelected($event)">
+      </div>
+    </div>
+  </div>
+
+  <!-- ✅ Pricing -->
+  <div class="card mb-4 p-3">
+    <h5 class="mb-3 text-primary">Pricing</h5>
+
+    <div class="mb-3">
+      <label class="form-label">Currency</label>
+      <input class="form-control" [(ngModel)]="courseData.pricing.currency" readonly>
+    </div>
+
+
+    <div class="mb-3">
+      <label class="form-label">{{ 'course-header.Price Tier' | transloco }}</label>
+      <select class="form-select" [(ngModel)]="courseData.pricing.priceTier" name="priceTier" required>
+        <option [ngValue]="'Free'">{{ 'course-header.Free' | transloco }}</option>
+        <option [ngValue]="'Premium'">{{ 'course-header.Premium' | transloco }}</option>
+      </select>
+    </div>
+
+
+    <div class="mb-3">
+      <label class="form-label">Promo Link</label>
+      <input class="form-control" [(ngModel)]="courseData.pricing.promoLink">
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">{{ 'course-header.Selected Voucher' | transloco }}</label>
+      <select class="form-select" [(ngModel)]="courseData.pricing.selectedVoucher" name="selectedVoucher" required>
+        <option [ngValue]="'best_current_price'">{{ activeLang === 'ar' ? 'أفضل سعر حالي' : 'Best Current Price' }}</option>
+        <option [ngValue]="'custom_price'">{{ activeLang === 'ar' ? 'سعر مخصص' : 'Custom Price' }}</option>
+        <option [ngValue]="'Free period'">{{ activeLang === 'ar' ? 'فترة مجانية' : 'Free Period' }}</option>
+      </select>
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Price</label>
+      <input class="form-control" type="number" [(ngModel)]="courseData.pricing.price">
+    </div>
+  </div>
+
+  <!-- ✅ Coupons -->
+  <div *ngFor="let coupon of courseData.coupons; let i = index" class="card mb-4 p-3">
+    <h5 class="mb-3 text-primary">Coupon {{ i + 1 }}</h5>
+
+    <div class="mb-3">
+      <label class="form-label">Code</label>
+      <input class="form-control" [(ngModel)]="coupon.code">
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Status</label>
+      <input class="form-control" [(ngModel)]="coupon.status">
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Users</label>
+      <input class="form-control" [(ngModel)]="coupon.users">
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Start Date</label>
+      <input class="form-control" type="date" [(ngModel)]="coupon.startDate">
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">End Date</label>
+      <input class="form-control" type="date" [(ngModel)]="coupon.endDate">
+    </div>
+
+    <!-- زرار الحذف (ما يظهرش في أول كوبون) -->
+     <div class="text-end">
+      <button *ngIf="i > 0" class="btn btn-sm btn-outline-danger " (click)="removeCoupon(i)">Remove Coupon</button>
+
+     </div>
+  </div>
+
+  <!-- زرار الإضافة -->
+  <button class="btn btn-outline-primary" (click)="addCoupon()">+ Add Coupon</button>
+
+
+  <!-- ✅ Save Button -->
+  <div class="text-end">
+    <button class="btn btn-success" (click)="saveChanges()">Save Changes</button>
+  </div>
+</div>

@@ -1,0 +1,26 @@
+<section class="container my-5" *ngIf="allCourses.length > 0">
+  <h2 class="text-primary mb-3">My Courses</h2>
+
+  <div class="row">
+    <div *ngFor="let course of coursesToShow" class="col-12 col-sm-6 col-md-4 mb-3">
+      <div class="card p-3 d-flex flex-row align-items-center border rounded shadow-sm h-100">
+        <img src="assets/course-2.png" alt="Course" style="width: 7.5rem; height: auto;" class="me-3">
+        <div>
+          <h5 class="mb-1">{{ course.courseTitle }}</h5>
+          <p class="mb-0">{{ course.courseType }}</p>
+          <button class="btn btn-danger py-0 px-2 mt-2" (click)="editCourse(course)">
+            Edit
+          </button>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="text-center mt-3">
+    <button class="btn btn-outline-primary" (click)="toggleShowAll()">
+      {{ showAll ? 'Show Less' : 'Show All' }}
+    </button>
+  </div>
+</section>

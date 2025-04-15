@@ -4,10 +4,11 @@ import { SidebarComponent } from '../sidebar/sidebar.component';
 import { FooterComponent } from "../footer/footer.component";
 import { LangService } from '../services/lang.service';
 import { TranslocoPipe, TranslocoService } from '@ngneat/transloco';
+import { InstructorCoursesComponent } from "../instructor-courses/instructor-courses.component";
 
 @Component({
   selector: 'app-create-course',
-  imports: [RouterLink, SidebarComponent,TranslocoPipe],
+  imports: [RouterLink, SidebarComponent, TranslocoPipe, InstructorCoursesComponent],
   templateUrl: './create-course.component.html',
   styleUrl: './create-course.component.css'
 })

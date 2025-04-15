@@ -46,6 +46,7 @@ import { CourseInformationsComponent } from './course-informations/course-inform
 import { ViewOverviewComponent } from './view-overview/view-overview.component';
 import { ExamComponent } from './exam/exam.component';
 import { ExamResultComponent } from './exam-result/exam-result.component';
+import { EditCoursComponent } from './edit-cours/edit-cours.component';
 
 export const routes: Routes = [
   {path:"", redirectTo:"home",pathMatch:"full"},
@@ -70,6 +71,7 @@ export const routes: Routes = [
   {path:"course-content",component:ViewOverviewComponent},
   {path:"exam",component:ExamComponent},
   {path:"exam-result",component:ExamResultComponent},
+  {path:"edit-course",component:EditCoursComponent},
 
 
 
@@ -472,10 +474,12 @@ export const routes: Routes = [
 {path:"instructor-profile/create-course/student-profile",redirectTo:"student-profile",pathMatch:"full"},
 {path:"instructor-profile/create-course/my-courses",redirectTo:"my-courses",pathMatch:"full"},
 {path:"instructor-profile/create-course/studentHome",redirectTo:"studentHome",pathMatch:"full"},
+{path:"instructor-profile/create-course/edit-course",redirectTo:"edit-course",pathMatch:"full"},
 
 
 
 
+{path:"edit-course/instructor-profile/create-course",redirectTo:"create-course",pathMatch:"full"},
 
 
 

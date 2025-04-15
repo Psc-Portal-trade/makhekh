@@ -1,0 +1,13 @@
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .card img {
+    width: 100px !important;
+  }
+
+  .card h5 {
+    font-size: 1rem;
+  }
+
+  .card p {
+    font-size: 0.9rem;
+  }
+}

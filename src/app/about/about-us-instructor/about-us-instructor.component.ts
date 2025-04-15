@@ -45,19 +45,227 @@ export class AboutUsInstructorComponent  implements OnInit{
               "registered": 10,
               "status": "zz",
               "joinLink": "zzz",
-              "limit": 8
+              "limit": 8,
+              "quizzes":[
+              { "duration": 10,
+                "title":"quiz1",
+                "questions":[{
+
+                  "answerExplanation":"wwww",
+                  "correctAnswer":"w",
+                  "options":[
+                    {optionValue: 'w'},
+                    {optionValue: 's'},
+                    {optionValue: 'v'},
+                    {optionValue: 'q'}],
+                    "text":"www",
+                },
+                {
+
+                  "answerExplanation":"wwww",
+                  "correctAnswer":"w",
+                  "options":[
+                    {optionValue: 'w'},
+                    {optionValue: 's'},
+                    {optionValue: 'v'},
+                    {optionValue: 'q'}],
+                    "text":"www",
+                },
+                {
+
+                  "answerExplanation":"wwww",
+                  "correctAnswer":"w",
+                  "options":[
+                    {optionValue: 'w'},
+                    {optionValue: 's'},
+                    {optionValue: 'v'},
+                    {optionValue: 'q'}],
+                    "text":"www",
+                },
+                {
+
+                  "answerExplanation":"wwww",
+                  "correctAnswer":"w",
+                  "options":[
+                    {optionValue: 'w'},
+                    {optionValue: 's'},
+                    {optionValue: 'v'},
+                    {optionValue: 'q'}],
+                    "text":"www",
+                }
+              ,{
+
+                "answerExplanation":"wwww",
+                "correctAnswer":"w",
+                "options":[
+                  {optionValue: 'w'},
+                  {optionValue: 's'},
+                  {optionValue: 'v'},
+                  {optionValue: 'q'}],
+                  "text":"www",
+              }
+            ,{
+
+              "answerExplanation":"wwww",
+              "correctAnswer":"w",
+              "options":[
+                {optionValue: 'w'},
+                {optionValue: 's'},
+                {optionValue: 'v'},
+                {optionValue: 'q'}],
+                "text":"www",
+            },
+            {
+
+              "answerExplanation":"wwww",
+              "correctAnswer":"w",
+              "options":[
+                {optionValue: 'w'},
+                {optionValue: 's'},
+                {optionValue: 'v'},
+                {optionValue: 'q'}],
+                "text":"www",
+            },
+            {
+
+              "answerExplanation":"wwww",
+              "correctAnswer":"w",
+              "options":[
+                {optionValue: 'w'},
+                {optionValue: 's'},
+                {optionValue: 'v'},
+                {optionValue: 'q'}],
+                "text":"www",
+            },
+            {
+
+              "answerExplanation":"wwww",
+              "correctAnswer":"w",
+              "options":[
+                {optionValue: 'w'},
+                {optionValue: 's'},
+                {optionValue: 'v'},
+                {optionValue: 'q'}],
+                "text":"www",
+            }]
+
+              }]
           },
           {
-            "id":"2",
-              "courseTitle": "xxcx",
-              "date": "2025-03-21",
-              "time": "15:36",
-              "lecturerName": "h",
-              "registered": 2,
-              "status": "hh",
-              "joinLink": "jbljk",
-              "limit": 9
-          }
+            "id":"1",
+            "courseTitle": "z",
+            "date": "2025-03-11",
+            "time": "13:38",
+            "lecturerName": "z",
+            "registered": 10,
+            "status": "zz",
+            "joinLink": "zzz",
+            "limit": 8,
+            "quizzes":[
+            { "duration": 10,
+              "title":"quiz1",
+              "questions":[{
+
+                "answerExplanation":"wwww",
+                "correctAnswer":"w",
+                "options":[
+                  {optionValue: 'w'},
+                  {optionValue: 's'},
+                  {optionValue: 'v'},
+                  {optionValue: 'q'}],
+                  "text":"www",
+              },
+              {
+
+                "answerExplanation":"wwww",
+                "correctAnswer":"w",
+                "options":[
+                  {optionValue: 'w'},
+                  {optionValue: 's'},
+                  {optionValue: 'v'},
+                  {optionValue: 'q'}],
+                  "text":"www",
+              },
+              {
+
+                "answerExplanation":"wwww",
+                "correctAnswer":"w",
+                "options":[
+                  {optionValue: 'w'},
+                  {optionValue: 's'},
+                  {optionValue: 'v'},
+                  {optionValue: 'q'}],
+                  "text":"www",
+              },
+              {
+
+                "answerExplanation":"wwww",
+                "correctAnswer":"w",
+                "options":[
+                  {optionValue: 'w'},
+                  {optionValue: 's'},
+                  {optionValue: 'v'},
+                  {optionValue: 'q'}],
+                  "text":"www",
+              }
+            ,{
+
+              "answerExplanation":"wwww",
+              "correctAnswer":"w",
+              "options":[
+                {optionValue: 'w'},
+                {optionValue: 's'},
+                {optionValue: 'v'},
+                {optionValue: 'q'}],
+                "text":"www",
+            }
+          ,{
+
+            "answerExplanation":"wwww",
+            "correctAnswer":"w",
+            "options":[
+              {optionValue: 'w'},
+              {optionValue: 's'},
+              {optionValue: 'v'},
+              {optionValue: 'q'}],
+              "text":"www",
+          },
+          {
+
+            "answerExplanation":"wwww",
+            "correctAnswer":"w",
+            "options":[
+              {optionValue: 'w'},
+              {optionValue: 's'},
+              {optionValue: 'v'},
+              {optionValue: 'q'}],
+              "text":"www",
+          },
+          {
+
+            "answerExplanation":"wwww",
+            "correctAnswer":"w",
+            "options":[
+              {optionValue: 'w'},
+              {optionValue: 's'},
+              {optionValue: 'v'},
+              {optionValue: 'q'}],
+              "text":"www",
+          },
+          {
+
+            "answerExplanation":"wwww",
+            "correctAnswer":"w",
+            "options":[
+              {optionValue: 'w'},
+              {optionValue: 's'},
+              {optionValue: 'v'},
+              {optionValue: 'q'}],
+              "text":"www",
+          }]
+
+            }]
+        }
       ],
       "landingPage": {
           "title": "sad",
@@ -108,28 +316,236 @@ export class AboutUsInstructorComponent  implements OnInit{
       "targetAudience": "z",
       "courseTitle": "How the internet works",
       "schedules": [
-          {
-              "id":"1",
-              "courseTitle": "z",
-              "date": "2025-03-11",
-              "time": "13:38",
-              "lecturerName": "z",
-              "registered": 10,
-              "status": "zz",
-              "joinLink": "zzz",
-              "limit": 8
+        {
+          "id":"3",
+          "courseTitle": "z",
+          "date": "2025-06-11",
+          "time": "13:38",
+          "lecturerName": "z",
+          "registered": 10,
+          "status": "zz",
+          "joinLink": "zzz",
+          "limit": 8,
+          "quizzes":[
+          { "duration": 10,
+            "title":"quiz1",
+            "questions":[{
+
+              "answerExplanation":"wwww",
+              "correctAnswer":"w",
+              "options":[
+                {optionValue: 'w'},
+                {optionValue: 's'},
+                {optionValue: 'v'},
+                {optionValue: 'q'}],
+                "text":"www",
+            },
+            {
+
+              "answerExplanation":"wwww",
+              "correctAnswer":"w",
+              "options":[
+                {optionValue: 'w'},
+                {optionValue: 's'},
+                {optionValue: 'v'},
+                {optionValue: 'q'}],
+                "text":"www",
+            },
+            {
+
+              "answerExplanation":"wwww",
+              "correctAnswer":"w",
+              "options":[
+                {optionValue: 'w'},
+                {optionValue: 's'},
+                {optionValue: 'v'},
+                {optionValue: 'q'}],
+                "text":"www",
+            },
+            {
+
+              "answerExplanation":"wwww",
+              "correctAnswer":"w",
+              "options":[
+                {optionValue: 'w'},
+                {optionValue: 's'},
+                {optionValue: 'v'},
+                {optionValue: 'q'}],
+                "text":"www",
+            }
+          ,{
+
+            "answerExplanation":"wwww",
+            "correctAnswer":"w",
+            "options":[
+              {optionValue: 'w'},
+              {optionValue: 's'},
+              {optionValue: 'v'},
+              {optionValue: 'q'}],
+              "text":"www",
+          }
+        ,{
+
+          "answerExplanation":"wwww",
+          "correctAnswer":"w",
+          "options":[
+            {optionValue: 'w'},
+            {optionValue: 's'},
+            {optionValue: 'v'},
+            {optionValue: 'q'}],
+            "text":"www",
+        },
+        {
+
+          "answerExplanation":"wwww",
+          "correctAnswer":"w",
+          "options":[
+            {optionValue: 'w'},
+            {optionValue: 's'},
+            {optionValue: 'v'},
+            {optionValue: 'q'}],
+            "text":"www",
+        },
+        {
+
+          "answerExplanation":"wwww",
+          "correctAnswer":"w",
+          "options":[
+            {optionValue: 'w'},
+            {optionValue: 's'},
+            {optionValue: 'v'},
+            {optionValue: 'q'}],
+            "text":"www",
+        },
+        {
+
+          "answerExplanation":"wwww",
+          "correctAnswer":"w",
+          "options":[
+            {optionValue: 'w'},
+            {optionValue: 's'},
+            {optionValue: 'v'},
+            {optionValue: 'q'}],
+            "text":"www",
+        }]
+
+          }]
+      },
+      {
+        "id":"2",
+        "courseTitle": "z",
+        "date": "2025-03-11",
+        "time": "13:38",
+        "lecturerName": "z",
+        "registered": 10,
+        "status": "zz",
+        "joinLink": "zzz",
+        "limit": 8,
+        "quizzes":[
+        { "duration": 10,
+          "title":"quiz1",
+          "questions":[{
+
+            "answerExplanation":"wwww",
+            "correctAnswer":"w",
+            "options":[
+              {optionValue: 'w'},
+              {optionValue: 's'},
+              {optionValue: 'v'},
+              {optionValue: 'q'}],
+              "text":"www",
           },
           {
-            "id":"2",
-              "courseTitle": "xxcx",
-              "date": "2025-03-21",
-              "time": "15:36",
-              "lecturerName": "h",
-              "registered": 2,
-              "status": "hh",
-              "joinLink": "jbljk",
-              "limit": 9
+
+            "answerExplanation":"wwww",
+            "correctAnswer":"w",
+            "options":[
+              {optionValue: 'w'},
+              {optionValue: 's'},
+              {optionValue: 'v'},
+              {optionValue: 'q'}],
+              "text":"www",
+          },
+          {
+
+            "answerExplanation":"wwww",
+            "correctAnswer":"w",
+            "options":[
+              {optionValue: 'w'},
+              {optionValue: 's'},
+              {optionValue: 'v'},
+              {optionValue: 'q'}],
+              "text":"www",
+          },
+          {
+
+            "answerExplanation":"wwww",
+            "correctAnswer":"w",
+            "options":[
+              {optionValue: 'w'},
+              {optionValue: 's'},
+              {optionValue: 'v'},
+              {optionValue: 'q'}],
+              "text":"www",
           }
+        ,{
+
+          "answerExplanation":"wwww",
+          "correctAnswer":"w",
+          "options":[
+            {optionValue: 'w'},
+            {optionValue: 's'},
+            {optionValue: 'v'},
+            {optionValue: 'q'}],
+            "text":"www",
+        }
+      ,{
+
+        "answerExplanation":"wwww",
+        "correctAnswer":"w",
+        "options":[
+          {optionValue: 'w'},
+          {optionValue: 's'},
+          {optionValue: 'v'},
+          {optionValue: 'q'}],
+          "text":"www",
+      },
+      {
+
+        "answerExplanation":"wwww",
+        "correctAnswer":"w",
+        "options":[
+          {optionValue: 'w'},
+          {optionValue: 's'},
+          {optionValue: 'v'},
+          {optionValue: 'q'}],
+          "text":"www",
+      },
+      {
+
+        "answerExplanation":"wwww",
+        "correctAnswer":"w",
+        "options":[
+          {optionValue: 'w'},
+          {optionValue: 's'},
+          {optionValue: 'v'},
+          {optionValue: 'q'}],
+          "text":"www",
+      },
+      {
+
+        "answerExplanation":"wwww",
+        "correctAnswer":"w",
+        "options":[
+          {optionValue: 'w'},
+          {optionValue: 's'},
+          {optionValue: 'v'},
+          {optionValue: 'q'}],
+          "text":"www",
+      }]
+
+        }]
+    }
       ],
       "landingPage": {
           "title": "sad",
@@ -180,28 +596,236 @@ export class AboutUsInstructorComponent  implements OnInit{
       "targetAudience": "z",
       "courseTitle": "The Complete PHP Full",
       "schedules": [
-          {
+        {
+          "id":"1",
+          "courseTitle": "z",
+          "date": "2025-03-11",
+          "time": "13:38",
+          "lecturerName": "z",
+          "registered": 10,
+          "status": "zz",
+          "joinLink": "zzz",
+          "limit": 8,
+          "quizzes":[
+          { "duration": 10,
+            "title":"quiz1",
+            "questions":[{
 
-              "courseTitle": "z",
-              "date": "2025-03-11",
-              "time": "13:38",
-              "lecturerName": "z",
-              "registered": 10,
-              "status": "zz",
-              "joinLink": "zzz",
-              "limit": 8
+              "answerExplanation":"wwww",
+              "correctAnswer":"w",
+              "options":[
+                {optionValue: 'w'},
+                {optionValue: 's'},
+                {optionValue: 'v'},
+                {optionValue: 'q'}],
+                "text":"www",
+            },
+            {
+
+              "answerExplanation":"wwww",
+              "correctAnswer":"w",
+              "options":[
+                {optionValue: 'w'},
+                {optionValue: 's'},
+                {optionValue: 'v'},
+                {optionValue: 'q'}],
+                "text":"www",
+            },
+            {
+
+              "answerExplanation":"wwww",
+              "correctAnswer":"w",
+              "options":[
+                {optionValue: 'w'},
+                {optionValue: 's'},
+                {optionValue: 'v'},
+                {optionValue: 'q'}],
+                "text":"www",
+            },
+            {
+
+              "answerExplanation":"wwww",
+              "correctAnswer":"w",
+              "options":[
+                {optionValue: 'w'},
+                {optionValue: 's'},
+                {optionValue: 'v'},
+                {optionValue: 'q'}],
+                "text":"www",
+            }
+          ,{
+
+            "answerExplanation":"wwww",
+            "correctAnswer":"w",
+            "options":[
+              {optionValue: 'w'},
+              {optionValue: 's'},
+              {optionValue: 'v'},
+              {optionValue: 'q'}],
+              "text":"www",
+          }
+        ,{
+
+          "answerExplanation":"wwww",
+          "correctAnswer":"w",
+          "options":[
+            {optionValue: 'w'},
+            {optionValue: 's'},
+            {optionValue: 'v'},
+            {optionValue: 'q'}],
+            "text":"www",
+        },
+        {
+
+          "answerExplanation":"wwww",
+          "correctAnswer":"w",
+          "options":[
+            {optionValue: 'w'},
+            {optionValue: 's'},
+            {optionValue: 'v'},
+            {optionValue: 'q'}],
+            "text":"www",
+        },
+        {
+
+          "answerExplanation":"wwww",
+          "correctAnswer":"w",
+          "options":[
+            {optionValue: 'w'},
+            {optionValue: 's'},
+            {optionValue: 'v'},
+            {optionValue: 'q'}],
+            "text":"www",
+        },
+        {
+
+          "answerExplanation":"wwww",
+          "correctAnswer":"w",
+          "options":[
+            {optionValue: 'w'},
+            {optionValue: 's'},
+            {optionValue: 'v'},
+            {optionValue: 'q'}],
+            "text":"www",
+        }]
+
+          }]
+      },
+      {
+        "id":"2",
+        "courseTitle": "z",
+        "date": "2025-03-11",
+        "time": "13:38",
+        "lecturerName": "z",
+        "registered": 10,
+        "status": "zz",
+        "joinLink": "zzz",
+        "limit": 8,
+        "quizzes":[
+        { "duration": 10,
+          "title":"quiz1",
+          "questions":[{
+
+            "answerExplanation":"wwww",
+            "correctAnswer":"w",
+            "options":[
+              {optionValue: 'w'},
+              {optionValue: 's'},
+              {optionValue: 'v'},
+              {optionValue: 'q'}],
+              "text":"www",
           },
           {
 
-              "courseTitle": "xxcx",
-              "date": "2025-03-21",
-              "time": "15:36",
-              "lecturerName": "h",
-              "registered": 2,
-              "status": "hh",
-              "joinLink": "jbljk",
-              "limit": 9
+            "answerExplanation":"wwww",
+            "correctAnswer":"w",
+            "options":[
+              {optionValue: 'w'},
+              {optionValue: 's'},
+              {optionValue: 'v'},
+              {optionValue: 'q'}],
+              "text":"www",
+          },
+          {
+
+            "answerExplanation":"wwww",
+            "correctAnswer":"w",
+            "options":[
+              {optionValue: 'w'},
+              {optionValue: 's'},
+              {optionValue: 'v'},
+              {optionValue: 'q'}],
+              "text":"www",
+          },
+          {
+
+            "answerExplanation":"wwww",
+            "correctAnswer":"w",
+            "options":[
+              {optionValue: 'w'},
+              {optionValue: 's'},
+              {optionValue: 'v'},
+              {optionValue: 'q'}],
+              "text":"www",
           }
+        ,{
+
+          "answerExplanation":"wwww",
+          "correctAnswer":"w",
+          "options":[
+            {optionValue: 'w'},
+            {optionValue: 's'},
+            {optionValue: 'v'},
+            {optionValue: 'q'}],
+            "text":"www",
+        }
+      ,{
+
+        "answerExplanation":"wwww",
+        "correctAnswer":"w",
+        "options":[
+          {optionValue: 'w'},
+          {optionValue: 's'},
+          {optionValue: 'v'},
+          {optionValue: 'q'}],
+          "text":"www",
+      },
+      {
+
+        "answerExplanation":"wwww",
+        "correctAnswer":"w",
+        "options":[
+          {optionValue: 'w'},
+          {optionValue: 's'},
+          {optionValue: 'v'},
+          {optionValue: 'q'}],
+          "text":"www",
+      },
+      {
+
+        "answerExplanation":"wwww",
+        "correctAnswer":"w",
+        "options":[
+          {optionValue: 'w'},
+          {optionValue: 's'},
+          {optionValue: 'v'},
+          {optionValue: 'q'}],
+          "text":"www",
+      },
+      {
+
+        "answerExplanation":"wwww",
+        "correctAnswer":"w",
+        "options":[
+          {optionValue: 'w'},
+          {optionValue: 's'},
+          {optionValue: 'v'},
+          {optionValue: 'q'}],
+          "text":"www",
+      }]
+
+        }]
+    }
       ],
       "landingPage": {
           "title": "sad",
@@ -252,28 +876,236 @@ export class AboutUsInstructorComponent  implements OnInit{
       "targetAudience": "z",
       "courseTitle": "The Complete PHP Full",
       "schedules": [
-          {
-              "id":"1",
-              "courseTitle": "z",
-              "date": "2025-03-11",
-              "time": "13:38",
-              "lecturerName": "z",
-              "registered": 10,
-              "status": "zz",
-              "joinLink": "zzz",
-              "limit": 8
+        {
+          "id":"1",
+          "courseTitle": "z",
+          "date": "2025-03-11",
+          "time": "13:38",
+          "lecturerName": "z",
+          "registered": 10,
+          "status": "zz",
+          "joinLink": "zzz",
+          "limit": 8,
+          "quizzes":[
+          { "duration": 10,
+            "title":"quiz1",
+            "questions":[{
+
+              "answerExplanation":"wwww",
+              "correctAnswer":"w",
+              "options":[
+                {optionValue: 'w'},
+                {optionValue: 's'},
+                {optionValue: 'v'},
+                {optionValue: 'q'}],
+                "text":"www",
+            },
+            {
+
+              "answerExplanation":"wwww",
+              "correctAnswer":"w",
+              "options":[
+                {optionValue: 'w'},
+                {optionValue: 's'},
+                {optionValue: 'v'},
+                {optionValue: 'q'}],
+                "text":"www",
+            },
+            {
+
+              "answerExplanation":"wwww",
+              "correctAnswer":"w",
+              "options":[
+                {optionValue: 'w'},
+                {optionValue: 's'},
+                {optionValue: 'v'},
+                {optionValue: 'q'}],
+                "text":"www",
+            },
+            {
+
+              "answerExplanation":"wwww",
+              "correctAnswer":"w",
+              "options":[
+                {optionValue: 'w'},
+                {optionValue: 's'},
+                {optionValue: 'v'},
+                {optionValue: 'q'}],
+                "text":"www",
+            }
+          ,{
+
+            "answerExplanation":"wwww",
+            "correctAnswer":"w",
+            "options":[
+              {optionValue: 'w'},
+              {optionValue: 's'},
+              {optionValue: 'v'},
+              {optionValue: 'q'}],
+              "text":"www",
+          }
+        ,{
+
+          "answerExplanation":"wwww",
+          "correctAnswer":"w",
+          "options":[
+            {optionValue: 'w'},
+            {optionValue: 's'},
+            {optionValue: 'v'},
+            {optionValue: 'q'}],
+            "text":"www",
+        },
+        {
+
+          "answerExplanation":"wwww",
+          "correctAnswer":"w",
+          "options":[
+            {optionValue: 'w'},
+            {optionValue: 's'},
+            {optionValue: 'v'},
+            {optionValue: 'q'}],
+            "text":"www",
+        },
+        {
+
+          "answerExplanation":"wwww",
+          "correctAnswer":"w",
+          "options":[
+            {optionValue: 'w'},
+            {optionValue: 's'},
+            {optionValue: 'v'},
+            {optionValue: 'q'}],
+            "text":"www",
+        },
+        {
+
+          "answerExplanation":"wwww",
+          "correctAnswer":"w",
+          "options":[
+            {optionValue: 'w'},
+            {optionValue: 's'},
+            {optionValue: 'v'},
+            {optionValue: 'q'}],
+            "text":"www",
+        }]
+
+          }]
+      },
+      {
+        "id":"2",
+        "courseTitle": "z",
+        "date": "2025-03-11",
+        "time": "13:38",
+        "lecturerName": "z",
+        "registered": 10,
+        "status": "zz",
+        "joinLink": "zzz",
+        "limit": 8,
+        "quizzes":[
+        { "duration": 10,
+          "title":"quiz1",
+          "questions":[{
+
+            "answerExplanation":"wwww",
+            "correctAnswer":"w",
+            "options":[
+              {optionValue: 'w'},
+              {optionValue: 's'},
+              {optionValue: 'v'},
+              {optionValue: 'q'}],
+              "text":"www",
           },
           {
-            "id":"2",
-              "courseTitle": "xxcx",
-              "date": "2025-03-21",
-              "time": "15:36",
-              "lecturerName": "h",
-              "registered": 2,
-              "status": "hh",
-              "joinLink": "jbljk",
-              "limit": 9
+
+            "answerExplanation":"wwww",
+            "correctAnswer":"w",
+            "options":[
+              {optionValue: 'w'},
+              {optionValue: 's'},
+              {optionValue: 'v'},
+              {optionValue: 'q'}],
+              "text":"www",
+          },
+          {
+
+            "answerExplanation":"wwww",
+            "correctAnswer":"w",
+            "options":[
+              {optionValue: 'w'},
+              {optionValue: 's'},
+              {optionValue: 'v'},
+              {optionValue: 'q'}],
+              "text":"www",
+          },
+          {
+
+            "answerExplanation":"wwww",
+            "correctAnswer":"w",
+            "options":[
+              {optionValue: 'w'},
+              {optionValue: 's'},
+              {optionValue: 'v'},
+              {optionValue: 'q'}],
+              "text":"www",
           }
+        ,{
+
+          "answerExplanation":"wwww",
+          "correctAnswer":"w",
+          "options":[
+            {optionValue: 'w'},
+            {optionValue: 's'},
+            {optionValue: 'v'},
+            {optionValue: 'q'}],
+            "text":"www",
+        }
+      ,{
+
+        "answerExplanation":"wwww",
+        "correctAnswer":"w",
+        "options":[
+          {optionValue: 'w'},
+          {optionValue: 's'},
+          {optionValue: 'v'},
+          {optionValue: 'q'}],
+          "text":"www",
+      },
+      {
+
+        "answerExplanation":"wwww",
+        "correctAnswer":"w",
+        "options":[
+          {optionValue: 'w'},
+          {optionValue: 's'},
+          {optionValue: 'v'},
+          {optionValue: 'q'}],
+          "text":"www",
+      },
+      {
+
+        "answerExplanation":"wwww",
+        "correctAnswer":"w",
+        "options":[
+          {optionValue: 'w'},
+          {optionValue: 's'},
+          {optionValue: 'v'},
+          {optionValue: 'q'}],
+          "text":"www",
+      },
+      {
+
+        "answerExplanation":"wwww",
+        "correctAnswer":"w",
+        "options":[
+          {optionValue: 'w'},
+          {optionValue: 's'},
+          {optionValue: 'v'},
+          {optionValue: 'q'}],
+          "text":"www",
+      }]
+
+        }]
+    }
       ],
       "landingPage": {
           "title": "sad",
@@ -1580,7 +2412,7 @@ export class AboutUsInstructorComponent  implements OnInit{
   "targetAudience": "z",
   "courseTitle": "How the internet works",
   "schedules": [
-      {
+        {
           "id":"1",
           "courseTitle": "z",
           "date": "2025-03-11",
@@ -1589,20 +2421,228 @@ export class AboutUsInstructorComponent  implements OnInit{
           "registered": 10,
           "status": "zz",
           "joinLink": "zzz",
-          "limit": 8
+          "limit": 8,
+          "quizzes":[
+          { "duration": 10,
+            "title":"quiz1",
+            "questions":[{
+
+              "answerExplanation":"wwww",
+              "correctAnswer":"w",
+              "options":[
+                {optionValue: 'w'},
+                {optionValue: 's'},
+                {optionValue: 'v'},
+                {optionValue: 'q'}],
+                "text":"www",
+            },
+            {
+
+              "answerExplanation":"wwww",
+              "correctAnswer":"w",
+              "options":[
+                {optionValue: 'w'},
+                {optionValue: 's'},
+                {optionValue: 'v'},
+                {optionValue: 'q'}],
+                "text":"www",
+            },
+            {
+
+              "answerExplanation":"wwww",
+              "correctAnswer":"w",
+              "options":[
+                {optionValue: 'w'},
+                {optionValue: 's'},
+                {optionValue: 'v'},
+                {optionValue: 'q'}],
+                "text":"www",
+            },
+            {
+
+              "answerExplanation":"wwww",
+              "correctAnswer":"w",
+              "options":[
+                {optionValue: 'w'},
+                {optionValue: 's'},
+                {optionValue: 'v'},
+                {optionValue: 'q'}],
+                "text":"www",
+            }
+          ,{
+
+            "answerExplanation":"wwww",
+            "correctAnswer":"w",
+            "options":[
+              {optionValue: 'w'},
+              {optionValue: 's'},
+              {optionValue: 'v'},
+              {optionValue: 'q'}],
+              "text":"www",
+          }
+        ,{
+
+          "answerExplanation":"wwww",
+          "correctAnswer":"w",
+          "options":[
+            {optionValue: 'w'},
+            {optionValue: 's'},
+            {optionValue: 'v'},
+            {optionValue: 'q'}],
+            "text":"www",
+        },
+        {
+
+          "answerExplanation":"wwww",
+          "correctAnswer":"w",
+          "options":[
+            {optionValue: 'w'},
+            {optionValue: 's'},
+            {optionValue: 'v'},
+            {optionValue: 'q'}],
+            "text":"www",
+        },
+        {
+
+          "answerExplanation":"wwww",
+          "correctAnswer":"w",
+          "options":[
+            {optionValue: 'w'},
+            {optionValue: 's'},
+            {optionValue: 'v'},
+            {optionValue: 'q'}],
+            "text":"www",
+        },
+        {
+
+          "answerExplanation":"wwww",
+          "correctAnswer":"w",
+          "options":[
+            {optionValue: 'w'},
+            {optionValue: 's'},
+            {optionValue: 'v'},
+            {optionValue: 'q'}],
+            "text":"www",
+        }]
+
+          }]
       },
       {
         "id":"2",
-          "courseTitle": "xxcx",
-          "date": "2025-03-21",
-          "time": "15:36",
-          "lecturerName": "h",
-          "registered": 2,
-          "status": "hh",
-          "joinLink": "jbljk",
-          "limit": 9
-      }
-  ],
+        "courseTitle": "z",
+        "date": "2025-03-11",
+        "time": "13:38",
+        "lecturerName": "z",
+        "registered": 10,
+        "status": "zz",
+        "joinLink": "zzz",
+        "limit": 8,
+        "quizzes":[
+        { "duration": 10,
+          "title":"quiz1",
+          "questions":[{
+
+            "answerExplanation":"wwww",
+            "correctAnswer":"w",
+            "options":[
+              {optionValue: 'w'},
+              {optionValue: 's'},
+              {optionValue: 'v'},
+              {optionValue: 'q'}],
+              "text":"www",
+          },
+          {
+
+            "answerExplanation":"wwww",
+            "correctAnswer":"w",
+            "options":[
+              {optionValue: 'w'},
+              {optionValue: 's'},
+              {optionValue: 'v'},
+              {optionValue: 'q'}],
+              "text":"www",
+          },
+          {
+
+            "answerExplanation":"wwww",
+            "correctAnswer":"w",
+            "options":[
+              {optionValue: 'w'},
+              {optionValue: 's'},
+              {optionValue: 'v'},
+              {optionValue: 'q'}],
+              "text":"www",
+          },
+          {
+
+            "answerExplanation":"wwww",
+            "correctAnswer":"w",
+            "options":[
+              {optionValue: 'w'},
+              {optionValue: 's'},
+              {optionValue: 'v'},
+              {optionValue: 'q'}],
+              "text":"www",
+          }
+        ,{
+
+          "answerExplanation":"wwww",
+          "correctAnswer":"w",
+          "options":[
+            {optionValue: 'w'},
+            {optionValue: 's'},
+            {optionValue: 'v'},
+            {optionValue: 'q'}],
+            "text":"www",
+        }
+      ,{
+
+        "answerExplanation":"wwww",
+        "correctAnswer":"w",
+        "options":[
+          {optionValue: 'w'},
+          {optionValue: 's'},
+          {optionValue: 'v'},
+          {optionValue: 'q'}],
+          "text":"www",
+      },
+      {
+
+        "answerExplanation":"wwww",
+        "correctAnswer":"w",
+        "options":[
+          {optionValue: 'w'},
+          {optionValue: 's'},
+          {optionValue: 'v'},
+          {optionValue: 'q'}],
+          "text":"www",
+      },
+      {
+
+        "answerExplanation":"wwww",
+        "correctAnswer":"w",
+        "options":[
+          {optionValue: 'w'},
+          {optionValue: 's'},
+          {optionValue: 'v'},
+          {optionValue: 'q'}],
+          "text":"www",
+      },
+      {
+
+        "answerExplanation":"wwww",
+        "correctAnswer":"w",
+        "options":[
+          {optionValue: 'w'},
+          {optionValue: 's'},
+          {optionValue: 'v'},
+          {optionValue: 'q'}],
+          "text":"www",
+      }]
+
+        }]
+    }
+      ],
   "landingPage": {
       "title": "sad",
       "description": "ssdd",
@@ -1652,7 +2692,7 @@ export class AboutUsInstructorComponent  implements OnInit{
   "targetAudience": "z",
   "courseTitle": "How the internet works",
   "schedules": [
-      {
+        {
           "id":"1",
           "courseTitle": "z",
           "date": "2025-03-11",
@@ -1661,20 +2701,228 @@ export class AboutUsInstructorComponent  implements OnInit{
           "registered": 10,
           "status": "zz",
           "joinLink": "zzz",
-          "limit": 8
+          "limit": 8,
+          "quizzes":[
+          { "duration": 10,
+            "title":"quiz1",
+            "questions":[{
+
+              "answerExplanation":"wwww",
+              "correctAnswer":"w",
+              "options":[
+                {optionValue: 'w'},
+                {optionValue: 's'},
+                {optionValue: 'v'},
+                {optionValue: 'q'}],
+                "text":"www",
+            },
+            {
+
+              "answerExplanation":"wwww",
+              "correctAnswer":"w",
+              "options":[
+                {optionValue: 'w'},
+                {optionValue: 's'},
+                {optionValue: 'v'},
+                {optionValue: 'q'}],
+                "text":"www",
+            },
+            {
+
+              "answerExplanation":"wwww",
+              "correctAnswer":"w",
+              "options":[
+                {optionValue: 'w'},
+                {optionValue: 's'},
+                {optionValue: 'v'},
+                {optionValue: 'q'}],
+                "text":"www",
+            },
+            {
+
+              "answerExplanation":"wwww",
+              "correctAnswer":"w",
+              "options":[
+                {optionValue: 'w'},
+                {optionValue: 's'},
+                {optionValue: 'v'},
+                {optionValue: 'q'}],
+                "text":"www",
+            }
+          ,{
+
+            "answerExplanation":"wwww",
+            "correctAnswer":"w",
+            "options":[
+              {optionValue: 'w'},
+              {optionValue: 's'},
+              {optionValue: 'v'},
+              {optionValue: 'q'}],
+              "text":"www",
+          }
+        ,{
+
+          "answerExplanation":"wwww",
+          "correctAnswer":"w",
+          "options":[
+            {optionValue: 'w'},
+            {optionValue: 's'},
+            {optionValue: 'v'},
+            {optionValue: 'q'}],
+            "text":"www",
+        },
+        {
+
+          "answerExplanation":"wwww",
+          "correctAnswer":"w",
+          "options":[
+            {optionValue: 'w'},
+            {optionValue: 's'},
+            {optionValue: 'v'},
+            {optionValue: 'q'}],
+            "text":"www",
+        },
+        {
+
+          "answerExplanation":"wwww",
+          "correctAnswer":"w",
+          "options":[
+            {optionValue: 'w'},
+            {optionValue: 's'},
+            {optionValue: 'v'},
+            {optionValue: 'q'}],
+            "text":"www",
+        },
+        {
+
+          "answerExplanation":"wwww",
+          "correctAnswer":"w",
+          "options":[
+            {optionValue: 'w'},
+            {optionValue: 's'},
+            {optionValue: 'v'},
+            {optionValue: 'q'}],
+            "text":"www",
+        }]
+
+          }]
       },
       {
         "id":"2",
-          "courseTitle": "xxcx",
-          "date": "2025-03-21",
-          "time": "15:36",
-          "lecturerName": "h",
-          "registered": 2,
-          "status": "hh",
-          "joinLink": "jbljk",
-          "limit": 9
-      }
-  ],
+        "courseTitle": "z",
+        "date": "2025-03-11",
+        "time": "13:38",
+        "lecturerName": "z",
+        "registered": 10,
+        "status": "zz",
+        "joinLink": "zzz",
+        "limit": 8,
+        "quizzes":[
+        { "duration": 10,
+          "title":"quiz1",
+          "questions":[{
+
+            "answerExplanation":"wwww",
+            "correctAnswer":"w",
+            "options":[
+              {optionValue: 'w'},
+              {optionValue: 's'},
+              {optionValue: 'v'},
+              {optionValue: 'q'}],
+              "text":"www",
+          },
+          {
+
+            "answerExplanation":"wwww",
+            "correctAnswer":"w",
+            "options":[
+              {optionValue: 'w'},
+              {optionValue: 's'},
+              {optionValue: 'v'},
+              {optionValue: 'q'}],
+              "text":"www",
+          },
+          {
+
+            "answerExplanation":"wwww",
+            "correctAnswer":"w",
+            "options":[
+              {optionValue: 'w'},
+              {optionValue: 's'},
+              {optionValue: 'v'},
+              {optionValue: 'q'}],
+              "text":"www",
+          },
+          {
+
+            "answerExplanation":"wwww",
+            "correctAnswer":"w",
+            "options":[
+              {optionValue: 'w'},
+              {optionValue: 's'},
+              {optionValue: 'v'},
+              {optionValue: 'q'}],
+              "text":"www",
+          }
+        ,{
+
+          "answerExplanation":"wwww",
+          "correctAnswer":"w",
+          "options":[
+            {optionValue: 'w'},
+            {optionValue: 's'},
+            {optionValue: 'v'},
+            {optionValue: 'q'}],
+            "text":"www",
+        }
+      ,{
+
+        "answerExplanation":"wwww",
+        "correctAnswer":"w",
+        "options":[
+          {optionValue: 'w'},
+          {optionValue: 's'},
+          {optionValue: 'v'},
+          {optionValue: 'q'}],
+          "text":"www",
+      },
+      {
+
+        "answerExplanation":"wwww",
+        "correctAnswer":"w",
+        "options":[
+          {optionValue: 'w'},
+          {optionValue: 's'},
+          {optionValue: 'v'},
+          {optionValue: 'q'}],
+          "text":"www",
+      },
+      {
+
+        "answerExplanation":"wwww",
+        "correctAnswer":"w",
+        "options":[
+          {optionValue: 'w'},
+          {optionValue: 's'},
+          {optionValue: 'v'},
+          {optionValue: 'q'}],
+          "text":"www",
+      },
+      {
+
+        "answerExplanation":"wwww",
+        "correctAnswer":"w",
+        "options":[
+          {optionValue: 'w'},
+          {optionValue: 's'},
+          {optionValue: 'v'},
+          {optionValue: 'q'}],
+          "text":"www",
+      }]
+
+        }]
+    }
+      ],
   "landingPage": {
       "title": "sad",
       "description": "ssdd",
@@ -1724,8 +2972,8 @@ export class AboutUsInstructorComponent  implements OnInit{
   "targetAudience": "z",
   "courseTitle": "The Complete PHP Full",
   "schedules": [
-      {
-
+        {
+          "id":"1",
           "courseTitle": "z",
           "date": "2025-03-11",
           "time": "13:38",
@@ -1733,20 +2981,228 @@ export class AboutUsInstructorComponent  implements OnInit{
           "registered": 10,
           "status": "zz",
           "joinLink": "zzz",
-          "limit": 8
+          "limit": 8,
+          "quizzes":[
+          { "duration": 10,
+            "title":"quiz1",
+            "questions":[{
+
+              "answerExplanation":"wwww",
+              "correctAnswer":"w",
+              "options":[
+                {optionValue: 'w'},
+                {optionValue: 's'},
+                {optionValue: 'v'},
+                {optionValue: 'q'}],
+                "text":"www",
+            },
+            {
+
+              "answerExplanation":"wwww",
+              "correctAnswer":"w",
+              "options":[
+                {optionValue: 'w'},
+                {optionValue: 's'},
+                {optionValue: 'v'},
+                {optionValue: 'q'}],
+                "text":"www",
+            },
+            {
+
+              "answerExplanation":"wwww",
+              "correctAnswer":"w",
+              "options":[
+                {optionValue: 'w'},
+                {optionValue: 's'},
+                {optionValue: 'v'},
+                {optionValue: 'q'}],
+                "text":"www",
+            },
+            {
+
+              "answerExplanation":"wwww",
+              "correctAnswer":"w",
+              "options":[
+                {optionValue: 'w'},
+                {optionValue: 's'},
+                {optionValue: 'v'},
+                {optionValue: 'q'}],
+                "text":"www",
+            }
+          ,{
+
+            "answerExplanation":"wwww",
+            "correctAnswer":"w",
+            "options":[
+              {optionValue: 'w'},
+              {optionValue: 's'},
+              {optionValue: 'v'},
+              {optionValue: 'q'}],
+              "text":"www",
+          }
+        ,{
+
+          "answerExplanation":"wwww",
+          "correctAnswer":"w",
+          "options":[
+            {optionValue: 'w'},
+            {optionValue: 's'},
+            {optionValue: 'v'},
+            {optionValue: 'q'}],
+            "text":"www",
+        },
+        {
+
+          "answerExplanation":"wwww",
+          "correctAnswer":"w",
+          "options":[
+            {optionValue: 'w'},
+            {optionValue: 's'},
+            {optionValue: 'v'},
+            {optionValue: 'q'}],
+            "text":"www",
+        },
+        {
+
+          "answerExplanation":"wwww",
+          "correctAnswer":"w",
+          "options":[
+            {optionValue: 'w'},
+            {optionValue: 's'},
+            {optionValue: 'v'},
+            {optionValue: 'q'}],
+            "text":"www",
+        },
+        {
+
+          "answerExplanation":"wwww",
+          "correctAnswer":"w",
+          "options":[
+            {optionValue: 'w'},
+            {optionValue: 's'},
+            {optionValue: 'v'},
+            {optionValue: 'q'}],
+            "text":"www",
+        }]
+
+          }]
+      },
+      {
+        "id":"2",
+        "courseTitle": "z",
+        "date": "2025-03-11",
+        "time": "13:38",
+        "lecturerName": "z",
+        "registered": 10,
+        "status": "zz",
+        "joinLink": "zzz",
+        "limit": 8,
+        "quizzes":[
+        { "duration": 10,
+          "title":"quiz1",
+          "questions":[{
+
+            "answerExplanation":"wwww",
+            "correctAnswer":"w",
+            "options":[
+              {optionValue: 'w'},
+              {optionValue: 's'},
+              {optionValue: 'v'},
+              {optionValue: 'q'}],
+              "text":"www",
+          },
+          {
+
+            "answerExplanation":"wwww",
+            "correctAnswer":"w",
+            "options":[
+              {optionValue: 'w'},
+              {optionValue: 's'},
+              {optionValue: 'v'},
+              {optionValue: 'q'}],
+              "text":"www",
+          },
+          {
+
+            "answerExplanation":"wwww",
+            "correctAnswer":"w",
+            "options":[
+              {optionValue: 'w'},
+              {optionValue: 's'},
+              {optionValue: 'v'},
+              {optionValue: 'q'}],
+              "text":"www",
+          },
+          {
+
+            "answerExplanation":"wwww",
+            "correctAnswer":"w",
+            "options":[
+              {optionValue: 'w'},
+              {optionValue: 's'},
+              {optionValue: 'v'},
+              {optionValue: 'q'}],
+              "text":"www",
+          }
+        ,{
+
+          "answerExplanation":"wwww",
+          "correctAnswer":"w",
+          "options":[
+            {optionValue: 'w'},
+            {optionValue: 's'},
+            {optionValue: 'v'},
+            {optionValue: 'q'}],
+            "text":"www",
+        }
+      ,{
+
+        "answerExplanation":"wwww",
+        "correctAnswer":"w",
+        "options":[
+          {optionValue: 'w'},
+          {optionValue: 's'},
+          {optionValue: 'v'},
+          {optionValue: 'q'}],
+          "text":"www",
       },
       {
 
-          "courseTitle": "xxcx",
-          "date": "2025-03-21",
-          "time": "15:36",
-          "lecturerName": "h",
-          "registered": 2,
-          "status": "hh",
-          "joinLink": "jbljk",
-          "limit": 9
-      }
-  ],
+        "answerExplanation":"wwww",
+        "correctAnswer":"w",
+        "options":[
+          {optionValue: 'w'},
+          {optionValue: 's'},
+          {optionValue: 'v'},
+          {optionValue: 'q'}],
+          "text":"www",
+      },
+      {
+
+        "answerExplanation":"wwww",
+        "correctAnswer":"w",
+        "options":[
+          {optionValue: 'w'},
+          {optionValue: 's'},
+          {optionValue: 'v'},
+          {optionValue: 'q'}],
+          "text":"www",
+      },
+      {
+
+        "answerExplanation":"wwww",
+        "correctAnswer":"w",
+        "options":[
+          {optionValue: 'w'},
+          {optionValue: 's'},
+          {optionValue: 'v'},
+          {optionValue: 'q'}],
+          "text":"www",
+      }]
+
+        }]
+    }
+      ],
   "landingPage": {
       "title": "sad",
       "description": "ssdd",
@@ -1796,7 +3252,7 @@ export class AboutUsInstructorComponent  implements OnInit{
   "targetAudience": "z",
   "courseTitle": "The Complete PHP Full",
   "schedules": [
-      {
+        {
           "id":"1",
           "courseTitle": "z",
           "date": "2025-03-11",
@@ -1805,20 +3261,228 @@ export class AboutUsInstructorComponent  implements OnInit{
           "registered": 10,
           "status": "zz",
           "joinLink": "zzz",
-          "limit": 8
+          "limit": 8,
+          "quizzes":[
+          { "duration": 10,
+            "title":"quiz1",
+            "questions":[{
+
+              "answerExplanation":"wwww",
+              "correctAnswer":"w",
+              "options":[
+                {optionValue: 'w'},
+                {optionValue: 's'},
+                {optionValue: 'v'},
+                {optionValue: 'q'}],
+                "text":"www",
+            },
+            {
+
+              "answerExplanation":"wwww",
+              "correctAnswer":"w",
+              "options":[
+                {optionValue: 'w'},
+                {optionValue: 's'},
+                {optionValue: 'v'},
+                {optionValue: 'q'}],
+                "text":"www",
+            },
+            {
+
+              "answerExplanation":"wwww",
+              "correctAnswer":"w",
+              "options":[
+                {optionValue: 'w'},
+                {optionValue: 's'},
+                {optionValue: 'v'},
+                {optionValue: 'q'}],
+                "text":"www",
+            },
+            {
+
+              "answerExplanation":"wwww",
+              "correctAnswer":"w",
+              "options":[
+                {optionValue: 'w'},
+                {optionValue: 's'},
+                {optionValue: 'v'},
+                {optionValue: 'q'}],
+                "text":"www",
+            }
+          ,{
+
+            "answerExplanation":"wwww",
+            "correctAnswer":"w",
+            "options":[
+              {optionValue: 'w'},
+              {optionValue: 's'},
+              {optionValue: 'v'},
+              {optionValue: 'q'}],
+              "text":"www",
+          }
+        ,{
+
+          "answerExplanation":"wwww",
+          "correctAnswer":"w",
+          "options":[
+            {optionValue: 'w'},
+            {optionValue: 's'},
+            {optionValue: 'v'},
+            {optionValue: 'q'}],
+            "text":"www",
+        },
+        {
+
+          "answerExplanation":"wwww",
+          "correctAnswer":"w",
+          "options":[
+            {optionValue: 'w'},
+            {optionValue: 's'},
+            {optionValue: 'v'},
+            {optionValue: 'q'}],
+            "text":"www",
+        },
+        {
+
+          "answerExplanation":"wwww",
+          "correctAnswer":"w",
+          "options":[
+            {optionValue: 'w'},
+            {optionValue: 's'},
+            {optionValue: 'v'},
+            {optionValue: 'q'}],
+            "text":"www",
+        },
+        {
+
+          "answerExplanation":"wwww",
+          "correctAnswer":"w",
+          "options":[
+            {optionValue: 'w'},
+            {optionValue: 's'},
+            {optionValue: 'v'},
+            {optionValue: 'q'}],
+            "text":"www",
+        }]
+
+          }]
       },
       {
         "id":"2",
-          "courseTitle": "xxcx",
-          "date": "2025-03-21",
-          "time": "15:36",
-          "lecturerName": "h",
-          "registered": 2,
-          "status": "hh",
-          "joinLink": "jbljk",
-          "limit": 9
-      }
-  ],
+        "courseTitle": "z",
+        "date": "2025-03-11",
+        "time": "13:38",
+        "lecturerName": "z",
+        "registered": 10,
+        "status": "zz",
+        "joinLink": "zzz",
+        "limit": 8,
+        "quizzes":[
+        { "duration": 10,
+          "title":"quiz1",
+          "questions":[{
+
+            "answerExplanation":"wwww",
+            "correctAnswer":"w",
+            "options":[
+              {optionValue: 'w'},
+              {optionValue: 's'},
+              {optionValue: 'v'},
+              {optionValue: 'q'}],
+              "text":"www",
+          },
+          {
+
+            "answerExplanation":"wwww",
+            "correctAnswer":"w",
+            "options":[
+              {optionValue: 'w'},
+              {optionValue: 's'},
+              {optionValue: 'v'},
+              {optionValue: 'q'}],
+              "text":"www",
+          },
+          {
+
+            "answerExplanation":"wwww",
+            "correctAnswer":"w",
+            "options":[
+              {optionValue: 'w'},
+              {optionValue: 's'},
+              {optionValue: 'v'},
+              {optionValue: 'q'}],
+              "text":"www",
+          },
+          {
+
+            "answerExplanation":"wwww",
+            "correctAnswer":"w",
+            "options":[
+              {optionValue: 'w'},
+              {optionValue: 's'},
+              {optionValue: 'v'},
+              {optionValue: 'q'}],
+              "text":"www",
+          }
+        ,{
+
+          "answerExplanation":"wwww",
+          "correctAnswer":"w",
+          "options":[
+            {optionValue: 'w'},
+            {optionValue: 's'},
+            {optionValue: 'v'},
+            {optionValue: 'q'}],
+            "text":"www",
+        }
+      ,{
+
+        "answerExplanation":"wwww",
+        "correctAnswer":"w",
+        "options":[
+          {optionValue: 'w'},
+          {optionValue: 's'},
+          {optionValue: 'v'},
+          {optionValue: 'q'}],
+          "text":"www",
+      },
+      {
+
+        "answerExplanation":"wwww",
+        "correctAnswer":"w",
+        "options":[
+          {optionValue: 'w'},
+          {optionValue: 's'},
+          {optionValue: 'v'},
+          {optionValue: 'q'}],
+          "text":"www",
+      },
+      {
+
+        "answerExplanation":"wwww",
+        "correctAnswer":"w",
+        "options":[
+          {optionValue: 'w'},
+          {optionValue: 's'},
+          {optionValue: 'v'},
+          {optionValue: 'q'}],
+          "text":"www",
+      },
+      {
+
+        "answerExplanation":"wwww",
+        "correctAnswer":"w",
+        "options":[
+          {optionValue: 'w'},
+          {optionValue: 's'},
+          {optionValue: 'v'},
+          {optionValue: 'q'}],
+          "text":"www",
+      }]
+
+        }]
+    }
+      ],
   "landingPage": {
       "title": "sad",
       "description": "ssdd",
@@ -2856,15 +4520,15 @@ seatsLeft: 10,
 watched: 107,
 src: 'assets/course1.png',
 },
- {
+{
   "courseType": "Live Streamed Educational Courses",
   "category": "Finance & Accounting",
   "learningObjectives": "z",
   "requirements": "z",
   "targetAudience": "z",
   "courseTitle": "How the internet works",
-  "schedules": [
-      {
+ "schedules": [
+        {
           "id":"1",
           "courseTitle": "z",
           "date": "2025-03-11",
@@ -2873,20 +4537,228 @@ src: 'assets/course1.png',
           "registered": 10,
           "status": "zz",
           "joinLink": "zzz",
-          "limit": 8
+          "limit": 8,
+          "quizzes":[
+          { "duration": 10,
+            "title":"quiz1",
+            "questions":[{
+
+              "answerExplanation":"wwww",
+              "correctAnswer":"w",
+              "options":[
+                {optionValue: 'w'},
+                {optionValue: 's'},
+                {optionValue: 'v'},
+                {optionValue: 'q'}],
+                "text":"www",
+            },
+            {
+
+              "answerExplanation":"wwww",
+              "correctAnswer":"w",
+              "options":[
+                {optionValue: 'w'},
+                {optionValue: 's'},
+                {optionValue: 'v'},
+                {optionValue: 'q'}],
+                "text":"www",
+            },
+            {
+
+              "answerExplanation":"wwww",
+              "correctAnswer":"w",
+              "options":[
+                {optionValue: 'w'},
+                {optionValue: 's'},
+                {optionValue: 'v'},
+                {optionValue: 'q'}],
+                "text":"www",
+            },
+            {
+
+              "answerExplanation":"wwww",
+              "correctAnswer":"w",
+              "options":[
+                {optionValue: 'w'},
+                {optionValue: 's'},
+                {optionValue: 'v'},
+                {optionValue: 'q'}],
+                "text":"www",
+            }
+          ,{
+
+            "answerExplanation":"wwww",
+            "correctAnswer":"w",
+            "options":[
+              {optionValue: 'w'},
+              {optionValue: 's'},
+              {optionValue: 'v'},
+              {optionValue: 'q'}],
+              "text":"www",
+          }
+        ,{
+
+          "answerExplanation":"wwww",
+          "correctAnswer":"w",
+          "options":[
+            {optionValue: 'w'},
+            {optionValue: 's'},
+            {optionValue: 'v'},
+            {optionValue: 'q'}],
+            "text":"www",
+        },
+        {
+
+          "answerExplanation":"wwww",
+          "correctAnswer":"w",
+          "options":[
+            {optionValue: 'w'},
+            {optionValue: 's'},
+            {optionValue: 'v'},
+            {optionValue: 'q'}],
+            "text":"www",
+        },
+        {
+
+          "answerExplanation":"wwww",
+          "correctAnswer":"w",
+          "options":[
+            {optionValue: 'w'},
+            {optionValue: 's'},
+            {optionValue: 'v'},
+            {optionValue: 'q'}],
+            "text":"www",
+        },
+        {
+
+          "answerExplanation":"wwww",
+          "correctAnswer":"w",
+          "options":[
+            {optionValue: 'w'},
+            {optionValue: 's'},
+            {optionValue: 'v'},
+            {optionValue: 'q'}],
+            "text":"www",
+        }]
+
+          }]
       },
       {
         "id":"2",
-          "courseTitle": "xxcx",
-          "date": "2025-03-21",
-          "time": "15:36",
-          "lecturerName": "h",
-          "registered": 2,
-          "status": "hh",
-          "joinLink": "jbljk",
-          "limit": 9
-      }
-  ],
+        "courseTitle": "z",
+        "date": "2025-03-11",
+        "time": "13:38",
+        "lecturerName": "z",
+        "registered": 10,
+        "status": "zz",
+        "joinLink": "zzz",
+        "limit": 8,
+        "quizzes":[
+        { "duration": 10,
+          "title":"quiz1",
+          "questions":[{
+
+            "answerExplanation":"wwww",
+            "correctAnswer":"w",
+            "options":[
+              {optionValue: 'w'},
+              {optionValue: 's'},
+              {optionValue: 'v'},
+              {optionValue: 'q'}],
+              "text":"www",
+          },
+          {
+
+            "answerExplanation":"wwww",
+            "correctAnswer":"w",
+            "options":[
+              {optionValue: 'w'},
+              {optionValue: 's'},
+              {optionValue: 'v'},
+              {optionValue: 'q'}],
+              "text":"www",
+          },
+          {
+
+            "answerExplanation":"wwww",
+            "correctAnswer":"w",
+            "options":[
+              {optionValue: 'w'},
+              {optionValue: 's'},
+              {optionValue: 'v'},
+              {optionValue: 'q'}],
+              "text":"www",
+          },
+          {
+
+            "answerExplanation":"wwww",
+            "correctAnswer":"w",
+            "options":[
+              {optionValue: 'w'},
+              {optionValue: 's'},
+              {optionValue: 'v'},
+              {optionValue: 'q'}],
+              "text":"www",
+          }
+        ,{
+
+          "answerExplanation":"wwww",
+          "correctAnswer":"w",
+          "options":[
+            {optionValue: 'w'},
+            {optionValue: 's'},
+            {optionValue: 'v'},
+            {optionValue: 'q'}],
+            "text":"www",
+        }
+      ,{
+
+        "answerExplanation":"wwww",
+        "correctAnswer":"w",
+        "options":[
+          {optionValue: 'w'},
+          {optionValue: 's'},
+          {optionValue: 'v'},
+          {optionValue: 'q'}],
+          "text":"www",
+      },
+      {
+
+        "answerExplanation":"wwww",
+        "correctAnswer":"w",
+        "options":[
+          {optionValue: 'w'},
+          {optionValue: 's'},
+          {optionValue: 'v'},
+          {optionValue: 'q'}],
+          "text":"www",
+      },
+      {
+
+        "answerExplanation":"wwww",
+        "correctAnswer":"w",
+        "options":[
+          {optionValue: 'w'},
+          {optionValue: 's'},
+          {optionValue: 'v'},
+          {optionValue: 'q'}],
+          "text":"www",
+      },
+      {
+
+        "answerExplanation":"wwww",
+        "correctAnswer":"w",
+        "options":[
+          {optionValue: 'w'},
+          {optionValue: 's'},
+          {optionValue: 'v'},
+          {optionValue: 'q'}],
+          "text":"www",
+      }]
+
+        }]
+    }
+      ],
   "landingPage": {
       "title": "sad",
       "description": "ssdd",
@@ -2936,7 +4808,7 @@ src: 'assets/course1.png',
   "targetAudience": "z",
   "courseTitle": "How the internet works",
   "schedules": [
-      {
+        {
           "id":"1",
           "courseTitle": "z",
           "date": "2025-03-11",
@@ -2945,20 +4817,228 @@ src: 'assets/course1.png',
           "registered": 10,
           "status": "zz",
           "joinLink": "zzz",
-          "limit": 8
+          "limit": 8,
+          "quizzes":[
+          { "duration": 10,
+            "title":"quiz1",
+            "questions":[{
+
+              "answerExplanation":"wwww",
+              "correctAnswer":"w",
+              "options":[
+                {optionValue: 'w'},
+                {optionValue: 's'},
+                {optionValue: 'v'},
+                {optionValue: 'q'}],
+                "text":"www",
+            },
+            {
+
+              "answerExplanation":"wwww",
+              "correctAnswer":"w",
+              "options":[
+                {optionValue: 'w'},
+                {optionValue: 's'},
+                {optionValue: 'v'},
+                {optionValue: 'q'}],
+                "text":"www",
+            },
+            {
+
+              "answerExplanation":"wwww",
+              "correctAnswer":"w",
+              "options":[
+                {optionValue: 'w'},
+                {optionValue: 's'},
+                {optionValue: 'v'},
+                {optionValue: 'q'}],
+                "text":"www",
+            },
+            {
+
+              "answerExplanation":"wwww",
+              "correctAnswer":"w",
+              "options":[
+                {optionValue: 'w'},
+                {optionValue: 's'},
+                {optionValue: 'v'},
+                {optionValue: 'q'}],
+                "text":"www",
+            }
+          ,{
+
+            "answerExplanation":"wwww",
+            "correctAnswer":"w",
+            "options":[
+              {optionValue: 'w'},
+              {optionValue: 's'},
+              {optionValue: 'v'},
+              {optionValue: 'q'}],
+              "text":"www",
+          }
+        ,{
+
+          "answerExplanation":"wwww",
+          "correctAnswer":"w",
+          "options":[
+            {optionValue: 'w'},
+            {optionValue: 's'},
+            {optionValue: 'v'},
+            {optionValue: 'q'}],
+            "text":"www",
+        },
+        {
+
+          "answerExplanation":"wwww",
+          "correctAnswer":"w",
+          "options":[
+            {optionValue: 'w'},
+            {optionValue: 's'},
+            {optionValue: 'v'},
+            {optionValue: 'q'}],
+            "text":"www",
+        },
+        {
+
+          "answerExplanation":"wwww",
+          "correctAnswer":"w",
+          "options":[
+            {optionValue: 'w'},
+            {optionValue: 's'},
+            {optionValue: 'v'},
+            {optionValue: 'q'}],
+            "text":"www",
+        },
+        {
+
+          "answerExplanation":"wwww",
+          "correctAnswer":"w",
+          "options":[
+            {optionValue: 'w'},
+            {optionValue: 's'},
+            {optionValue: 'v'},
+            {optionValue: 'q'}],
+            "text":"www",
+        }]
+
+          }]
       },
       {
         "id":"2",
-          "courseTitle": "xxcx",
-          "date": "2025-03-21",
-          "time": "15:36",
-          "lecturerName": "h",
-          "registered": 2,
-          "status": "hh",
-          "joinLink": "jbljk",
-          "limit": 9
-      }
-  ],
+        "courseTitle": "z",
+        "date": "2025-03-11",
+        "time": "13:38",
+        "lecturerName": "z",
+        "registered": 10,
+        "status": "zz",
+        "joinLink": "zzz",
+        "limit": 8,
+        "quizzes":[
+        { "duration": 10,
+          "title":"quiz1",
+          "questions":[{
+
+            "answerExplanation":"wwww",
+            "correctAnswer":"w",
+            "options":[
+              {optionValue: 'w'},
+              {optionValue: 's'},
+              {optionValue: 'v'},
+              {optionValue: 'q'}],
+              "text":"www",
+          },
+          {
+
+            "answerExplanation":"wwww",
+            "correctAnswer":"w",
+            "options":[
+              {optionValue: 'w'},
+              {optionValue: 's'},
+              {optionValue: 'v'},
+              {optionValue: 'q'}],
+              "text":"www",
+          },
+          {
+
+            "answerExplanation":"wwww",
+            "correctAnswer":"w",
+            "options":[
+              {optionValue: 'w'},
+              {optionValue: 's'},
+              {optionValue: 'v'},
+              {optionValue: 'q'}],
+              "text":"www",
+          },
+          {
+
+            "answerExplanation":"wwww",
+            "correctAnswer":"w",
+            "options":[
+              {optionValue: 'w'},
+              {optionValue: 's'},
+              {optionValue: 'v'},
+              {optionValue: 'q'}],
+              "text":"www",
+          }
+        ,{
+
+          "answerExplanation":"wwww",
+          "correctAnswer":"w",
+          "options":[
+            {optionValue: 'w'},
+            {optionValue: 's'},
+            {optionValue: 'v'},
+            {optionValue: 'q'}],
+            "text":"www",
+        }
+      ,{
+
+        "answerExplanation":"wwww",
+        "correctAnswer":"w",
+        "options":[
+          {optionValue: 'w'},
+          {optionValue: 's'},
+          {optionValue: 'v'},
+          {optionValue: 'q'}],
+          "text":"www",
+      },
+      {
+
+        "answerExplanation":"wwww",
+        "correctAnswer":"w",
+        "options":[
+          {optionValue: 'w'},
+          {optionValue: 's'},
+          {optionValue: 'v'},
+          {optionValue: 'q'}],
+          "text":"www",
+      },
+      {
+
+        "answerExplanation":"wwww",
+        "correctAnswer":"w",
+        "options":[
+          {optionValue: 'w'},
+          {optionValue: 's'},
+          {optionValue: 'v'},
+          {optionValue: 'q'}],
+          "text":"www",
+      },
+      {
+
+        "answerExplanation":"wwww",
+        "correctAnswer":"w",
+        "options":[
+          {optionValue: 'w'},
+          {optionValue: 's'},
+          {optionValue: 'v'},
+          {optionValue: 'q'}],
+          "text":"www",
+      }]
+
+        }]
+    }
+      ],
   "landingPage": {
       "title": "sad",
       "description": "ssdd",
@@ -3007,9 +5087,9 @@ src: 'assets/course1.png',
   "requirements": "z",
   "targetAudience": "z",
   "courseTitle": "The Complete PHP Full",
-  "schedules": [
-      {
-
+"schedules": [
+        {
+          "id":"1",
           "courseTitle": "z",
           "date": "2025-03-11",
           "time": "13:38",
@@ -3017,20 +5097,228 @@ src: 'assets/course1.png',
           "registered": 10,
           "status": "zz",
           "joinLink": "zzz",
-          "limit": 8
+          "limit": 8,
+          "quizzes":[
+          { "duration": 10,
+            "title":"quiz1",
+            "questions":[{
+
+              "answerExplanation":"wwww",
+              "correctAnswer":"w",
+              "options":[
+                {optionValue: 'w'},
+                {optionValue: 's'},
+                {optionValue: 'v'},
+                {optionValue: 'q'}],
+                "text":"www",
+            },
+            {
+
+              "answerExplanation":"wwww",
+              "correctAnswer":"w",
+              "options":[
+                {optionValue: 'w'},
+                {optionValue: 's'},
+                {optionValue: 'v'},
+                {optionValue: 'q'}],
+                "text":"www",
+            },
+            {
+
+              "answerExplanation":"wwww",
+              "correctAnswer":"w",
+              "options":[
+                {optionValue: 'w'},
+                {optionValue: 's'},
+                {optionValue: 'v'},
+                {optionValue: 'q'}],
+                "text":"www",
+            },
+            {
+
+              "answerExplanation":"wwww",
+              "correctAnswer":"w",
+              "options":[
+                {optionValue: 'w'},
+                {optionValue: 's'},
+                {optionValue: 'v'},
+                {optionValue: 'q'}],
+                "text":"www",
+            }
+          ,{
+
+            "answerExplanation":"wwww",
+            "correctAnswer":"w",
+            "options":[
+              {optionValue: 'w'},
+              {optionValue: 's'},
+              {optionValue: 'v'},
+              {optionValue: 'q'}],
+              "text":"www",
+          }
+        ,{
+
+          "answerExplanation":"wwww",
+          "correctAnswer":"w",
+          "options":[
+            {optionValue: 'w'},
+            {optionValue: 's'},
+            {optionValue: 'v'},
+            {optionValue: 'q'}],
+            "text":"www",
+        },
+        {
+
+          "answerExplanation":"wwww",
+          "correctAnswer":"w",
+          "options":[
+            {optionValue: 'w'},
+            {optionValue: 's'},
+            {optionValue: 'v'},
+            {optionValue: 'q'}],
+            "text":"www",
+        },
+        {
+
+          "answerExplanation":"wwww",
+          "correctAnswer":"w",
+          "options":[
+            {optionValue: 'w'},
+            {optionValue: 's'},
+            {optionValue: 'v'},
+            {optionValue: 'q'}],
+            "text":"www",
+        },
+        {
+
+          "answerExplanation":"wwww",
+          "correctAnswer":"w",
+          "options":[
+            {optionValue: 'w'},
+            {optionValue: 's'},
+            {optionValue: 'v'},
+            {optionValue: 'q'}],
+            "text":"www",
+        }]
+
+          }]
+      },
+      {
+        "id":"2",
+        "courseTitle": "z",
+        "date": "2025-03-11",
+        "time": "13:38",
+        "lecturerName": "z",
+        "registered": 10,
+        "status": "zz",
+        "joinLink": "zzz",
+        "limit": 8,
+        "quizzes":[
+        { "duration": 10,
+          "title":"quiz1",
+          "questions":[{
+
+            "answerExplanation":"wwww",
+            "correctAnswer":"w",
+            "options":[
+              {optionValue: 'w'},
+              {optionValue: 's'},
+              {optionValue: 'v'},
+              {optionValue: 'q'}],
+              "text":"www",
+          },
+          {
+
+            "answerExplanation":"wwww",
+            "correctAnswer":"w",
+            "options":[
+              {optionValue: 'w'},
+              {optionValue: 's'},
+              {optionValue: 'v'},
+              {optionValue: 'q'}],
+              "text":"www",
+          },
+          {
+
+            "answerExplanation":"wwww",
+            "correctAnswer":"w",
+            "options":[
+              {optionValue: 'w'},
+              {optionValue: 's'},
+              {optionValue: 'v'},
+              {optionValue: 'q'}],
+              "text":"www",
+          },
+          {
+
+            "answerExplanation":"wwww",
+            "correctAnswer":"w",
+            "options":[
+              {optionValue: 'w'},
+              {optionValue: 's'},
+              {optionValue: 'v'},
+              {optionValue: 'q'}],
+              "text":"www",
+          }
+        ,{
+
+          "answerExplanation":"wwww",
+          "correctAnswer":"w",
+          "options":[
+            {optionValue: 'w'},
+            {optionValue: 's'},
+            {optionValue: 'v'},
+            {optionValue: 'q'}],
+            "text":"www",
+        }
+      ,{
+
+        "answerExplanation":"wwww",
+        "correctAnswer":"w",
+        "options":[
+          {optionValue: 'w'},
+          {optionValue: 's'},
+          {optionValue: 'v'},
+          {optionValue: 'q'}],
+          "text":"www",
       },
       {
 
-          "courseTitle": "xxcx",
-          "date": "2025-03-21",
-          "time": "15:36",
-          "lecturerName": "h",
-          "registered": 2,
-          "status": "hh",
-          "joinLink": "jbljk",
-          "limit": 9
-      }
-  ],
+        "answerExplanation":"wwww",
+        "correctAnswer":"w",
+        "options":[
+          {optionValue: 'w'},
+          {optionValue: 's'},
+          {optionValue: 'v'},
+          {optionValue: 'q'}],
+          "text":"www",
+      },
+      {
+
+        "answerExplanation":"wwww",
+        "correctAnswer":"w",
+        "options":[
+          {optionValue: 'w'},
+          {optionValue: 's'},
+          {optionValue: 'v'},
+          {optionValue: 'q'}],
+          "text":"www",
+      },
+      {
+
+        "answerExplanation":"wwww",
+        "correctAnswer":"w",
+        "options":[
+          {optionValue: 'w'},
+          {optionValue: 's'},
+          {optionValue: 'v'},
+          {optionValue: 'q'}],
+          "text":"www",
+      }]
+
+        }]
+    }
+      ],
   "landingPage": {
       "title": "sad",
       "description": "ssdd",
@@ -3080,7 +5368,7 @@ src: 'assets/course1.png',
   "targetAudience": "z",
   "courseTitle": "The Complete PHP Full",
   "schedules": [
-      {
+        {
           "id":"1",
           "courseTitle": "z",
           "date": "2025-03-11",
@@ -3089,20 +5377,228 @@ src: 'assets/course1.png',
           "registered": 10,
           "status": "zz",
           "joinLink": "zzz",
-          "limit": 8
+          "limit": 8,
+          "quizzes":[
+          { "duration": 10,
+            "title":"quiz1",
+            "questions":[{
+
+              "answerExplanation":"wwww",
+              "correctAnswer":"w",
+              "options":[
+                {optionValue: 'w'},
+                {optionValue: 's'},
+                {optionValue: 'v'},
+                {optionValue: 'q'}],
+                "text":"www",
+            },
+            {
+
+              "answerExplanation":"wwww",
+              "correctAnswer":"w",
+              "options":[
+                {optionValue: 'w'},
+                {optionValue: 's'},
+                {optionValue: 'v'},
+                {optionValue: 'q'}],
+                "text":"www",
+            },
+            {
+
+              "answerExplanation":"wwww",
+              "correctAnswer":"w",
+              "options":[
+                {optionValue: 'w'},
+                {optionValue: 's'},
+                {optionValue: 'v'},
+                {optionValue: 'q'}],
+                "text":"www",
+            },
+            {
+
+              "answerExplanation":"wwww",
+              "correctAnswer":"w",
+              "options":[
+                {optionValue: 'w'},
+                {optionValue: 's'},
+                {optionValue: 'v'},
+                {optionValue: 'q'}],
+                "text":"www",
+            }
+          ,{
+
+            "answerExplanation":"wwww",
+            "correctAnswer":"w",
+            "options":[
+              {optionValue: 'w'},
+              {optionValue: 's'},
+              {optionValue: 'v'},
+              {optionValue: 'q'}],
+              "text":"www",
+          }
+        ,{
+
+          "answerExplanation":"wwww",
+          "correctAnswer":"w",
+          "options":[
+            {optionValue: 'w'},
+            {optionValue: 's'},
+            {optionValue: 'v'},
+            {optionValue: 'q'}],
+            "text":"www",
+        },
+        {
+
+          "answerExplanation":"wwww",
+          "correctAnswer":"w",
+          "options":[
+            {optionValue: 'w'},
+            {optionValue: 's'},
+            {optionValue: 'v'},
+            {optionValue: 'q'}],
+            "text":"www",
+        },
+        {
+
+          "answerExplanation":"wwww",
+          "correctAnswer":"w",
+          "options":[
+            {optionValue: 'w'},
+            {optionValue: 's'},
+            {optionValue: 'v'},
+            {optionValue: 'q'}],
+            "text":"www",
+        },
+        {
+
+          "answerExplanation":"wwww",
+          "correctAnswer":"w",
+          "options":[
+            {optionValue: 'w'},
+            {optionValue: 's'},
+            {optionValue: 'v'},
+            {optionValue: 'q'}],
+            "text":"www",
+        }]
+
+          }]
       },
       {
         "id":"2",
-          "courseTitle": "xxcx",
-          "date": "2025-03-21",
-          "time": "15:36",
-          "lecturerName": "h",
-          "registered": 2,
-          "status": "hh",
-          "joinLink": "jbljk",
-          "limit": 9
-      }
-  ],
+        "courseTitle": "z",
+        "date": "2025-03-11",
+        "time": "13:38",
+        "lecturerName": "z",
+        "registered": 10,
+        "status": "zz",
+        "joinLink": "zzz",
+        "limit": 8,
+        "quizzes":[
+        { "duration": 10,
+          "title":"quiz1",
+          "questions":[{
+
+            "answerExplanation":"wwww",
+            "correctAnswer":"w",
+            "options":[
+              {optionValue: 'w'},
+              {optionValue: 's'},
+              {optionValue: 'v'},
+              {optionValue: 'q'}],
+              "text":"www",
+          },
+          {
+
+            "answerExplanation":"wwww",
+            "correctAnswer":"w",
+            "options":[
+              {optionValue: 'w'},
+              {optionValue: 's'},
+              {optionValue: 'v'},
+              {optionValue: 'q'}],
+              "text":"www",
+          },
+          {
+
+            "answerExplanation":"wwww",
+            "correctAnswer":"w",
+            "options":[
+              {optionValue: 'w'},
+              {optionValue: 's'},
+              {optionValue: 'v'},
+              {optionValue: 'q'}],
+              "text":"www",
+          },
+          {
+
+            "answerExplanation":"wwww",
+            "correctAnswer":"w",
+            "options":[
+              {optionValue: 'w'},
+              {optionValue: 's'},
+              {optionValue: 'v'},
+              {optionValue: 'q'}],
+              "text":"www",
+          }
+        ,{
+
+          "answerExplanation":"wwww",
+          "correctAnswer":"w",
+          "options":[
+            {optionValue: 'w'},
+            {optionValue: 's'},
+            {optionValue: 'v'},
+            {optionValue: 'q'}],
+            "text":"www",
+        }
+      ,{
+
+        "answerExplanation":"wwww",
+        "correctAnswer":"w",
+        "options":[
+          {optionValue: 'w'},
+          {optionValue: 's'},
+          {optionValue: 'v'},
+          {optionValue: 'q'}],
+          "text":"www",
+      },
+      {
+
+        "answerExplanation":"wwww",
+        "correctAnswer":"w",
+        "options":[
+          {optionValue: 'w'},
+          {optionValue: 's'},
+          {optionValue: 'v'},
+          {optionValue: 'q'}],
+          "text":"www",
+      },
+      {
+
+        "answerExplanation":"wwww",
+        "correctAnswer":"w",
+        "options":[
+          {optionValue: 'w'},
+          {optionValue: 's'},
+          {optionValue: 'v'},
+          {optionValue: 'q'}],
+          "text":"www",
+      },
+      {
+
+        "answerExplanation":"wwww",
+        "correctAnswer":"w",
+        "options":[
+          {optionValue: 'w'},
+          {optionValue: 's'},
+          {optionValue: 'v'},
+          {optionValue: 'q'}],
+          "text":"www",
+      }]
+
+        }]
+    }
+      ],
   "landingPage": {
       "title": "sad",
       "description": "ssdd",
@@ -4148,7 +6644,7 @@ src: 'assets/course1.png',
   "targetAudience": "z",
   "courseTitle": "How the internet works",
   "schedules": [
-      {
+        {
           "id":"1",
           "courseTitle": "z",
           "date": "2025-03-11",
@@ -4157,20 +6653,228 @@ src: 'assets/course1.png',
           "registered": 10,
           "status": "zz",
           "joinLink": "zzz",
-          "limit": 8
+          "limit": 8,
+          "quizzes":[
+          { "duration": 10,
+            "title":"quiz1",
+            "questions":[{
+
+              "answerExplanation":"wwww",
+              "correctAnswer":"w",
+              "options":[
+                {optionValue: 'w'},
+                {optionValue: 's'},
+                {optionValue: 'v'},
+                {optionValue: 'q'}],
+                "text":"www",
+            },
+            {
+
+              "answerExplanation":"wwww",
+              "correctAnswer":"w",
+              "options":[
+                {optionValue: 'w'},
+                {optionValue: 's'},
+                {optionValue: 'v'},
+                {optionValue: 'q'}],
+                "text":"www",
+            },
+            {
+
+              "answerExplanation":"wwww",
+              "correctAnswer":"w",
+              "options":[
+                {optionValue: 'w'},
+                {optionValue: 's'},
+                {optionValue: 'v'},
+                {optionValue: 'q'}],
+                "text":"www",
+            },
+            {
+
+              "answerExplanation":"wwww",
+              "correctAnswer":"w",
+              "options":[
+                {optionValue: 'w'},
+                {optionValue: 's'},
+                {optionValue: 'v'},
+                {optionValue: 'q'}],
+                "text":"www",
+            }
+          ,{
+
+            "answerExplanation":"wwww",
+            "correctAnswer":"w",
+            "options":[
+              {optionValue: 'w'},
+              {optionValue: 's'},
+              {optionValue: 'v'},
+              {optionValue: 'q'}],
+              "text":"www",
+          }
+        ,{
+
+          "answerExplanation":"wwww",
+          "correctAnswer":"w",
+          "options":[
+            {optionValue: 'w'},
+            {optionValue: 's'},
+            {optionValue: 'v'},
+            {optionValue: 'q'}],
+            "text":"www",
+        },
+        {
+
+          "answerExplanation":"wwww",
+          "correctAnswer":"w",
+          "options":[
+            {optionValue: 'w'},
+            {optionValue: 's'},
+            {optionValue: 'v'},
+            {optionValue: 'q'}],
+            "text":"www",
+        },
+        {
+
+          "answerExplanation":"wwww",
+          "correctAnswer":"w",
+          "options":[
+            {optionValue: 'w'},
+            {optionValue: 's'},
+            {optionValue: 'v'},
+            {optionValue: 'q'}],
+            "text":"www",
+        },
+        {
+
+          "answerExplanation":"wwww",
+          "correctAnswer":"w",
+          "options":[
+            {optionValue: 'w'},
+            {optionValue: 's'},
+            {optionValue: 'v'},
+            {optionValue: 'q'}],
+            "text":"www",
+        }]
+
+          }]
       },
       {
         "id":"2",
-          "courseTitle": "xxcx",
-          "date": "2025-03-21",
-          "time": "15:36",
-          "lecturerName": "h",
-          "registered": 2,
-          "status": "hh",
-          "joinLink": "jbljk",
-          "limit": 9
-      }
-  ],
+        "courseTitle": "z",
+        "date": "2025-03-11",
+        "time": "13:38",
+        "lecturerName": "z",
+        "registered": 10,
+        "status": "zz",
+        "joinLink": "zzz",
+        "limit": 8,
+        "quizzes":[
+        { "duration": 10,
+          "title":"quiz1",
+          "questions":[{
+
+            "answerExplanation":"wwww",
+            "correctAnswer":"w",
+            "options":[
+              {optionValue: 'w'},
+              {optionValue: 's'},
+              {optionValue: 'v'},
+              {optionValue: 'q'}],
+              "text":"www",
+          },
+          {
+
+            "answerExplanation":"wwww",
+            "correctAnswer":"w",
+            "options":[
+              {optionValue: 'w'},
+              {optionValue: 's'},
+              {optionValue: 'v'},
+              {optionValue: 'q'}],
+              "text":"www",
+          },
+          {
+
+            "answerExplanation":"wwww",
+            "correctAnswer":"w",
+            "options":[
+              {optionValue: 'w'},
+              {optionValue: 's'},
+              {optionValue: 'v'},
+              {optionValue: 'q'}],
+              "text":"www",
+          },
+          {
+
+            "answerExplanation":"wwww",
+            "correctAnswer":"w",
+            "options":[
+              {optionValue: 'w'},
+              {optionValue: 's'},
+              {optionValue: 'v'},
+              {optionValue: 'q'}],
+              "text":"www",
+          }
+        ,{
+
+          "answerExplanation":"wwww",
+          "correctAnswer":"w",
+          "options":[
+            {optionValue: 'w'},
+            {optionValue: 's'},
+            {optionValue: 'v'},
+            {optionValue: 'q'}],
+            "text":"www",
+        }
+      ,{
+
+        "answerExplanation":"wwww",
+        "correctAnswer":"w",
+        "options":[
+          {optionValue: 'w'},
+          {optionValue: 's'},
+          {optionValue: 'v'},
+          {optionValue: 'q'}],
+          "text":"www",
+      },
+      {
+
+        "answerExplanation":"wwww",
+        "correctAnswer":"w",
+        "options":[
+          {optionValue: 'w'},
+          {optionValue: 's'},
+          {optionValue: 'v'},
+          {optionValue: 'q'}],
+          "text":"www",
+      },
+      {
+
+        "answerExplanation":"wwww",
+        "correctAnswer":"w",
+        "options":[
+          {optionValue: 'w'},
+          {optionValue: 's'},
+          {optionValue: 'v'},
+          {optionValue: 'q'}],
+          "text":"www",
+      },
+      {
+
+        "answerExplanation":"wwww",
+        "correctAnswer":"w",
+        "options":[
+          {optionValue: 'w'},
+          {optionValue: 's'},
+          {optionValue: 'v'},
+          {optionValue: 'q'}],
+          "text":"www",
+      }]
+
+        }]
+    }
+      ],
   "landingPage": {
       "title": "sad",
       "description": "ssdd",
@@ -4220,7 +6924,7 @@ src: 'assets/course1.png',
   "targetAudience": "z",
   "courseTitle": "How the internet works",
   "schedules": [
-      {
+        {
           "id":"1",
           "courseTitle": "z",
           "date": "2025-03-11",
@@ -4229,20 +6933,228 @@ src: 'assets/course1.png',
           "registered": 10,
           "status": "zz",
           "joinLink": "zzz",
-          "limit": 8
+          "limit": 8,
+          "quizzes":[
+          { "duration": 10,
+            "title":"quiz1",
+            "questions":[{
+
+              "answerExplanation":"wwww",
+              "correctAnswer":"w",
+              "options":[
+                {optionValue: 'w'},
+                {optionValue: 's'},
+                {optionValue: 'v'},
+                {optionValue: 'q'}],
+                "text":"www",
+            },
+            {
+
+              "answerExplanation":"wwww",
+              "correctAnswer":"w",
+              "options":[
+                {optionValue: 'w'},
+                {optionValue: 's'},
+                {optionValue: 'v'},
+                {optionValue: 'q'}],
+                "text":"www",
+            },
+            {
+
+              "answerExplanation":"wwww",
+              "correctAnswer":"w",
+              "options":[
+                {optionValue: 'w'},
+                {optionValue: 's'},
+                {optionValue: 'v'},
+                {optionValue: 'q'}],
+                "text":"www",
+            },
+            {
+
+              "answerExplanation":"wwww",
+              "correctAnswer":"w",
+              "options":[
+                {optionValue: 'w'},
+                {optionValue: 's'},
+                {optionValue: 'v'},
+                {optionValue: 'q'}],
+                "text":"www",
+            }
+          ,{
+
+            "answerExplanation":"wwww",
+            "correctAnswer":"w",
+            "options":[
+              {optionValue: 'w'},
+              {optionValue: 's'},
+              {optionValue: 'v'},
+              {optionValue: 'q'}],
+              "text":"www",
+          }
+        ,{
+
+          "answerExplanation":"wwww",
+          "correctAnswer":"w",
+          "options":[
+            {optionValue: 'w'},
+            {optionValue: 's'},
+            {optionValue: 'v'},
+            {optionValue: 'q'}],
+            "text":"www",
+        },
+        {
+
+          "answerExplanation":"wwww",
+          "correctAnswer":"w",
+          "options":[
+            {optionValue: 'w'},
+            {optionValue: 's'},
+            {optionValue: 'v'},
+            {optionValue: 'q'}],
+            "text":"www",
+        },
+        {
+
+          "answerExplanation":"wwww",
+          "correctAnswer":"w",
+          "options":[
+            {optionValue: 'w'},
+            {optionValue: 's'},
+            {optionValue: 'v'},
+            {optionValue: 'q'}],
+            "text":"www",
+        },
+        {
+
+          "answerExplanation":"wwww",
+          "correctAnswer":"w",
+          "options":[
+            {optionValue: 'w'},
+            {optionValue: 's'},
+            {optionValue: 'v'},
+            {optionValue: 'q'}],
+            "text":"www",
+        }]
+
+          }]
       },
       {
         "id":"2",
-          "courseTitle": "xxcx",
-          "date": "2025-03-21",
-          "time": "15:36",
-          "lecturerName": "h",
-          "registered": 2,
-          "status": "hh",
-          "joinLink": "jbljk",
-          "limit": 9
-      }
-  ],
+        "courseTitle": "z",
+        "date": "2025-03-11",
+        "time": "13:38",
+        "lecturerName": "z",
+        "registered": 10,
+        "status": "zz",
+        "joinLink": "zzz",
+        "limit": 8,
+        "quizzes":[
+        { "duration": 10,
+          "title":"quiz1",
+          "questions":[{
+
+            "answerExplanation":"wwww",
+            "correctAnswer":"w",
+            "options":[
+              {optionValue: 'w'},
+              {optionValue: 's'},
+              {optionValue: 'v'},
+              {optionValue: 'q'}],
+              "text":"www",
+          },
+          {
+
+            "answerExplanation":"wwww",
+            "correctAnswer":"w",
+            "options":[
+              {optionValue: 'w'},
+              {optionValue: 's'},
+              {optionValue: 'v'},
+              {optionValue: 'q'}],
+              "text":"www",
+          },
+          {
+
+            "answerExplanation":"wwww",
+            "correctAnswer":"w",
+            "options":[
+              {optionValue: 'w'},
+              {optionValue: 's'},
+              {optionValue: 'v'},
+              {optionValue: 'q'}],
+              "text":"www",
+          },
+          {
+
+            "answerExplanation":"wwww",
+            "correctAnswer":"w",
+            "options":[
+              {optionValue: 'w'},
+              {optionValue: 's'},
+              {optionValue: 'v'},
+              {optionValue: 'q'}],
+              "text":"www",
+          }
+        ,{
+
+          "answerExplanation":"wwww",
+          "correctAnswer":"w",
+          "options":[
+            {optionValue: 'w'},
+            {optionValue: 's'},
+            {optionValue: 'v'},
+            {optionValue: 'q'}],
+            "text":"www",
+        }
+      ,{
+
+        "answerExplanation":"wwww",
+        "correctAnswer":"w",
+        "options":[
+          {optionValue: 'w'},
+          {optionValue: 's'},
+          {optionValue: 'v'},
+          {optionValue: 'q'}],
+          "text":"www",
+      },
+      {
+
+        "answerExplanation":"wwww",
+        "correctAnswer":"w",
+        "options":[
+          {optionValue: 'w'},
+          {optionValue: 's'},
+          {optionValue: 'v'},
+          {optionValue: 'q'}],
+          "text":"www",
+      },
+      {
+
+        "answerExplanation":"wwww",
+        "correctAnswer":"w",
+        "options":[
+          {optionValue: 'w'},
+          {optionValue: 's'},
+          {optionValue: 'v'},
+          {optionValue: 'q'}],
+          "text":"www",
+      },
+      {
+
+        "answerExplanation":"wwww",
+        "correctAnswer":"w",
+        "options":[
+          {optionValue: 'w'},
+          {optionValue: 's'},
+          {optionValue: 'v'},
+          {optionValue: 'q'}],
+          "text":"www",
+      }]
+
+        }]
+    }
+      ],
   "landingPage": {
       "title": "sad",
       "description": "ssdd",
@@ -4292,8 +7204,8 @@ src: 'assets/course1.png',
   "targetAudience": "z",
   "courseTitle": "The Complete PHP Full",
   "schedules": [
-      {
-
+        {
+          "id":"1",
           "courseTitle": "z",
           "date": "2025-03-11",
           "time": "13:38",
@@ -4301,20 +7213,228 @@ src: 'assets/course1.png',
           "registered": 10,
           "status": "zz",
           "joinLink": "zzz",
-          "limit": 8
+          "limit": 8,
+          "quizzes":[
+          { "duration": 10,
+            "title":"quiz1",
+            "questions":[{
+
+              "answerExplanation":"wwww",
+              "correctAnswer":"w",
+              "options":[
+                {optionValue: 'w'},
+                {optionValue: 's'},
+                {optionValue: 'v'},
+                {optionValue: 'q'}],
+                "text":"www",
+            },
+            {
+
+              "answerExplanation":"wwww",
+              "correctAnswer":"w",
+              "options":[
+                {optionValue: 'w'},
+                {optionValue: 's'},
+                {optionValue: 'v'},
+                {optionValue: 'q'}],
+                "text":"www",
+            },
+            {
+
+              "answerExplanation":"wwww",
+              "correctAnswer":"w",
+              "options":[
+                {optionValue: 'w'},
+                {optionValue: 's'},
+                {optionValue: 'v'},
+                {optionValue: 'q'}],
+                "text":"www",
+            },
+            {
+
+              "answerExplanation":"wwww",
+              "correctAnswer":"w",
+              "options":[
+                {optionValue: 'w'},
+                {optionValue: 's'},
+                {optionValue: 'v'},
+                {optionValue: 'q'}],
+                "text":"www",
+            }
+          ,{
+
+            "answerExplanation":"wwww",
+            "correctAnswer":"w",
+            "options":[
+              {optionValue: 'w'},
+              {optionValue: 's'},
+              {optionValue: 'v'},
+              {optionValue: 'q'}],
+              "text":"www",
+          }
+        ,{
+
+          "answerExplanation":"wwww",
+          "correctAnswer":"w",
+          "options":[
+            {optionValue: 'w'},
+            {optionValue: 's'},
+            {optionValue: 'v'},
+            {optionValue: 'q'}],
+            "text":"www",
+        },
+        {
+
+          "answerExplanation":"wwww",
+          "correctAnswer":"w",
+          "options":[
+            {optionValue: 'w'},
+            {optionValue: 's'},
+            {optionValue: 'v'},
+            {optionValue: 'q'}],
+            "text":"www",
+        },
+        {
+
+          "answerExplanation":"wwww",
+          "correctAnswer":"w",
+          "options":[
+            {optionValue: 'w'},
+            {optionValue: 's'},
+            {optionValue: 'v'},
+            {optionValue: 'q'}],
+            "text":"www",
+        },
+        {
+
+          "answerExplanation":"wwww",
+          "correctAnswer":"w",
+          "options":[
+            {optionValue: 'w'},
+            {optionValue: 's'},
+            {optionValue: 'v'},
+            {optionValue: 'q'}],
+            "text":"www",
+        }]
+
+          }]
+      },
+      {
+        "id":"2",
+        "courseTitle": "z",
+        "date": "2025-03-11",
+        "time": "13:38",
+        "lecturerName": "z",
+        "registered": 10,
+        "status": "zz",
+        "joinLink": "zzz",
+        "limit": 8,
+        "quizzes":[
+        { "duration": 10,
+          "title":"quiz1",
+          "questions":[{
+
+            "answerExplanation":"wwww",
+            "correctAnswer":"w",
+            "options":[
+              {optionValue: 'w'},
+              {optionValue: 's'},
+              {optionValue: 'v'},
+              {optionValue: 'q'}],
+              "text":"www",
+          },
+          {
+
+            "answerExplanation":"wwww",
+            "correctAnswer":"w",
+            "options":[
+              {optionValue: 'w'},
+              {optionValue: 's'},
+              {optionValue: 'v'},
+              {optionValue: 'q'}],
+              "text":"www",
+          },
+          {
+
+            "answerExplanation":"wwww",
+            "correctAnswer":"w",
+            "options":[
+              {optionValue: 'w'},
+              {optionValue: 's'},
+              {optionValue: 'v'},
+              {optionValue: 'q'}],
+              "text":"www",
+          },
+          {
+
+            "answerExplanation":"wwww",
+            "correctAnswer":"w",
+            "options":[
+              {optionValue: 'w'},
+              {optionValue: 's'},
+              {optionValue: 'v'},
+              {optionValue: 'q'}],
+              "text":"www",
+          }
+        ,{
+
+          "answerExplanation":"wwww",
+          "correctAnswer":"w",
+          "options":[
+            {optionValue: 'w'},
+            {optionValue: 's'},
+            {optionValue: 'v'},
+            {optionValue: 'q'}],
+            "text":"www",
+        }
+      ,{
+
+        "answerExplanation":"wwww",
+        "correctAnswer":"w",
+        "options":[
+          {optionValue: 'w'},
+          {optionValue: 's'},
+          {optionValue: 'v'},
+          {optionValue: 'q'}],
+          "text":"www",
       },
       {
 
-          "courseTitle": "xxcx",
-          "date": "2025-03-21",
-          "time": "15:36",
-          "lecturerName": "h",
-          "registered": 2,
-          "status": "hh",
-          "joinLink": "jbljk",
-          "limit": 9
-      }
-  ],
+        "answerExplanation":"wwww",
+        "correctAnswer":"w",
+        "options":[
+          {optionValue: 'w'},
+          {optionValue: 's'},
+          {optionValue: 'v'},
+          {optionValue: 'q'}],
+          "text":"www",
+      },
+      {
+
+        "answerExplanation":"wwww",
+        "correctAnswer":"w",
+        "options":[
+          {optionValue: 'w'},
+          {optionValue: 's'},
+          {optionValue: 'v'},
+          {optionValue: 'q'}],
+          "text":"www",
+      },
+      {
+
+        "answerExplanation":"wwww",
+        "correctAnswer":"w",
+        "options":[
+          {optionValue: 'w'},
+          {optionValue: 's'},
+          {optionValue: 'v'},
+          {optionValue: 'q'}],
+          "text":"www",
+      }]
+
+        }]
+    }
+      ],
   "landingPage": {
       "title": "sad",
       "description": "ssdd",
@@ -4363,8 +7483,8 @@ src: 'assets/course1.png',
   "requirements": "z",
   "targetAudience": "z",
   "courseTitle": "The Complete PHP Full",
-  "schedules": [
-      {
+ "schedules": [
+        {
           "id":"1",
           "courseTitle": "z",
           "date": "2025-03-11",
@@ -4373,20 +7493,228 @@ src: 'assets/course1.png',
           "registered": 10,
           "status": "zz",
           "joinLink": "zzz",
-          "limit": 8
+          "limit": 8,
+          "quizzes":[
+          { "duration": 10,
+            "title":"quiz1",
+            "questions":[{
+
+              "answerExplanation":"wwww",
+              "correctAnswer":"w",
+              "options":[
+                {optionValue: 'w'},
+                {optionValue: 's'},
+                {optionValue: 'v'},
+                {optionValue: 'q'}],
+                "text":"www",
+            },
+            {
+
+              "answerExplanation":"wwww",
+              "correctAnswer":"w",
+              "options":[
+                {optionValue: 'w'},
+                {optionValue: 's'},
+                {optionValue: 'v'},
+                {optionValue: 'q'}],
+                "text":"www",
+            },
+            {
+
+              "answerExplanation":"wwww",
+              "correctAnswer":"w",
+              "options":[
+                {optionValue: 'w'},
+                {optionValue: 's'},
+                {optionValue: 'v'},
+                {optionValue: 'q'}],
+                "text":"www",
+            },
+            {
+
+              "answerExplanation":"wwww",
+              "correctAnswer":"w",
+              "options":[
+                {optionValue: 'w'},
+                {optionValue: 's'},
+                {optionValue: 'v'},
+                {optionValue: 'q'}],
+                "text":"www",
+            }
+          ,{
+
+            "answerExplanation":"wwww",
+            "correctAnswer":"w",
+            "options":[
+              {optionValue: 'w'},
+              {optionValue: 's'},
+              {optionValue: 'v'},
+              {optionValue: 'q'}],
+              "text":"www",
+          }
+        ,{
+
+          "answerExplanation":"wwww",
+          "correctAnswer":"w",
+          "options":[
+            {optionValue: 'w'},
+            {optionValue: 's'},
+            {optionValue: 'v'},
+            {optionValue: 'q'}],
+            "text":"www",
+        },
+        {
+
+          "answerExplanation":"wwww",
+          "correctAnswer":"w",
+          "options":[
+            {optionValue: 'w'},
+            {optionValue: 's'},
+            {optionValue: 'v'},
+            {optionValue: 'q'}],
+            "text":"www",
+        },
+        {
+
+          "answerExplanation":"wwww",
+          "correctAnswer":"w",
+          "options":[
+            {optionValue: 'w'},
+            {optionValue: 's'},
+            {optionValue: 'v'},
+            {optionValue: 'q'}],
+            "text":"www",
+        },
+        {
+
+          "answerExplanation":"wwww",
+          "correctAnswer":"w",
+          "options":[
+            {optionValue: 'w'},
+            {optionValue: 's'},
+            {optionValue: 'v'},
+            {optionValue: 'q'}],
+            "text":"www",
+        }]
+
+          }]
       },
       {
         "id":"2",
-          "courseTitle": "xxcx",
-          "date": "2025-03-21",
-          "time": "15:36",
-          "lecturerName": "h",
-          "registered": 2,
-          "status": "hh",
-          "joinLink": "jbljk",
-          "limit": 9
-      }
-  ],
+        "courseTitle": "z",
+        "date": "2025-03-11",
+        "time": "13:38",
+        "lecturerName": "z",
+        "registered": 10,
+        "status": "zz",
+        "joinLink": "zzz",
+        "limit": 8,
+        "quizzes":[
+        { "duration": 10,
+          "title":"quiz1",
+          "questions":[{
+
+            "answerExplanation":"wwww",
+            "correctAnswer":"w",
+            "options":[
+              {optionValue: 'w'},
+              {optionValue: 's'},
+              {optionValue: 'v'},
+              {optionValue: 'q'}],
+              "text":"www",
+          },
+          {
+
+            "answerExplanation":"wwww",
+            "correctAnswer":"w",
+            "options":[
+              {optionValue: 'w'},
+              {optionValue: 's'},
+              {optionValue: 'v'},
+              {optionValue: 'q'}],
+              "text":"www",
+          },
+          {
+
+            "answerExplanation":"wwww",
+            "correctAnswer":"w",
+            "options":[
+              {optionValue: 'w'},
+              {optionValue: 's'},
+              {optionValue: 'v'},
+              {optionValue: 'q'}],
+              "text":"www",
+          },
+          {
+
+            "answerExplanation":"wwww",
+            "correctAnswer":"w",
+            "options":[
+              {optionValue: 'w'},
+              {optionValue: 's'},
+              {optionValue: 'v'},
+              {optionValue: 'q'}],
+              "text":"www",
+          }
+        ,{
+
+          "answerExplanation":"wwww",
+          "correctAnswer":"w",
+          "options":[
+            {optionValue: 'w'},
+            {optionValue: 's'},
+            {optionValue: 'v'},
+            {optionValue: 'q'}],
+            "text":"www",
+        }
+      ,{
+
+        "answerExplanation":"wwww",
+        "correctAnswer":"w",
+        "options":[
+          {optionValue: 'w'},
+          {optionValue: 's'},
+          {optionValue: 'v'},
+          {optionValue: 'q'}],
+          "text":"www",
+      },
+      {
+
+        "answerExplanation":"wwww",
+        "correctAnswer":"w",
+        "options":[
+          {optionValue: 'w'},
+          {optionValue: 's'},
+          {optionValue: 'v'},
+          {optionValue: 'q'}],
+          "text":"www",
+      },
+      {
+
+        "answerExplanation":"wwww",
+        "correctAnswer":"w",
+        "options":[
+          {optionValue: 'w'},
+          {optionValue: 's'},
+          {optionValue: 'v'},
+          {optionValue: 'q'}],
+          "text":"www",
+      },
+      {
+
+        "answerExplanation":"wwww",
+        "correctAnswer":"w",
+        "options":[
+          {optionValue: 'w'},
+          {optionValue: 's'},
+          {optionValue: 'v'},
+          {optionValue: 'q'}],
+          "text":"www",
+      }]
+
+        }]
+    }
+      ],
   "landingPage": {
       "title": "sad",
       "description": "ssdd",
@@ -5433,7 +8761,7 @@ src: 'assets/course1.png',
   "targetAudience": "z",
   "courseTitle": "How the internet works",
   "schedules": [
-      {
+        {
           "id":"1",
           "courseTitle": "z",
           "date": "2025-03-11",
@@ -5442,20 +8770,228 @@ src: 'assets/course1.png',
           "registered": 10,
           "status": "zz",
           "joinLink": "zzz",
-          "limit": 8
+          "limit": 8,
+          "quizzes":[
+          { "duration": 10,
+            "title":"quiz1",
+            "questions":[{
+
+              "answerExplanation":"wwww",
+              "correctAnswer":"w",
+              "options":[
+                {optionValue: 'w'},
+                {optionValue: 's'},
+                {optionValue: 'v'},
+                {optionValue: 'q'}],
+                "text":"www",
+            },
+            {
+
+              "answerExplanation":"wwww",
+              "correctAnswer":"w",
+              "options":[
+                {optionValue: 'w'},
+                {optionValue: 's'},
+                {optionValue: 'v'},
+                {optionValue: 'q'}],
+                "text":"www",
+            },
+            {
+
+              "answerExplanation":"wwww",
+              "correctAnswer":"w",
+              "options":[
+                {optionValue: 'w'},
+                {optionValue: 's'},
+                {optionValue: 'v'},
+                {optionValue: 'q'}],
+                "text":"www",
+            },
+            {
+
+              "answerExplanation":"wwww",
+              "correctAnswer":"w",
+              "options":[
+                {optionValue: 'w'},
+                {optionValue: 's'},
+                {optionValue: 'v'},
+                {optionValue: 'q'}],
+                "text":"www",
+            }
+          ,{
+
+            "answerExplanation":"wwww",
+            "correctAnswer":"w",
+            "options":[
+              {optionValue: 'w'},
+              {optionValue: 's'},
+              {optionValue: 'v'},
+              {optionValue: 'q'}],
+              "text":"www",
+          }
+        ,{
+
+          "answerExplanation":"wwww",
+          "correctAnswer":"w",
+          "options":[
+            {optionValue: 'w'},
+            {optionValue: 's'},
+            {optionValue: 'v'},
+            {optionValue: 'q'}],
+            "text":"www",
+        },
+        {
+
+          "answerExplanation":"wwww",
+          "correctAnswer":"w",
+          "options":[
+            {optionValue: 'w'},
+            {optionValue: 's'},
+            {optionValue: 'v'},
+            {optionValue: 'q'}],
+            "text":"www",
+        },
+        {
+
+          "answerExplanation":"wwww",
+          "correctAnswer":"w",
+          "options":[
+            {optionValue: 'w'},
+            {optionValue: 's'},
+            {optionValue: 'v'},
+            {optionValue: 'q'}],
+            "text":"www",
+        },
+        {
+
+          "answerExplanation":"wwww",
+          "correctAnswer":"w",
+          "options":[
+            {optionValue: 'w'},
+            {optionValue: 's'},
+            {optionValue: 'v'},
+            {optionValue: 'q'}],
+            "text":"www",
+        }]
+
+          }]
       },
       {
         "id":"2",
-          "courseTitle": "xxcx",
-          "date": "2025-03-21",
-          "time": "15:36",
-          "lecturerName": "h",
-          "registered": 2,
-          "status": "hh",
-          "joinLink": "jbljk",
-          "limit": 9
-      }
-  ],
+        "courseTitle": "z",
+        "date": "2025-03-11",
+        "time": "13:38",
+        "lecturerName": "z",
+        "registered": 10,
+        "status": "zz",
+        "joinLink": "zzz",
+        "limit": 8,
+        "quizzes":[
+        { "duration": 10,
+          "title":"quiz1",
+          "questions":[{
+
+            "answerExplanation":"wwww",
+            "correctAnswer":"w",
+            "options":[
+              {optionValue: 'w'},
+              {optionValue: 's'},
+              {optionValue: 'v'},
+              {optionValue: 'q'}],
+              "text":"www",
+          },
+          {
+
+            "answerExplanation":"wwww",
+            "correctAnswer":"w",
+            "options":[
+              {optionValue: 'w'},
+              {optionValue: 's'},
+              {optionValue: 'v'},
+              {optionValue: 'q'}],
+              "text":"www",
+          },
+          {
+
+            "answerExplanation":"wwww",
+            "correctAnswer":"w",
+            "options":[
+              {optionValue: 'w'},
+              {optionValue: 's'},
+              {optionValue: 'v'},
+              {optionValue: 'q'}],
+              "text":"www",
+          },
+          {
+
+            "answerExplanation":"wwww",
+            "correctAnswer":"w",
+            "options":[
+              {optionValue: 'w'},
+              {optionValue: 's'},
+              {optionValue: 'v'},
+              {optionValue: 'q'}],
+              "text":"www",
+          }
+        ,{
+
+          "answerExplanation":"wwww",
+          "correctAnswer":"w",
+          "options":[
+            {optionValue: 'w'},
+            {optionValue: 's'},
+            {optionValue: 'v'},
+            {optionValue: 'q'}],
+            "text":"www",
+        }
+      ,{
+
+        "answerExplanation":"wwww",
+        "correctAnswer":"w",
+        "options":[
+          {optionValue: 'w'},
+          {optionValue: 's'},
+          {optionValue: 'v'},
+          {optionValue: 'q'}],
+          "text":"www",
+      },
+      {
+
+        "answerExplanation":"wwww",
+        "correctAnswer":"w",
+        "options":[
+          {optionValue: 'w'},
+          {optionValue: 's'},
+          {optionValue: 'v'},
+          {optionValue: 'q'}],
+          "text":"www",
+      },
+      {
+
+        "answerExplanation":"wwww",
+        "correctAnswer":"w",
+        "options":[
+          {optionValue: 'w'},
+          {optionValue: 's'},
+          {optionValue: 'v'},
+          {optionValue: 'q'}],
+          "text":"www",
+      },
+      {
+
+        "answerExplanation":"wwww",
+        "correctAnswer":"w",
+        "options":[
+          {optionValue: 'w'},
+          {optionValue: 's'},
+          {optionValue: 'v'},
+          {optionValue: 'q'}],
+          "text":"www",
+      }]
+
+        }]
+    }
+      ],
   "landingPage": {
       "title": "sad",
       "description": "ssdd",
@@ -5505,7 +9041,7 @@ src: 'assets/course1.png',
   "targetAudience": "z",
   "courseTitle": "How the internet works",
   "schedules": [
-      {
+        {
           "id":"1",
           "courseTitle": "z",
           "date": "2025-03-11",
@@ -5514,20 +9050,228 @@ src: 'assets/course1.png',
           "registered": 10,
           "status": "zz",
           "joinLink": "zzz",
-          "limit": 8
+          "limit": 8,
+          "quizzes":[
+          { "duration": 10,
+            "title":"quiz1",
+            "questions":[{
+
+              "answerExplanation":"wwww",
+              "correctAnswer":"w",
+              "options":[
+                {optionValue: 'w'},
+                {optionValue: 's'},
+                {optionValue: 'v'},
+                {optionValue: 'q'}],
+                "text":"www",
+            },
+            {
+
+              "answerExplanation":"wwww",
+              "correctAnswer":"w",
+              "options":[
+                {optionValue: 'w'},
+                {optionValue: 's'},
+                {optionValue: 'v'},
+                {optionValue: 'q'}],
+                "text":"www",
+            },
+            {
+
+              "answerExplanation":"wwww",
+              "correctAnswer":"w",
+              "options":[
+                {optionValue: 'w'},
+                {optionValue: 's'},
+                {optionValue: 'v'},
+                {optionValue: 'q'}],
+                "text":"www",
+            },
+            {
+
+              "answerExplanation":"wwww",
+              "correctAnswer":"w",
+              "options":[
+                {optionValue: 'w'},
+                {optionValue: 's'},
+                {optionValue: 'v'},
+                {optionValue: 'q'}],
+                "text":"www",
+            }
+          ,{
+
+            "answerExplanation":"wwww",
+            "correctAnswer":"w",
+            "options":[
+              {optionValue: 'w'},
+              {optionValue: 's'},
+              {optionValue: 'v'},
+              {optionValue: 'q'}],
+              "text":"www",
+          }
+        ,{
+
+          "answerExplanation":"wwww",
+          "correctAnswer":"w",
+          "options":[
+            {optionValue: 'w'},
+            {optionValue: 's'},
+            {optionValue: 'v'},
+            {optionValue: 'q'}],
+            "text":"www",
+        },
+        {
+
+          "answerExplanation":"wwww",
+          "correctAnswer":"w",
+          "options":[
+            {optionValue: 'w'},
+            {optionValue: 's'},
+            {optionValue: 'v'},
+            {optionValue: 'q'}],
+            "text":"www",
+        },
+        {
+
+          "answerExplanation":"wwww",
+          "correctAnswer":"w",
+          "options":[
+            {optionValue: 'w'},
+            {optionValue: 's'},
+            {optionValue: 'v'},
+            {optionValue: 'q'}],
+            "text":"www",
+        },
+        {
+
+          "answerExplanation":"wwww",
+          "correctAnswer":"w",
+          "options":[
+            {optionValue: 'w'},
+            {optionValue: 's'},
+            {optionValue: 'v'},
+            {optionValue: 'q'}],
+            "text":"www",
+        }]
+
+          }]
       },
       {
         "id":"2",
-          "courseTitle": "xxcx",
-          "date": "2025-03-21",
-          "time": "15:36",
-          "lecturerName": "h",
-          "registered": 2,
-          "status": "hh",
-          "joinLink": "jbljk",
-          "limit": 9
-      }
-  ],
+        "courseTitle": "z",
+        "date": "2025-03-11",
+        "time": "13:38",
+        "lecturerName": "z",
+        "registered": 10,
+        "status": "zz",
+        "joinLink": "zzz",
+        "limit": 8,
+        "quizzes":[
+        { "duration": 10,
+          "title":"quiz1",
+          "questions":[{
+
+            "answerExplanation":"wwww",
+            "correctAnswer":"w",
+            "options":[
+              {optionValue: 'w'},
+              {optionValue: 's'},
+              {optionValue: 'v'},
+              {optionValue: 'q'}],
+              "text":"www",
+          },
+          {
+
+            "answerExplanation":"wwww",
+            "correctAnswer":"w",
+            "options":[
+              {optionValue: 'w'},
+              {optionValue: 's'},
+              {optionValue: 'v'},
+              {optionValue: 'q'}],
+              "text":"www",
+          },
+          {
+
+            "answerExplanation":"wwww",
+            "correctAnswer":"w",
+            "options":[
+              {optionValue: 'w'},
+              {optionValue: 's'},
+              {optionValue: 'v'},
+              {optionValue: 'q'}],
+              "text":"www",
+          },
+          {
+
+            "answerExplanation":"wwww",
+            "correctAnswer":"w",
+            "options":[
+              {optionValue: 'w'},
+              {optionValue: 's'},
+              {optionValue: 'v'},
+              {optionValue: 'q'}],
+              "text":"www",
+          }
+        ,{
+
+          "answerExplanation":"wwww",
+          "correctAnswer":"w",
+          "options":[
+            {optionValue: 'w'},
+            {optionValue: 's'},
+            {optionValue: 'v'},
+            {optionValue: 'q'}],
+            "text":"www",
+        }
+      ,{
+
+        "answerExplanation":"wwww",
+        "correctAnswer":"w",
+        "options":[
+          {optionValue: 'w'},
+          {optionValue: 's'},
+          {optionValue: 'v'},
+          {optionValue: 'q'}],
+          "text":"www",
+      },
+      {
+
+        "answerExplanation":"wwww",
+        "correctAnswer":"w",
+        "options":[
+          {optionValue: 'w'},
+          {optionValue: 's'},
+          {optionValue: 'v'},
+          {optionValue: 'q'}],
+          "text":"www",
+      },
+      {
+
+        "answerExplanation":"wwww",
+        "correctAnswer":"w",
+        "options":[
+          {optionValue: 'w'},
+          {optionValue: 's'},
+          {optionValue: 'v'},
+          {optionValue: 'q'}],
+          "text":"www",
+      },
+      {
+
+        "answerExplanation":"wwww",
+        "correctAnswer":"w",
+        "options":[
+          {optionValue: 'w'},
+          {optionValue: 's'},
+          {optionValue: 'v'},
+          {optionValue: 'q'}],
+          "text":"www",
+      }]
+
+        }]
+    }
+      ],
   "landingPage": {
       "title": "sad",
       "description": "ssdd",
@@ -5577,8 +9321,8 @@ src: 'assets/course1.png',
   "targetAudience": "z",
   "courseTitle": "The Complete PHP Full",
   "schedules": [
-      {
-
+        {
+          "id":"1",
           "courseTitle": "z",
           "date": "2025-03-11",
           "time": "13:38",
@@ -5586,20 +9330,228 @@ src: 'assets/course1.png',
           "registered": 10,
           "status": "zz",
           "joinLink": "zzz",
-          "limit": 8
+          "limit": 8,
+          "quizzes":[
+          { "duration": 10,
+            "title":"quiz1",
+            "questions":[{
+
+              "answerExplanation":"wwww",
+              "correctAnswer":"w",
+              "options":[
+                {optionValue: 'w'},
+                {optionValue: 's'},
+                {optionValue: 'v'},
+                {optionValue: 'q'}],
+                "text":"www",
+            },
+            {
+
+              "answerExplanation":"wwww",
+              "correctAnswer":"w",
+              "options":[
+                {optionValue: 'w'},
+                {optionValue: 's'},
+                {optionValue: 'v'},
+                {optionValue: 'q'}],
+                "text":"www",
+            },
+            {
+
+              "answerExplanation":"wwww",
+              "correctAnswer":"w",
+              "options":[
+                {optionValue: 'w'},
+                {optionValue: 's'},
+                {optionValue: 'v'},
+                {optionValue: 'q'}],
+                "text":"www",
+            },
+            {
+
+              "answerExplanation":"wwww",
+              "correctAnswer":"w",
+              "options":[
+                {optionValue: 'w'},
+                {optionValue: 's'},
+                {optionValue: 'v'},
+                {optionValue: 'q'}],
+                "text":"www",
+            }
+          ,{
+
+            "answerExplanation":"wwww",
+            "correctAnswer":"w",
+            "options":[
+              {optionValue: 'w'},
+              {optionValue: 's'},
+              {optionValue: 'v'},
+              {optionValue: 'q'}],
+              "text":"www",
+          }
+        ,{
+
+          "answerExplanation":"wwww",
+          "correctAnswer":"w",
+          "options":[
+            {optionValue: 'w'},
+            {optionValue: 's'},
+            {optionValue: 'v'},
+            {optionValue: 'q'}],
+            "text":"www",
+        },
+        {
+
+          "answerExplanation":"wwww",
+          "correctAnswer":"w",
+          "options":[
+            {optionValue: 'w'},
+            {optionValue: 's'},
+            {optionValue: 'v'},
+            {optionValue: 'q'}],
+            "text":"www",
+        },
+        {
+
+          "answerExplanation":"wwww",
+          "correctAnswer":"w",
+          "options":[
+            {optionValue: 'w'},
+            {optionValue: 's'},
+            {optionValue: 'v'},
+            {optionValue: 'q'}],
+            "text":"www",
+        },
+        {
+
+          "answerExplanation":"wwww",
+          "correctAnswer":"w",
+          "options":[
+            {optionValue: 'w'},
+            {optionValue: 's'},
+            {optionValue: 'v'},
+            {optionValue: 'q'}],
+            "text":"www",
+        }]
+
+          }]
+      },
+      {
+        "id":"2",
+        "courseTitle": "z",
+        "date": "2025-03-11",
+        "time": "13:38",
+        "lecturerName": "z",
+        "registered": 10,
+        "status": "zz",
+        "joinLink": "zzz",
+        "limit": 8,
+        "quizzes":[
+        { "duration": 10,
+          "title":"quiz1",
+          "questions":[{
+
+            "answerExplanation":"wwww",
+            "correctAnswer":"w",
+            "options":[
+              {optionValue: 'w'},
+              {optionValue: 's'},
+              {optionValue: 'v'},
+              {optionValue: 'q'}],
+              "text":"www",
+          },
+          {
+
+            "answerExplanation":"wwww",
+            "correctAnswer":"w",
+            "options":[
+              {optionValue: 'w'},
+              {optionValue: 's'},
+              {optionValue: 'v'},
+              {optionValue: 'q'}],
+              "text":"www",
+          },
+          {
+
+            "answerExplanation":"wwww",
+            "correctAnswer":"w",
+            "options":[
+              {optionValue: 'w'},
+              {optionValue: 's'},
+              {optionValue: 'v'},
+              {optionValue: 'q'}],
+              "text":"www",
+          },
+          {
+
+            "answerExplanation":"wwww",
+            "correctAnswer":"w",
+            "options":[
+              {optionValue: 'w'},
+              {optionValue: 's'},
+              {optionValue: 'v'},
+              {optionValue: 'q'}],
+              "text":"www",
+          }
+        ,{
+
+          "answerExplanation":"wwww",
+          "correctAnswer":"w",
+          "options":[
+            {optionValue: 'w'},
+            {optionValue: 's'},
+            {optionValue: 'v'},
+            {optionValue: 'q'}],
+            "text":"www",
+        }
+      ,{
+
+        "answerExplanation":"wwww",
+        "correctAnswer":"w",
+        "options":[
+          {optionValue: 'w'},
+          {optionValue: 's'},
+          {optionValue: 'v'},
+          {optionValue: 'q'}],
+          "text":"www",
       },
       {
 
-          "courseTitle": "xxcx",
-          "date": "2025-03-21",
-          "time": "15:36",
-          "lecturerName": "h",
-          "registered": 2,
-          "status": "hh",
-          "joinLink": "jbljk",
-          "limit": 9
-      }
-  ],
+        "answerExplanation":"wwww",
+        "correctAnswer":"w",
+        "options":[
+          {optionValue: 'w'},
+          {optionValue: 's'},
+          {optionValue: 'v'},
+          {optionValue: 'q'}],
+          "text":"www",
+      },
+      {
+
+        "answerExplanation":"wwww",
+        "correctAnswer":"w",
+        "options":[
+          {optionValue: 'w'},
+          {optionValue: 's'},
+          {optionValue: 'v'},
+          {optionValue: 'q'}],
+          "text":"www",
+      },
+      {
+
+        "answerExplanation":"wwww",
+        "correctAnswer":"w",
+        "options":[
+          {optionValue: 'w'},
+          {optionValue: 's'},
+          {optionValue: 'v'},
+          {optionValue: 'q'}],
+          "text":"www",
+      }]
+
+        }]
+    }
+      ],
   "landingPage": {
       "title": "sad",
       "description": "ssdd",
@@ -5649,7 +9601,7 @@ src: 'assets/course1.png',
   "targetAudience": "z",
   "courseTitle": "The Complete PHP Full",
   "schedules": [
-      {
+        {
           "id":"1",
           "courseTitle": "z",
           "date": "2025-03-11",
@@ -5658,20 +9610,228 @@ src: 'assets/course1.png',
           "registered": 10,
           "status": "zz",
           "joinLink": "zzz",
-          "limit": 8
+          "limit": 8,
+          "quizzes":[
+          { "duration": 10,
+            "title":"quiz1",
+            "questions":[{
+
+              "answerExplanation":"wwww",
+              "correctAnswer":"w",
+              "options":[
+                {optionValue: 'w'},
+                {optionValue: 's'},
+                {optionValue: 'v'},
+                {optionValue: 'q'}],
+                "text":"www",
+            },
+            {
+
+              "answerExplanation":"wwww",
+              "correctAnswer":"w",
+              "options":[
+                {optionValue: 'w'},
+                {optionValue: 's'},
+                {optionValue: 'v'},
+                {optionValue: 'q'}],
+                "text":"www",
+            },
+            {
+
+              "answerExplanation":"wwww",
+              "correctAnswer":"w",
+              "options":[
+                {optionValue: 'w'},
+                {optionValue: 's'},
+                {optionValue: 'v'},
+                {optionValue: 'q'}],
+                "text":"www",
+            },
+            {
+
+              "answerExplanation":"wwww",
+              "correctAnswer":"w",
+              "options":[
+                {optionValue: 'w'},
+                {optionValue: 's'},
+                {optionValue: 'v'},
+                {optionValue: 'q'}],
+                "text":"www",
+            }
+          ,{
+
+            "answerExplanation":"wwww",
+            "correctAnswer":"w",
+            "options":[
+              {optionValue: 'w'},
+              {optionValue: 's'},
+              {optionValue: 'v'},
+              {optionValue: 'q'}],
+              "text":"www",
+          }
+        ,{
+
+          "answerExplanation":"wwww",
+          "correctAnswer":"w",
+          "options":[
+            {optionValue: 'w'},
+            {optionValue: 's'},
+            {optionValue: 'v'},
+            {optionValue: 'q'}],
+            "text":"www",
+        },
+        {
+
+          "answerExplanation":"wwww",
+          "correctAnswer":"w",
+          "options":[
+            {optionValue: 'w'},
+            {optionValue: 's'},
+            {optionValue: 'v'},
+            {optionValue: 'q'}],
+            "text":"www",
+        },
+        {
+
+          "answerExplanation":"wwww",
+          "correctAnswer":"w",
+          "options":[
+            {optionValue: 'w'},
+            {optionValue: 's'},
+            {optionValue: 'v'},
+            {optionValue: 'q'}],
+            "text":"www",
+        },
+        {
+
+          "answerExplanation":"wwww",
+          "correctAnswer":"w",
+          "options":[
+            {optionValue: 'w'},
+            {optionValue: 's'},
+            {optionValue: 'v'},
+            {optionValue: 'q'}],
+            "text":"www",
+        }]
+
+          }]
       },
       {
         "id":"2",
-          "courseTitle": "xxcx",
-          "date": "2025-03-21",
-          "time": "15:36",
-          "lecturerName": "h",
-          "registered": 2,
-          "status": "hh",
-          "joinLink": "jbljk",
-          "limit": 9
-      }
-  ],
+        "courseTitle": "z",
+        "date": "2025-03-11",
+        "time": "13:38",
+        "lecturerName": "z",
+        "registered": 10,
+        "status": "zz",
+        "joinLink": "zzz",
+        "limit": 8,
+        "quizzes":[
+        { "duration": 10,
+          "title":"quiz1",
+          "questions":[{
+
+            "answerExplanation":"wwww",
+            "correctAnswer":"w",
+            "options":[
+              {optionValue: 'w'},
+              {optionValue: 's'},
+              {optionValue: 'v'},
+              {optionValue: 'q'}],
+              "text":"www",
+          },
+          {
+
+            "answerExplanation":"wwww",
+            "correctAnswer":"w",
+            "options":[
+              {optionValue: 'w'},
+              {optionValue: 's'},
+              {optionValue: 'v'},
+              {optionValue: 'q'}],
+              "text":"www",
+          },
+          {
+
+            "answerExplanation":"wwww",
+            "correctAnswer":"w",
+            "options":[
+              {optionValue: 'w'},
+              {optionValue: 's'},
+              {optionValue: 'v'},
+              {optionValue: 'q'}],
+              "text":"www",
+          },
+          {
+
+            "answerExplanation":"wwww",
+            "correctAnswer":"w",
+            "options":[
+              {optionValue: 'w'},
+              {optionValue: 's'},
+              {optionValue: 'v'},
+              {optionValue: 'q'}],
+              "text":"www",
+          }
+        ,{
+
+          "answerExplanation":"wwww",
+          "correctAnswer":"w",
+          "options":[
+            {optionValue: 'w'},
+            {optionValue: 's'},
+            {optionValue: 'v'},
+            {optionValue: 'q'}],
+            "text":"www",
+        }
+      ,{
+
+        "answerExplanation":"wwww",
+        "correctAnswer":"w",
+        "options":[
+          {optionValue: 'w'},
+          {optionValue: 's'},
+          {optionValue: 'v'},
+          {optionValue: 'q'}],
+          "text":"www",
+      },
+      {
+
+        "answerExplanation":"wwww",
+        "correctAnswer":"w",
+        "options":[
+          {optionValue: 'w'},
+          {optionValue: 's'},
+          {optionValue: 'v'},
+          {optionValue: 'q'}],
+          "text":"www",
+      },
+      {
+
+        "answerExplanation":"wwww",
+        "correctAnswer":"w",
+        "options":[
+          {optionValue: 'w'},
+          {optionValue: 's'},
+          {optionValue: 'v'},
+          {optionValue: 'q'}],
+          "text":"www",
+      },
+      {
+
+        "answerExplanation":"wwww",
+        "correctAnswer":"w",
+        "options":[
+          {optionValue: 'w'},
+          {optionValue: 's'},
+          {optionValue: 'v'},
+          {optionValue: 'q'}],
+          "text":"www",
+      }]
+
+        }]
+    }
+      ],
   "landingPage": {
       "title": "sad",
       "description": "ssdd",
@@ -6718,7 +10878,7 @@ src: 'assets/course1.png',
   "targetAudience": "z",
   "courseTitle": "How the internet works",
   "schedules": [
-      {
+        {
           "id":"1",
           "courseTitle": "z",
           "date": "2025-03-11",
@@ -6727,20 +10887,228 @@ src: 'assets/course1.png',
           "registered": 10,
           "status": "zz",
           "joinLink": "zzz",
-          "limit": 8
+          "limit": 8,
+          "quizzes":[
+          { "duration": 10,
+            "title":"quiz1",
+            "questions":[{
+
+              "answerExplanation":"wwww",
+              "correctAnswer":"w",
+              "options":[
+                {optionValue: 'w'},
+                {optionValue: 's'},
+                {optionValue: 'v'},
+                {optionValue: 'q'}],
+                "text":"www",
+            },
+            {
+
+              "answerExplanation":"wwww",
+              "correctAnswer":"w",
+              "options":[
+                {optionValue: 'w'},
+                {optionValue: 's'},
+                {optionValue: 'v'},
+                {optionValue: 'q'}],
+                "text":"www",
+            },
+            {
+
+              "answerExplanation":"wwww",
+              "correctAnswer":"w",
+              "options":[
+                {optionValue: 'w'},
+                {optionValue: 's'},
+                {optionValue: 'v'},
+                {optionValue: 'q'}],
+                "text":"www",
+            },
+            {
+
+              "answerExplanation":"wwww",
+              "correctAnswer":"w",
+              "options":[
+                {optionValue: 'w'},
+                {optionValue: 's'},
+                {optionValue: 'v'},
+                {optionValue: 'q'}],
+                "text":"www",
+            }
+          ,{
+
+            "answerExplanation":"wwww",
+            "correctAnswer":"w",
+            "options":[
+              {optionValue: 'w'},
+              {optionValue: 's'},
+              {optionValue: 'v'},
+              {optionValue: 'q'}],
+              "text":"www",
+          }
+        ,{
+
+          "answerExplanation":"wwww",
+          "correctAnswer":"w",
+          "options":[
+            {optionValue: 'w'},
+            {optionValue: 's'},
+            {optionValue: 'v'},
+            {optionValue: 'q'}],
+            "text":"www",
+        },
+        {
+
+          "answerExplanation":"wwww",
+          "correctAnswer":"w",
+          "options":[
+            {optionValue: 'w'},
+            {optionValue: 's'},
+            {optionValue: 'v'},
+            {optionValue: 'q'}],
+            "text":"www",
+        },
+        {
+
+          "answerExplanation":"wwww",
+          "correctAnswer":"w",
+          "options":[
+            {optionValue: 'w'},
+            {optionValue: 's'},
+            {optionValue: 'v'},
+            {optionValue: 'q'}],
+            "text":"www",
+        },
+        {
+
+          "answerExplanation":"wwww",
+          "correctAnswer":"w",
+          "options":[
+            {optionValue: 'w'},
+            {optionValue: 's'},
+            {optionValue: 'v'},
+            {optionValue: 'q'}],
+            "text":"www",
+        }]
+
+          }]
       },
       {
         "id":"2",
-          "courseTitle": "xxcx",
-          "date": "2025-03-21",
-          "time": "15:36",
-          "lecturerName": "h",
-          "registered": 2,
-          "status": "hh",
-          "joinLink": "jbljk",
-          "limit": 9
-      }
-  ],
+        "courseTitle": "z",
+        "date": "2025-03-11",
+        "time": "13:38",
+        "lecturerName": "z",
+        "registered": 10,
+        "status": "zz",
+        "joinLink": "zzz",
+        "limit": 8,
+        "quizzes":[
+        { "duration": 10,
+          "title":"quiz1",
+          "questions":[{
+
+            "answerExplanation":"wwww",
+            "correctAnswer":"w",
+            "options":[
+              {optionValue: 'w'},
+              {optionValue: 's'},
+              {optionValue: 'v'},
+              {optionValue: 'q'}],
+              "text":"www",
+          },
+          {
+
+            "answerExplanation":"wwww",
+            "correctAnswer":"w",
+            "options":[
+              {optionValue: 'w'},
+              {optionValue: 's'},
+              {optionValue: 'v'},
+              {optionValue: 'q'}],
+              "text":"www",
+          },
+          {
+
+            "answerExplanation":"wwww",
+            "correctAnswer":"w",
+            "options":[
+              {optionValue: 'w'},
+              {optionValue: 's'},
+              {optionValue: 'v'},
+              {optionValue: 'q'}],
+              "text":"www",
+          },
+          {
+
+            "answerExplanation":"wwww",
+            "correctAnswer":"w",
+            "options":[
+              {optionValue: 'w'},
+              {optionValue: 's'},
+              {optionValue: 'v'},
+              {optionValue: 'q'}],
+              "text":"www",
+          }
+        ,{
+
+          "answerExplanation":"wwww",
+          "correctAnswer":"w",
+          "options":[
+            {optionValue: 'w'},
+            {optionValue: 's'},
+            {optionValue: 'v'},
+            {optionValue: 'q'}],
+            "text":"www",
+        }
+      ,{
+
+        "answerExplanation":"wwww",
+        "correctAnswer":"w",
+        "options":[
+          {optionValue: 'w'},
+          {optionValue: 's'},
+          {optionValue: 'v'},
+          {optionValue: 'q'}],
+          "text":"www",
+      },
+      {
+
+        "answerExplanation":"wwww",
+        "correctAnswer":"w",
+        "options":[
+          {optionValue: 'w'},
+          {optionValue: 's'},
+          {optionValue: 'v'},
+          {optionValue: 'q'}],
+          "text":"www",
+      },
+      {
+
+        "answerExplanation":"wwww",
+        "correctAnswer":"w",
+        "options":[
+          {optionValue: 'w'},
+          {optionValue: 's'},
+          {optionValue: 'v'},
+          {optionValue: 'q'}],
+          "text":"www",
+      },
+      {
+
+        "answerExplanation":"wwww",
+        "correctAnswer":"w",
+        "options":[
+          {optionValue: 'w'},
+          {optionValue: 's'},
+          {optionValue: 'v'},
+          {optionValue: 'q'}],
+          "text":"www",
+      }]
+
+        }]
+    }
+      ],
   "landingPage": {
       "title": "sad",
       "description": "ssdd",
@@ -6790,7 +11158,7 @@ src: 'assets/course1.png',
   "targetAudience": "z",
   "courseTitle": "How the internet works",
   "schedules": [
-      {
+        {
           "id":"1",
           "courseTitle": "z",
           "date": "2025-03-11",
@@ -6799,20 +11167,228 @@ src: 'assets/course1.png',
           "registered": 10,
           "status": "zz",
           "joinLink": "zzz",
-          "limit": 8
+          "limit": 8,
+          "quizzes":[
+          { "duration": 10,
+            "title":"quiz1",
+            "questions":[{
+
+              "answerExplanation":"wwww",
+              "correctAnswer":"w",
+              "options":[
+                {optionValue: 'w'},
+                {optionValue: 's'},
+                {optionValue: 'v'},
+                {optionValue: 'q'}],
+                "text":"www",
+            },
+            {
+
+              "answerExplanation":"wwww",
+              "correctAnswer":"w",
+              "options":[
+                {optionValue: 'w'},
+                {optionValue: 's'},
+                {optionValue: 'v'},
+                {optionValue: 'q'}],
+                "text":"www",
+            },
+            {
+
+              "answerExplanation":"wwww",
+              "correctAnswer":"w",
+              "options":[
+                {optionValue: 'w'},
+                {optionValue: 's'},
+                {optionValue: 'v'},
+                {optionValue: 'q'}],
+                "text":"www",
+            },
+            {
+
+              "answerExplanation":"wwww",
+              "correctAnswer":"w",
+              "options":[
+                {optionValue: 'w'},
+                {optionValue: 's'},
+                {optionValue: 'v'},
+                {optionValue: 'q'}],
+                "text":"www",
+            }
+          ,{
+
+            "answerExplanation":"wwww",
+            "correctAnswer":"w",
+            "options":[
+              {optionValue: 'w'},
+              {optionValue: 's'},
+              {optionValue: 'v'},
+              {optionValue: 'q'}],
+              "text":"www",
+          }
+        ,{
+
+          "answerExplanation":"wwww",
+          "correctAnswer":"w",
+          "options":[
+            {optionValue: 'w'},
+            {optionValue: 's'},
+            {optionValue: 'v'},
+            {optionValue: 'q'}],
+            "text":"www",
+        },
+        {
+
+          "answerExplanation":"wwww",
+          "correctAnswer":"w",
+          "options":[
+            {optionValue: 'w'},
+            {optionValue: 's'},
+            {optionValue: 'v'},
+            {optionValue: 'q'}],
+            "text":"www",
+        },
+        {
+
+          "answerExplanation":"wwww",
+          "correctAnswer":"w",
+          "options":[
+            {optionValue: 'w'},
+            {optionValue: 's'},
+            {optionValue: 'v'},
+            {optionValue: 'q'}],
+            "text":"www",
+        },
+        {
+
+          "answerExplanation":"wwww",
+          "correctAnswer":"w",
+          "options":[
+            {optionValue: 'w'},
+            {optionValue: 's'},
+            {optionValue: 'v'},
+            {optionValue: 'q'}],
+            "text":"www",
+        }]
+
+          }]
       },
       {
         "id":"2",
-          "courseTitle": "xxcx",
-          "date": "2025-03-21",
-          "time": "15:36",
-          "lecturerName": "h",
-          "registered": 2,
-          "status": "hh",
-          "joinLink": "jbljk",
-          "limit": 9
-      }
-  ],
+        "courseTitle": "z",
+        "date": "2025-03-11",
+        "time": "13:38",
+        "lecturerName": "z",
+        "registered": 10,
+        "status": "zz",
+        "joinLink": "zzz",
+        "limit": 8,
+        "quizzes":[
+        { "duration": 10,
+          "title":"quiz1",
+          "questions":[{
+
+            "answerExplanation":"wwww",
+            "correctAnswer":"w",
+            "options":[
+              {optionValue: 'w'},
+              {optionValue: 's'},
+              {optionValue: 'v'},
+              {optionValue: 'q'}],
+              "text":"www",
+          },
+          {
+
+            "answerExplanation":"wwww",
+            "correctAnswer":"w",
+            "options":[
+              {optionValue: 'w'},
+              {optionValue: 's'},
+              {optionValue: 'v'},
+              {optionValue: 'q'}],
+              "text":"www",
+          },
+          {
+
+            "answerExplanation":"wwww",
+            "correctAnswer":"w",
+            "options":[
+              {optionValue: 'w'},
+              {optionValue: 's'},
+              {optionValue: 'v'},
+              {optionValue: 'q'}],
+              "text":"www",
+          },
+          {
+
+            "answerExplanation":"wwww",
+            "correctAnswer":"w",
+            "options":[
+              {optionValue: 'w'},
+              {optionValue: 's'},
+              {optionValue: 'v'},
+              {optionValue: 'q'}],
+              "text":"www",
+          }
+        ,{
+
+          "answerExplanation":"wwww",
+          "correctAnswer":"w",
+          "options":[
+            {optionValue: 'w'},
+            {optionValue: 's'},
+            {optionValue: 'v'},
+            {optionValue: 'q'}],
+            "text":"www",
+        }
+      ,{
+
+        "answerExplanation":"wwww",
+        "correctAnswer":"w",
+        "options":[
+          {optionValue: 'w'},
+          {optionValue: 's'},
+          {optionValue: 'v'},
+          {optionValue: 'q'}],
+          "text":"www",
+      },
+      {
+
+        "answerExplanation":"wwww",
+        "correctAnswer":"w",
+        "options":[
+          {optionValue: 'w'},
+          {optionValue: 's'},
+          {optionValue: 'v'},
+          {optionValue: 'q'}],
+          "text":"www",
+      },
+      {
+
+        "answerExplanation":"wwww",
+        "correctAnswer":"w",
+        "options":[
+          {optionValue: 'w'},
+          {optionValue: 's'},
+          {optionValue: 'v'},
+          {optionValue: 'q'}],
+          "text":"www",
+      },
+      {
+
+        "answerExplanation":"wwww",
+        "correctAnswer":"w",
+        "options":[
+          {optionValue: 'w'},
+          {optionValue: 's'},
+          {optionValue: 'v'},
+          {optionValue: 'q'}],
+          "text":"www",
+      }]
+
+        }]
+    }
+      ],
   "landingPage": {
       "title": "sad",
       "description": "ssdd",
@@ -6934,7 +11510,7 @@ src: 'assets/course1.png',
   "targetAudience": "z",
   "courseTitle": "The Complete PHP Full",
   "schedules": [
-      {
+        {
           "id":"1",
           "courseTitle": "z",
           "date": "2025-03-11",
@@ -6943,20 +11519,228 @@ src: 'assets/course1.png',
           "registered": 10,
           "status": "zz",
           "joinLink": "zzz",
-          "limit": 8
+          "limit": 8,
+          "quizzes":[
+          { "duration": 10,
+            "title":"quiz1",
+            "questions":[{
+
+              "answerExplanation":"wwww",
+              "correctAnswer":"w",
+              "options":[
+                {optionValue: 'w'},
+                {optionValue: 's'},
+                {optionValue: 'v'},
+                {optionValue: 'q'}],
+                "text":"www",
+            },
+            {
+
+              "answerExplanation":"wwww",
+              "correctAnswer":"w",
+              "options":[
+                {optionValue: 'w'},
+                {optionValue: 's'},
+                {optionValue: 'v'},
+                {optionValue: 'q'}],
+                "text":"www",
+            },
+            {
+
+              "answerExplanation":"wwww",
+              "correctAnswer":"w",
+              "options":[
+                {optionValue: 'w'},
+                {optionValue: 's'},
+                {optionValue: 'v'},
+                {optionValue: 'q'}],
+                "text":"www",
+            },
+            {
+
+              "answerExplanation":"wwww",
+              "correctAnswer":"w",
+              "options":[
+                {optionValue: 'w'},
+                {optionValue: 's'},
+                {optionValue: 'v'},
+                {optionValue: 'q'}],
+                "text":"www",
+            }
+          ,{
+
+            "answerExplanation":"wwww",
+            "correctAnswer":"w",
+            "options":[
+              {optionValue: 'w'},
+              {optionValue: 's'},
+              {optionValue: 'v'},
+              {optionValue: 'q'}],
+              "text":"www",
+          }
+        ,{
+
+          "answerExplanation":"wwww",
+          "correctAnswer":"w",
+          "options":[
+            {optionValue: 'w'},
+            {optionValue: 's'},
+            {optionValue: 'v'},
+            {optionValue: 'q'}],
+            "text":"www",
+        },
+        {
+
+          "answerExplanation":"wwww",
+          "correctAnswer":"w",
+          "options":[
+            {optionValue: 'w'},
+            {optionValue: 's'},
+            {optionValue: 'v'},
+            {optionValue: 'q'}],
+            "text":"www",
+        },
+        {
+
+          "answerExplanation":"wwww",
+          "correctAnswer":"w",
+          "options":[
+            {optionValue: 'w'},
+            {optionValue: 's'},
+            {optionValue: 'v'},
+            {optionValue: 'q'}],
+            "text":"www",
+        },
+        {
+
+          "answerExplanation":"wwww",
+          "correctAnswer":"w",
+          "options":[
+            {optionValue: 'w'},
+            {optionValue: 's'},
+            {optionValue: 'v'},
+            {optionValue: 'q'}],
+            "text":"www",
+        }]
+
+          }]
       },
       {
         "id":"2",
-          "courseTitle": "xxcx",
-          "date": "2025-03-21",
-          "time": "15:36",
-          "lecturerName": "h",
-          "registered": 2,
-          "status": "hh",
-          "joinLink": "jbljk",
-          "limit": 9
-      }
-  ],
+        "courseTitle": "z",
+        "date": "2025-03-11",
+        "time": "13:38",
+        "lecturerName": "z",
+        "registered": 10,
+        "status": "zz",
+        "joinLink": "zzz",
+        "limit": 8,
+        "quizzes":[
+        { "duration": 10,
+          "title":"quiz1",
+          "questions":[{
+
+            "answerExplanation":"wwww",
+            "correctAnswer":"w",
+            "options":[
+              {optionValue: 'w'},
+              {optionValue: 's'},
+              {optionValue: 'v'},
+              {optionValue: 'q'}],
+              "text":"www",
+          },
+          {
+
+            "answerExplanation":"wwww",
+            "correctAnswer":"w",
+            "options":[
+              {optionValue: 'w'},
+              {optionValue: 's'},
+              {optionValue: 'v'},
+              {optionValue: 'q'}],
+              "text":"www",
+          },
+          {
+
+            "answerExplanation":"wwww",
+            "correctAnswer":"w",
+            "options":[
+              {optionValue: 'w'},
+              {optionValue: 's'},
+              {optionValue: 'v'},
+              {optionValue: 'q'}],
+              "text":"www",
+          },
+          {
+
+            "answerExplanation":"wwww",
+            "correctAnswer":"w",
+            "options":[
+              {optionValue: 'w'},
+              {optionValue: 's'},
+              {optionValue: 'v'},
+              {optionValue: 'q'}],
+              "text":"www",
+          }
+        ,{
+
+          "answerExplanation":"wwww",
+          "correctAnswer":"w",
+          "options":[
+            {optionValue: 'w'},
+            {optionValue: 's'},
+            {optionValue: 'v'},
+            {optionValue: 'q'}],
+            "text":"www",
+        }
+      ,{
+
+        "answerExplanation":"wwww",
+        "correctAnswer":"w",
+        "options":[
+          {optionValue: 'w'},
+          {optionValue: 's'},
+          {optionValue: 'v'},
+          {optionValue: 'q'}],
+          "text":"www",
+      },
+      {
+
+        "answerExplanation":"wwww",
+        "correctAnswer":"w",
+        "options":[
+          {optionValue: 'w'},
+          {optionValue: 's'},
+          {optionValue: 'v'},
+          {optionValue: 'q'}],
+          "text":"www",
+      },
+      {
+
+        "answerExplanation":"wwww",
+        "correctAnswer":"w",
+        "options":[
+          {optionValue: 'w'},
+          {optionValue: 's'},
+          {optionValue: 'v'},
+          {optionValue: 'q'}],
+          "text":"www",
+      },
+      {
+
+        "answerExplanation":"wwww",
+        "correctAnswer":"w",
+        "options":[
+          {optionValue: 'w'},
+          {optionValue: 's'},
+          {optionValue: 'v'},
+          {optionValue: 'q'}],
+          "text":"www",
+      }]
+
+        }]
+    }
+      ],
   "landingPage": {
       "title": "sad",
       "description": "ssdd",
@@ -8001,8 +12785,8 @@ src: 'assets/course1.png',
   "requirements": "z",
   "targetAudience": "z",
   "courseTitle": "How the internet works",
-  "schedules": [
-      {
+ "schedules": [
+        {
           "id":"1",
           "courseTitle": "z",
           "date": "2025-03-11",
@@ -8011,20 +12795,228 @@ src: 'assets/course1.png',
           "registered": 10,
           "status": "zz",
           "joinLink": "zzz",
-          "limit": 8
+          "limit": 8,
+          "quizzes":[
+          { "duration": 10,
+            "title":"quiz1",
+            "questions":[{
+
+              "answerExplanation":"wwww",
+              "correctAnswer":"w",
+              "options":[
+                {optionValue: 'w'},
+                {optionValue: 's'},
+                {optionValue: 'v'},
+                {optionValue: 'q'}],
+                "text":"www",
+            },
+            {
+
+              "answerExplanation":"wwww",
+              "correctAnswer":"w",
+              "options":[
+                {optionValue: 'w'},
+                {optionValue: 's'},
+                {optionValue: 'v'},
+                {optionValue: 'q'}],
+                "text":"www",
+            },
+            {
+
+              "answerExplanation":"wwww",
+              "correctAnswer":"w",
+              "options":[
+                {optionValue: 'w'},
+                {optionValue: 's'},
+                {optionValue: 'v'},
+                {optionValue: 'q'}],
+                "text":"www",
+            },
+            {
+
+              "answerExplanation":"wwww",
+              "correctAnswer":"w",
+              "options":[
+                {optionValue: 'w'},
+                {optionValue: 's'},
+                {optionValue: 'v'},
+                {optionValue: 'q'}],
+                "text":"www",
+            }
+          ,{
+
+            "answerExplanation":"wwww",
+            "correctAnswer":"w",
+            "options":[
+              {optionValue: 'w'},
+              {optionValue: 's'},
+              {optionValue: 'v'},
+              {optionValue: 'q'}],
+              "text":"www",
+          }
+        ,{
+
+          "answerExplanation":"wwww",
+          "correctAnswer":"w",
+          "options":[
+            {optionValue: 'w'},
+            {optionValue: 's'},
+            {optionValue: 'v'},
+            {optionValue: 'q'}],
+            "text":"www",
+        },
+        {
+
+          "answerExplanation":"wwww",
+          "correctAnswer":"w",
+          "options":[
+            {optionValue: 'w'},
+            {optionValue: 's'},
+            {optionValue: 'v'},
+            {optionValue: 'q'}],
+            "text":"www",
+        },
+        {
+
+          "answerExplanation":"wwww",
+          "correctAnswer":"w",
+          "options":[
+            {optionValue: 'w'},
+            {optionValue: 's'},
+            {optionValue: 'v'},
+            {optionValue: 'q'}],
+            "text":"www",
+        },
+        {
+
+          "answerExplanation":"wwww",
+          "correctAnswer":"w",
+          "options":[
+            {optionValue: 'w'},
+            {optionValue: 's'},
+            {optionValue: 'v'},
+            {optionValue: 'q'}],
+            "text":"www",
+        }]
+
+          }]
       },
       {
         "id":"2",
-          "courseTitle": "xxcx",
-          "date": "2025-03-21",
-          "time": "15:36",
-          "lecturerName": "h",
-          "registered": 2,
-          "status": "hh",
-          "joinLink": "jbljk",
-          "limit": 9
-      }
-  ],
+        "courseTitle": "z",
+        "date": "2025-03-11",
+        "time": "13:38",
+        "lecturerName": "z",
+        "registered": 10,
+        "status": "zz",
+        "joinLink": "zzz",
+        "limit": 8,
+        "quizzes":[
+        { "duration": 10,
+          "title":"quiz1",
+          "questions":[{
+
+            "answerExplanation":"wwww",
+            "correctAnswer":"w",
+            "options":[
+              {optionValue: 'w'},
+              {optionValue: 's'},
+              {optionValue: 'v'},
+              {optionValue: 'q'}],
+              "text":"www",
+          },
+          {
+
+            "answerExplanation":"wwww",
+            "correctAnswer":"w",
+            "options":[
+              {optionValue: 'w'},
+              {optionValue: 's'},
+              {optionValue: 'v'},
+              {optionValue: 'q'}],
+              "text":"www",
+          },
+          {
+
+            "answerExplanation":"wwww",
+            "correctAnswer":"w",
+            "options":[
+              {optionValue: 'w'},
+              {optionValue: 's'},
+              {optionValue: 'v'},
+              {optionValue: 'q'}],
+              "text":"www",
+          },
+          {
+
+            "answerExplanation":"wwww",
+            "correctAnswer":"w",
+            "options":[
+              {optionValue: 'w'},
+              {optionValue: 's'},
+              {optionValue: 'v'},
+              {optionValue: 'q'}],
+              "text":"www",
+          }
+        ,{
+
+          "answerExplanation":"wwww",
+          "correctAnswer":"w",
+          "options":[
+            {optionValue: 'w'},
+            {optionValue: 's'},
+            {optionValue: 'v'},
+            {optionValue: 'q'}],
+            "text":"www",
+        }
+      ,{
+
+        "answerExplanation":"wwww",
+        "correctAnswer":"w",
+        "options":[
+          {optionValue: 'w'},
+          {optionValue: 's'},
+          {optionValue: 'v'},
+          {optionValue: 'q'}],
+          "text":"www",
+      },
+      {
+
+        "answerExplanation":"wwww",
+        "correctAnswer":"w",
+        "options":[
+          {optionValue: 'w'},
+          {optionValue: 's'},
+          {optionValue: 'v'},
+          {optionValue: 'q'}],
+          "text":"www",
+      },
+      {
+
+        "answerExplanation":"wwww",
+        "correctAnswer":"w",
+        "options":[
+          {optionValue: 'w'},
+          {optionValue: 's'},
+          {optionValue: 'v'},
+          {optionValue: 'q'}],
+          "text":"www",
+      },
+      {
+
+        "answerExplanation":"wwww",
+        "correctAnswer":"w",
+        "options":[
+          {optionValue: 'w'},
+          {optionValue: 's'},
+          {optionValue: 'v'},
+          {optionValue: 'q'}],
+          "text":"www",
+      }]
+
+        }]
+    }
+      ],
   "landingPage": {
       "title": "sad",
       "description": "ssdd",
@@ -8073,8 +13065,8 @@ src: 'assets/course1.png',
   "requirements": "z",
   "targetAudience": "z",
   "courseTitle": "How the internet works",
-  "schedules": [
-      {
+ "schedules": [
+        {
           "id":"1",
           "courseTitle": "z",
           "date": "2025-03-11",
@@ -8083,20 +13075,228 @@ src: 'assets/course1.png',
           "registered": 10,
           "status": "zz",
           "joinLink": "zzz",
-          "limit": 8
+          "limit": 8,
+          "quizzes":[
+          { "duration": 10,
+            "title":"quiz1",
+            "questions":[{
+
+              "answerExplanation":"wwww",
+              "correctAnswer":"w",
+              "options":[
+                {optionValue: 'w'},
+                {optionValue: 's'},
+                {optionValue: 'v'},
+                {optionValue: 'q'}],
+                "text":"www",
+            },
+            {
+
+              "answerExplanation":"wwww",
+              "correctAnswer":"w",
+              "options":[
+                {optionValue: 'w'},
+                {optionValue: 's'},
+                {optionValue: 'v'},
+                {optionValue: 'q'}],
+                "text":"www",
+            },
+            {
+
+              "answerExplanation":"wwww",
+              "correctAnswer":"w",
+              "options":[
+                {optionValue: 'w'},
+                {optionValue: 's'},
+                {optionValue: 'v'},
+                {optionValue: 'q'}],
+                "text":"www",
+            },
+            {
+
+              "answerExplanation":"wwww",
+              "correctAnswer":"w",
+              "options":[
+                {optionValue: 'w'},
+                {optionValue: 's'},
+                {optionValue: 'v'},
+                {optionValue: 'q'}],
+                "text":"www",
+            }
+          ,{
+
+            "answerExplanation":"wwww",
+            "correctAnswer":"w",
+            "options":[
+              {optionValue: 'w'},
+              {optionValue: 's'},
+              {optionValue: 'v'},
+              {optionValue: 'q'}],
+              "text":"www",
+          }
+        ,{
+
+          "answerExplanation":"wwww",
+          "correctAnswer":"w",
+          "options":[
+            {optionValue: 'w'},
+            {optionValue: 's'},
+            {optionValue: 'v'},
+            {optionValue: 'q'}],
+            "text":"www",
+        },
+        {
+
+          "answerExplanation":"wwww",
+          "correctAnswer":"w",
+          "options":[
+            {optionValue: 'w'},
+            {optionValue: 's'},
+            {optionValue: 'v'},
+            {optionValue: 'q'}],
+            "text":"www",
+        },
+        {
+
+          "answerExplanation":"wwww",
+          "correctAnswer":"w",
+          "options":[
+            {optionValue: 'w'},
+            {optionValue: 's'},
+            {optionValue: 'v'},
+            {optionValue: 'q'}],
+            "text":"www",
+        },
+        {
+
+          "answerExplanation":"wwww",
+          "correctAnswer":"w",
+          "options":[
+            {optionValue: 'w'},
+            {optionValue: 's'},
+            {optionValue: 'v'},
+            {optionValue: 'q'}],
+            "text":"www",
+        }]
+
+          }]
       },
       {
         "id":"2",
-          "courseTitle": "xxcx",
-          "date": "2025-03-21",
-          "time": "15:36",
-          "lecturerName": "h",
-          "registered": 2,
-          "status": "hh",
-          "joinLink": "jbljk",
-          "limit": 9
-      }
-  ],
+        "courseTitle": "z",
+        "date": "2025-03-11",
+        "time": "13:38",
+        "lecturerName": "z",
+        "registered": 10,
+        "status": "zz",
+        "joinLink": "zzz",
+        "limit": 8,
+        "quizzes":[
+        { "duration": 10,
+          "title":"quiz1",
+          "questions":[{
+
+            "answerExplanation":"wwww",
+            "correctAnswer":"w",
+            "options":[
+              {optionValue: 'w'},
+              {optionValue: 's'},
+              {optionValue: 'v'},
+              {optionValue: 'q'}],
+              "text":"www",
+          },
+          {
+
+            "answerExplanation":"wwww",
+            "correctAnswer":"w",
+            "options":[
+              {optionValue: 'w'},
+              {optionValue: 's'},
+              {optionValue: 'v'},
+              {optionValue: 'q'}],
+              "text":"www",
+          },
+          {
+
+            "answerExplanation":"wwww",
+            "correctAnswer":"w",
+            "options":[
+              {optionValue: 'w'},
+              {optionValue: 's'},
+              {optionValue: 'v'},
+              {optionValue: 'q'}],
+              "text":"www",
+          },
+          {
+
+            "answerExplanation":"wwww",
+            "correctAnswer":"w",
+            "options":[
+              {optionValue: 'w'},
+              {optionValue: 's'},
+              {optionValue: 'v'},
+              {optionValue: 'q'}],
+              "text":"www",
+          }
+        ,{
+
+          "answerExplanation":"wwww",
+          "correctAnswer":"w",
+          "options":[
+            {optionValue: 'w'},
+            {optionValue: 's'},
+            {optionValue: 'v'},
+            {optionValue: 'q'}],
+            "text":"www",
+        }
+      ,{
+
+        "answerExplanation":"wwww",
+        "correctAnswer":"w",
+        "options":[
+          {optionValue: 'w'},
+          {optionValue: 's'},
+          {optionValue: 'v'},
+          {optionValue: 'q'}],
+          "text":"www",
+      },
+      {
+
+        "answerExplanation":"wwww",
+        "correctAnswer":"w",
+        "options":[
+          {optionValue: 'w'},
+          {optionValue: 's'},
+          {optionValue: 'v'},
+          {optionValue: 'q'}],
+          "text":"www",
+      },
+      {
+
+        "answerExplanation":"wwww",
+        "correctAnswer":"w",
+        "options":[
+          {optionValue: 'w'},
+          {optionValue: 's'},
+          {optionValue: 'v'},
+          {optionValue: 'q'}],
+          "text":"www",
+      },
+      {
+
+        "answerExplanation":"wwww",
+        "correctAnswer":"w",
+        "options":[
+          {optionValue: 'w'},
+          {optionValue: 's'},
+          {optionValue: 'v'},
+          {optionValue: 'q'}],
+          "text":"www",
+      }]
+
+        }]
+    }
+      ],
   "landingPage": {
       "title": "sad",
       "description": "ssdd",
@@ -8145,9 +13345,9 @@ src: 'assets/course1.png',
   "requirements": "z",
   "targetAudience": "z",
   "courseTitle": "The Complete PHP Full",
-  "schedules": [
-      {
-
+ "schedules": [
+        {
+          "id":"1",
           "courseTitle": "z",
           "date": "2025-03-11",
           "time": "13:38",
@@ -8155,20 +13355,228 @@ src: 'assets/course1.png',
           "registered": 10,
           "status": "zz",
           "joinLink": "zzz",
-          "limit": 8
+          "limit": 8,
+          "quizzes":[
+          { "duration": 10,
+            "title":"quiz1",
+            "questions":[{
+
+              "answerExplanation":"wwww",
+              "correctAnswer":"w",
+              "options":[
+                {optionValue: 'w'},
+                {optionValue: 's'},
+                {optionValue: 'v'},
+                {optionValue: 'q'}],
+                "text":"www",
+            },
+            {
+
+              "answerExplanation":"wwww",
+              "correctAnswer":"w",
+              "options":[
+                {optionValue: 'w'},
+                {optionValue: 's'},
+                {optionValue: 'v'},
+                {optionValue: 'q'}],
+                "text":"www",
+            },
+            {
+
+              "answerExplanation":"wwww",
+              "correctAnswer":"w",
+              "options":[
+                {optionValue: 'w'},
+                {optionValue: 's'},
+                {optionValue: 'v'},
+                {optionValue: 'q'}],
+                "text":"www",
+            },
+            {
+
+              "answerExplanation":"wwww",
+              "correctAnswer":"w",
+              "options":[
+                {optionValue: 'w'},
+                {optionValue: 's'},
+                {optionValue: 'v'},
+                {optionValue: 'q'}],
+                "text":"www",
+            }
+          ,{
+
+            "answerExplanation":"wwww",
+            "correctAnswer":"w",
+            "options":[
+              {optionValue: 'w'},
+              {optionValue: 's'},
+              {optionValue: 'v'},
+              {optionValue: 'q'}],
+              "text":"www",
+          }
+        ,{
+
+          "answerExplanation":"wwww",
+          "correctAnswer":"w",
+          "options":[
+            {optionValue: 'w'},
+            {optionValue: 's'},
+            {optionValue: 'v'},
+            {optionValue: 'q'}],
+            "text":"www",
+        },
+        {
+
+          "answerExplanation":"wwww",
+          "correctAnswer":"w",
+          "options":[
+            {optionValue: 'w'},
+            {optionValue: 's'},
+            {optionValue: 'v'},
+            {optionValue: 'q'}],
+            "text":"www",
+        },
+        {
+
+          "answerExplanation":"wwww",
+          "correctAnswer":"w",
+          "options":[
+            {optionValue: 'w'},
+            {optionValue: 's'},
+            {optionValue: 'v'},
+            {optionValue: 'q'}],
+            "text":"www",
+        },
+        {
+
+          "answerExplanation":"wwww",
+          "correctAnswer":"w",
+          "options":[
+            {optionValue: 'w'},
+            {optionValue: 's'},
+            {optionValue: 'v'},
+            {optionValue: 'q'}],
+            "text":"www",
+        }]
+
+          }]
+      },
+      {
+        "id":"2",
+        "courseTitle": "z",
+        "date": "2025-03-11",
+        "time": "13:38",
+        "lecturerName": "z",
+        "registered": 10,
+        "status": "zz",
+        "joinLink": "zzz",
+        "limit": 8,
+        "quizzes":[
+        { "duration": 10,
+          "title":"quiz1",
+          "questions":[{
+
+            "answerExplanation":"wwww",
+            "correctAnswer":"w",
+            "options":[
+              {optionValue: 'w'},
+              {optionValue: 's'},
+              {optionValue: 'v'},
+              {optionValue: 'q'}],
+              "text":"www",
+          },
+          {
+
+            "answerExplanation":"wwww",
+            "correctAnswer":"w",
+            "options":[
+              {optionValue: 'w'},
+              {optionValue: 's'},
+              {optionValue: 'v'},
+              {optionValue: 'q'}],
+              "text":"www",
+          },
+          {
+
+            "answerExplanation":"wwww",
+            "correctAnswer":"w",
+            "options":[
+              {optionValue: 'w'},
+              {optionValue: 's'},
+              {optionValue: 'v'},
+              {optionValue: 'q'}],
+              "text":"www",
+          },
+          {
+
+            "answerExplanation":"wwww",
+            "correctAnswer":"w",
+            "options":[
+              {optionValue: 'w'},
+              {optionValue: 's'},
+              {optionValue: 'v'},
+              {optionValue: 'q'}],
+              "text":"www",
+          }
+        ,{
+
+          "answerExplanation":"wwww",
+          "correctAnswer":"w",
+          "options":[
+            {optionValue: 'w'},
+            {optionValue: 's'},
+            {optionValue: 'v'},
+            {optionValue: 'q'}],
+            "text":"www",
+        }
+      ,{
+
+        "answerExplanation":"wwww",
+        "correctAnswer":"w",
+        "options":[
+          {optionValue: 'w'},
+          {optionValue: 's'},
+          {optionValue: 'v'},
+          {optionValue: 'q'}],
+          "text":"www",
       },
       {
 
-          "courseTitle": "xxcx",
-          "date": "2025-03-21",
-          "time": "15:36",
-          "lecturerName": "h",
-          "registered": 2,
-          "status": "hh",
-          "joinLink": "jbljk",
-          "limit": 9
-      }
-  ],
+        "answerExplanation":"wwww",
+        "correctAnswer":"w",
+        "options":[
+          {optionValue: 'w'},
+          {optionValue: 's'},
+          {optionValue: 'v'},
+          {optionValue: 'q'}],
+          "text":"www",
+      },
+      {
+
+        "answerExplanation":"wwww",
+        "correctAnswer":"w",
+        "options":[
+          {optionValue: 'w'},
+          {optionValue: 's'},
+          {optionValue: 'v'},
+          {optionValue: 'q'}],
+          "text":"www",
+      },
+      {
+
+        "answerExplanation":"wwww",
+        "correctAnswer":"w",
+        "options":[
+          {optionValue: 'w'},
+          {optionValue: 's'},
+          {optionValue: 'v'},
+          {optionValue: 'q'}],
+          "text":"www",
+      }]
+
+        }]
+    }
+      ],
   "landingPage": {
       "title": "sad",
       "description": "ssdd",
@@ -8218,7 +13626,7 @@ src: 'assets/course1.png',
   "targetAudience": "z",
   "courseTitle": "The Complete PHP Full",
   "schedules": [
-      {
+        {
           "id":"1",
           "courseTitle": "z",
           "date": "2025-03-11",
@@ -8227,20 +13635,228 @@ src: 'assets/course1.png',
           "registered": 10,
           "status": "zz",
           "joinLink": "zzz",
-          "limit": 8
+          "limit": 8,
+          "quizzes":[
+          { "duration": 10,
+            "title":"quiz1",
+            "questions":[{
+
+              "answerExplanation":"wwww",
+              "correctAnswer":"w",
+              "options":[
+                {optionValue: 'w'},
+                {optionValue: 's'},
+                {optionValue: 'v'},
+                {optionValue: 'q'}],
+                "text":"www",
+            },
+            {
+
+              "answerExplanation":"wwww",
+              "correctAnswer":"w",
+              "options":[
+                {optionValue: 'w'},
+                {optionValue: 's'},
+                {optionValue: 'v'},
+                {optionValue: 'q'}],
+                "text":"www",
+            },
+            {
+
+              "answerExplanation":"wwww",
+              "correctAnswer":"w",
+              "options":[
+                {optionValue: 'w'},
+                {optionValue: 's'},
+                {optionValue: 'v'},
+                {optionValue: 'q'}],
+                "text":"www",
+            },
+            {
+
+              "answerExplanation":"wwww",
+              "correctAnswer":"w",
+              "options":[
+                {optionValue: 'w'},
+                {optionValue: 's'},
+                {optionValue: 'v'},
+                {optionValue: 'q'}],
+                "text":"www",
+            }
+          ,{
+
+            "answerExplanation":"wwww",
+            "correctAnswer":"w",
+            "options":[
+              {optionValue: 'w'},
+              {optionValue: 's'},
+              {optionValue: 'v'},
+              {optionValue: 'q'}],
+              "text":"www",
+          }
+        ,{
+
+          "answerExplanation":"wwww",
+          "correctAnswer":"w",
+          "options":[
+            {optionValue: 'w'},
+            {optionValue: 's'},
+            {optionValue: 'v'},
+            {optionValue: 'q'}],
+            "text":"www",
+        },
+        {
+
+          "answerExplanation":"wwww",
+          "correctAnswer":"w",
+          "options":[
+            {optionValue: 'w'},
+            {optionValue: 's'},
+            {optionValue: 'v'},
+            {optionValue: 'q'}],
+            "text":"www",
+        },
+        {
+
+          "answerExplanation":"wwww",
+          "correctAnswer":"w",
+          "options":[
+            {optionValue: 'w'},
+            {optionValue: 's'},
+            {optionValue: 'v'},
+            {optionValue: 'q'}],
+            "text":"www",
+        },
+        {
+
+          "answerExplanation":"wwww",
+          "correctAnswer":"w",
+          "options":[
+            {optionValue: 'w'},
+            {optionValue: 's'},
+            {optionValue: 'v'},
+            {optionValue: 'q'}],
+            "text":"www",
+        }]
+
+          }]
       },
       {
         "id":"2",
-          "courseTitle": "xxcx",
-          "date": "2025-03-21",
-          "time": "15:36",
-          "lecturerName": "h",
-          "registered": 2,
-          "status": "hh",
-          "joinLink": "jbljk",
-          "limit": 9
-      }
-  ],
+        "courseTitle": "z",
+        "date": "2025-03-11",
+        "time": "13:38",
+        "lecturerName": "z",
+        "registered": 10,
+        "status": "zz",
+        "joinLink": "zzz",
+        "limit": 8,
+        "quizzes":[
+        { "duration": 10,
+          "title":"quiz1",
+          "questions":[{
+
+            "answerExplanation":"wwww",
+            "correctAnswer":"w",
+            "options":[
+              {optionValue: 'w'},
+              {optionValue: 's'},
+              {optionValue: 'v'},
+              {optionValue: 'q'}],
+              "text":"www",
+          },
+          {
+
+            "answerExplanation":"wwww",
+            "correctAnswer":"w",
+            "options":[
+              {optionValue: 'w'},
+              {optionValue: 's'},
+              {optionValue: 'v'},
+              {optionValue: 'q'}],
+              "text":"www",
+          },
+          {
+
+            "answerExplanation":"wwww",
+            "correctAnswer":"w",
+            "options":[
+              {optionValue: 'w'},
+              {optionValue: 's'},
+              {optionValue: 'v'},
+              {optionValue: 'q'}],
+              "text":"www",
+          },
+          {
+
+            "answerExplanation":"wwww",
+            "correctAnswer":"w",
+            "options":[
+              {optionValue: 'w'},
+              {optionValue: 's'},
+              {optionValue: 'v'},
+              {optionValue: 'q'}],
+              "text":"www",
+          }
+        ,{
+
+          "answerExplanation":"wwww",
+          "correctAnswer":"w",
+          "options":[
+            {optionValue: 'w'},
+            {optionValue: 's'},
+            {optionValue: 'v'},
+            {optionValue: 'q'}],
+            "text":"www",
+        }
+      ,{
+
+        "answerExplanation":"wwww",
+        "correctAnswer":"w",
+        "options":[
+          {optionValue: 'w'},
+          {optionValue: 's'},
+          {optionValue: 'v'},
+          {optionValue: 'q'}],
+          "text":"www",
+      },
+      {
+
+        "answerExplanation":"wwww",
+        "correctAnswer":"w",
+        "options":[
+          {optionValue: 'w'},
+          {optionValue: 's'},
+          {optionValue: 'v'},
+          {optionValue: 'q'}],
+          "text":"www",
+      },
+      {
+
+        "answerExplanation":"wwww",
+        "correctAnswer":"w",
+        "options":[
+          {optionValue: 'w'},
+          {optionValue: 's'},
+          {optionValue: 'v'},
+          {optionValue: 'q'}],
+          "text":"www",
+      },
+      {
+
+        "answerExplanation":"wwww",
+        "correctAnswer":"w",
+        "options":[
+          {optionValue: 'w'},
+          {optionValue: 's'},
+          {optionValue: 'v'},
+          {optionValue: 'q'}],
+          "text":"www",
+      }]
+
+        }]
+    }
+      ],
   "landingPage": {
       "title": "sad",
       "description": "ssdd",
@@ -9285,7 +14901,7 @@ src: 'assets/course1.png',
   "targetAudience": "z",
   "courseTitle": "How the internet works",
   "schedules": [
-      {
+        {
           "id":"1",
           "courseTitle": "z",
           "date": "2025-03-11",
@@ -9294,20 +14910,228 @@ src: 'assets/course1.png',
           "registered": 10,
           "status": "zz",
           "joinLink": "zzz",
-          "limit": 8
+          "limit": 8,
+          "quizzes":[
+          { "duration": 10,
+            "title":"quiz1",
+            "questions":[{
+
+              "answerExplanation":"wwww",
+              "correctAnswer":"w",
+              "options":[
+                {optionValue: 'w'},
+                {optionValue: 's'},
+                {optionValue: 'v'},
+                {optionValue: 'q'}],
+                "text":"www",
+            },
+            {
+
+              "answerExplanation":"wwww",
+              "correctAnswer":"w",
+              "options":[
+                {optionValue: 'w'},
+                {optionValue: 's'},
+                {optionValue: 'v'},
+                {optionValue: 'q'}],
+                "text":"www",
+            },
+            {
+
+              "answerExplanation":"wwww",
+              "correctAnswer":"w",
+              "options":[
+                {optionValue: 'w'},
+                {optionValue: 's'},
+                {optionValue: 'v'},
+                {optionValue: 'q'}],
+                "text":"www",
+            },
+            {
+
+              "answerExplanation":"wwww",
+              "correctAnswer":"w",
+              "options":[
+                {optionValue: 'w'},
+                {optionValue: 's'},
+                {optionValue: 'v'},
+                {optionValue: 'q'}],
+                "text":"www",
+            }
+          ,{
+
+            "answerExplanation":"wwww",
+            "correctAnswer":"w",
+            "options":[
+              {optionValue: 'w'},
+              {optionValue: 's'},
+              {optionValue: 'v'},
+              {optionValue: 'q'}],
+              "text":"www",
+          }
+        ,{
+
+          "answerExplanation":"wwww",
+          "correctAnswer":"w",
+          "options":[
+            {optionValue: 'w'},
+            {optionValue: 's'},
+            {optionValue: 'v'},
+            {optionValue: 'q'}],
+            "text":"www",
+        },
+        {
+
+          "answerExplanation":"wwww",
+          "correctAnswer":"w",
+          "options":[
+            {optionValue: 'w'},
+            {optionValue: 's'},
+            {optionValue: 'v'},
+            {optionValue: 'q'}],
+            "text":"www",
+        },
+        {
+
+          "answerExplanation":"wwww",
+          "correctAnswer":"w",
+          "options":[
+            {optionValue: 'w'},
+            {optionValue: 's'},
+            {optionValue: 'v'},
+            {optionValue: 'q'}],
+            "text":"www",
+        },
+        {
+
+          "answerExplanation":"wwww",
+          "correctAnswer":"w",
+          "options":[
+            {optionValue: 'w'},
+            {optionValue: 's'},
+            {optionValue: 'v'},
+            {optionValue: 'q'}],
+            "text":"www",
+        }]
+
+          }]
       },
       {
         "id":"2",
-          "courseTitle": "xxcx",
-          "date": "2025-03-21",
-          "time": "15:36",
-          "lecturerName": "h",
-          "registered": 2,
-          "status": "hh",
-          "joinLink": "jbljk",
-          "limit": 9
-      }
-  ],
+        "courseTitle": "z",
+        "date": "2025-03-11",
+        "time": "13:38",
+        "lecturerName": "z",
+        "registered": 10,
+        "status": "zz",
+        "joinLink": "zzz",
+        "limit": 8,
+        "quizzes":[
+        { "duration": 10,
+          "title":"quiz1",
+          "questions":[{
+
+            "answerExplanation":"wwww",
+            "correctAnswer":"w",
+            "options":[
+              {optionValue: 'w'},
+              {optionValue: 's'},
+              {optionValue: 'v'},
+              {optionValue: 'q'}],
+              "text":"www",
+          },
+          {
+
+            "answerExplanation":"wwww",
+            "correctAnswer":"w",
+            "options":[
+              {optionValue: 'w'},
+              {optionValue: 's'},
+              {optionValue: 'v'},
+              {optionValue: 'q'}],
+              "text":"www",
+          },
+          {
+
+            "answerExplanation":"wwww",
+            "correctAnswer":"w",
+            "options":[
+              {optionValue: 'w'},
+              {optionValue: 's'},
+              {optionValue: 'v'},
+              {optionValue: 'q'}],
+              "text":"www",
+          },
+          {
+
+            "answerExplanation":"wwww",
+            "correctAnswer":"w",
+            "options":[
+              {optionValue: 'w'},
+              {optionValue: 's'},
+              {optionValue: 'v'},
+              {optionValue: 'q'}],
+              "text":"www",
+          }
+        ,{
+
+          "answerExplanation":"wwww",
+          "correctAnswer":"w",
+          "options":[
+            {optionValue: 'w'},
+            {optionValue: 's'},
+            {optionValue: 'v'},
+            {optionValue: 'q'}],
+            "text":"www",
+        }
+      ,{
+
+        "answerExplanation":"wwww",
+        "correctAnswer":"w",
+        "options":[
+          {optionValue: 'w'},
+          {optionValue: 's'},
+          {optionValue: 'v'},
+          {optionValue: 'q'}],
+          "text":"www",
+      },
+      {
+
+        "answerExplanation":"wwww",
+        "correctAnswer":"w",
+        "options":[
+          {optionValue: 'w'},
+          {optionValue: 's'},
+          {optionValue: 'v'},
+          {optionValue: 'q'}],
+          "text":"www",
+      },
+      {
+
+        "answerExplanation":"wwww",
+        "correctAnswer":"w",
+        "options":[
+          {optionValue: 'w'},
+          {optionValue: 's'},
+          {optionValue: 'v'},
+          {optionValue: 'q'}],
+          "text":"www",
+      },
+      {
+
+        "answerExplanation":"wwww",
+        "correctAnswer":"w",
+        "options":[
+          {optionValue: 'w'},
+          {optionValue: 's'},
+          {optionValue: 'v'},
+          {optionValue: 'q'}],
+          "text":"www",
+      }]
+
+        }]
+    }
+      ],
   "landingPage": {
       "title": "sad",
       "description": "ssdd",
@@ -9356,8 +15180,8 @@ src: 'assets/course1.png',
   "requirements": "z",
   "targetAudience": "z",
   "courseTitle": "How the internet works",
-  "schedules": [
-      {
+ "schedules": [
+        {
           "id":"1",
           "courseTitle": "z",
           "date": "2025-03-11",
@@ -9366,20 +15190,228 @@ src: 'assets/course1.png',
           "registered": 10,
           "status": "zz",
           "joinLink": "zzz",
-          "limit": 8
+          "limit": 8,
+          "quizzes":[
+          { "duration": 10,
+            "title":"quiz1",
+            "questions":[{
+
+              "answerExplanation":"wwww",
+              "correctAnswer":"w",
+              "options":[
+                {optionValue: 'w'},
+                {optionValue: 's'},
+                {optionValue: 'v'},
+                {optionValue: 'q'}],
+                "text":"www",
+            },
+            {
+
+              "answerExplanation":"wwww",
+              "correctAnswer":"w",
+              "options":[
+                {optionValue: 'w'},
+                {optionValue: 's'},
+                {optionValue: 'v'},
+                {optionValue: 'q'}],
+                "text":"www",
+            },
+            {
+
+              "answerExplanation":"wwww",
+              "correctAnswer":"w",
+              "options":[
+                {optionValue: 'w'},
+                {optionValue: 's'},
+                {optionValue: 'v'},
+                {optionValue: 'q'}],
+                "text":"www",
+            },
+            {
+
+              "answerExplanation":"wwww",
+              "correctAnswer":"w",
+              "options":[
+                {optionValue: 'w'},
+                {optionValue: 's'},
+                {optionValue: 'v'},
+                {optionValue: 'q'}],
+                "text":"www",
+            }
+          ,{
+
+            "answerExplanation":"wwww",
+            "correctAnswer":"w",
+            "options":[
+              {optionValue: 'w'},
+              {optionValue: 's'},
+              {optionValue: 'v'},
+              {optionValue: 'q'}],
+              "text":"www",
+          }
+        ,{
+
+          "answerExplanation":"wwww",
+          "correctAnswer":"w",
+          "options":[
+            {optionValue: 'w'},
+            {optionValue: 's'},
+            {optionValue: 'v'},
+            {optionValue: 'q'}],
+            "text":"www",
+        },
+        {
+
+          "answerExplanation":"wwww",
+          "correctAnswer":"w",
+          "options":[
+            {optionValue: 'w'},
+            {optionValue: 's'},
+            {optionValue: 'v'},
+            {optionValue: 'q'}],
+            "text":"www",
+        },
+        {
+
+          "answerExplanation":"wwww",
+          "correctAnswer":"w",
+          "options":[
+            {optionValue: 'w'},
+            {optionValue: 's'},
+            {optionValue: 'v'},
+            {optionValue: 'q'}],
+            "text":"www",
+        },
+        {
+
+          "answerExplanation":"wwww",
+          "correctAnswer":"w",
+          "options":[
+            {optionValue: 'w'},
+            {optionValue: 's'},
+            {optionValue: 'v'},
+            {optionValue: 'q'}],
+            "text":"www",
+        }]
+
+          }]
       },
       {
         "id":"2",
-          "courseTitle": "xxcx",
-          "date": "2025-03-21",
-          "time": "15:36",
-          "lecturerName": "h",
-          "registered": 2,
-          "status": "hh",
-          "joinLink": "jbljk",
-          "limit": 9
-      }
-  ],
+        "courseTitle": "z",
+        "date": "2025-03-11",
+        "time": "13:38",
+        "lecturerName": "z",
+        "registered": 10,
+        "status": "zz",
+        "joinLink": "zzz",
+        "limit": 8,
+        "quizzes":[
+        { "duration": 10,
+          "title":"quiz1",
+          "questions":[{
+
+            "answerExplanation":"wwww",
+            "correctAnswer":"w",
+            "options":[
+              {optionValue: 'w'},
+              {optionValue: 's'},
+              {optionValue: 'v'},
+              {optionValue: 'q'}],
+              "text":"www",
+          },
+          {
+
+            "answerExplanation":"wwww",
+            "correctAnswer":"w",
+            "options":[
+              {optionValue: 'w'},
+              {optionValue: 's'},
+              {optionValue: 'v'},
+              {optionValue: 'q'}],
+              "text":"www",
+          },
+          {
+
+            "answerExplanation":"wwww",
+            "correctAnswer":"w",
+            "options":[
+              {optionValue: 'w'},
+              {optionValue: 's'},
+              {optionValue: 'v'},
+              {optionValue: 'q'}],
+              "text":"www",
+          },
+          {
+
+            "answerExplanation":"wwww",
+            "correctAnswer":"w",
+            "options":[
+              {optionValue: 'w'},
+              {optionValue: 's'},
+              {optionValue: 'v'},
+              {optionValue: 'q'}],
+              "text":"www",
+          }
+        ,{
+
+          "answerExplanation":"wwww",
+          "correctAnswer":"w",
+          "options":[
+            {optionValue: 'w'},
+            {optionValue: 's'},
+            {optionValue: 'v'},
+            {optionValue: 'q'}],
+            "text":"www",
+        }
+      ,{
+
+        "answerExplanation":"wwww",
+        "correctAnswer":"w",
+        "options":[
+          {optionValue: 'w'},
+          {optionValue: 's'},
+          {optionValue: 'v'},
+          {optionValue: 'q'}],
+          "text":"www",
+      },
+      {
+
+        "answerExplanation":"wwww",
+        "correctAnswer":"w",
+        "options":[
+          {optionValue: 'w'},
+          {optionValue: 's'},
+          {optionValue: 'v'},
+          {optionValue: 'q'}],
+          "text":"www",
+      },
+      {
+
+        "answerExplanation":"wwww",
+        "correctAnswer":"w",
+        "options":[
+          {optionValue: 'w'},
+          {optionValue: 's'},
+          {optionValue: 'v'},
+          {optionValue: 'q'}],
+          "text":"www",
+      },
+      {
+
+        "answerExplanation":"wwww",
+        "correctAnswer":"w",
+        "options":[
+          {optionValue: 'w'},
+          {optionValue: 's'},
+          {optionValue: 'v'},
+          {optionValue: 'q'}],
+          "text":"www",
+      }]
+
+        }]
+    }
+      ],
   "landingPage": {
       "title": "sad",
       "description": "ssdd",
@@ -9429,8 +15461,8 @@ src: 'assets/course1.png',
   "targetAudience": "z",
   "courseTitle": "The Complete PHP Full",
   "schedules": [
-      {
-
+        {
+          "id":"1",
           "courseTitle": "z",
           "date": "2025-03-11",
           "time": "13:38",
@@ -9438,20 +15470,228 @@ src: 'assets/course1.png',
           "registered": 10,
           "status": "zz",
           "joinLink": "zzz",
-          "limit": 8
+          "limit": 8,
+          "quizzes":[
+          { "duration": 10,
+            "title":"quiz1",
+            "questions":[{
+
+              "answerExplanation":"wwww",
+              "correctAnswer":"w",
+              "options":[
+                {optionValue: 'w'},
+                {optionValue: 's'},
+                {optionValue: 'v'},
+                {optionValue: 'q'}],
+                "text":"www",
+            },
+            {
+
+              "answerExplanation":"wwww",
+              "correctAnswer":"w",
+              "options":[
+                {optionValue: 'w'},
+                {optionValue: 's'},
+                {optionValue: 'v'},
+                {optionValue: 'q'}],
+                "text":"www",
+            },
+            {
+
+              "answerExplanation":"wwww",
+              "correctAnswer":"w",
+              "options":[
+                {optionValue: 'w'},
+                {optionValue: 's'},
+                {optionValue: 'v'},
+                {optionValue: 'q'}],
+                "text":"www",
+            },
+            {
+
+              "answerExplanation":"wwww",
+              "correctAnswer":"w",
+              "options":[
+                {optionValue: 'w'},
+                {optionValue: 's'},
+                {optionValue: 'v'},
+                {optionValue: 'q'}],
+                "text":"www",
+            }
+          ,{
+
+            "answerExplanation":"wwww",
+            "correctAnswer":"w",
+            "options":[
+              {optionValue: 'w'},
+              {optionValue: 's'},
+              {optionValue: 'v'},
+              {optionValue: 'q'}],
+              "text":"www",
+          }
+        ,{
+
+          "answerExplanation":"wwww",
+          "correctAnswer":"w",
+          "options":[
+            {optionValue: 'w'},
+            {optionValue: 's'},
+            {optionValue: 'v'},
+            {optionValue: 'q'}],
+            "text":"www",
+        },
+        {
+
+          "answerExplanation":"wwww",
+          "correctAnswer":"w",
+          "options":[
+            {optionValue: 'w'},
+            {optionValue: 's'},
+            {optionValue: 'v'},
+            {optionValue: 'q'}],
+            "text":"www",
+        },
+        {
+
+          "answerExplanation":"wwww",
+          "correctAnswer":"w",
+          "options":[
+            {optionValue: 'w'},
+            {optionValue: 's'},
+            {optionValue: 'v'},
+            {optionValue: 'q'}],
+            "text":"www",
+        },
+        {
+
+          "answerExplanation":"wwww",
+          "correctAnswer":"w",
+          "options":[
+            {optionValue: 'w'},
+            {optionValue: 's'},
+            {optionValue: 'v'},
+            {optionValue: 'q'}],
+            "text":"www",
+        }]
+
+          }]
+      },
+      {
+        "id":"2",
+        "courseTitle": "z",
+        "date": "2025-03-11",
+        "time": "13:38",
+        "lecturerName": "z",
+        "registered": 10,
+        "status": "zz",
+        "joinLink": "zzz",
+        "limit": 8,
+        "quizzes":[
+        { "duration": 10,
+          "title":"quiz1",
+          "questions":[{
+
+            "answerExplanation":"wwww",
+            "correctAnswer":"w",
+            "options":[
+              {optionValue: 'w'},
+              {optionValue: 's'},
+              {optionValue: 'v'},
+              {optionValue: 'q'}],
+              "text":"www",
+          },
+          {
+
+            "answerExplanation":"wwww",
+            "correctAnswer":"w",
+            "options":[
+              {optionValue: 'w'},
+              {optionValue: 's'},
+              {optionValue: 'v'},
+              {optionValue: 'q'}],
+              "text":"www",
+          },
+          {
+
+            "answerExplanation":"wwww",
+            "correctAnswer":"w",
+            "options":[
+              {optionValue: 'w'},
+              {optionValue: 's'},
+              {optionValue: 'v'},
+              {optionValue: 'q'}],
+              "text":"www",
+          },
+          {
+
+            "answerExplanation":"wwww",
+            "correctAnswer":"w",
+            "options":[
+              {optionValue: 'w'},
+              {optionValue: 's'},
+              {optionValue: 'v'},
+              {optionValue: 'q'}],
+              "text":"www",
+          }
+        ,{
+
+          "answerExplanation":"wwww",
+          "correctAnswer":"w",
+          "options":[
+            {optionValue: 'w'},
+            {optionValue: 's'},
+            {optionValue: 'v'},
+            {optionValue: 'q'}],
+            "text":"www",
+        }
+      ,{
+
+        "answerExplanation":"wwww",
+        "correctAnswer":"w",
+        "options":[
+          {optionValue: 'w'},
+          {optionValue: 's'},
+          {optionValue: 'v'},
+          {optionValue: 'q'}],
+          "text":"www",
       },
       {
 
-          "courseTitle": "xxcx",
-          "date": "2025-03-21",
-          "time": "15:36",
-          "lecturerName": "h",
-          "registered": 2,
-          "status": "hh",
-          "joinLink": "jbljk",
-          "limit": 9
-      }
-  ],
+        "answerExplanation":"wwww",
+        "correctAnswer":"w",
+        "options":[
+          {optionValue: 'w'},
+          {optionValue: 's'},
+          {optionValue: 'v'},
+          {optionValue: 'q'}],
+          "text":"www",
+      },
+      {
+
+        "answerExplanation":"wwww",
+        "correctAnswer":"w",
+        "options":[
+          {optionValue: 'w'},
+          {optionValue: 's'},
+          {optionValue: 'v'},
+          {optionValue: 'q'}],
+          "text":"www",
+      },
+      {
+
+        "answerExplanation":"wwww",
+        "correctAnswer":"w",
+        "options":[
+          {optionValue: 'w'},
+          {optionValue: 's'},
+          {optionValue: 'v'},
+          {optionValue: 'q'}],
+          "text":"www",
+      }]
+
+        }]
+    }
+      ],
   "landingPage": {
       "title": "sad",
       "description": "ssdd",
@@ -9500,8 +15740,8 @@ src: 'assets/course1.png',
   "requirements": "z",
   "targetAudience": "z",
   "courseTitle": "The Complete PHP Full",
-  "schedules": [
-      {
+ "schedules": [
+        {
           "id":"1",
           "courseTitle": "z",
           "date": "2025-03-11",
@@ -9510,20 +15750,228 @@ src: 'assets/course1.png',
           "registered": 10,
           "status": "zz",
           "joinLink": "zzz",
-          "limit": 8
+          "limit": 8,
+          "quizzes":[
+          { "duration": 10,
+            "title":"quiz1",
+            "questions":[{
+
+              "answerExplanation":"wwww",
+              "correctAnswer":"w",
+              "options":[
+                {optionValue: 'w'},
+                {optionValue: 's'},
+                {optionValue: 'v'},
+                {optionValue: 'q'}],
+                "text":"www",
+            },
+            {
+
+              "answerExplanation":"wwww",
+              "correctAnswer":"w",
+              "options":[
+                {optionValue: 'w'},
+                {optionValue: 's'},
+                {optionValue: 'v'},
+                {optionValue: 'q'}],
+                "text":"www",
+            },
+            {
+
+              "answerExplanation":"wwww",
+              "correctAnswer":"w",
+              "options":[
+                {optionValue: 'w'},
+                {optionValue: 's'},
+                {optionValue: 'v'},
+                {optionValue: 'q'}],
+                "text":"www",
+            },
+            {
+
+              "answerExplanation":"wwww",
+              "correctAnswer":"w",
+              "options":[
+                {optionValue: 'w'},
+                {optionValue: 's'},
+                {optionValue: 'v'},
+                {optionValue: 'q'}],
+                "text":"www",
+            }
+          ,{
+
+            "answerExplanation":"wwww",
+            "correctAnswer":"w",
+            "options":[
+              {optionValue: 'w'},
+              {optionValue: 's'},
+              {optionValue: 'v'},
+              {optionValue: 'q'}],
+              "text":"www",
+          }
+        ,{
+
+          "answerExplanation":"wwww",
+          "correctAnswer":"w",
+          "options":[
+            {optionValue: 'w'},
+            {optionValue: 's'},
+            {optionValue: 'v'},
+            {optionValue: 'q'}],
+            "text":"www",
+        },
+        {
+
+          "answerExplanation":"wwww",
+          "correctAnswer":"w",
+          "options":[
+            {optionValue: 'w'},
+            {optionValue: 's'},
+            {optionValue: 'v'},
+            {optionValue: 'q'}],
+            "text":"www",
+        },
+        {
+
+          "answerExplanation":"wwww",
+          "correctAnswer":"w",
+          "options":[
+            {optionValue: 'w'},
+            {optionValue: 's'},
+            {optionValue: 'v'},
+            {optionValue: 'q'}],
+            "text":"www",
+        },
+        {
+
+          "answerExplanation":"wwww",
+          "correctAnswer":"w",
+          "options":[
+            {optionValue: 'w'},
+            {optionValue: 's'},
+            {optionValue: 'v'},
+            {optionValue: 'q'}],
+            "text":"www",
+        }]
+
+          }]
       },
       {
         "id":"2",
-          "courseTitle": "xxcx",
-          "date": "2025-03-21",
-          "time": "15:36",
-          "lecturerName": "h",
-          "registered": 2,
-          "status": "hh",
-          "joinLink": "jbljk",
-          "limit": 9
-      }
-  ],
+        "courseTitle": "z",
+        "date": "2025-03-11",
+        "time": "13:38",
+        "lecturerName": "z",
+        "registered": 10,
+        "status": "zz",
+        "joinLink": "zzz",
+        "limit": 8,
+        "quizzes":[
+        { "duration": 10,
+          "title":"quiz1",
+          "questions":[{
+
+            "answerExplanation":"wwww",
+            "correctAnswer":"w",
+            "options":[
+              {optionValue: 'w'},
+              {optionValue: 's'},
+              {optionValue: 'v'},
+              {optionValue: 'q'}],
+              "text":"www",
+          },
+          {
+
+            "answerExplanation":"wwww",
+            "correctAnswer":"w",
+            "options":[
+              {optionValue: 'w'},
+              {optionValue: 's'},
+              {optionValue: 'v'},
+              {optionValue: 'q'}],
+              "text":"www",
+          },
+          {
+
+            "answerExplanation":"wwww",
+            "correctAnswer":"w",
+            "options":[
+              {optionValue: 'w'},
+              {optionValue: 's'},
+              {optionValue: 'v'},
+              {optionValue: 'q'}],
+              "text":"www",
+          },
+          {
+
+            "answerExplanation":"wwww",
+            "correctAnswer":"w",
+            "options":[
+              {optionValue: 'w'},
+              {optionValue: 's'},
+              {optionValue: 'v'},
+              {optionValue: 'q'}],
+              "text":"www",
+          }
+        ,{
+
+          "answerExplanation":"wwww",
+          "correctAnswer":"w",
+          "options":[
+            {optionValue: 'w'},
+            {optionValue: 's'},
+            {optionValue: 'v'},
+            {optionValue: 'q'}],
+            "text":"www",
+        }
+      ,{
+
+        "answerExplanation":"wwww",
+        "correctAnswer":"w",
+        "options":[
+          {optionValue: 'w'},
+          {optionValue: 's'},
+          {optionValue: 'v'},
+          {optionValue: 'q'}],
+          "text":"www",
+      },
+      {
+
+        "answerExplanation":"wwww",
+        "correctAnswer":"w",
+        "options":[
+          {optionValue: 'w'},
+          {optionValue: 's'},
+          {optionValue: 'v'},
+          {optionValue: 'q'}],
+          "text":"www",
+      },
+      {
+
+        "answerExplanation":"wwww",
+        "correctAnswer":"w",
+        "options":[
+          {optionValue: 'w'},
+          {optionValue: 's'},
+          {optionValue: 'v'},
+          {optionValue: 'q'}],
+          "text":"www",
+      },
+      {
+
+        "answerExplanation":"wwww",
+        "correctAnswer":"w",
+        "options":[
+          {optionValue: 'w'},
+          {optionValue: 's'},
+          {optionValue: 'v'},
+          {optionValue: 'q'}],
+          "text":"www",
+      }]
+
+        }]
+    }
+      ],
   "landingPage": {
       "title": "sad",
       "description": "ssdd",

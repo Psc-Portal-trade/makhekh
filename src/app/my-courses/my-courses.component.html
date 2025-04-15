@@ -65,21 +65,22 @@
 
 
 
-   <div id="tests" class="tab-pane fade">
+    <div id="tests" class="tab-pane fade">
       <input *ngIf="courses.length > 0" type="text" class="form-control mb-3"
              placeholder="Search for a course..." [(ngModel)]="searchQuery" />
-
+    
       <div class="container">
         <div class="row gy-3">
-          <!-- No items message -->
+    
+          <!-- لا توجد كورسات -->
           <div class="no-items" *ngIf="courses.length === 0 || (searchQuery && filteredCourses.length === 0)">
             <img src="assets/no items yet.jpg" alt="No items yet">
             <p>{{"my-courses.No items yet" | transloco}}</p>
           </div>
-
+    
           <div class="accordion accordion-flush" id="accordionFlushExample">
             <ng-container *ngFor="let course of paginatedCourses; let i = index">
-              <div *ngIf="course.courseType === 'Recorded Educational Courses'" class="accordion-item">
+              <div class="accordion-item">
                 <h2 class="accordion-header" [id]="'flush-heading' + i">
                   <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                           [attr.data-bs-target]="'#flush-collapse' + i" aria-expanded="false"
@@ -96,60 +97,121 @@
                           <img [src]="course.src" class="card-img-top" alt="{{ course.courseTitle }}">
                         </div>
                         <div class="col-md-8">
-                          <div class="accordion" id="accordionExample">
-                            <!-- Loop through course sections -->
-                            <div class="accordion-item" *ngFor="let section of course.curriculum; let sIndex = index">
-                              <h2 class="accordion-header" [id]="'section-heading-' + sIndex">
-                                <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                                        [attr.data-bs-target]="'#collapse-section-' + sIndex" aria-expanded="false"
-                                        [attr.aria-controls]="'collapse-section-' + sIndex">
-                                  {{ sIndex + 1 }}- {{ section.name }} <!-- رقم القسم -->
-                                </button>
-                              </h2>
-                              <div [id]="'collapse-section-' + sIndex" class="accordion-collapse collapse"
-                                   [attr.aria-labelledby]="'section-heading-' + sIndex" data-bs-parent="#accordionExample">
-                                <div class="accordion-body">
-                                  <div class="container">
-                                    <div class="row">
-                                      <!-- Loop through lectures in the section -->
-                                      <div class="col-md-12 my-2" *ngFor="let lecture of section.lectures; let lIndex = index">
-                                        <div class="lecture-item">
-                                          <div class="d-flex justify-content-between">
-                                            <h5><span class="text-primary">{{ sIndex + 1 }}.{{ lIndex + 1 }} -</span> {{ lecture.title }}</h5> <!-- رقم المحاضرة -->
-                                            <p><strong>Duration:</strong> {{ lecture.quizzes[0].duration }}</p> <!-- مدة الكويز -->
-                                          </div>
-                                          <div class="d-flex justify-content-between align-items-center">
-                                            <div class="quiz-index">
-                                              <span>{{ lecture.quizzes.length }} Quizzes</span> <!-- عرض عدد الكويزز -->
+    
+                          <!-- ✅ Recorded Courses -->
+                          <div *ngIf="course.courseType === 'Recorded Educational Courses'">
+                            <div class="accordion" id="accordionExample">
+                              <div class="accordion-item" *ngFor="let section of course.curriculum; let sIndex = index">
+                                <h2 class="accordion-header" [id]="'section-heading-' + sIndex">
+                                  <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                          [attr.data-bs-target]="'#collapse-section-' + sIndex" aria-expanded="false"
+                                          [attr.aria-controls]="'collapse-section-' + sIndex">
+                                    {{ sIndex + 1 }}- {{ section.name }}
+                                  </button>
+                                </h2>
+                                <div [id]="'collapse-section-' + sIndex" class="accordion-collapse collapse"
+                                     [attr.aria-labelledby]="'section-heading-' + sIndex" data-bs-parent="#accordionExample">
+                                  <div class="accordion-body">
+                                    <div class="container">
+                                      <div class="row">
+                                        <div class="col-md-12 my-2"
+                                             *ngFor="let lecture of section.lectures; let lIndex = index">
+                                          <div class="lecture-item">
+                                            <div class="d-flex justify-content-between">
+                                              <h5>
+                                                <span class="text-primary">{{ sIndex + 1 }}.{{ lIndex + 1 }} -</span>
+                                                {{ lecture.title }}
+                                              </h5>
+                                              <p><strong>Duration:</strong> {{ lecture.quizzes[0]?.duration }}</p>
                                             </div>
-                                            <div>
-                                              <!-- عرض عدد المحاولات -->
-                                              <span>{{ getQuizAttempts(sIndex, lIndex) }} / 3  <span class="text-danger">Trials</span></span>
-                                            </div>
-                                            <div>
-
-
-
-
-                                              <!-- زر البداية أو عرض النتيجة بناءً على عدد المحاولات -->
-                                              <button *ngIf="getQuizAttempts(sIndex, lIndex) < 3"
-        class="btn btn-primary"
-        (click)="startQuiz(lecture, sIndex, lIndex, course)">
-  Start
-</button>
-
-                                                                                    <button *ngIf="getQuizAttempts(sIndex, lIndex) >= 3" class="btn btn-secondary" (click)="viewResult()">Watch Result</button>
+                                            <div class="d-flex justify-content-between align-items-center">
+                                              <div class="quiz-index">
+                                                <span>{{ lecture.quizzes.length }} Quizzes</span>
+                                              </div>
+                                              <div>
+                                                <span>{{ getQuizAttempts(sIndex, lIndex) }} / 3
+                                                  <span class="text-danger">Trials</span>
+                                                </span>
+                                              </div>
+                                              <div>
+                                                <button *ngIf="getQuizAttempts(sIndex, lIndex) < 3"
+                                                        class="btn btn-primary"
+                                                        (click)="startQuiz(lecture, sIndex, lIndex, course)">
+                                                  Start
+                                                </button>
+                                                <button *ngIf="getQuizAttempts(sIndex, lIndex) >= 3"
+                                                        class="btn btn-secondary"
+                                                        (click)="viewResult()">
+                                                  Watch Result
+                                                </button>
+                                              </div>
                                             </div>
                                           </div>
                                         </div>
                                       </div>
-
                                     </div>
                                   </div>
                                 </div>
                               </div>
                             </div>
                           </div>
+    
+                          <!-- ✅ Live Streamed Courses -->
+                          <div *ngIf="course.courseType === 'Live Streamed Educational Courses'">
+                            <div class="accordion" id="accordionLiveExample">
+                              <div class="accordion-item" *ngFor="let schedule of course.schedules; let sIndex = index">
+                                <h2 class="accordion-header" [id]="'schedule-heading-' + sIndex">
+                                  <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                          [attr.data-bs-target]="'#collapse-schedule-' + sIndex" aria-expanded="false"
+                                          [attr.aria-controls]="'collapse-schedule-' + sIndex">
+                                    Session: {{ schedule.courseTitle }}
+                                  </button>
+                                </h2>
+                                <div [id]="'collapse-schedule-' + sIndex" class="accordion-collapse collapse"
+                                     [attr.aria-labelledby]="'schedule-heading-' + sIndex"
+                                     data-bs-parent="#accordionLiveExample">
+                                  <div class="accordion-body">
+                                    <div *ngFor="let quiz of schedule.quizzes; let qIndex = index" class="lecture-item mb-3">
+                                      <div class="d-flex justify-content-between">
+                                        <h5><span class="text-primary">{{ qIndex + 1 }} -</span> {{ quiz.title }}</h5>
+                                        <p><strong>Duration:</strong> {{ quiz.duration }}</p>
+                                      </div>
+                                      <div class="d-flex justify-content-between align-items-center">
+                                        <div class="quiz-index">
+                                          <span>1 Quiz</span>
+                                        </div>
+                                        <div>
+                                          <span>{{ getQuizAttempts(sIndex, qIndex) }} / 3
+                                            <span class="text-danger">Trials</span>
+                                          </span>
+                                        </div>
+                                        <div>
+                                          <!-- شرط الوقت -->
+                                          <ng-container *ngIf="isScheduleAvailable(schedule.date, schedule.time); else waitingMsg">
+                                            <button *ngIf="getQuizAttempts(sIndex, qIndex) < 3"
+                                                    class="btn btn-primary"
+                                                    (click)="startQuiz(quiz, sIndex, qIndex, course)">
+                                              Start
+                                            </button>
+                                            <button *ngIf="getQuizAttempts(sIndex, qIndex) >= 3"
+                                                    class="btn btn-secondary"
+                                                    (click)="viewResult()">
+                                              Watch Result
+                                            </button>
+                                          </ng-container>
+                                          <ng-template #waitingMsg>
+                                            <p class="text-danger m-0"><strong>Waiting for the lecture</strong></p>
+                                          </ng-template>
+                                        </div>
+                                      </div>
+                                      
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+    
                         </div>
                       </div>
                     </div>
@@ -157,11 +219,10 @@
                 </div>
               </div>
             </ng-container>
-
           </div>
-
+    
         </div>
-
+    
         <!-- Pagination -->
         <div class="pagination-controls" *ngIf="filteredCourses.length > 0">
           <button *ngFor="let page of getPagesArray()" (click)="goToPage(page)" [class.active]="page === currentPage">
@@ -170,6 +231,8 @@
         </div>
       </div>
     </div>
+    
+    
 
 
 
