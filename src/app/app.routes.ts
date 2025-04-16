@@ -480,6 +480,15 @@ export const routes: Routes = [
 
 
 {path:"edit-course/instructor-profile/create-course",redirectTo:"create-course",pathMatch:"full"},
+{path:"edit-course/my-courses",redirectTo:"my-courses",pathMatch:"full"},
+{path:"edit-course/studentHome",redirectTo:"studentHome",pathMatch:"full"},
+{path:"edit-course/explore",redirectTo:"explore",pathMatch:"full"},
+{path:"edit-course/cart",redirectTo:"cart",pathMatch:"full"},
+{path:"edit-course/wishedList",redirectTo:"wishedList",pathMatch:"full"},
+{path:"edit-course/instructor-profile",redirectTo:"instructor-profile",pathMatch:"full"},
+{path:"edit-course/logOut",redirectTo:"logOut",pathMatch:"full"},
+{path:"edit-course/student-profile",redirectTo:"student-profile",pathMatch:"full"},
+
 
 
 

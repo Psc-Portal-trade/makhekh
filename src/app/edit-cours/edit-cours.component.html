@@ -13,7 +13,7 @@
 
     <div class="mb-3">
       <label class="form-label">Course Type</label>
-      <input class="form-control" [(ngModel)]="courseData.courseType" placeholder="e.g., Live Streamed" readonly>
+      <input class="form-control" [(ngModel)]="courseData.courseType" placeholder="" readonly>
     </div>
 
 
@@ -39,57 +39,131 @@
   </div>
 
   <!-- ✅ Schedules -->
-  <div *ngFor="let schedule of courseData.schedules; let i = index" class="card mb-4 p-3">
-    <h5 class="mb-3 text-primary">Schedule {{ i + 1 }}</h5>
+   <div *ngIf="courseData.courseType === 'Live Streamed Educational Courses'">
+    <div *ngFor="let schedule of courseData.schedules; let i = index" class="card mb-4 p-3">
+      <h5 class="mb-3 text-primary">Schedule {{ i + 1 }}</h5>
 
-    <div class="mb-3">
-      <label class="form-label">Course Title</label>
-      <input class="form-control" [(ngModel)]="schedule.courseTitle">
+      <div class="mb-3">
+        <label class="form-label">Course Title</label>
+        <input class="form-control" [(ngModel)]="schedule.courseTitle">
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Date</label>
+        <input class="form-control" type="date" [(ngModel)]="schedule.date">
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Time</label>
+        <input class="form-control" type="time" [(ngModel)]="schedule.time">
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Lecturer Name</label>
+        <input class="form-control" [(ngModel)]="schedule.lecturerName">
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Registered</label>
+        <input class="form-control" [(ngModel)]="schedule.registered">
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Status</label>
+        <input class="form-control" [(ngModel)]="schedule.status">
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Join Link</label>
+        <input class="form-control" [(ngModel)]="schedule.joinLink">
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Limit</label>
+        <input class="form-control" type="number" [(ngModel)]="schedule.limit">
+      </div>
+
+      <div class="text-end" *ngIf="i !== 0">
+        <button class="btn btn-sm btn-outline-danger" (click)="removeSchedule(i)">Delete Schedule</button>
+      </div>
+    </div>
+    <div class="mb-4">
+      <button class="btn btn-outline-primary" (click)="addSchedule()">+ Add Schedule</button>
+    </div>
+   </div>
+
+
+  <!-- ✅ Curriculum -->
+
+  <div *ngIf="courseData.courseType === 'Recorded Educational Courses'">
+    <div *ngFor="let section of courseData.curriculum; let si = index" class="card mb-4 p-3">
+      <h5 class="mb-3 text-primary">Section {{ si + 1 }}</h5>
+
+      <div class="mb-3 d-flex align-items-center justify-content-between">
+        <div class="flex-grow-1 me-3">
+          <label class="form-label">Section Name</label>
+          <input class="form-control" [(ngModel)]="section.name">
+        </div>
+
+        <!-- حذف السكشن (ماعدا أول واحد) -->
+        <button *ngIf="si > 0" class="btn btn-sm btn-outline-danger mt-4" (click)="removeSection(si)">
+          Remove Section
+        </button>
+      </div>
+
+      <!-- المحاضرات داخل السكشن -->
+      <div *ngFor="let lecture of section.lectures; let li = index" class="mb-3 ps-3 border-start">
+        <h6 class="text-danger mb-3">Lecture {{ li + 1 }}</h6>
+
+        <label class="form-label">Lecture Title</label>
+        <input class="form-control" [(ngModel)]="lecture.title">
+
+<!-- عرض الفيديو إن وُجد -->
+<div class="mb-3">
+  <label class="form-label">Lecture Video</label>
+
+  <div *ngIf="!lecture.changingVideo && lecture.video?.preview">
+    <video [src]="lecture.video.preview" controls style="max-width: 300px;"></video><br>
+    <button class="btn btn-sm btn-outline-secondary mt-2" (click)="lecture.changingVideo = true">Change Video</button>
+  </div>
+
+  <div *ngIf="lecture.changingVideo || !lecture.video?.preview">
+    <input type="file" accept="video/*" class="form-control"
+           (change)="onLectureVideoSelected($event, si, li)">
+  </div>
+</div>
+
+
+
+
+        <label class="form-label mt-2">Description</label>
+        <textarea class="form-control" [(ngModel)]="lecture.description"></textarea>
+
+        <!-- زرار حذف المحاضرة (ماعدا أول محاضرة في أول سكشن) -->
+        <div class="text-end mt-2">
+          <button
+            class="btn btn-sm btn-outline-danger"
+            (click)="removeLecture(si, li)"
+            *ngIf="!(si === 0 && li === 0)">
+            Remove Lecture
+          </button>
+        </div>
+      </div>
+
+      <!-- زرار إضافة محاضرة -->
+      <button class="btn btn-outline-primary mt-2" (click)="addLecture(si)">+ Add Lecture</button>
     </div>
 
-    <div class="mb-3">
-      <label class="form-label">Date</label>
-      <input class="form-control" type="date" [(ngModel)]="schedule.date">
-    </div>
-
-    <div class="mb-3">
-      <label class="form-label">Time</label>
-      <input class="form-control" type="time" [(ngModel)]="schedule.time">
-    </div>
-
-    <div class="mb-3">
-      <label class="form-label">Lecturer Name</label>
-      <input class="form-control" [(ngModel)]="schedule.lecturerName">
-    </div>
-
-    <div class="mb-3">
-      <label class="form-label">Registered</label>
-      <input class="form-control" [(ngModel)]="schedule.registered">
-    </div>
-
-    <div class="mb-3">
-      <label class="form-label">Status</label>
-      <input class="form-control" [(ngModel)]="schedule.status">
-    </div>
-
-    <div class="mb-3">
-      <label class="form-label">Join Link</label>
-      <input class="form-control" [(ngModel)]="schedule.joinLink">
-    </div>
-
-    <div class="mb-3">
-      <label class="form-label">Limit</label>
-      <input class="form-control" type="number" [(ngModel)]="schedule.limit">
-    </div>
-
-    <div class="text-end" *ngIf="i !== 0">
-      <button class="btn btn-sm btn-outline-danger" (click)="removeSchedule(i)">Delete Schedule</button>
+    <!-- زرار إضافة سكشن -->
+    <div class="mb-4">
+      <button class="btn btn-outline-primary" (click)="addSection()">+ Add Section</button>
     </div>
   </div>
 
-  <div class="mb-4">
-    <button class="btn btn-outline-primary" (click)="addSchedule()">+ Add Schedule</button>
-  </div>
+
+
+
+
 
   <!-- ✅ Landing Page -->
   <div class="card mb-4 p-3">

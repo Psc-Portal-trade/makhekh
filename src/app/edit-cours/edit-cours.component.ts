@@ -131,5 +131,63 @@ export class EditCoursComponent implements OnInit {
     this.courseData.coupons.splice(index, 1);
   }
 
+  addSection() {
+    this.courseData.curriculum.push({
+      name: '',
+      lectures: [
+        {
+          title: '',
+          video: {},
+          videoName: '',
+          description: '',
+          activeTab: 'video',
+          quizzes: []
+        }
+      ]
+    });
+  }
+
+  removeSection(index: number) {
+    if (index > 0) {
+      this.courseData.curriculum.splice(index, 1);
+    }
+  }
+
+  addLecture(sectionIndex: number) {
+    this.courseData.curriculum[sectionIndex].lectures.push({
+      title: '',
+      video: {},
+      videoName: '',
+      description: '',
+      activeTab: 'video',
+      quizzes: []
+    });
+  }
+
+  removeLecture(sectionIndex: number, lectureIndex: number) {
+    // لا تحذف أول محاضرة من أول سكشن
+    if (!(sectionIndex === 0 && lectureIndex === 0)) {
+      this.courseData.curriculum[sectionIndex].lectures.splice(lectureIndex, 1);
+    }
+  }
+  onLectureVideoSelected(event: any, sectionIndex: number, lectureIndex: number) {
+    const file = event.target.files[0];
+    if (file && file.type.startsWith('video/')) {
+      const reader = new FileReader();
+      reader.onload = () => {
+        const lecture = this.courseData.curriculum[sectionIndex].lectures[lectureIndex];
+        lecture.video = {
+          file,
+          preview: reader.result
+        };
+        lecture.changingVideo = false;
+      };
+      reader.readAsDataURL(file);
+    } else {
+      alert("Please select a valid video file.");
+    }
+  }
+
+
 
 }

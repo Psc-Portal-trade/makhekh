@@ -16,10 +16,6 @@ export class CreateCourseComponent {
 
 
 
-
-
-
-
  logoSrc: string = 'assets/Logo AR.png';
 
   constructor(private langService: LangService) {
