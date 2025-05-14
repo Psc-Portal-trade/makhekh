@@ -5,8 +5,9 @@ import jsPDF from 'jspdf';
 import { SidebarComponent } from '../sidebar/sidebar.component';
 import { TranslocoPipe, TranslocoService } from '@ngneat/transloco';
 import { LangService } from '../services/lang.service';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { Observable } from 'rxjs';
+import { AuthService } from '../services/auth.service';
 
 interface CourseData {
   NoOfStudent: number;
@@ -25,6 +26,11 @@ export class StudentsComponent {
   activeTab: string = 'NoOfStudent';
   selectedCourse: string = '';
   selectedCourseKey: string = ''; // المفتاح الفعلي
+fullName: string = '';
+ firstLetter: string = '';
+  role: string = '';
+  userRole: string = '';
+email:string=''
 
   // بيانات الكورسات المختلفة
   coursesData: Record<string, CourseData> = {
@@ -42,9 +48,13 @@ export class StudentsComponent {
 
   logoSrc: string = 'assets/Logo AR.png';
 
-  constructor(private langService: LangService) {
+  constructor(private langService: LangService,private authService: AuthService,private router: Router) {
     this.setLogo();
-
+ const userData = this.authService.getUserData();
+    if (userData) {
+      this.fullName = userData.fullName;
+      this.role = userData.role;
+  }
   }
 
    _translocoService = inject(TranslocoService);
@@ -61,12 +71,22 @@ export class StudentsComponent {
      // تعيين الدورة الافتراضية
      this.selectedCourseKey = 'AllCourses';
      this.selectedCourse$ = this.translocoService.selectTranslate('AllCourses');
-     
+
      // حساب المجموع لجميع الدورات
      this.calculateAllCoursesTotals();
-     
+
      // تعيين البيانات الأولية
      this.setCourseData('AllCourses');
+
+
+
+  const user = this.authService.getUserData(); // هنا بنجيب الداتا من السيرفيس
+  this.userRole = user?.userRole || ''; // هنا بنستخرج الرول
+  this.fullName = user?.fullName || '';
+  this.email = user?.email || '';
+this.firstLetter = this.fullName.charAt(0).toUpperCase();
+
+
    }
 
 
@@ -118,7 +138,7 @@ private setCourseData(courseKey: string) {
   private calculateAllCoursesTotals() {
     this.NoOfStudent = Object.values<{ NoOfStudent: number; NoOfStudentCompletedTheCourse: number; StudentsSuggestions: number; NoOfQuestions: number }>(this.coursesData)
       .reduce((sum, course) => sum + course.NoOfStudent, 0);
-  
+
       this.NoOfStudentCompletedTheCourse = Object.values<{ NoOfStudent: number; NoOfStudentCompletedTheCourse: number; StudentsSuggestions: number; NoOfQuestions: number }>(this.coursesData)
       .reduce((sum, course) => sum + course.NoOfStudentCompletedTheCourse, 0);
 
@@ -143,7 +163,7 @@ private setCourseData(courseKey: string) {
       alert(this.translocoService.translate('No data available for the report.'));
       return;
     }
-  
+
     const currentLang = this.translocoService.getActiveLang();
     const isArabic = currentLang === 'ar';
     const translatedCourseKey = this.translocoService.translate(this.selectedCourseKey);
@@ -155,23 +175,23 @@ private setCourseData(courseKey: string) {
     const questionsLabel = isArabic ? 'عدد الأسئلة:' : 'No of questions:';
     const report = isArabic ?'تقرير' : 'report';
 
-  
+
     const doc = new jsPDF({
       orientation: 'p',
       unit: 'mm',
       format: 'a4'
     });
-  
+
     // تحميل الخط الصحيح "Amiri-Bold.ttf" فقط
     if (isArabic) {
       doc.addFont('assets/fonts/Amiri-Bold.ttf', 'Amiri-Bold', 'bold');
       doc.setFont('Amiri-Bold', 'bold');
 
-    } 
-  
+    }
+
     doc.setFontSize(16);
     const xPos = isArabic ? 180 : 20; // ضبط محاذاة النصوص
-  
+
     doc.text(title, xPos, 20, { align: isArabic ? 'right' : 'left' });
     doc.setFontSize(14);
     doc.text(`${noOfStudentsLabel} ${this.NoOfStudent}`, xPos, 40, { align: isArabic ? 'right' : 'left' });
@@ -181,10 +201,16 @@ private setCourseData(courseKey: string) {
     doc.save(`${translatedCourseKey}-${report}.pdf`);
 
   }
-  
+
 
   // تعيين التبويب النشط
   setActiveTab(tab: string) {
     this.activeTab = tab;
   }
+
+
+  logout() {
+  localStorage.removeItem('user');
+  this.router.navigate(['login']);
+}
 }

@@ -5,8 +5,9 @@ import { SidebarComponent } from '../sidebar/sidebar.component';
 import { TranslocoPipe, TranslocoService } from '@ngneat/transloco';
 import { QaService } from '../services/qa.service';
 import { LangService } from '../services/lang.service';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { Observable } from 'rxjs';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-messages',
@@ -15,6 +16,9 @@ import { Observable } from 'rxjs';
   styleUrl: './messages.component.css'
 })
 export class MessagesComponent {
+ fullName: string = '';
+ firstLetter: string = '';
+  role: string = '';
 
   messages = [
     { sender:"ahmed mohamed", subject: "Message 1", content: "Thank you for joining my course, I hope you will like it and most of all learn a new skill from it. If you have any question about it, don't hesitate to ask! 1", read: false },
@@ -37,7 +41,8 @@ export class MessagesComponent {
   showUnread: boolean = false;
   selectedMessage: any = null;
   logoSrc: string = 'assets/Logo AR.png';
-
+  userRole: string = '';
+email:string=''
 
   markAsRead(index: number) {
     this.messages[index].read = true;
@@ -91,8 +96,16 @@ export class MessagesComponent {
   }
   private translocoService = inject(TranslocoService);
   selectedCourse$: Observable<string> = this.translocoService.selectTranslate('AllCourses');
-   constructor(private qaService: QaService,private langService: LangService) {
+   constructor(private qaService: QaService,private langService: LangService,private authService: AuthService,private router: Router) {
     this.setLogo();
+
+
+    const userData = this.authService.getUserData();
+    if (userData) {
+      this.fullName = userData.fullName;
+      this.role = userData.role;
+  }
+
 
    }
    _translocoService = inject(TranslocoService);
@@ -103,6 +116,18 @@ export class MessagesComponent {
     this.langService.lang$.subscribe((lang) => {
       this.logoSrc = lang === 'ar' ? 'assets/Logo AR.png' : 'assets/Logo EN.png';
     });
+
+
+
+  const user = this.authService.getUserData(); // هنا بنجيب الداتا من السيرفيس
+  this.userRole = user?.userRole || ''; // هنا بنستخرج الرول
+  this.fullName = user?.fullName || '';
+  this.email = user?.email || '';
+this.firstLetter = this.fullName.charAt(0).toUpperCase();
+
+
+
+
    }
 
 
@@ -136,6 +161,10 @@ export class MessagesComponent {
     this.selectedCourse$ = this.translocoService.selectTranslate(courseKey);
     console.log(this.selectedCourse$ );
   }
+logout() {
+  localStorage.removeItem('user');
+  this.router.navigate(['home']);
+}
 
 
 }

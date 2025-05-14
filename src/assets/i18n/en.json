@@ -25,6 +25,7 @@
   "register":"Register",
   "login":"Login",
   "instructor":"Instructor",
+  "student":"Student",
   "explore":"Explore",
   "home":"Home",
   "search":"Search",
@@ -191,7 +192,7 @@
 
 "secondHome":{
 
-  "Welcome, Name":"Welcome, Name",
+  "Welcome, Name":"Welcome , ",
   "UX Designer":"UX Designer",
 "Development":"Development",
 "Finance & Accounting":"Finance & Accounting",
@@ -600,7 +601,7 @@
 
 
 
-  "cart":
+ "cart":
   {
   "Shopping Cart":"Shopping Cart",
   "courses in cart":"courses in cart",
@@ -612,10 +613,9 @@
   "Total Price:":"Total Price:",
   "Close":"Close",
   "Please Login First":"Please Login First",
-  "alert":"alert"
+  "alert":"alert",
+  "needStudentAccount": "To purchase this course, you need to have a student account."
   },
-
-
 
 
   "cours-details":{
@@ -859,36 +859,40 @@
   }
 
 
+
   ,
     "quiz": {
-      "create_new": "Create New Quiz",
-      "create": "Create Quiz",
-      "title": "Quiz Title",
-      "duration": "Duration (minutes)",
-      "question": "Question",
-      "options": "Options",
-      "option": "Option",
-      "correct_answer": "Correct Answer",
-      "enter_exact": "Please enter the exact answer",
-      "correct_answer_placeholder": "Correct answer",
-      "answer_explanation": "Answer Explanation",
-      "enter_question": "Enter question",
-      "enter_explanation": "Enter explanation",
-      "add_question": "Add Question",
-      "remove_question": "Remove Question",
-      "save": "Save Quiz",
-      "errors": {
-        "title": "Please enter a quiz title.",
-        "duration": "Please enter a valid duration.",
-        "question": "Please enter a question.",
-        "option": "Please enter an option.",
-        "correct_answer": "Please enter the correct answer."
-      }
-    },
-    "successMessage2":"You created your quiz successfully!"
-  
-  
+    "create_new": "Create New Quiz",
+    "create": "Create Quiz",
+    "course_name": "Course Name",
+    "instructor_name": "Instructor Name",
+    "exam_datetime": "Exam Date & Time",
+    "duration": "Duration (minutes)",
+    "attempts": "Attempts Allowed",
+    "passing_score": "Passing Score (%)",
+    "description": "Quiz Description",
+    "question": "Question",
+    "options": "Options",
+    "option": "Option",
+    "answer_explanation": "Answer Explanation",
+    "remove_question": "Remove Question",
+    "add_question": "Add Question",
+    "save": "Save Quiz",
+    "errors": {
+    "course_name": "Course name is required.",
+    "instructor_name": "Instructor name is required.",
+    "exam_datetime": "Exam date and time are required.",
+    "duration": "The exam duration must be greater than 0.",
+    "attempts": "Number of attempts is required.",
+    "passing_score": "Passing score must be between 1 and 100.",
+    "questions_required": "At least one question must be added.",
+    "question_text_required": "Question number {{index}} is missing text.",
+    "option_required": "Option number {{optionIndex}} in question number {{index}} is empty.",
+    "correct_answer_required": "You must select the correct answer in question number {{index}}."
 
+  }
+  },
+    "successMessage2":"You created your quiz successfully!"
 
 
 }

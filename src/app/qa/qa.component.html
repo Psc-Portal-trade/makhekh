@@ -5,23 +5,24 @@
 
   <div class="mx-3 second-sec">
     <i class="fa-solid fa-bell"></i>
-    <a class="pe-3 text-decoration-none text-black " routerLink="student-profile">  student View  <i class="fa-solid fa-people-arrows px-1"></i></a>
+    <!-- <a class="pe-3 text-decoration-none text-black " routerLink="student-profile">  student View  <i class="fa-solid fa-people-arrows px-1"></i></a> -->
   </div>
   <div class="position-relative text-end my-3">
 
     <div class="first-letter">
-      <span>H</span>
+      <span><span>{{firstLetter}}</span>
+</span>
       <div class="profile-menu">
         <div class="text-center">
           <div class="d-flex align-items-center mb-3 gap-3">
             <div class="first-letterr">
               <span class="rounded-circle  text-white d-flex justify-content-center align-items-center" style="width: 50px; height: 50px; font-size: 24px;">
-                H
+                            <span>{{firstLetter}}</span>
               </span>
             </div>
             <div class="text-start">
-              <h5 class="mb-0">Name</h5>
-              <p class="text-muted mb-0">Email</p>
+              <h5 class="mb-0">{{fullName}}</h5>
+              <p class="text-muted mb-0">{{email}}</p>
             </div>
           </div>
          </div>
@@ -45,7 +46,7 @@
           <li class="divider"></li>
 
           <li class="list-group-item">{{ "second-navbar.Help and Support" | transloco }}</li>
-          <li class="list-group-item text-danger" routerLink="logOut"> {{ "second-navbar.Log out" | transloco }}</li>
+          <li class="list-group-item text-danger" (click)="logout()"> {{ "second-navbar.Log out" | transloco }}</li>
         </ul>
 
       </div>

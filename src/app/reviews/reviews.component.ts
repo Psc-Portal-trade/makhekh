@@ -5,8 +5,9 @@ import { FormsModule } from '@angular/forms';
 import jsPDF from 'jspdf';
 import { TranslocoPipe, TranslocoService } from '@ngneat/transloco';
 import { LangService } from '../services/lang.service';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { Observable } from 'rxjs';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-reviews',
@@ -18,9 +19,24 @@ export class ReviewsComponent {
   activeTab: string = 'instructorRating';
   selectedCourse: string = 'All Courses';
   logoSrc: string = 'assets/Logo AR.png';
- constructor(private langService: LangService) {
-    this.setLogo();
 
+
+  fullName: string = '';
+ firstLetter: string = '';
+  role: string = '';
+  userRole: string = '';
+email:string=''
+
+
+
+
+ constructor(private langService: LangService,private authService: AuthService,private router: Router) {
+    this.setLogo();
+ const userData = this.authService.getUserData();
+    if (userData) {
+      this.fullName = userData.fullName;
+      this.role = userData.role;
+  }
    }
    _translocoService = inject(TranslocoService);
    ngOnInit() {
@@ -31,12 +47,22 @@ export class ReviewsComponent {
     // تعيين الدورة الافتراضية
     this.selectedCourseKey = 'AllCourses';
     this.selectedCourse$ = this.translocoService.selectTranslate('AllCourses');
-    
+
     // حساب المجموع لجميع الدورات
     this.calculateAverageRating();
-    
+
     // تعيين البيانات الأولية
     this.setCourseData('AllCourses');
+
+
+
+  const user = this.authService.getUserData(); // هنا بنجيب الداتا من السيرفيس
+  this.userRole = user?.userRole || ''; // هنا بنستخرج الرول
+  this.fullName = user?.fullName || '';
+  this.email = user?.email || '';
+this.firstLetter = this.fullName.charAt(0).toUpperCase();
+
+
    }
 
 
@@ -65,7 +91,7 @@ export class ReviewsComponent {
 
   selectedCourseKey: string = ''; // المفتاح الفعلي
 
-  
+
 
   // بيانات الكورسات المختلفة
   coursesData: any = {
@@ -85,11 +111,11 @@ private translocoService = inject(TranslocoService);
 
     this.setCourseData(courseKey);
   }
- 
+
   private setCourseData(courseKey: string) {
     if (this.coursesData[courseKey]) {
       this.instructorRating = this.coursesData[courseKey].instructorRating;
-    
+
     }
   }
   // حساب متوسط التقييمات عند تحميل الصفحة
@@ -101,17 +127,17 @@ private translocoService = inject(TranslocoService);
       .filter(([key, _]) => key !== 'AllCourses') // استبعاد AllCourses
       .map(([_, course]) => (course as any).instructorRating)
       .filter(rating => typeof rating === 'number'); // التأكد من أن التقييم رقم وليس undefined
-  
+
     const sum = ratings.reduce((acc, rating) => acc + rating, 0);
     const averaging = ratings.length ? parseFloat((sum / ratings.length).toFixed(1)) : 0;
-  
+
     // تحديث القيمة العامة
     this.instructorRating = averaging;
     this.coursesData['AllCourses'].instructorRating = averaging;
-  
+
     return averaging;
   }
-  
+
 
 
 
@@ -121,11 +147,11 @@ private translocoService = inject(TranslocoService);
       alert(this.translocoService.translate('No data available for the report.'));
       return;
     }
-  
+
     const currentLang = this.translocoService.getActiveLang();
     const isArabic = currentLang === 'ar';
     const translatedCourse = this.translocoService.translate(this.selectedCourseKey);
-    
+
     const title = isArabic ? `تقرير الأداء - ${translatedCourse}` : `Performance Report - ${translatedCourse}`;
     const ratingLabel = isArabic ? 'تقييم المُحاضر:' : 'Instructor Rating:';
     const starsLabel = isArabic ? 'نجوم' : 'stars';
@@ -141,7 +167,7 @@ private translocoService = inject(TranslocoService);
     if (isArabic) {
       doc.addFont('assets/fonts/Amiri-Bold.ttf', 'Amiri-Bold', 'bold');
       doc.setFont('Amiri-Bold', 'bold');
-    } 
+    }
 
     doc.setFontSize(16);
     const xPos = isArabic ? 180 : 20; // ضبط المحاذاة
@@ -158,4 +184,11 @@ private translocoService = inject(TranslocoService);
   setActiveTab(tab: string) {
     this.activeTab = tab;
   }
+
+
+logout() {
+  localStorage.removeItem('user');
+  this.router.navigate(['/logOut']);
+}
+
 }

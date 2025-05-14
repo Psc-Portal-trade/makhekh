@@ -47,6 +47,28 @@
       <h4>{{ 'cart.Total Price:' | transloco }} <strong>{{ totalPrice }} LE</strong></h4>
       <div class="d-flex">
         <div class="py-2 "><button class="btn btn-primary" (click)="checkout()">{{ 'cart.Checkout' | transloco }}</button></div>
+        <div class="modal fade" id="Modal" tabindex="-1" aria-labelledby="ModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered"> <!-- Centered vertically -->
+            <div class="modal-content text-center p-4">
+              <div class="modal-header border-0">
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="إغلاق"></button>
+              </div>
+              
+              <div class="modal-body">
+               
+                <!-- أيقونة التنبيه -->
+                <div class="mb-3">
+                  <i class="fa-solid fa-circle-exclamation fa-4x text-warning"></i>
+                </div>
+        
+                <!-- النص -->
+                <p class="text-danger">{{'cart.needStudentAccount' | transloco}}</p>
+               
+              </div>
+            </div>
+          </div>
+        </div>
+        
         <div class="py-2 "><button class="btn btn-outline-primary mx-2 " routerLink="explore"> {{ 'cart.Continue Shopping' | transloco }}</button></div>
       </div>
 

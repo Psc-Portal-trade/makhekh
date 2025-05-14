@@ -20,6 +20,7 @@ export class CartComponent implements OnInit {
   cartItems: any[] = [];
   totalPrice: number = 0;
   lectures: any[] = [];
+  userRole: string = '';
 
   constructor(private cartService: CartService, private courseService: CourseService,private wishlistService: WishlistService) {}
 
@@ -27,6 +28,11 @@ export class CartComponent implements OnInit {
     this.cartService.cartItems$.subscribe(items => {
       this.cartItems = items;
       this.updateTotalPrice();
+
+
+      const user = JSON.parse(localStorage.getItem('user') || '{}');
+    this.userRole = (user?.role || '').trim().toLowerCase();
+    console.log('Role in nav:', this.userRole);
     });
 
 
@@ -72,7 +78,19 @@ export class CartComponent implements OnInit {
   }
 
   checkout() {
-    this.cartService.checkout(); // استدعاء checkout() من CartService
+
+
+    if (this.userRole === 'instructor') {
+      // فتح الـ modal يدويًا
+      const modal = document.getElementById('Modal');
+      if (modal) {
+        const bootstrapModal = new (window as any).bootstrap.Modal(modal);
+        bootstrapModal.show();
+      }
+      return; // وقف تنفيذ الشراء
+    }else{
+      this.cartService.checkout(); // استدعاء checkout() من CartService
+    }
   }
 
 

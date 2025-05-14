@@ -25,6 +25,10 @@ export class ShippingCartComponent implements OnInit {
     this.cartService.cartItems$.subscribe(items => {
       this.cartItems = items;
       this.updateTotalPrice();
+
+
+
+     
     });
 
 

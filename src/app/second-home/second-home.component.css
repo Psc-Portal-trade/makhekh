@@ -8,3 +8,14 @@
     display: none;
   }
 }
+
+.first-letterr {
+  width: 75px;
+  height: 75px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #2d91ee;
+  border-radius: 50%;
+  margin: 0 5px;
+}

@@ -1,73 +1,122 @@
 <app-navbar></app-navbar>
 
 <section class="mb-5 pb-5">
-    <div class="container pt-5">
-        <div class="row">
-          <div class="col-md-6 form1 pt-2 d-flex justify-content-center align-items-center register-img">
-            <img src="assets/register.png" alt="">
-        </div>
-            <div class="col-md-6 form">
-                <h2>{{ 'register.Register with us and start learning now' | transloco }}</h2>
-                <form [formGroup]="registerForm" (ngSubmit)="registerSubmit()">
-                    <div>
-                        <label for="name"></label>
-                        <input id="name" type="text" class="form-control border-black  .form-input"
-                            [placeholder]="'register.Full Name' | transloco" formControlName="name">
-                    </div>
-                    @if(registerForm.get('name')?.errors && registerForm.get('name')?.touched) {
-                    <div class="alert alert-danger w-70">
-                        <p class="m-0 ">{{ 'register.Full Name is required' | transloco }}</p>
-                    </div>
-                    }
-                    <div>
-                        <label for="email"></label>
-                        <input id="email" type="email" class="form-control border-black  .form-input"
-                            [placeholder]="'register.Email' | transloco" formControlName="email">
-                    </div>
-                    @if(registerForm.get('email')?.errors && registerForm.get('email')?.touched) {
-                    <div class="alert alert-danger w-70">
-                        @if(registerForm.get('email')?.getError('required')) {
-                        <p class="m-0 ">{{ 'register.Email is required' | transloco }}</p>
-                        }
-                        @else if (registerForm.get('email')?.getError('email')) {
-                        <p class="m-0 ">{{ 'register.Enter a valid email' | transloco }}</p>
-                        }
-                    </div>
-                    }
-                    <div>
-                        <label for="password"></label>
-                        <input id="password" type="password" class="form-control border-black  .form-input"
-                            [placeholder]="'register.Password' | transloco" formControlName="password">
-                    </div>
-                    @if(registerForm.get('password')?.errors && registerForm.get('password')?.touched) {
-                    <div class="alert alert-danger w-70">
-                        @if(registerForm.get('password')?.getError('required')) {
-                        <p class="m-0 ">{{ 'register.Password is required' | transloco }}</p>
-                        }
-                        @else if (registerForm.get('password')?.getError('pattern')) {
-                        <p class="m-0 ">{{ 'register.Enter a valid password' | transloco }}</p>
-                        <p class="m-0 ">{{ 'register.Password must contain at least one letter, one number, and one special character' | transloco }}</p>
-                        }
-                    </div>
-                    }
-                    <div class="form-check pt-2  d-flex ">
-                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                        <label class="form-check-label mx-2" for="flexCheckDefault">
-                            {{ 'register.Send me special offers, personalized recommendations, and learning tips' | transloco }}
-                        </label>
-                    </div>
-                    <button [disabled]="registerForm.invalid" type="submit"
-                        class="btn bg-primary text-white w-100 mt-2">
-                        {{ 'register.Sign Up' | transloco }}
-                    </button>
+  <div class="container pt-5">
+    <div class="row">
+      <div class="col-md-6 form1 pt-2 d-flex justify-content-center align-items-center register-img">
+        <img src="assets/register.png" alt="">
+      </div>
+      <div class="col-md-6 form">
+        <h2>{{ 'register.Register with us and start learning now' | transloco }}</h2>
 
-                    <p class="mt-3 ">
-                        {{ 'register.Already have an account?' | transloco }}
-                        <a routerLink="login">{{ 'register.Login' | transloco }}</a>
-                    </p>
-                </form>
-            </div>
+        <form [formGroup]="registerForm" (ngSubmit)="onRegister()">
+          <!-- الاسم -->
+          <div>
+            <label for="name"></label>
+            <input id="name" type="text" class="form-control border-black .form-input"
+              [placeholder]="'register.Full Name' | transloco" formControlName="name">
+          </div>
+          @if(registerForm.get('name')?.errors && registerForm.get('name')?.touched) {
+          <div class="alert alert-danger w-70">
+            <p class="m-0 ">{{ 'register.Full Name is required' | transloco }}</p>
+          </div>
+          }
 
+          <!-- الايميل -->
+          <div>
+            <label for="email"></label>
+            <input id="email" type="email" class="form-control border-black .form-input"
+              [placeholder]="'register.Email' | transloco" formControlName="email">
+          </div>
+          @if(registerForm.get('email')?.errors && registerForm.get('email')?.touched) {
+          <div class="alert alert-danger w-70">
+            @if(registerForm.get('email')?.getError('required')) {
+            <p class="m-0 ">{{ 'register.Email is required' | transloco }}</p>
+            }
+            @else if (registerForm.get('email')?.getError('email')) {
+            <p class="m-0 ">{{ 'register.Enter a valid email' | transloco }}</p>
+            }
+          </div>
+          }
+
+          <!-- كلمة المرور -->
+          <div>
+            <label for="password"></label>
+            <input id="password" type="password" class="form-control border-black .form-input"
+              [placeholder]="'register.Password' | transloco" formControlName="password">
+          </div>
+          @if(registerForm.get('password')?.errors && registerForm.get('password')?.touched) {
+          <div class="alert alert-danger w-70">
+            @if(registerForm.get('password')?.getError('required')) {
+            <p class="m-0 ">{{ 'register.Password is required' | transloco }}</p>
+            }
+            @else if (registerForm.get('password')?.getError('pattern')) {
+            <p class="m-0 ">{{ 'register.Enter a valid password' | transloco }}</p>
+            <p class="m-0 ">{{ 'register.Password must contain at least one letter, one number, and one special character' | transloco }}</p>
+            }
+          </div>
+          }
+
+          <!-- عرض ترويجي -->
+          <div class="form-check pt-2 d-flex">
+            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+            <label class="form-check-label mx-2" for="flexCheckDefault">
+              {{ 'register.Send me special offers, personalized recommendations, and learning tips' | transloco }}
+            </label>
+          </div>
+
+          <!-- زر التسجيل -->
+         <!-- زرار تسجيل يفتح المودال تلقائيًا -->
+<button
+  [disabled]="registerForm.invalid"
+  type="submit"
+  class="btn bg-primary text-white w-100 mt-2"
+
+
+>
+  {{ 'register.Sign Up' | transloco }}
+</button>
+
+<!-- مودال التأكيد -->
+<div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content p-3">
+      <div class="modal-header">
+        <h5 class="modal-title">تأكيد البريد الإلكتروني</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="إغلاق"></button>
+      </div>
+      <div class="modal-body">
+        <p>تم إرسال كود التفعيل إلى بريدك: <strong>{{ emailForConfirmation }}</strong></p>
+
+        <input
+          type="text"
+          formControlName="confirmationCode"
+          class="form-control"
+          placeholder="أدخل الكود هنا"
+        />
+
+        <p class="text-danger mt-2" *ngIf="codeError">{{ codeError }}</p>
+
+        <div class="mt-3">
+          الوقت المتبقي: <strong>{{ countdownMinutes }}:{{ countdownSeconds | number: '2.0' }}</strong>
         </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-primary" (click)="confirmEmail()">Send</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
     </div>
+  </div>
+</div>
+
+
+          <!-- تسجيل الدخول -->
+          <p class="mt-3">
+            {{ 'register.Already have an account?' | transloco }}
+            <a routerLink="login">{{ 'register.Login' | transloco }}</a>
+          </p>
+        </form>
+      </div>
+    </div>
+  </div>
 </section>

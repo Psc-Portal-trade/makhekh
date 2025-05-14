@@ -5,7 +5,8 @@ import { SidebarComponent } from '../sidebar/sidebar.component';
 import { FooterComponent } from "../footer/footer.component";
 import { TranslocoPipe, TranslocoService } from '@ngneat/transloco';
 import { LangService } from '../services/lang.service';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-instructor-profile',
@@ -15,13 +16,23 @@ import { RouterLink } from '@angular/router';
 })
 export class InstructorProfileComponent {
 
+ fullName: string = '';
+ firstLetter: string = '';
+  role: string = '';
+  userRole: string = '';
+email:string=''
 
 
 
  logoSrc: string = 'assets/Logo AR.png';
 
-  constructor(private langService: LangService) {
+  constructor(private langService: LangService,private authService: AuthService,private router: Router) {
     this.setLogo();
+     const userData = this.authService.getUserData();
+    if (userData) {
+      this.fullName = userData.fullName;
+      this.role = userData.role;
+  }
   }
 
   _translocoService = inject(TranslocoService);
@@ -30,6 +41,16 @@ export class InstructorProfileComponent {
     this.langService.lang$.subscribe((lang) => {
       this.logoSrc = lang === 'ar' ? 'assets/Logo AR.png' : 'assets/Logo EN.png';
     });
+
+
+  const user = this.authService.getUserData(); // هنا بنجيب الداتا من السيرفيس
+  this.userRole = user?.userRole || ''; // هنا بنستخرج الرول
+  this.fullName = user?.fullName || '';
+  this.email = user?.email || '';
+this.firstLetter = this.fullName.charAt(0).toUpperCase();
+
+
+
   }
 
   changeLang(): void {
@@ -85,5 +106,8 @@ export class InstructorProfileComponent {
       console.log('Selected File2:', file);
     }
   }
-
+logout() {
+  localStorage.removeItem('user');
+  this.router.navigate(['login']);
+}
 }

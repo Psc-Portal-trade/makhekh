@@ -167,6 +167,7 @@ export const routes: Routes = [
 {path:"shippingCart/shippingCart",redirectTo:"shippingCart",pathMatch:"full"},
 {path:"shippingCart/wishlist",redirectTo:"wishlist",pathMatch:"full"},
 {path:"shippingCart/explore-courses",redirectTo:"explore-courses",pathMatch:"full"},
+{path:"shippingCart/logOut",redirectTo:"home",pathMatch:"full"},
 
 
 //  *********** wishlist ***********
@@ -179,6 +180,7 @@ export const routes: Routes = [
 {path:"wishlist/wishlist",redirectTo:"wishlist",pathMatch:"full"},
 {path:"wishlist/explore-courses",redirectTo:"explore-courses",pathMatch:"full"},
 {path:"wishlist/course-Information",redirectTo:"course-Information",pathMatch:"full"},
+{path:"wishlist/logOut",redirectTo:"home",pathMatch:"full"},
 
 // ************* explore-courses ***************
 
@@ -190,6 +192,7 @@ export const routes: Routes = [
 {path:"explore-courses/shippingCart",redirectTo:"shippingCart",pathMatch:"full"},
 {path:"explore-courses/wishlist",redirectTo:"wishlist",pathMatch:"full"},
 {path:"explore-courses/explore-courses",redirectTo:"explore-courses",pathMatch:"full"},
+{path:"explore-courses/logOut",redirectTo:"home",pathMatch:"full"},
 
 
 
@@ -203,6 +206,7 @@ export const routes: Routes = [
 {path:"course-Informations/shippingCart",redirectTo:"shippingCart",pathMatch:"full"},
 {path:"course-Informations/wishlist",redirectTo:"wishlist",pathMatch:"full"},
 {path:"course-Informations/explore-courses",redirectTo:"explore-courses",pathMatch:"full"},
+{path:"course-Informations/logOut",redirectTo:"home",pathMatch:"full"},
 
 
 
@@ -218,6 +222,7 @@ export const routes: Routes = [
 {path:"explore-courses/marketing-courses",redirectTo:"marketing-courses",pathMatch:"full"},
 {path:"explore-courses/health-courses",redirectTo:"health-courses",pathMatch:"full"},
 {path:"explore-courses/offer-courses",redirectTo:"offer-courses",pathMatch:"full"},
+{path:"explore-courses/logOut",redirectTo:"home",pathMatch:"full"},
 
 
 
@@ -250,6 +255,7 @@ export const routes: Routes = [
 {path:"studentHome/my-courses",redirectTo:"my-courses",pathMatch:"full"},
 {path:"studentHome/course-Information",redirectTo:"course-Information",pathMatch:"full"},
 {path:"studentHome/course-content",redirectTo:"course-content",pathMatch:"full"},
+{path:"studentHome/logOut",redirectTo:"home",pathMatch:"full"},
 
 
 
@@ -275,6 +281,7 @@ export const routes: Routes = [
 {path:"explore/student-profile",redirectTo:"student-profile",pathMatch:"full"},
 {path:"explore/my-courses",redirectTo:"my-courses",pathMatch:"full"},
 {path:"explore/course-Information",redirectTo:"course-Information",pathMatch:"full"},
+{path:"explore/logOut",redirectTo:"home",pathMatch:"full"},
 
 
 
@@ -300,6 +307,7 @@ export const routes: Routes = [
 {path:"cart/logOut",redirectTo:"home",pathMatch:"full"},
 {path:"cart/student-profile",redirectTo:"student-profile",pathMatch:"full"},
 {path:"cart/my-courses",redirectTo:"my-courses",pathMatch:"full"},
+{path:"cart/logOut",redirectTo:"home",pathMatch:"full"},
 
 
 
@@ -315,6 +323,7 @@ export const routes: Routes = [
 {path:"wishedList/student-profile",redirectTo:"student-profile",pathMatch:"full"},
 {path:"wishedList/my-courses",redirectTo:"my-courses",pathMatch:"full"},
 {path:"wishedList/course-Information",redirectTo:"course-Information",pathMatch:"full"},
+{path:"wishedList/logOut",redirectTo:"home",pathMatch:"full"},
 
 //  *********** my-courses ***********
 
@@ -333,6 +342,7 @@ export const routes: Routes = [
 
 {path:"exam/my-courses",redirectTo:"my-courses",pathMatch:"full"},
 {path:"exam/exam-result",redirectTo:"exam-result",pathMatch:"full"},
+{path:"exam/logOut",redirectTo:"home",pathMatch:"full"},
 
 //  *********** exam-result ***********
 
@@ -396,6 +406,9 @@ export const routes: Routes = [
 {path:"instructor-profile/create-course/course",component:TestComponent},
 {path:"instructor-profile/create-course/course/createCoursesDetalis",redirectTo:"createCoursesDetalis",pathMatch:"full"},
 
+
+
+
 {path:"createCoursesDetalis/instructor-profile",redirectTo:"instructor-profile",pathMatch:"full"},
 {path:"createCoursesDetalis/courseDetails",redirectTo:"courseDetails",pathMatch:"full"},
 {path:"instructor-profile/my-courses",redirectTo:"my-courses",pathMatch:"full"},
@@ -410,7 +423,7 @@ export const routes: Routes = [
 {path:"courseDetails/cart",redirectTo:"cart",pathMatch:"full"},
 {path:"courseDetails/wishedList",redirectTo:"wishedList",pathMatch:"full"},
 {path:"courseDetails/instructor-profile",redirectTo:"instructor-profile",pathMatch:"full"},
-{path:"courseDetails/logOut",redirectTo:"logOut",pathMatch:"full"},
+{path:"courseDetails/logOut",redirectTo:"home",pathMatch:"full"},
 {path:"courseDetails/student-profile",redirectTo:"student-profile",pathMatch:"full"},
 
 
@@ -429,8 +442,8 @@ export const routes: Routes = [
 {path:"course-content/cart",redirectTo:"cart",pathMatch:"full"},
 {path:"course-content/wishedList",redirectTo:"wishedList",pathMatch:"full"},
 {path:"course-content/instructor-profile",redirectTo:"instructor-profile",pathMatch:"full"},
-{path:"course-content/logOut",redirectTo:"logOut",pathMatch:"full"},
 {path:"course-content/student-profile",redirectTo:"student-profile",pathMatch:"full"},
+{path:"course-content/logOut",redirectTo:"home",pathMatch:"full"},
 
 
 
@@ -475,6 +488,7 @@ export const routes: Routes = [
 {path:"instructor-profile/create-course/my-courses",redirectTo:"my-courses",pathMatch:"full"},
 {path:"instructor-profile/create-course/studentHome",redirectTo:"studentHome",pathMatch:"full"},
 {path:"instructor-profile/create-course/edit-course",redirectTo:"edit-course",pathMatch:"full"},
+{path:"instructor-profile/create-course/logOut",redirectTo:"home",pathMatch:"full"},
 
 
 
@@ -486,7 +500,7 @@ export const routes: Routes = [
 {path:"edit-course/cart",redirectTo:"cart",pathMatch:"full"},
 {path:"edit-course/wishedList",redirectTo:"wishedList",pathMatch:"full"},
 {path:"edit-course/instructor-profile",redirectTo:"instructor-profile",pathMatch:"full"},
-{path:"edit-course/logOut",redirectTo:"logOut",pathMatch:"full"},
+{path:"edit-course/logOut",redirectTo:"home",pathMatch:"full"},
 {path:"edit-course/student-profile",redirectTo:"student-profile",pathMatch:"full"},
 
 

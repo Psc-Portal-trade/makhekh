@@ -9,18 +9,18 @@
   <div class="position-relative text-end my-3">
 
     <div class="first-letter">
-      <span>H</span>
+       <span>{{firstLetter}}</span>
       <div class="profile-menu">
         <div class="text-center">
           <div class="d-flex align-items-center mb-3 gap-3">
             <div class="first-letterr">
               <span class="rounded-circle  text-white d-flex justify-content-center align-items-center" style="width: 50px; height: 50px; font-size: 24px;">
-                H
+                 <span>{{firstLetter}}</span>
               </span>
             </div>
             <div class="text-start">
-              <h5 class="mb-0">Name</h5>
-              <p class="text-muted mb-0">Email</p>
+              <h5 class="mb-0">{{fullName}}</h5>
+                    <p class="text-muted mb-0">{{email}}</p>
             </div>
           </div>
          </div>
@@ -44,7 +44,7 @@
           <li class="divider"></li>
 
           <li class="list-group-item">{{ "second-navbar.Help and Support" | transloco }}</li>
-          <li class="list-group-item text-danger" routerLink="logOut"> {{ "second-navbar.Log out" | transloco }}</li>
+          <li class="list-group-item text-danger" (click)="logout()"> {{ "second-navbar.Log out" | transloco }}</li>
         </ul>
 
       </div>
@@ -54,10 +54,10 @@
 
   <div class="mx-3 second-sec">
     <i class="fa-solid fa-bell"></i>
-    <a class="pe-3 text-decoration-none text-black" routerLink="instructor-profile">
+    <!-- <a class="pe-3 text-decoration-none text-black" routerLink="instructor-profile">
       {{ 'profile.instructorView' | transloco }}
       <i class="fa-solid fa-people-arrows px-1"></i>
-    </a>
+    </a> -->
   </div>
 </div>
 
@@ -147,7 +147,7 @@
               <label for="address" class="form-label">{{ 'profile.address' | transloco }} <span class="text-danger">*</span></label>
               <input type="text" class="form-control" id="address" [(ngModel)]="address" name="address">
             </div>
-    
+
             <!-- File Upload -->
             <div class="col-md-6 mb-3">
               <label for="file" class="form-label">{{ 'profile.file' | transloco }}</label>
@@ -155,19 +155,19 @@
                 <input type="file" class="form-control text-muted" id="file" (change)="Selected($event)">
               </div>
             </div>
-    
+
             <!-- Add Proposal -->
             <div class="col-md-6 mb-3">
               <label for="proposal" class="form-label">{{ 'profile.addProposal' | transloco }} <span class="text-danger">*</span></label>
               <input type="text" class="form-control" id="proposal" [(ngModel)]="proposal" name="proposal">
             </div>
-    
+
             <!-- Proposal Description -->
             <div class="col-md-6 mb-3">
               <label for="description" class="form-label">{{ 'profile.proposalDescription' | transloco }}</label>
               <input type="text" class="form-control" id="description" [(ngModel)]="description" name="description">
             </div>
-    
+
             <!-- Category Dropdown -->
             <div class="col-md-6 mb-3">
               <label for="category" class="form-label">{{ 'profile.category' | transloco }}</label>
@@ -177,7 +177,7 @@
                 <option value="marketing">{{ 'profile.marketing' | transloco }}</option>
               </select>
             </div>
-    
+
             <!-- Courses Dropdown -->
             <div class="col-md-6 mb-3">
               <label for="courses" class="form-label">{{ 'profile.courses' | transloco }}</label>
@@ -188,13 +188,13 @@
               </select>
             </div>
           </div>
-    
+
           <!-- Save Button -->
           <button type="submit" class="btn btn-primary" [disabled]="!isFormValid()">{{ 'profile.save' | transloco }}</button>
         </form>
       </div>
     </div>
-    
+
   </div>
 </div>
 

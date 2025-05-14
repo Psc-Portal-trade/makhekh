@@ -25,6 +25,7 @@
   "register":"التسجيل",
   "login":"تسجيل الدخول",
   "instructor":"المدربين",
+  "student":"ملف الطالب",
   "explore":"أستكشف",
   "home":"الرئيسية",
   "search":"بحث",
@@ -190,7 +191,7 @@
 
 "secondHome":{
 
-"Welcome, Name":"مرحباً، الاسم",
+"Welcome, Name":"مرحباً، ",
 "UX Designer":"مصمم تجربة المستخدم",
 "Development":"تطوير",
 "Finance & Accounting":"المالية والمحاسبة",
@@ -611,6 +612,7 @@
 
 
 
+
   "cart":
   {
   "Shopping Cart":"عربة التسوق",
@@ -620,7 +622,11 @@
   "Remove from wishlist":"إزالة من قائمة الرغبات",
   "Continue Shopping":"متابعة التسوق",
   "Checkout":"الدفع",
-  "Total Price:":"السعر الكلى :"
+  "Total Price:":"السعر الكلى :",
+"needStudentAccount": "لإتمام عملية شراء هذا الكورس، يتعيّن عليك التسجيل كطالب.",
+"Close":"أغلق",
+"Please Login First":"رجاء قم بتسجيل الدخول أولا",
+"alert":"تنبيه"
   },
 
 
@@ -834,7 +840,7 @@
   "Write your review...":"اكتب رأيك..."
   },
   "successMessage": "تم إرسال تقييمك بنجاح!",
-  
+
   "wishlist":{
 
   "Course":"دورة",
@@ -868,35 +874,39 @@
     "requirements_required": "يجب إدخال المتطلبات",
     "target_audience_required": "يجب إدخال الجمهور المستهدف"
   },
-  
-    "quiz": {
-      "create_new": "إنشاء اختبار جديد",
-      "create": "إنشاء اختبار",
-      "title": "عنوان الاختبار",
-      "duration": "المدة (بالدقائق)",
-      "question": "السؤال",
-      "options": "الخيارات",
-      "option": "الخيار",
-      "correct_answer": "الإجابة الصحيحة",
-      "enter_exact": "يرجى إدخال الإجابة بطريقة دقيقة",
-      "correct_answer_placeholder": "الإجابة الصحيحة",
-      "answer_explanation": "تفسير الإجابة",
-      "enter_question": "أدخل السؤال",
-      "enter_explanation": "أدخل التفسير",
-      "add_question": "إضافة سؤال",
-      "remove_question": "حذف السؤال",
-      "save": "حفظ الاختبار",
-      "errors": {
-        "title": "يرجى إدخال عنوان الاختبار.",
-        "duration": "يرجى إدخال مدة صحيحة.",
-        "question": "يرجى إدخال سؤال.",
-        "option": "يرجى إدخال خيار.",
-        "correct_answer": "يرجى إدخال الإجابة الصحيحة."
-      }
-    },
-    "successMessage2":"لقد قمت بإنشاء الاختبار بنجاح!"
 
+  "quiz": {
+  "create_new": "إنشاء اختبار جديد",
+  "create": "إنشاء الاختبار",
+  "course_name": "اسم الدورة",
+  "instructor_name": "اسم المحاضر",
+  "exam_datetime": "تاريخ ووقت الامتحان",
+  "duration": "المدة (بالدقائق)",
+  "attempts": "عدد المحاولات",
+  "passing_score": "نسبة النجاح (%)",
+  "description": "وصف الاختبار",
+  "question": "السؤال",
+  "options": "الخيارات",
+  "option": "الخيار",
+  "answer_explanation": "شرح الإجابة",
+  "remove_question": "حذف السؤال",
+  "add_question": "إضافة سؤال",
+  "save": "حفظ الاختبار",
+  "errors": {
+  "course_name": "اسم الكورس مطلوب.",
+  "instructor_name": "اسم المحاضر مطلوب.",
+  "exam_datetime": "تاريخ ووقت الامتحان مطلوب.",
+  "duration": "يجب أن تكون مدة الامتحان أكبر من 0.",
+  "attempts": "عدد المحاولات مطلوب.",
+  "passing_score": "درجة النجاح يجب أن تكون بين 1 و100.",
+  "questions_required": "يجب إضافة سؤال واحد على الأقل.",
+  "question_text_required": "السؤال رقم {{index}} لا يحتوي على نص.",
+  "option_required": "الخيار رقم {{optionIndex}} في السؤال رقم {{index}} فارغ.",
+  "correct_answer_required": "يجب تحديد الإجابة الصحيحة في السؤال رقم {{index}}."
 
+}
+},
+  "successMessage2":"لقد قمت بإنشاء الاختبار بنجاح!"
 
 
 

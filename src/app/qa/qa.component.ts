@@ -5,8 +5,9 @@ import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { TranslocoPipe, TranslocoService } from '@ngneat/transloco';
 import { Observable } from 'rxjs';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { LangService } from '../services/lang.service';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-qa',
@@ -18,12 +19,23 @@ import { LangService } from '../services/lang.service';
 export class QaComponent implements OnInit {
   questions: any[] = [];
   logoSrc: string = 'assets/Logo AR.png';
-
+ role: string = '';
+ fullName: string = '';
+ firstLetter: string = '';
+userRole: string = '';
+email:string=''
   private translocoService = inject(TranslocoService);
   selectedCourse$: Observable<string> = this.translocoService.selectTranslate('AllCourses');
 
- constructor(private qaService: QaService,private langService: LangService) {
+ constructor(private qaService: QaService,private langService: LangService,private authService: AuthService,private router: Router) {
     this.setLogo();
+    const userData = this.authService.getUserData();
+    if (userData) {
+      this.fullName = userData.fullName;
+      this.role = userData.role;
+
+
+  }
 
    }
    _translocoService = inject(TranslocoService);
@@ -44,6 +56,15 @@ export class QaComponent implements OnInit {
     this.langService.lang$.subscribe((lang) => {
       this.logoSrc = lang === 'ar' ? 'assets/Logo AR.png' : 'assets/Logo EN.png';
     });
+
+
+
+  const user = this.authService.getUserData(); // هنا بنجيب الداتا من السيرفيس
+  this.userRole = user?.userRole || ''; // هنا بنستخرج الرول
+  this.fullName = user?.fullName || '';
+  this.email = user?.email || '';
+this.firstLetter = this.fullName.charAt(0).toUpperCase();
+
 
   }
 
@@ -106,4 +127,11 @@ export class QaComponent implements OnInit {
       question.isEditing = false;
     }
   }
+
+
+  logout() {
+  localStorage.removeItem('user');
+  this.router.navigate(['login']);
+}
+
 }

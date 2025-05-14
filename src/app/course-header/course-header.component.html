@@ -198,7 +198,8 @@
                     <div class="col-md-6">
                         <label class="form-label">{{ 'course-header.Currency' | transloco }}</label>
                         <select class="form-select" [(ngModel)]="courseData.currency">
-                            <option value="SAR">SAR</option>
+                            <option value="USD">USD</option>
+                            <option value="EUR">EUR</option>
                         </select>
                     </div>
                     <div class="col-md-6">
@@ -386,24 +387,9 @@
                   <input type="number" [(ngModel)]="schedule.limit" class="form-control">
                 </div>
                 <button class="btn btn-danger btn-sm" (click)="deleteRow(i)">{{ 'course-header.Delete' | transloco }}</button>
-
               </div>
-
-              <button class="btn btn-outline-primary btn-sm mt-2" (click)="openQuizModallive(i)">
-                {{ 'quiz.create_new' | transloco }}
-              </button>
-
-              <!-- مكون لإظهار نافذة إضافة كويز -->
-
             </div>
-
-
           </div>
-          <app-quiz-form
-          *ngIf="isQuizModalOpen"
-          [rowIndex]="selectedRowIndex"
-          (quizDatalive)="handleQuizDatalive($event)">
-        </app-quiz-form>
         </div>
 
 
@@ -515,8 +501,8 @@
                     <div class="col-md-6">
                         <label class="form-label">{{ 'course-header.Currency' | transloco }}</label>
                         <select class="form-select" [(ngModel)]="courseData.currency">
-                            <option value="SAR">SAR</option>
-
+                            <option value="USD">USD</option>
+                            <option value="EUR">EUR</option>
                         </select>
                     </div>
                     <div class="col-md-6">

@@ -6,8 +6,9 @@ import { SidebarComponent } from '../sidebar/sidebar.component';
 import { TranslocoPipe, TranslocoService } from '@ngneat/transloco';
 import { QaService } from '../services/qa.service';
 import { LangService } from '../services/lang.service';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { Observable } from 'rxjs';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-overview',
@@ -19,15 +20,24 @@ import { Observable } from 'rxjs';
 export class OverviewComponent {
 
   logoSrc: string = 'assets/Logo AR.png';
+ fullName: string = '';
+ firstLetter: string = '';
+  role: string = '';
+  userRole: string = '';
+email:string=''
 
- 
+
 
   private translocoService = inject(TranslocoService);
   selectedCourse$: Observable<string> = this.translocoService.selectTranslate('AllCourses');
 
- constructor(private qaService: QaService,private langService: LangService) {
+ constructor(private qaService: QaService,private langService: LangService,private authService: AuthService,private router: Router) {
     this.setLogo();
-
+ const userData = this.authService.getUserData();
+    if (userData) {
+      this.fullName = userData.fullName;
+      this.role = userData.role;
+  }
    }
 
    _translocoService = inject(TranslocoService);
@@ -36,10 +46,10 @@ export class OverviewComponent {
    // تعيين الدورة الافتراضية
    this.selectedCourseKey = 'AllCourses';
    this.selectedCourse$ = this.translocoService.selectTranslate('AllCourses');
-   
+
    // حساب المجموع لجميع الدورات
    this.calculateAllCoursesTotals();
-   
+
    // تعيين البيانات الأولية
    this.setCourseData('AllCourses');
 
@@ -47,6 +57,17 @@ export class OverviewComponent {
     this.langService.lang$.subscribe((lang) => {
       this.logoSrc = lang === 'ar' ? 'assets/Logo AR.png' : 'assets/Logo EN.png';
     });
+
+
+
+
+  const user = this.authService.getUserData(); // هنا بنجيب الداتا من السيرفيس
+  this.userRole = user?.userRole || ''; // هنا بنستخرج الرول
+  this.fullName = user?.fullName || '';
+  this.email = user?.email || '';
+this.firstLetter = this.fullName.charAt(0).toUpperCase();
+
+
 
   }
 
@@ -110,31 +131,31 @@ export class OverviewComponent {
   private calculateAllCoursesTotals() {
     this.totalRevenue = Object.values<{ totalRevenue: number; totalEnrollments: number; totalSales: number }>(this.coursesData)
       .reduce((sum, course) => sum + course.totalRevenue, 0);
-  
+
     this.totalEnrollments = Object.values<{ totalRevenue: number; totalEnrollments: number; totalSales: number }>(this.coursesData)
       .reduce((sum, course) => sum + course.totalEnrollments, 0);
-  
+
     this.totalSales = Object.values<{ totalRevenue: number; totalEnrollments: number; totalSales: number }>(this.coursesData)
       .reduce((sum, course) => sum + course.totalSales, 0);
-  
+
     this.coursesData['AllCourses'] = {
       totalRevenue: this.totalRevenue,
       totalEnrollments: this.totalEnrollments,
       totalSales: this.totalSales
     };
   }
-  
+
   // توليد تقرير PDF عند الضغط على "Extract Report"
   exportReport() {
     if (!this.totalRevenue && !this.totalEnrollments && !this.totalSales) {
       alert(this.translocoService.translate('No data available for the report.'));
       return;
     }
-  
+
     const currentLang = this.translocoService.getActiveLang();
     const isArabic = currentLang === 'ar';
     const translatedCourse = this.translocoService.translate(this.selectedCourseKey);
-    
+
     const title = isArabic ? `تقرير الأداء - ${translatedCourse}` : `Performance Report - ${translatedCourse}`;
     const revenueLabel = isArabic ? 'إجمالي الإيرادات:' : 'Total Revenue:';
     const enrollmentsLabel = isArabic ? 'إجمالي التسجيلات:' : 'Total Enrollments:';
@@ -152,7 +173,7 @@ export class OverviewComponent {
     if (isArabic) {
       doc.addFont('assets/fonts/Amiri-Bold.ttf', 'Amiri-Bold', 'bold');
       doc.setFont('Amiri-Bold', 'bold');
-    } 
+    }
 
     doc.setFontSize(16);
     const xPos = isArabic ? 180 : 20; // ضبط محاذاة النصوص
@@ -171,4 +192,13 @@ export class OverviewComponent {
   setActiveTab(tab: string) {
     this.activeTab = tab;
   }
+
+logout() {
+  localStorage.removeItem('user');
+  this.router.navigate(['login']);
+}
+
+
+
+
 }

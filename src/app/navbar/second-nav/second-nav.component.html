@@ -26,8 +26,11 @@
         <li class="nav-item">
           <a class="nav-link" routerLink="explore">{{ "second-navbar.explore" | transloco }}</a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item" *ngIf="userRole === 'teacher'">
           <a class="nav-link text-black" routerLink="instructor-profile" >{{ "second-navbar.instructor" | transloco }}</a>
+        </li>
+        <li class="nav-item" *ngIf="userRole === 'student'">
+          <a class="nav-link text-black" routerLink="student-profile" >{{ "second-navbar.student" | transloco }}</a>
         </li>
         <li class="nav-item">
           <a class="nav-link text-black"  routerLink="my-courses">{{ "second-navbar.my courses" | transloco }}</a>
@@ -46,28 +49,28 @@
 
         <li class="nav-item position-relative">
           <div class="first-letter">
-            <span>H</span>
+            <span>{{firstLetter}}</span>
             <div class="profile-menu">
               <div class="text-center">
                 <div class="d-flex align-items-center mb-3 gap-3">
                   <div class="first-letterr">
                     <span class="rounded-circle  text-white d-flex justify-content-center align-items-center" style="width: 50px; height: 50px; font-size: 24px;">
-                      H
+                      <span>{{firstLetter}}</span>
                     </span>
                   </div>
                   <div class="text-start">
-                    <h5 class="mb-0">Name</h5>
-                    <p class="text-muted mb-0">Email</p>
+                    <h5 class="mb-0">{{fullName}}</h5>
+                    <p class="text-muted mb-0">{{email}}</p>
                   </div>
                 </div>
                 <!-- <a  class="text-primary" routerLink="instructor-profile">{{ "second-navbar.Instructor Profile" | transloco }}</a> -->
               </div>
               <ul class="list-group list-group-flush">
-                <li class="list-group-item"  routerLink="student-profile">{{ "second-navbar.Student Profile" | transloco }}</li>
+                <li class="list-group-item" *ngIf="userRole === 'student'" routerLink="student-profile" n>{{ "second-navbar.Student Profile" | transloco }}</li>
                 <li class="list-group-item"  routerLink="my-courses">{{ "second-navbar.my courses" | transloco }}</li>
                 <li class="list-group-item"  routerLink="cart">{{ "second-navbar.My Cart" | transloco }}</li>
                 <li class="list-group-item" routerLink="wishedList">{{ "second-navbar.Wishlist" | transloco }}</li>
-                <li class="list-group-item" routerLink="instructor-profile" >{{ "second-navbar.Instructor Dashboard" | transloco }}</li>
+                <li class="list-group-item" *ngIf="userRole === 'teacher'" routerLink="instructor-profile" >{{ "second-navbar.Instructor Dashboard" | transloco }}</li>
                 <li class="divider"></li>
 
                 <li class="list-group-item">{{ "second-navbar.Notifications" | transloco }}</li>
@@ -82,7 +85,7 @@
                 <li class="divider"></li>
 
                 <li class="list-group-item">{{ "second-navbar.Help and Support" | transloco }}</li>
-                <li class="list-group-item text-danger" routerLink="logOut"> {{ "second-navbar.Log out" | transloco }}</li>
+                <li class="list-group-item text-danger" (click)="logout()"> {{ "second-navbar.Log out" | transloco }}</li>
               </ul>
 
             </div>
@@ -111,7 +114,7 @@
     <div class="text-center site-logo"><img [src]="logoSrc" alt="Logo"></div>
 
     <!-- صورة الملف الشخصي -->
-    <div class="profile-circle">H</div>
+    <div class="profile-circle"><span>{{firstLetter}}</span></div>
   </div>
 </nav>
 
@@ -128,11 +131,9 @@
     <ul class="navbar-nav">
       <li class="nav-section"><a class="nav-link" routerLink="studentHome">{{ "second-navbar.home" | transloco }}</a></li>
       <li class="nav-item"><a class="nav-link"  routerLink="explore">{{ "second-navbar.explore" | transloco }}</a></li>
-      <li class="nav-item ">
-        <a class="nav-link" routerLink="instructor-profile" >{{ "second-navbar.instructor" | transloco }}</a>
-      </li>
-      <li class="nav-item"><a class="nav-link"  routerLink="student-profile"  >{{ "second-navbar.Student Profile" | transloco }}</a></li>
-      <li class="nav-item"><a class="nav-link" routerLink="instructor-profile"  >{{ "second-navbar.Instructor Profile" | transloco }}</a></li>
+
+      <li class="nav-item"><a class="nav-link" *ngIf="userRole === 'student'" routerLink="student-profile"  >{{ "second-navbar.Student Profile" | transloco }}</a></li>
+      <li class="nav-item"><a class="nav-link" *ngIf="userRole === 'teacher'" routerLink="instructor-profile"  >{{ "second-navbar.Instructor Profile" | transloco }}</a></li>
       <!-- <li class="nav-section">Account</li> -->
       <li class="nav-item"><a class="nav-link"  routerLink="my-courses" >{{ "second-navbar.my courses" | transloco }}</a></li>
       <li class="nav-item"><a class="nav-link"  routerLink="cart" >{{ "second-navbar.My Cart" | transloco }}</a></li>
@@ -147,10 +148,12 @@
 
 
       <li class="nav-item"><a class="nav-link"   >{{ "second-navbar.Help and Support" | transloco }}</a></li>
-      <li class="nav-item"><a class="nav-link" routerLink="logOut"  >{{ "second-navbar.Log out" | transloco }}</a></li>
+      <li class="nav-item"><a class="nav-link" (click)="logout()"   >{{ "second-navbar.Log out" | transloco }}</a></li>
     </ul>
   </div>
 </div>
+
+
 
 
 

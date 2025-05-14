@@ -9,18 +9,19 @@
         <div class="position-relative text-end my-3">
 
           <div class="first-letter">
-            <span>H</span>
+           <span>{{firstLetter}}</span>
+
             <div class="profile-menu">
               <div class="text-center">
                 <div class="d-flex align-items-center mb-3 gap-3">
                   <div class="first-letterr">
                     <span class="rounded-circle  text-white d-flex justify-content-center align-items-center" style="width: 50px; height: 50px; font-size: 24px;">
-                      H
+                        <span>{{firstLetter}}</span>
                     </span>
                   </div>
                   <div class="text-start">
-                    <h5 class="mb-0">Name</h5>
-                    <p class="text-muted mb-0">Email</p>
+                   <h5 class="mb-0">{{fullName}}</h5>
+                    <p class="text-muted mb-0">{{email}}</p>
                   </div>
                 </div>
                </div>
@@ -44,7 +45,7 @@
                 <li class="divider"></li>
 
                 <li class="list-group-item">{{ "second-navbar.Help and Support" | transloco }}</li>
-                <li class="list-group-item text-danger" routerLink="logOut"> {{ "second-navbar.Log out" | transloco }}</li>
+                <li class="list-group-item text-danger" (click)="logout()"> {{ "second-navbar.Log out" | transloco }}</li>
               </ul>
 
             </div>
@@ -54,7 +55,7 @@
 
       <div class="mx-3 second-sec">
         <i class="fa-solid fa-bell"></i>
-        <a class="pe-3 text-decoration-none text-black " routerLink="student-profile"> {{'profile.studentView' | transloco}} <i class="fa-solid fa-people-arrows px-1"></i></a>
+        <!-- <a class="pe-3 text-decoration-none text-black " routerLink="student-profile"> {{'profile.studentView' | transloco}} <i class="fa-solid fa-people-arrows px-1"></i></a> -->
       </div>
 
       </div>
@@ -62,24 +63,24 @@
 
       <div class="container">
         <h2 class="mb-5 mt-5">{{ "profile.instructorProfile" | transloco }}</h2>
-  
+
         <div class="row">
           <div class="col-s-3">
             <img [src]="profileImg" class="rounded-circle profile-img" style="width: 200px; height: 200px;" alt="Profile Photo" />
-  
+
             <div *ngIf="!isPhotoUploaded" class="mt-4 d-flex align-items-center gap-2">
               <label for="file-input" class="btn btn-primary fs-6 mb-3">{{ "profile.uploadPhoto" | transloco }}</label>
               <input type="file" id="file-input" class="d-none mb-3" accept="image/*" (change)="on($event)" />
               <button class="btn text-primary border-0 mb-3">{{ "profile.edit" | transloco }}</button>
             </div>
-  
+
             <div *ngIf="isPhotoUploaded" class="mt-4 d-flex align-items-center gap-2">
               <button disabled type="submit" class="btn btn-primary mb-3">{{ "profile.uploadPhoto" | transloco }}</button>
               <label for="edit-input" class="btn text-primary border-0 fs-6 mb-3">{{ "profile.edit" | transloco }}</label>
               <input type="file" id="edit-input" class="d-none mb-3" accept="image/*" (change)="on($event)" />
             </div>
           </div>
-          
+
           <div class="col-s-9">
             <form>
               <div class="mb-3">
@@ -98,7 +99,7 @@
                 <label for="email" class="form-label">{{ "profile.emailAddress" | transloco }}</label>
                 <input type="email" class="form-control" id="email" />
               </div>
-  
+
               <button disabled type="submit" class="btn btn-primary me-2">{{ "profile.save" | transloco }}</button>
               <button type="button" class="btn text-primary border-0">{{ "profile.edit" | transloco }}</button>
             </form>

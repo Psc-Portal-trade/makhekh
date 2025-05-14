@@ -13,7 +13,7 @@
 
 
          <h2 class="">{{"login.login in to your account" | transloco}}</h2>
-         <form [formGroup]="loginForm" >
+         <form [formGroup]="loginForm" (ngSubmit)="login()">
            <div>
                <label for="email"></label>
                <input  id="email" type="email" class="form-control border-black form-input" [attr.placeholder]="'login.email' | transloco" formControlName="email">
@@ -24,8 +24,11 @@
                <input id="password" type="password" class="form-control border-black .form-input" [attr.placeholder]="'login.password' | transloco" formControlName="password">
            </div>
 
-           <button type="submit" routerLink="studentHome" class="btn bg-primary text-white w-100 mt-2">{{"login.log in" | transloco}}</button>
+           <p *ngIf="errorMessage" class="text-danger mt-2">{{ errorMessage }}</p>
 
+           <button type="submit" class="btn bg-primary text-white w-100 mt-2">
+             {{"login.log in" | transloco}}
+           </button>
           <div class="text-center pt-2">
               <a  href="#" class="">{{"login.Forget password" | transloco}}</a>
 

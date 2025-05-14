@@ -1,120 +1,184 @@
+// ✅ Angular Quiz Form with Transloco-integrated error messages
+
 import { CommonModule } from '@angular/common';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { FormArray, FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+import {
+  AbstractControl,
+  FormArray,
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  FormsModule,
+  ReactiveFormsModule,
+  Validators,
+} from '@angular/forms';
 import { TranslocoPipe, TranslocoService } from '@ngneat/transloco';
 
 @Component({
   selector: 'app-quiz-form',
   standalone: true,
-  imports: [FormsModule, CommonModule, ReactiveFormsModule,TranslocoPipe],
+  imports: [FormsModule, CommonModule, ReactiveFormsModule, TranslocoPipe],
   templateUrl: './quiz-form.component.html',
-  styleUrls: ['./quiz-form.component.css']
+  styleUrls: ['./quiz-form.component.css'],
 })
 export class QuizFormComponent {
-
-  @Output() quizData = new EventEmitter<{ data: any, sectionIndex: number, lectureIndex: number}>();
-
+  @Output() quizData = new EventEmitter<{ data: any; sectionIndex: number; lectureIndex: number }>();
   @Input() sectionIndex!: number;
   @Input() lectureIndex!: number;
 
-  @Output() quizDatalive = new EventEmitter<{ data: any,rowIndex:number}>();
-  @Input() rowIndex!: number;
- 
-
   quizForm: FormGroup;
-  isFormValid = false; // متغير لمراقبة صلاحية النموذج
-  successMessage = ''; // لتخزين رسالة النجاح
+  isFormValid = false;
+  successMessage = '';
+  errorMessages: string[] = [];
 
-  constructor(private fb: FormBuilder,private translocoService: TranslocoService) {
+  constructor(private fb: FormBuilder, private translocoService: TranslocoService) {
     this.quizForm = this.fb.group({
-      title: ['', Validators.required],
+      courseName: ['', Validators.required],
+      instructorName: ['', Validators.required],
+      examDateTime: ['', Validators.required],
       duration: [10, [Validators.required, Validators.min(1)]],
-      questions: this.fb.array([])
+      examDescription: [''],
+      attempts: [1, [Validators.required, Validators.min(1)]],
+      passingScore: [50, [Validators.required, Validators.min(1), Validators.max(100)]],
+      questions: this.fb.array([]),
     });
 
-    // متابعة أي تغيير في النموذج لتحديث حالة الزر
     this.quizForm.statusChanges.subscribe(() => {
       this.checkFormValidity();
     });
   }
 
-  // ✅ استخدام "get" للحصول على الأسئلة
   get questions(): FormArray {
     return this.quizForm.get('questions') as FormArray;
   }
 
-  // ✅ جلب الخيارات لسؤال معين
   getOptions(index: number): FormArray {
     return this.questions.at(index).get('options') as FormArray;
   }
 
-  // ✅ إضافة سؤال جديد
+  asFormControl(ctrl: AbstractControl | null): FormControl {
+    return ctrl as FormControl;
+  }
+
   addQuestion() {
     const optionsArray = this.fb.array([
       this.fb.group({ optionValue: ['', Validators.required] }),
       this.fb.group({ optionValue: ['', Validators.required] }),
       this.fb.group({ optionValue: ['', Validators.required] }),
-      this.fb.group({ optionValue: ['', Validators.required] })
+      this.fb.group({ optionValue: ['', Validators.required] }),
     ]);
 
     const questionGroup = this.fb.group({
       text: ['', Validators.required],
       options: optionsArray,
-      correctAnswer: ['', Validators.required],
-      answerExplanation: [''] // ✅ إضافة خانة شرح الإجابة
-
+      correctOptionIndex: [null, Validators.required],
+      correctAnswer: [''],
+      answerExplanation: [''],
     });
 
     this.questions.push(questionGroup);
     this.quizForm.updateValueAndValidity();
     this.checkFormValidity();
-
-    console.log("📌 تمت إضافة سؤال جديد، البيانات الحالية:", this.quizForm.value);
   }
 
-  // ✅ حذف سؤال معين
   removeQuestion(index: number) {
     this.questions.removeAt(index);
-    this.quizForm.updateValueAndValidity(); // تحديث الفورم بعد الحذف
-    this.checkFormValidity(); // تحديث حالة الزر
+    this.quizForm.updateValueAndValidity();
+    this.checkFormValidity();
   }
 
-  // ✅ تحديث حالة النموذج للتحكم في تفعيل الزر
   checkFormValidity() {
     this.isFormValid =
-  !!this.quizForm.get('title')?.valid &&
-  !!this.quizForm.get('duration')?.valid &&
-  this.questions.length > 0;
-
+      !!this.quizForm.get('courseName')?.valid &&
+      !!this.quizForm.get('instructorName')?.valid &&
+      !!this.quizForm.get('examDateTime')?.valid &&
+      !!this.quizForm.get('duration')?.valid &&
+      !!this.quizForm.get('attempts')?.valid &&
+      !!this.quizForm.get('passingScore')?.valid &&
+      this.questions.length > 0;
   }
-  // ✅ عند إرسال النموذج
+
   onSubmit() {
+    this.errorMessages = [];
+  
+   
+  
     if (this.quizForm.invalid) {
       this.quizForm.markAllAsTouched();
+  
+      const controls = this.quizForm.controls;
+      if (!controls['courseName'].valid) this.errorMessages.push('quiz.errors.course_name');
+      if (!controls['instructorName'].valid) this.errorMessages.push('quiz.errors.instructor_name');
+      if (!controls['examDateTime'].valid) this.errorMessages.push('quiz.errors.exam_datetime');
+      if (!controls['duration'].valid) this.errorMessages.push('quiz.errors.duration');
+      if (!controls['attempts'].valid) this.errorMessages.push('quiz.errors.attempts');
+      if (!controls['passingScore'].valid) this.errorMessages.push('quiz.errors.passing_score');
+  
+      // تحقق من كل سؤال وخياراته
+      this.questions.controls.forEach((questionGroup, i) => {
+        const q = questionGroup as FormGroup;
+        const options = q.get('options') as FormArray;
+  
+        if (!q.get('text')?.valid) {
+          this.errorMessages.push(`quiz.errors.question_text_required|{index:${i + 1}}`);
+        }
+  
+        options.controls.forEach((opt, j) => {
+          if (!opt.get('optionValue')?.valid) {
+            this.errorMessages.push(`quiz.errors.option_required|{index:${i + 1}, optionIndex:${j + 1}}`);
+          }
+        });
+  
+        if (q.get('correctOptionIndex')?.value === null) {
+          this.errorMessages.push(`quiz.errors.correct_answer_required|{index:${i + 1}}`);
+        }
+      });
+  
       return;
     }
-
-    const quiz = this.quizForm.value;
-    console.log("✅ Quiz Data:", quiz);
-
+    if (this.questions.length === 0) {
+      this.errorMessages.push('quiz.errors.questions_required');
+      return;
+    }
+  
+    const formValue = this.quizForm.getRawValue();
+  
+    formValue.questions.forEach((question: any) => {
+      const index = question.correctOptionIndex;
+      const value = index !== null && question.options[index] ? question.options[index].optionValue : '';
+      question.correctAnswer = {
+        optionIndex: index,
+        optionValue: value,
+      };
+    });
+  
+    const quiz = formValue;
+  
+    console.log('📋 Quiz Data:', quiz);
+  
     this.quizData.emit({
       data: quiz,
       sectionIndex: this.sectionIndex,
-      lectureIndex: this.lectureIndex
+      lectureIndex: this.lectureIndex,
     });
-    
-    this.quizDatalive.emit({
-      data: quiz,
-      rowIndex: this.rowIndex,
-    });
-
+  
     this.closeModal();
   }
-
-
-
+  
+  extractParams(msg: string): any {
+    const parts = msg.split('|');
+    if (parts.length < 2) return {};
+    const paramStr = parts[1];
+    const params = paramStr
+      .replace(/[{}]/g, '')
+      .split(',')
+      .map(pair => pair.split(':'))
+      .reduce((acc, [key, val]) => ({ ...acc, [key.trim()]: Number(val) }), {});
+    return params;
+  }
+  
   openModal() {
-    this.resetForm(); // إعادة ضبط النموذج قبل فتح المودال
+    this.resetForm();
     const modal = document.getElementById('quizModal');
     if (modal) {
       modal.classList.add('show');
@@ -124,12 +188,17 @@ export class QuizFormComponent {
 
   resetForm() {
     this.quizForm = this.fb.group({
-      title: ['', Validators.required],
+      courseName: ['', Validators.required],
+      instructorName: ['', Validators.required],
+      examDateTime: ['', Validators.required],
       duration: [10, [Validators.required, Validators.min(1)]],
-      questions: this.fb.array([]) // تصفير الأسئلة أيضًا
+      examDescription: [''],
+      attempts: [1, [Validators.required, Validators.min(1)]],
+      passingScore: [50, [Validators.required, Validators.min(1), Validators.max(100)]],
+      questions: this.fb.array([]),
     });
-
-    this.isFormValid = false; // إعادة تعيين صلاحية الفورم
+    this.isFormValid = false;
+    this.errorMessages = [];
   }
 
   closeModal() {
@@ -138,7 +207,6 @@ export class QuizFormComponent {
       modal.classList.remove('show');
       modal.style.display = 'none';
     }
-    this.resetForm();
-
   }
+
 }
