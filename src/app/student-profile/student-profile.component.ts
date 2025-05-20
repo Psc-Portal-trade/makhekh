@@ -1,13 +1,11 @@
 import { CommonModule } from '@angular/common';
 import { Component, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { SidebarComponent } from '../sidebar/sidebar.component';
-import { FooterComponent } from "../footer/footer.component";
 import { TranslocoPipe, TranslocoService } from '@ngneat/transloco';
 import { LangService } from '../services/lang.service';
 import { Router, RouterLink } from '@angular/router';
-import { SidebarStudentsComponent } from "../sidebar-students/sidebar-students.component";
 import { AuthService } from '../services/auth.service';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-student-profile',
@@ -25,7 +23,7 @@ email:string=''
 
  logoSrc: string = 'assets/Logo AR.png';
 
-  constructor(private langService: LangService,private authService: AuthService,private router: Router) {
+  constructor(private langService: LangService,private authService: AuthService,private router: Router,private http: HttpClient) {
     this.setLogo();
      const userData = this.authService.getUserData();
     if (userData) {
@@ -41,6 +39,7 @@ email:string=''
     this.langService.lang$.subscribe((lang) => {
       this.logoSrc = lang === 'ar' ? 'assets/Logo AR.png' : 'assets/Logo EN.png';
     });
+    this.getProfile();
 
 
   const user = this.authService.getUserData(); // هنا بنجيب الداتا من السيرفيس
@@ -131,5 +130,65 @@ logout() {
   localStorage.removeItem('user');
   this.router.navigate(['login']);
 }
+
+
+
+
+
+
+
+
+
+
+
+ profile: any = {};
+  isEditMode = false;
+
+
+
+
+  getProfile(): void {
+    this.http.get<any>('https://api.makhekh.com/api/Student/profile').subscribe({
+      next: (res) => {
+        this.profile = res.data;
+      },
+      error: (err) => {
+        console.error('Error loading profile', err);
+      }
+    });
+  }
+
+  edit(): void {
+    this.isEditMode = true;
+  }
+
+  update(): void {
+    const body = {
+      fullName: this.profile.fullName,
+      email: this.profile.email,
+      job: this.profile.job,
+      facebook: this.profile.facebook,
+      linkedIn: this.profile.linkedIn,
+      description: this.profile.description,
+      major: this.profile.major
+    };
+
+    this.http.put<any>('https://api.makhekh.com/api/Student/profile', body).subscribe({
+      next: () => {
+        this.isEditMode = false;
+      },
+      error: (err) => {
+        console.error('Error updating profile', err);
+      }
+    });
+  }
+
+
+
+
+
+
+
+
 
 }

@@ -59,27 +59,38 @@ export class QuizFormComponent {
   asFormControl(ctrl: AbstractControl | null): FormControl {
     return ctrl as FormControl;
   }
-
-  addQuestion() {
-    const optionsArray = this.fb.array([
-      this.fb.group({ optionValue: ['', Validators.required] }),
-      this.fb.group({ optionValue: ['', Validators.required] }),
-      this.fb.group({ optionValue: ['', Validators.required] }),
-      this.fb.group({ optionValue: ['', Validators.required] }),
-    ]);
-
-    const questionGroup = this.fb.group({
-      text: ['', Validators.required],
-      options: optionsArray,
-      correctOptionIndex: [null, Validators.required],
-      correctAnswer: [''],
-      answerExplanation: [''],
-    });
-
+  addQuestion(type: 'mcq' | 'essay' = 'mcq') {
+    let questionGroup: FormGroup;
+  
+    if (type === 'mcq') {
+      const optionsArray = this.fb.array([
+        this.fb.group({ optionValue: ['', Validators.required] }),
+        this.fb.group({ optionValue: ['', Validators.required] }),
+        this.fb.group({ optionValue: ['', Validators.required] }),
+        this.fb.group({ optionValue: ['', Validators.required] }),
+      ]);
+  
+      questionGroup = this.fb.group({
+        type: ['mcq'],
+        text: ['', Validators.required],
+        options: optionsArray,
+        correctOptionIndex: [null, Validators.required],
+        correctAnswer: [''],
+        answerExplanation: [''],
+      });
+    } else {
+      questionGroup = this.fb.group({
+        type: ['essay'],
+        text: ['', Validators.required],
+        answerExplanation: [''],
+      });
+    }
+  
     this.questions.push(questionGroup);
     this.quizForm.updateValueAndValidity();
     this.checkFormValidity();
   }
+  
 
   removeQuestion(index: number) {
     this.questions.removeAt(index);
@@ -101,8 +112,6 @@ export class QuizFormComponent {
   onSubmit() {
     this.errorMessages = [];
   
-   
-  
     if (this.quizForm.invalid) {
       this.quizForm.markAllAsTouched();
   
@@ -114,28 +123,32 @@ export class QuizFormComponent {
       if (!controls['attempts'].valid) this.errorMessages.push('quiz.errors.attempts');
       if (!controls['passingScore'].valid) this.errorMessages.push('quiz.errors.passing_score');
   
-      // تحقق من كل سؤال وخياراته
       this.questions.controls.forEach((questionGroup, i) => {
         const q = questionGroup as FormGroup;
-        const options = q.get('options') as FormArray;
+        const type = q.get('type')?.value;
   
         if (!q.get('text')?.valid) {
           this.errorMessages.push(`quiz.errors.question_text_required|{index:${i + 1}}`);
         }
   
-        options.controls.forEach((opt, j) => {
-          if (!opt.get('optionValue')?.valid) {
-            this.errorMessages.push(`quiz.errors.option_required|{index:${i + 1}, optionIndex:${j + 1}}`);
-          }
-        });
+        if (type === 'mcq') {
+          const options = q.get('options') as FormArray;
   
-        if (q.get('correctOptionIndex')?.value === null) {
-          this.errorMessages.push(`quiz.errors.correct_answer_required|{index:${i + 1}}`);
+          options.controls.forEach((opt, j) => {
+            if (!opt.get('optionValue')?.valid) {
+              this.errorMessages.push(`quiz.errors.option_required|{index:${i + 1}, optionIndex:${j + 1}}`);
+            }
+          });
+  
+          if (q.get('correctOptionIndex')?.value === null) {
+            this.errorMessages.push(`quiz.errors.correct_answer_required|{index:${i + 1}}`);
+          }
         }
       });
   
       return;
     }
+  
     if (this.questions.length === 0) {
       this.errorMessages.push('quiz.errors.questions_required');
       return;
@@ -143,13 +156,21 @@ export class QuizFormComponent {
   
     const formValue = this.quizForm.getRawValue();
   
+    // 🔐 تأمين المعالجة على حسب نوع السؤال
     formValue.questions.forEach((question: any) => {
-      const index = question.correctOptionIndex;
-      const value = index !== null && question.options[index] ? question.options[index].optionValue : '';
-      question.correctAnswer = {
-        optionIndex: index,
-        optionValue: value,
-      };
+      if (question.type === 'mcq') {
+        const index = question.correctOptionIndex;
+        const value =
+          index !== null && question.options && question.options[index]
+            ? question.options[index].optionValue
+            : '';
+        question.correctAnswer = {
+          optionIndex: index,
+          optionValue: value,
+        };
+      } else {
+        question.correctAnswer = null; // مقالي
+      }
     });
   
     const quiz = formValue;
@@ -164,6 +185,7 @@ export class QuizFormComponent {
   
     this.closeModal();
   }
+  
   
   extractParams(msg: string): any {
     const parts = msg.split('|');

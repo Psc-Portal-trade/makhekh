@@ -1,5 +1,5 @@
 
-   
+
    .container {
     margin-top: 15px;
     background: white;
@@ -7,9 +7,9 @@
     width: 70%;
     border: 1px solid #2D91EE;
     box-shadow: 4px 7px 4px rgba(0, 0, 0, 0.12);
-    margin-right: 20px;    
+    margin-right: 20px;
 }
-  
+
   .qa-box {
     background: white;
     padding: 50px;
@@ -17,7 +17,7 @@
     width: 100%;
     border: 1px solid #2D91EE;
   }
-  
+
 p{
     font-weight: 500;
     font-size: 16px;
@@ -31,24 +31,24 @@ p{
 
 }
 
-  
+
   .messages-container .card {
     background-color: #eff3f6;
     border: 1px solid #2d91ee;
     box-shadow: 0px 5px 8px rgba(0, 0, 0, 0.12);
 
   }
-  
+
   .messages-container .list-group-item {
     background: white;
     border: 1px solid #ddd;
     cursor: pointer;
   }
-  
+
   .messages-container .list-group-item:hover {
     background: #f0f0f0;
   }
-  
+
   .messages-container .btn-primary {
     background-color: #2d91ee;
     border: none;
@@ -61,30 +61,30 @@ p{
     padding: 10px;
     font-size: 16px;
   }
-  
+
   /* الرسائل المقروءة (خلفية بيضاء ونص داكن) */
   .read {
     background-color: white;
     color: black;
   }
-  
+
   /* الرسائل غير المقروءة (خلفية زرقاء فاتحة ونص أبيض) */
   .unread {
     background-color: #EFF3F6;
     color: black;
     font-weight: bold;
   }
-  
+
   /* تأثير عند تمرير الماوس */
   .list-group-item:hover {
     background: #e9ecef;
   }
-  
+
   /* تنسيق الفلاتر */
   .filters {
     margin-bottom: 10px;
   }
-  
+
   .filters label {
     font-weight: bold;
     margin-right: 10px;
@@ -108,7 +108,7 @@ p{
     width: 20%;
     display: inline !important;
   }
-  
+
 }
 
 
@@ -224,9 +224,12 @@ left: 0;
 }
 
 
+
 .first-letter:hover .profile-menu,
 .profile-menu:hover {
-display: block;
+  display: block;
+     width:375px !important;
+
 }
 
 .first-letterr {
@@ -271,7 +274,7 @@ cursor: pointer;
   .first {
     width: 100% !important;
     margin: 0;
-    padding: 10px 20px; 
+    padding: 10px 20px;
   }
  h2,h3,h4,h5,p{
   font-size: 20px;
@@ -280,13 +283,13 @@ cursor: pointer;
  .head1{
   margin-top: 60px  !important;
  }
- 
+
 }
 @media (min-width: 768px) and (max-width: 1024px) {
   .first {
     width: 100% !important;
     margin: 0;
-    padding: 10px 20px; 
+    padding: 10px 20px;
     /* للتحكم في المسافة الجانبية */
   }
   .head1{

@@ -22,13 +22,15 @@ export class ShippingCartComponent implements OnInit {
   constructor(private cartService: CartService, private wishlistService: WishlistService) {}
 
   ngOnInit() {
+      window.scrollTo(0, 0);
+
     this.cartService.cartItems$.subscribe(items => {
       this.cartItems = items;
       this.updateTotalPrice();
 
 
 
-     
+
     });
 
 

@@ -10308,6 +10308,8 @@ src: 'assets/course1.png',
   constructor(private cartService: CartService, private wishlistService: WishlistService,private courseInfoService: CourseInformationService, private router: Router) {}
 
   ngOnInit() {
+      window.scrollTo(0, 0);
+
     this.lectures.forEach(course => {
       course.isInCart = this.cartService.isItemInCart(course.id);
     });

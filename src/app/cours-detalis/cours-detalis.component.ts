@@ -481,6 +481,7 @@ course2={
   constructor(private cartService: CartService, private wishlistService: WishlistService,private route: ActivatedRoute) {}
 
   ngOnInit() {
+  window.scrollTo(0, 0);
 
     this.route.queryParams.subscribe(params => {
       if (params['data']) {

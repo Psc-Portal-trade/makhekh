@@ -1,58 +1,79 @@
 .container {
-    width:100%;
-  }
+  width:100%;
+}
 
-  .border {
-    border: 1px solid black;
-    border-radius: 8px;
-  }
-  .btn-success {
+.border {
+  border: 1px solid black;
+  border-radius: 8px;
+}
+.btn-success {
 margin-left: 10px;
- }
-
- .modal-content {
-  border-radius: 10px;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-  max-width: 100%;
-}
-
-.modal{
-  background-color: rgba(0, 0, 0, 0.27);
-}
-.custom-modal {
-  max-width: 70%;
-  width: 70%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 100vh; /* يجعل الـ modal في المنتصف دائمًا */
-}
-
-@media (max-width: 768px) {
-  .custom-modal {
-      max-width: 90%;
-      width: 90%;
-  }
-}
-
-.modal{
-  padding: 0px 60px 0px 60px;
 }
 
 .modal-content {
-  max-height: 100vh; /* تعيين أقصى ارتفاع بنسبة 80% من ارتفاع الشاشة */
-  overflow-y: auto; /* السماح بالتمرير عند الحاجة */
+border-radius: 10px;
+box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+max-width: 100%;
+}
+
+.modal{
+background-color: rgba(0, 0, 0, 0.27);
+}
+.custom-modal {
+max-width: 70%;
+width: 70%;
+display: flex;
+align-items: center;
+justify-content: center;
+min-height: 100vh; /* يجعل الـ modal في المنتصف دائمًا */
+}
+
+@media (max-width: 768px) {
+.custom-modal {
+    max-width: 90%;
+    width: 90%;
+}
+}
+
+.modal{
+padding: 0px 60px 0px 60px;
+}
+
+.modal-content {
+max-height: 100vh; /* تعيين أقصى ارتفاع بنسبة 80% من ارتفاع الشاشة */
+overflow-y: auto; /* السماح بالتمرير عند الحاجة */
 }
 
 
 :dir(rtl) .btn-success {
-  margin-right: 10px;
+margin-right: 10px;
 }
 
 
 
 .transperant{
-  background-color: transparent;
-  color: transparent;
-  opacity: 0;
+background-color: transparent;
+color: transparent;
+opacity: 0;
+}
+
+.form-check {
+display: flex;
+flex-direction: row;
+justify-content: flex-start;
+gap: 10px;
+}
+
+:dir(rtl) .form-check {
+flex-direction: row;
+}
+
+:dir(rtl) .form-check-input {
+order: 1;
+margin-right: 10px !important;
+margin-left: 0 !important;
+}
+
+:dir(rtl) .form-control {
+order: 2;
 }

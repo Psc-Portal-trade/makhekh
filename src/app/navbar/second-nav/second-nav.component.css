@@ -58,6 +58,7 @@ nav {
 .first-letter:hover .profile-menu,
 .profile-menu:hover {
   display: block;
+     width:325px !important;
 }
 
 .first-letterr {

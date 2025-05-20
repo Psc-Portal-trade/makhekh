@@ -145,6 +145,8 @@ nav {
 .first-letter:hover .profile-menu,
 .profile-menu:hover {
   display: block;
+     width:375px !important;
+
 }
 
 .first-letterr {
@@ -184,17 +186,18 @@ ul {
 
 .responsive-class {
  display: block;
-}
-@media (max-width: 768px) {
-  .responsive-class {
-    /* display: flex !important; */
-    /* justify-content: center !important; */
-    /* align-items: center !important; */
-    /* margin-left: 0 !important;
 
-    margin-right: 0 !important; */
-  }
 }
+/* @media (max-width: 768px) {
+  .responsive-class {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    margin-left: 0 !important;
+
+    margin-right: 0 !important;
+  }
+} */
 
 
 @media (max-width: 999px) {
@@ -205,4 +208,13 @@ ul {
     margin-left: 0 !important;
     margin-right: 0 !important;
   }
+}
+
+.anchor a{
+  text-decoration: none !important;
+  color: #237acc !important;
+}
+
+.anchor a:hover{
+  color: #105ba2 !important;
 }

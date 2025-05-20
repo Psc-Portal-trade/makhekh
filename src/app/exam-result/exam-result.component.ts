@@ -15,6 +15,8 @@ export class ExamResultComponent implements OnInit {
   constructor(private router: Router) {}
 
   ngOnInit(): void {
+      window.scrollTo(0, 0);
+
     const state = history.state;
     if (state.quiz) {
       this.quiz = state.quiz;
@@ -26,26 +28,26 @@ export class ExamResultComponent implements OnInit {
 
 
 
-  
+
   currentPage: number = 1;
   questionsPerPage: number = 10;
-  
+
   get paginatedQuestions() {
     const start = (this.currentPage - 1) * this.questionsPerPage;
     return this.quiz.questions.slice(start, start + this.questionsPerPage);
   }
-  
+
   goToPage(page: number) {
     this.currentPage = page;
   }
-  
+
   get totalPages(): number {
     return Math.ceil(this.quiz.questions.length / this.questionsPerPage);
   }
-  
+
   getOptionLetter(index: number): string {
     return String.fromCharCode(97 + index); // a), b), ...
   }
-  
+
 
 }

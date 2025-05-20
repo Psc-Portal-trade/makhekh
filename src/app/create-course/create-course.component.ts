@@ -38,6 +38,8 @@ email:string=''
   _translocoService = inject(TranslocoService);
 
   ngOnInit(): void {
+      window.scrollTo(0, 0);
+
     this.langService.lang$.subscribe((lang) => {
       this.logoSrc = lang === 'ar' ? 'assets/Logo AR.png' : 'assets/Logo EN.png';
     });

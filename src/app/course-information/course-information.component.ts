@@ -454,6 +454,7 @@ course2={
   constructor(private cartService: CartService, private wishlistService: WishlistService,private route: ActivatedRoute,private courseService: CourseInformationService) {}
 
   ngOnInit() {
+  window.scrollTo(0, 0);
 
   // جلب بيانات الكورس من الخدمة
   this.courseObj = this.courseService.getCourse();

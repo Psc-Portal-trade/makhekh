@@ -15,7 +15,8 @@
                   </div>
           <div class="px-4">
             <h2> {{ "secondHome.Welcome, Name" | transloco }}{{fullName}} </h2>
-            <p>{{ "secondHome.UX Designer" | transloco }}</p>
+            <p *ngIf="userRole === 'student'">{{job}}</p>
+            <p *ngIf="userRole === 'teacher'">teacher</p>
 
 
 

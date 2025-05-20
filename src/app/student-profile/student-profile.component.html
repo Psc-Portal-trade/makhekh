@@ -94,61 +94,75 @@
           <input type="file" id="edit-input" class="d-none" accept="image/*" (change)="onFileSelected($event)" />
         </div>
       </div>
+<div class="py-4">
+  <!-- Full Name -->
+  <div class="mb-3">
+    <label class="form-label text-primary fw-bold">Full Name:</label>
+    <div *ngIf="!isEditMode">{{ profile.fullName }}</div>
+    <input *ngIf="isEditMode" type="text" class="form-control" [(ngModel)]="profile.fullName" disabled/>
+  </div>
 
-      <div class="col-s-9 pt-4">
-        <form>
-          <div class="mb-3">
-            <label for="firstName" class="form-label">{{ 'profile.firstName' | transloco }}</label>
-            <input type="text" class="form-control" id="firstName" />
-          </div>
-          <div class="mb-3">
-            <label for="lastName" class="form-label">{{ 'profile.lastName' | transloco }}</label>
-            <input type="text" class="form-control" id="lastName" />
-          </div>
-          <div class="mb-3">
-            <label for="email" class="form-label">{{ 'profile.email' | transloco }}</label>
-            <input type="email" class="form-control" id="email" />
-          </div>
-          <div class="mb-3">
-            <label for="occupation" class="form-label">{{ 'profile.occupation' | transloco }}</label>
-            <input type="text" class="form-control" id="occupation" />
-          </div>
-          <div class="mb-3">
-            <label for="facebook" class="form-label">{{ 'profile.facebook' | transloco }}</label>
-            <input type="text" class="form-control" id="facebook" placeholder="{{ 'profile.copyLink' | transloco }}" />
-          </div>
-          <div class="mb-3">
-            <label for="linkedin" class="form-label">{{ 'profile.linkedin' | transloco }}</label>
-            <input type="text" class="form-control" id="linkedin" placeholder="{{ 'profile.copyLink' | transloco }}" />
-          </div>
-          <div class="mb-3">
-            <label for="language" class="form-label">{{ 'profile.language' | transloco }}</label>
-            <div class="input-group">
-              <span class="input-group-text">
-                <i class="fa fa-globe"></i>
-              </span>
-              <select class="form-select" id="language">
-                <option value="en" selected>{{ 'profile.english' | transloco }}</option>
-                <option value="ar">{{ 'profile.arabic' | transloco }}</option>
-              </select>
-            </div>
-          </div>
-          <button disabled type="submit" class="btn btn-primary me-2">{{ 'profile.save' | transloco }}</button>
-          <button type="button" class="btn text-primary border-0">{{ 'profile.edit' | transloco }}</button>
-        </form>
-      </div>
+  <!-- Email -->
+  <div class="mb-3">
+    <label class="form-label text-primary fw-bold">Email:</label>
+    <div *ngIf="!isEditMode">{{ profile.email }}</div>
+    <input *ngIf="isEditMode" type="email" class="form-control" [(ngModel)]="profile.email" disabled />
+  </div>
+
+  <!-- Job (كنص عادي) -->
+  <div class="mb-3">
+    <label class="form-label text-primary fw-bold">Job:</label>
+    <div *ngIf="!isEditMode">{{ profile.job }}</div>
+    <input *ngIf="isEditMode" type="text" class="form-control" [(ngModel)]="profile.job" />
+  </div>
+
+  <!-- Facebook (يبقى رابط زى ما هو) -->
+  <div class="mb-3">
+    <label class="form-label text-primary fw-bold">Facebook:</label>
+    <div *ngIf="!isEditMode" class="anchor">
+      <a *ngIf="profile.facebook" [href]="profile.facebook" target="_blank" class="text-muted">Facebook Link</a>
     </div>
-    <div class="row">
+    <input *ngIf="isEditMode" type="text" class="form-control" [(ngModel)]="profile.facebook" />
+  </div>
+
+  <!-- LinkedIn as Email -->
+  <div class="mb-3">
+    <label class="form-label text-primary fw-bold">LinkedIn:</label>
+    <div *ngIf="!isEditMode" class="anchor">
+       <a *ngIf="profile.linkedIn" [href]="profile.linkedIn" target="_blank" class="text-muted">LinkedIn Link</a>
+    </div>
+    <input *ngIf="isEditMode" type="email" class="form-control" [(ngModel)]="profile.linkedIn" />
+  </div>
+
+  <!-- Description -->
+  <div class="mb-3">
+    <label class="form-label text-primary fw-bold">Description:</label>
+    <div *ngIf="!isEditMode">{{ profile.description }}</div>
+    <input *ngIf="isEditMode" type="text" class="form-control" [(ngModel)]="profile.description" />
+  </div>
+
+  <!-- Major -->
+  <div class="mb-3">
+    <label class="form-label text-primary fw-bold">Major:</label>
+    <div *ngIf="!isEditMode">{{ profile.major }}</div>
+    <input *ngIf="isEditMode" type="text" class="form-control" [(ngModel)]="profile.major" />
+  </div>
+
+  <!-- Buttons -->
+  <button *ngIf="!isEditMode" (click)="edit()" class="btn btn-primary">Edit</button>
+  <button *ngIf="isEditMode" (click)="update()" class="btn btn-success">Update</button>
+</div>
+
+    </div>
+    <!-- <div class="row">
       <div *ngIf="activeTab === 'suggestions'" class="mb-4">
         <form class="mb-2">
           <div class="row">
-            <!-- Address -->
             <div class="col-md-6 mb-3">
               <label for="address" class="form-label">{{ 'profile.address' | transloco }} <span class="text-danger">*</span></label>
               <input type="text" class="form-control" id="address" [(ngModel)]="address" name="address">
             </div>
 
-            <!-- File Upload -->
             <div class="col-md-6 mb-3">
               <label for="file" class="form-label">{{ 'profile.file' | transloco }}</label>
               <div class="input-group">
@@ -156,19 +170,16 @@
               </div>
             </div>
 
-            <!-- Add Proposal -->
             <div class="col-md-6 mb-3">
               <label for="proposal" class="form-label">{{ 'profile.addProposal' | transloco }} <span class="text-danger">*</span></label>
               <input type="text" class="form-control" id="proposal" [(ngModel)]="proposal" name="proposal">
             </div>
 
-            <!-- Proposal Description -->
             <div class="col-md-6 mb-3">
               <label for="description" class="form-label">{{ 'profile.proposalDescription' | transloco }}</label>
               <input type="text" class="form-control" id="description" [(ngModel)]="description" name="description">
             </div>
 
-            <!-- Category Dropdown -->
             <div class="col-md-6 mb-3">
               <label for="category" class="form-label">{{ 'profile.category' | transloco }}</label>
               <select class="form-select" id="category" [(ngModel)]="category" name="category">
@@ -178,7 +189,6 @@
               </select>
             </div>
 
-            <!-- Courses Dropdown -->
             <div class="col-md-6 mb-3">
               <label for="courses" class="form-label">{{ 'profile.courses' | transloco }}</label>
               <select class="form-select" id="courses" [(ngModel)]="courses" name="courses">
@@ -189,12 +199,66 @@
             </div>
           </div>
 
-          <!-- Save Button -->
           <button type="submit" class="btn btn-primary" [disabled]="!isFormValid()">{{ 'profile.save' | transloco }}</button>
         </form>
       </div>
-    </div>
+    </div> -->
+ <div class="row">
+      <div *ngIf="activeTab === 'suggestions'" class="mb-4">
+        <form class="mb-2">
+          <div class="row">
+            <!-- Address -->
+            <div class="col-md-6 mb-3">
+              <label for="address" class="form-label">Address <span class="text-danger">*</span></label>
+              <input type="text" class="form-control" id="address" [(ngModel)]="address" name="address">
+            </div>
 
+            <!-- File Upload -->
+            <div class="col-md-6 mb-3">
+              <label for="file" class="form-label">File</label>
+              <div class="input-group">
+                <input type="file" class="form-control text-muted" id="file" (change)="Selected($event)">
+              </div>
+            </div>
+
+            <!-- Add Proposal -->
+            <div class="col-md-6 mb-3">
+              <label for="proposal" class="form-label">Add Proposal <span class="text-danger">*</span></label>
+              <input type="text" class="form-control" id="proposal" [(ngModel)]="proposal" name="proposal">
+            </div>
+
+            <!-- Proposal Description -->
+            <div class="col-md-6 mb-3">
+              <label for="description" class="form-label">Proposal Description</label>
+              <input type="text" class="form-control" id="description" [(ngModel)]="description" name="description">
+            </div>
+
+            <!-- Category Dropdown -->
+            <div class="col-md-6 mb-3">
+              <label for="category" class="form-label">Category</label>
+              <select class="form-select" id="category" [(ngModel)]="category" name="category">
+                <option value="design">Design</option>
+                <option value="development">Development</option>
+                <option value="marketing">Marketing</option>
+              </select>
+            </div>
+
+            <!-- Courses Dropdown -->
+            <div class="col-md-6 mb-3">
+              <label for="courses" class="form-label">Courses</label>
+              <select class="form-select" id="courses" [(ngModel)]="courses" name="courses">
+                <option value="web-design">Web Design</option>
+                <option value="ux-ui">UX/UI</option>
+                <option value="full-stack">Full Stack</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Save Button -->
+          <button type="submit" class="btn btn-primary" [disabled]="!isFormValid()">Save</button>
+        </form>
+      </div>
+    </div>
   </div>
 </div>
 

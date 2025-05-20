@@ -67,18 +67,17 @@
 
           <!-- زر التسجيل -->
          <!-- زرار تسجيل يفتح المودال تلقائيًا -->
-<button
-  [disabled]="registerForm.invalid"
-  type="submit"
-  class="btn bg-primary text-white w-100 mt-2"
-
-
->
-  {{ 'register.Sign Up' | transloco }}
-</button>
-
+ <button
+    [disabled]="registerForm.invalid"
+    type="submit"
+    class="btn bg-primary text-white w-100 mt-2"
+  >
+    {{ 'register.Sign Up' | transloco }}
+  </button>
 <!-- مودال التأكيد -->
-<div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+
+        </form>
+        <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content p-3">
       <div class="modal-header">
@@ -88,12 +87,15 @@
       <div class="modal-body">
         <p>تم إرسال كود التفعيل إلى بريدك: <strong>{{ emailForConfirmation }}</strong></p>
 
-        <input
-          type="text"
-          formControlName="confirmationCode"
-          class="form-control"
-          placeholder="أدخل الكود هنا"
-        />
+        <form [formGroup]="registerForm">
+  <input
+    type="text"
+    formControlName="confirmationCode"
+    class="form-control"
+    placeholder="أدخل الكود هنا"
+  />
+</form>
+
 
         <p class="text-danger mt-2" *ngIf="codeError">{{ codeError }}</p>
 
@@ -115,7 +117,6 @@
             {{ 'register.Already have an account?' | transloco }}
             <a routerLink="login">{{ 'register.Login' | transloco }}</a>
           </p>
-        </form>
       </div>
     </div>
   </div>

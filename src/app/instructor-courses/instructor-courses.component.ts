@@ -20,7 +20,10 @@ export class InstructorCoursesComponent implements OnInit {
     private router: Router
   ) {}
 
+
   ngOnInit(): void {
+      window.scrollTo(0, 0);
+
     this.allCourses = this.instructorCoursesService.getCourses();
     this.updateCoursesToShow();
   }

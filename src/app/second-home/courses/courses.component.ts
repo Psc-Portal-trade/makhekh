@@ -9,5 +9,8 @@ import { TranslocoPipe } from '@ngneat/transloco';
   styleUrl: './courses.component.css'
 })
 export class CoursesComponent {
+ngOnInit() {
+  window.scrollTo(0, 0);
+}
 
 }

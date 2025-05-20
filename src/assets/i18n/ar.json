@@ -123,7 +123,9 @@
   "Forget password":"هل نسيت كلمة السر؟",
   "dont have account":"ليس لديك حساب؟",
   "Other login options":"خيارات اخري",
-  "sign up":"تسجيل",
+  "sign up Student":"تسجيل كطالب",
+  "sign up Teacher":"تسجيل كمعلم",
+
   "email required":"البريد الإلكتروني مطلوب",
   "enter a valid email address.":"أدخل بريد إلكتروني صالح",
   "Password required":"كلمة المرور مطلوبة",
@@ -892,6 +894,8 @@
   "remove_question": "حذف السؤال",
   "add_question": "إضافة سؤال",
   "save": "حفظ الاختبار",
+   "add_mcq_question": "إضافة سؤال اختيار من متعدد",
+  "add_essay_question": "إضافة سؤال مقالي",
   "errors": {
   "course_name": "اسم الكورس مطلوب.",
   "instructor_name": "اسم المحاضر مطلوب.",

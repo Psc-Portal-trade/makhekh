@@ -65,8 +65,7 @@ onRegister(): void {
         this.startTimer();
       },
       error: (err) => {
-        console.error('❌ فشل التسجيل:', err);
-
+        this.codeError = err?.error?.message || 'الكود غير صحيح. حاول مرة أخرى.';
         const msg =
           err?.error?.message === 'Email already exists'
             ? 'البريد الإلكتروني مستخدم من قبل.'
@@ -108,23 +107,44 @@ startTimer(): void {
     this.countdownSeconds = this.countdown % 60;
   }
 
-  confirmEmail(): void {
-    const code = this.registerForm.get('confirmationCode')?.value;
-    const payload = {
-      email: this.emailForConfirmation,
-      code: code,
-    };
+ confirmEmail(): void {
+  const code = this.registerForm.get('confirmationCode')?.value;
+  const payload = {
+    email: this.emailForConfirmation,
+    code: code,
+  };
+  console.log('📩 Sending payload:', payload);
 
-    this.authService.confirmEmail(payload).subscribe({
-      next: () => {
-        this.codeError = '';
-        clearInterval(this.timerId);
-        this.router.navigate(['/login']);
-      },
-      error: (err) => {
-        this.codeError = 'الكود غير صحيح. حاول مرة أخرى.';
-        console.error(err);
-      },
-    });
+  this.authService.confirmEmail(payload).subscribe({
+    next: () => {
+      this.codeError = '';
+      clearInterval(this.timerId);
+      this.closeModal(); // ✅ قفل المودال قبل التنقل
+      this.router.navigate(['/login']);
+    },
+    error: (err) => {
+      this.codeError = 'الكود غير صحيح. حاول مرة أخرى.';
+      console.error(err);
+    },
+  });
+}
+
+
+
+
+
+
+  closeModal(): void {
+  const modalEl = document.getElementById('loginModal');
+  if (modalEl) {
+    const modal = new (window as any).bootstrap.Modal(modalEl);
+    modal.hide(); // ✅ قفل المودال
   }
+
+  // تأكيد إزالة الخلفية السوداء لو لسه موجودة
+  document.querySelector('.modal-backdrop')?.remove();
+  document.body.classList.remove('modal-open');
+  document.body.style.removeProperty('padding-right');
+}
+
 }

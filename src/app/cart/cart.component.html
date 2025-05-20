@@ -21,11 +21,11 @@
           <p><strong>Price:</strong> {{ item.pricing.price}} LE</p>
         </div>
         <div class="col-md-4">
-          <button class="btn btn-colors ps-0 " (click)="removeItem(item.id)">{{ 'cart.Remove' | transloco }}</button>
+          <button class="btn btn-colors  " (click)="removeItem(item.id)">{{ 'cart.Remove' | transloco }}</button>
 
           <div>
             <button class="btn btn-color heart " *ngIf="!item.isInWishlist" (click)="addToWishList(item)">{{ 'cart.Move to wishlist' | transloco }}</button>
-            <button class="btn btn-color heart" *ngIf="item.isInWishlist" (click)="removeFromWishList(item)">{{ 'cart.Remove from wishlist' | transloco }}</button>
+            <button class="btn btn-color heart " *ngIf="item.isInWishlist" (click)="removeFromWishList(item)">{{ 'cart.Remove from wishlist' | transloco }}</button>
           </div>
 
 
@@ -53,22 +53,22 @@
               <div class="modal-header border-0">
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="إغلاق"></button>
               </div>
-              
+
               <div class="modal-body">
-               
+
                 <!-- أيقونة التنبيه -->
                 <div class="mb-3">
                   <i class="fa-solid fa-circle-exclamation fa-4x text-warning"></i>
                 </div>
-        
+
                 <!-- النص -->
                 <p class="text-danger">{{'cart.needStudentAccount' | transloco}}</p>
-               
+
               </div>
             </div>
           </div>
         </div>
-        
+
         <div class="py-2 "><button class="btn btn-outline-primary mx-2 " routerLink="explore"> {{ 'cart.Continue Shopping' | transloco }}</button></div>
       </div>
 

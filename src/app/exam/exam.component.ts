@@ -45,6 +45,8 @@ export class ExamComponent implements OnInit, OnDestroy {
   constructor(private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
+      window.scrollTo(0, 0);
+
     const state = this.router.getCurrentNavigation()?.extras.state || history.state;
     console.log('ExamComponent: Checking state:', state);
 
@@ -76,7 +78,7 @@ export class ExamComponent implements OnInit, OnDestroy {
     question.studentAnswer = selectedValue;
     console.log(`Answer selected for Q${question.id}: ${selectedValue}`);
   }
-  
+
 
   // دالة لتحديث الأسئلة المعروضة بناءً على الصفحة الحالية
   paginateQuestions() {
@@ -86,7 +88,7 @@ export class ExamComponent implements OnInit, OnDestroy {
       this.paginatedQuestions = this.quiz.questions.slice(startIndex, endIndex); // لا نستخدم map هنا
     }
   }
-  
+
   // دالة للتنقل بين الصفحات
   goToPage(page: number) {
     if (page >= 1 && page <= this.totalPages) {
@@ -98,46 +100,46 @@ export class ExamComponent implements OnInit, OnDestroy {
   // دالة لتقديم الامتحان عند الضغط على "Submit"
   submitExam() {
     clearInterval(this.timer);
-  
+
     const totalDuration = this.quiz.duration * 60;
     const usedDuration = totalDuration - this.timeLeft;
     const usedMinutes = Math.floor(usedDuration / 60);
     const usedSeconds = usedDuration % 60;
     this.examDurationUsed = `${usedMinutes} min : ${usedSeconds} sec`;
-  
+
     let answeredCount = 0;
-  
+
     this.quiz.questions.forEach((question: any, index: number) => {
       if (question.studentAnswer !== null && question.studentAnswer !== undefined) {
         answeredCount++;
         console.log(`✅ Answer selected for Q${index + 1}: ${question.studentAnswer}`);
       }
     });
-  
+
     this.answeredQuestionsCount = answeredCount;
     this.unansweredQuestionsCount = this.quiz.questions.length - answeredCount;
     this.scorePercentage = (answeredCount / this.quiz.questions.length) * 100;
     this.isPassed = this.scorePercentage >= 50;
-  
+
     const storedAttempts = localStorage.getItem('examAttempts');
     if (storedAttempts) {
       this.attempts = Number(storedAttempts) + 1;
     }
     localStorage.setItem('examAttempts', this.attempts.toString());
-  
+
     this.showExamResult = true;
-  
+
     console.log('✅ Quiz after submit with student answers:', this.quiz.questions);
   }
-  
+
 
   goToExamResult() {
     this.router.navigate(['/exam-result'], {
       state: { quiz: this.quiz }
     });
-    
+
   }
-  
+
   ngOnDestroy(): void {
     if (this.timer) {
       clearInterval(this.timer);

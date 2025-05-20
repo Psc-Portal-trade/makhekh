@@ -180,11 +180,13 @@ left: 0;
 }
 
 
+
 .first-letter:hover .profile-menu,
 .profile-menu:hover {
-display: block;
-}
+  display: block;
+     width:375px !important;
 
+}
 .first-letterr {
 width: 50px;
 height: 50px;

@@ -13,5 +13,8 @@ import { FooterComponent } from "../footer/footer.component";
   styleUrl: './about.component.css'
 })
 export class AboutComponent {
+ngOnInit() {
+  window.scrollTo(0, 0);
+}
 
 }

@@ -191,6 +191,8 @@ closeQuizModal() {
    }
 
   ngOnInit() {
+      window.scrollTo(0, 0);
+
     this.route.queryParams.subscribe(params => {
       console.log("📩 Received Params:", params);
 

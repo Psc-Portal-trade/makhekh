@@ -24,6 +24,8 @@ export class WishlistStartComponent implements OnInit{
 
   constructor(private cartService: CartService, private wishlistService: WishlistService,private courseInfoService: CourseInformationService, private router: Router) {}
   ngOnInit() {
+      window.scrollTo(0, 0);
+
     this.wishlistService.listItems$.subscribe(items => {
       this.lectures = items;
     });

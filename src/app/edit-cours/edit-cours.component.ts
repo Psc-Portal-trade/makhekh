@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { InstructorCoursesService } from '../services/instructor-courses.service';
-import { SecondNavComponent } from "../../../Makhekh/src/app/navbar/second-nav/second-nav.component";
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { TranslocoPipe } from '@ngneat/transloco';
+import { SecondNavComponent } from '../navbar/second-nav/second-nav.component';
 
 @Component({
   selector: 'app-edit-cours',
@@ -13,6 +13,7 @@ import { TranslocoPipe } from '@ngneat/transloco';
   imports: [ SecondNavComponent,FormsModule,CommonModule,TranslocoPipe]
 })
 export class EditCoursComponent implements OnInit {
+
   activeLang: string = 'en'; // تعيين اللغة الافتراضية
 
   courseData: any;
@@ -29,6 +30,8 @@ export class EditCoursComponent implements OnInit {
   }
 
   ngOnInit(): void {
+      window.scrollTo(0, 0);
+
     // الحصول على بيانات الكورس من السيرفيس
     this.courseData = this.instructorCoursesService.getCourse();
     console.log(this.courseData)

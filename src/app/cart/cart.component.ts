@@ -25,6 +25,8 @@ export class CartComponent implements OnInit {
   constructor(private cartService: CartService, private courseService: CourseService,private wishlistService: WishlistService) {}
 
   ngOnInit() {
+      window.scrollTo(0, 0);
+
     this.cartService.cartItems$.subscribe(items => {
       this.cartItems = items;
       this.updateTotalPrice();
@@ -34,7 +36,6 @@ export class CartComponent implements OnInit {
     this.userRole = (user?.role || '').trim().toLowerCase();
     console.log('Role in nav:', this.userRole);
     });
-
 
 
 

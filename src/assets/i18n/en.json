@@ -127,7 +127,9 @@
     "Forget password":"Do you forget password?",
     "dont have account":"Don’t have an account?",
     "Other login options":"Other login options",
-    "sign up":"sign up",
+     "sign up Student":"sign up Student",
+  "sign up Teacher":"sign up Teacher",
+
     "email required":"Email required",
     "enter a valid email address.":"Enter a valid email address.",
     "password required":"Password required",
@@ -878,6 +880,8 @@
     "remove_question": "Remove Question",
     "add_question": "Add Question",
     "save": "Save Quiz",
+     "add_mcq_question": "Add Multiple Choice Question",
+    "add_essay_question": "Add Essay Question",
     "errors": {
     "course_name": "Course name is required.",
     "instructor_name": "Instructor name is required.",
