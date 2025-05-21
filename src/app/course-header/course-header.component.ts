@@ -7,11 +7,13 @@ import { Router } from '@angular/router'; // ✅ تأكد من استيراد Ro
 import { TranslocoPipe, TranslocoService } from '@ngneat/transloco';
 import { QuizFormComponent } from '../quiz-form/quiz-form.component';
 import { InstructorCoursesService } from '../services/instructor-courses.service';
+import { QuizFormSectionComponent } from "../quiz-form-section/quiz-form-section.component";
+import { QuizFormCourseComponent } from "../quiz-form-course/quiz-form-course.component";
 
 @Component({
   selector: 'app-course-header',
   standalone: true,
-  imports: [CommonModule, FormsModule, RouterLink, HttpClientModule,TranslocoPipe,QuizFormComponent],
+  imports: [CommonModule, FormsModule, RouterLink, HttpClientModule, TranslocoPipe, QuizFormComponent, QuizFormSectionComponent, QuizFormCourseComponent],
   templateUrl: './course-header.component.html',
   styleUrls: ['./course-header.component.css']
 })
@@ -67,7 +69,91 @@ export class CourseHeaderComponent implements OnInit {
 
   this.closeQuizModal();
 }
+openQuizModalSection(sectionIndex: number) {
+    this.selectedSectionIndex = sectionIndex;
+    this.isQuizModalOpen = true;
 
+
+
+    // فتح المودال يدويًا
+    setTimeout(() => {
+      const modal = document.getElementById('quizModal');
+      if (modal) {
+        modal.classList.add('show');
+        modal.style.display = 'block';
+      }
+    });
+  }
+
+
+  handleQuizDataSection(payload: { data: any, sectionIndex: number, lectureIndex: number }) {
+  const { data, sectionIndex, lectureIndex } = payload;
+
+  const targetLecture = this.sections[sectionIndex].lectures[lectureIndex];
+
+  const quizData = {
+    title: data.title || '',
+    duration: data.duration || 0,
+    questions: data.questions?.map((q: any) => ({
+      text: q.text || '',
+      options: q.options ? [...q.options] : [],
+      correctAnswer: q.correctAnswer || null,
+      answerExplanation: q.answerExplanation || ''
+    })) || []
+  };
+
+  targetLecture.quizzes.push(quizData);
+  this.courseObj.curriculum = [...this.sections];
+
+  console.log("✅ تم إضافة كويز جديد في:");
+  console.log("Section Index:", sectionIndex);
+  console.log("Lecture Index:", lectureIndex);
+  console.log("Quiz Data:", quizData);
+
+  this.closeQuizModal();
+}
+openQuizModalCourse() {
+    this.isQuizModalOpen = true;
+
+
+
+    // فتح المودال يدويًا
+    setTimeout(() => {
+      const modal = document.getElementById('quizModal');
+      if (modal) {
+        modal.classList.add('show');
+        modal.style.display = 'block';
+      }
+    });
+  }
+
+
+  handleQuizDataCourse(payload: { data: any, sectionIndex: number, lectureIndex: number }) {
+  const { data, sectionIndex, lectureIndex } = payload;
+
+  const targetLecture = this.sections[sectionIndex].lectures[lectureIndex];
+
+  const quizData = {
+    title: data.title || '',
+    duration: data.duration || 0,
+    questions: data.questions?.map((q: any) => ({
+      text: q.text || '',
+      options: q.options ? [...q.options] : [],
+      correctAnswer: q.correctAnswer || null,
+      answerExplanation: q.answerExplanation || ''
+    })) || []
+  };
+
+  targetLecture.quizzes.push(quizData);
+  this.courseObj.curriculum = [...this.sections];
+
+  console.log("✅ تم إضافة كويز جديد في:");
+  console.log("Section Index:", sectionIndex);
+  console.log("Lecture Index:", lectureIndex);
+  console.log("Quiz Data:", quizData);
+
+  this.closeQuizModal();
+}
 openQuizModallive( rowIndex: number) {
 
   this.isQuizModalOpen = true;
@@ -486,5 +572,11 @@ console.log("Course Object:", this.courseObj);
   removeSection(index: number) {
     this.sections.splice(index, 1);
   }
+
+
+
+
+
+
 
 }

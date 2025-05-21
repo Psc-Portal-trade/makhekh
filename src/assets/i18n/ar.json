@@ -231,12 +231,17 @@
   "students": "الطلاب",
   "reviews": "المراجعات",
   "courses":"الدورات",
-  "createCourses":"إنشاء الدورات"
+  "createCourses":"إنشاء الدورات",
+  "Profile":"الملف الشخصي",
+  "Quizes":"الاختبارات"
 
 },
 "dashboard": {
   "createCourse": "أنشئ دورتك الخاصة",
-  "getStarted": "ابدأ الآن"
+  "getStarted": "ابدأ الآن",
+  "createQuiz": "انشئ اختبارك الخاص"
+
+
 },
 "resources": {
   "title": "هذه الموارد ستساعدك في الإجابة على جميع أسئلتك واستفساراتك",
@@ -433,6 +438,33 @@
     "step1": {
       "title": "اختر نوع الدورة التعليمية"
     },
+
+
+"quiz-component": {
+  "title": "اختر نوع بنك الأسئلة",
+  "title1": "بنك أسئلة لأي موضوع",
+  "description1": "يمكنك إنشاء بنك أسئلة في أي مجال تختاره، سواء كان أكاديميًا أو مهنيًا أو موضوعًا تهتم به — ساعد المتعلمين على التدريب، واختبار معرفتهم، والنمو.",
+  "title2": "أضف أسئلة إلى دورتك المحمّلة",
+  "description2": "هل سبق أن حمّلت دورتك؟ يمكنك الآن إنشاء بنك أسئلة مخصص لها لتعزيز ما شاهده المتعلمون وتقييم مدى فهمهم بفعالية.",
+  "category":"التصنيف"
+
+},
+
+"quiz-form": {
+  "title": "عنوان الكويز",
+  "description": "الوصف",
+  "time": "الوقت ",
+  "duration": "المدة (مثلاً: 30 دقيقة)",
+  "passingGrade": "درجة النجاح (%)",
+  "questionOrder": "طريقة ترتيب الأسئلة",
+  "order": {
+    "sequential": "ترتيب متسلسل",
+    "random": "عشوائي"
+  }
+}
+,
+
+
     "Recorded Educational Courses": "دورات تعليمية مسجلة",
     "You can upload a recorded made video on our website and increase the no of learners. Define your target audience, pick a promising topic and benefit other learners.":
     "يمكنك تحميل فيديو مسجل على موقعنا وزيادة عدد المتعلمين. حدد جمهورك المستهدف، اختر موضوعًا واعدًا وقدم الفائدة للمتعلمين الآخرين.",
@@ -878,7 +910,11 @@
   },
 
   "quiz": {
-  "create_new": "إنشاء اختبار جديد",
+  "create_new": "إنشاء اختبار المحاضرة",
+  "create_new1": "انشأ اختبار",
+
+  "Create Section Quiz": "إنشاء اختبار قسم",
+  "Create Course Quiz": "إنشاء اختبار الكورس",
   "create": "إنشاء الاختبار",
   "course_name": "اسم الدورة",
   "instructor_name": "اسم المحاضر",

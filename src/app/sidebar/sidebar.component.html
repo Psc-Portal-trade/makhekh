@@ -32,12 +32,20 @@
     <div class="container">
       <ul class="list">
         <li><a routerLink="studentHome"><img class="logo" src="../../assets/Logo EN.png" alt="Logo"></a></li>
+        <li class="nav-item" routerLink="instructor-profile">
+            <i class="fa-solid fa-user" style="color:#fff;"></i>
+            <span *ngIf="isExpanded"> {{'navigation.Profile' | transloco}}</span>
+          </li>
         <a routerLink="create-course">
           <li class="nav-item" (click)="toggleSection('courses')">
             <i class="fa fa-book-open" style="color:#fff;"></i>
             <span *ngIf="isExpanded">{{'navigation.courses' | transloco}}</span>
           </li>
         </a>
+         <li class="nav-item" routerLink="create-quiz" >
+           <i class="fa-solid fa-question" style="color:#fff;"></i>
+            <span *ngIf="isExpanded">{{'navigation.Quizes' | transloco}}</span>
+          </li>
         <li class="nav-item" (click)="toggleSection('communication')">
           <i class="fa-regular fa-message" style="color:#fff;"></i>
           <span *ngIf="isExpanded">{{'navigation.communication' | transloco}}</span>

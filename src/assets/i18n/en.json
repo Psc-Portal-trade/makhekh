@@ -233,11 +233,14 @@
   "students": "Students",
   "reviews": "Reviews",
   "courses":"Courses",
-  "createCourses":"Create Courses"
+  "createCourses":"Create Courses",
+  "Profile":"Profile",
+  "Quizes":"Quizzes"
 
 },
 "dashboard": {
   "createCourse": "Create your own course",
+  "createQuiz": "Create your own Quiz",
   "getStarted": "Get Started"
 },
 "resources": {
@@ -372,7 +375,29 @@
 
   "step1": {
     "title": "Choose the Type of Educational Course"
+  },
+  "quiz-component":{
+    "title": "Choose the Type of Quistion Bank",
+    "title1": "Question Bank for Any Topic",
+    "description1": "You can create a question bank on any subject or field of your choice. Whether it's academic, professional, or just a topic you’re passionate about — help learners practice, test their knowledge, and grow.",
+    "title2": "Add Questions to Your Uploaded Course",
+    "description2": "Already uploaded your course? Now you can build a dedicated question bank around it. Create tailored questions for your learners to reinforce what they’ve watched and assess their understanding effectively.",
+    "category":"category"
+
+
+  },
+"quiz-form": {
+  "title": "Quiz Title",
+  "description": "Description",
+  "time": "Time ",
+  "duration": "Duration (e.g., 30 minutes)",
+  "passingGrade": "Passing Grade (%)",
+  "questionOrder": "Question Order",
+  "order": {
+    "sequential": "Sequential",
+    "random": "Random"
   }
+}
 
   ,
   "course": {
@@ -864,7 +889,11 @@
 
   ,
     "quiz": {
-    "create_new": "Create New Quiz",
+    "create_new": "Create Lecture Quiz",
+        "create_new1": "Create one",
+
+    "Create Section Quiz": "Create Section Quiz",
+    "Create Course Quiz": "Create Course Quiz",
     "create": "Create Quiz",
     "course_name": "Course Name",
     "instructor_name": "Instructor Name",

@@ -62,79 +62,12 @@
     <div class="main-content">
       <!-- Header Section -->
       <div class="header container d-flex justify-content-between ">
-        <h2>{{ 'dashboard.createCourse' | transloco }}</h2>
-        <a routerLink="course">
-            <button class="btn btn-primary">{{ 'dashboard.getStarted' | transloco }}</button>
+        <h2>{{ 'dashboard.createQuiz' | transloco }}</h2>
+        <a routerLink="quiz">
+            <button class="btn btn-primary" >{{ 'dashboard.getStarted' | transloco }}</button>
           </a>
       </div>
 
-      <!-- my coursis -->
-
-
-
-<app-instructor-courses></app-instructor-courses>
-
-
-
-
-      <!-- Resources Section -->
-     <div class="container p-0 m-0 mt-5">
-      <h3 class="section-title text-center mb-4">{{'resources.title' | transloco}}</h3>
-      <div class="resources d-flex  gap-4 ">
-        <div class=" card p-5 w-50 container">
-         <div class="row">
-          <div class="col-md-6"><img src="../../assets/dj_online_2 1.png" class="w-100" alt="Video Tutorial"></div>
-          <div class="col-md-6 align-content-center">
-           <p>{{'resources.courseType' | transloco}}</p>
-           <a routerLink="course">{{'resources.seeMore' | transloco}}</a>
-          </div>
-         </div>
-        </div>
-        <div class=" card p-5  w-50 container ">
-            <div class="row">
-             <div class="col-md-6"><img src="../../assets/filmmaker_online_2 1.png" class="w-100" alt="Video Tutorial"></div>
-             <div class="col-md-6 align-content-center">
-              <p>{{'resources.engageLearners' | transloco}}</p>
-              <a href="#">{{'resources.seeMore' | transloco}}</a>
-             </div>
-            </div>
-           </div>
-      </div>
-     </div>
-
-<!-- Benefits Section -->
-<div class="container mt-5">
-  <h3 class="section-title mb-4 text-center">{{'benefits.title' | transloco}}</h3>
-  <div class="benefits row justify-content-between">
-    <div class="col-md-3 benefit-card d-flex flex-column align-items-center text-center p-5 ">
-      <div class="icon">
-        <img class="w-auto" src="../../assets/solar_tag-price-broken (2).png">
-      </div>
-      <div><p class="pt-3">{{'benefits.coursePrice' | transloco}}</p></div>
-    </div>
-    <div class="col-md-3 benefit-card  d-flex flex-column align-items-center text-center p-5 ">
-      <div class="icon">
-        <img class="w-auto" src="../../assets/solar_tag-price-broken.png">
-      </div>
-      <div><p class="pt-3">{{'benefits.createCoupons' | transloco}}</p></div>
-    </div>
-    <div class="col-md-3 benefit-card  d-flex flex-column align-items-center text-center p-5">
-      <div class="icon">
-        <img class="w-auto" src="../../assets/Frame 401.png">
-      </div>
-      <div><p class="pt-3">{{'benefits.promoPrices' | transloco}}</p></div>
-    </div>
-  </div>
-
-  <!-- Final Call-to-Action -->
-   <div class="container text-center mt-5">
-    <p class="cta-text pb-5">{{'cta.question' | transloco}}</p>
-    <a routerLink="course">
-     <button class="btn btn-primary cta-button" >{{'cta.createCourse' | transloco}}</button>
-    </a>
-   </div>
-
-</div>
 
   </div>
 

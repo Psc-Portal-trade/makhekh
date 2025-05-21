@@ -2,6 +2,7 @@ import { Component, inject } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { FooterComponent } from "./footer/footer.component";
 import { TranslocoService } from '@ngneat/transloco';
+import { QuizComponent } from "./quiz/quiz.component";
 
 @Component({
   selector: 'app-root',

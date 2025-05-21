@@ -17,6 +17,10 @@ import { TranslocoPipe } from '@ngneat/transloco';
   styleUrl: './cart.component.css'
 })
 export class CartComponent implements OnInit {
+
+
+
+
   cartItems: any[] = [];
   totalPrice: number = 0;
   lectures: any[] = [];
@@ -32,7 +36,7 @@ export class CartComponent implements OnInit {
       this.updateTotalPrice();
 
 
-      const user = JSON.parse(localStorage.getItem('user') || '{}');
+    const user = JSON.parse(localStorage.getItem('userData') || '{}');
     this.userRole = (user?.role || '').trim().toLowerCase();
     console.log('Role in nav:', this.userRole);
     });
@@ -78,10 +82,11 @@ export class CartComponent implements OnInit {
     this.totalPrice = this.cartService.getTotalPrice();
   }
 
+
   checkout() {
 
 
-    if (this.userRole === 'instructor') {
+    if (this.userRole === 'teacher') {
       // فتح الـ modal يدويًا
       const modal = document.getElementById('Modal');
       if (modal) {

@@ -47,6 +47,8 @@ import { ViewOverviewComponent } from './view-overview/view-overview.component';
 import { ExamComponent } from './exam/exam.component';
 import { ExamResultComponent } from './exam-result/exam-result.component';
 import { EditCoursComponent } from './edit-cours/edit-cours.component';
+import { CreateQuizComponent } from './create-quiz/create-quiz.component';
+import { QuizComponent } from './quiz/quiz.component';
 
 export const routes: Routes = [
   {path:"", redirectTo:"home",pathMatch:"full"},
@@ -72,6 +74,8 @@ export const routes: Routes = [
   {path:"exam",component:ExamComponent},
   {path:"exam-result",component:ExamResultComponent},
   {path:"edit-course",component:EditCoursComponent},
+  {path:"create-quiz",component:CreateQuizComponent},
+  {path:"quiz",component:QuizComponent},
 
 
 
@@ -395,6 +399,7 @@ export const routes: Routes = [
 //  *********** instructor profile ***********
 
 {path:"instructor-profile/studentHome",redirectTo:"studentHome",pathMatch:"full"},
+
 {path:"instructor-profile/explore",redirectTo:"explore",pathMatch:"full"},
 {path:"instructor-profile/cart",redirectTo:"cart",pathMatch:"full"},
 {path:"instructor-profile/wishedList",redirectTo:"wishedList",pathMatch:"full"},
@@ -412,6 +417,7 @@ export const routes: Routes = [
 {path:"createCoursesDetalis/instructor-profile",redirectTo:"instructor-profile",pathMatch:"full"},
 {path:"createCoursesDetalis/courseDetails",redirectTo:"courseDetails",pathMatch:"full"},
 {path:"instructor-profile/my-courses",redirectTo:"my-courses",pathMatch:"full"},
+{path:"instructor-profile/create-quiz",redirectTo:"create-quiz",pathMatch:"full"},
 
 
 
@@ -425,6 +431,7 @@ export const routes: Routes = [
 {path:"courseDetails/instructor-profile",redirectTo:"instructor-profile",pathMatch:"full"},
 {path:"courseDetails/logOut",redirectTo:"home",pathMatch:"full"},
 {path:"courseDetails/student-profile",redirectTo:"student-profile",pathMatch:"full"},
+{path:"courseDetails/create-quiz",redirectTo:"create-quiz",pathMatch:"full"},
 
 
 
@@ -444,6 +451,7 @@ export const routes: Routes = [
 {path:"course-content/instructor-profile",redirectTo:"instructor-profile",pathMatch:"full"},
 {path:"course-content/student-profile",redirectTo:"student-profile",pathMatch:"full"},
 {path:"course-content/logOut",redirectTo:"home",pathMatch:"full"},
+{path:"course-content/create-quiz",redirectTo:"create-quiz",pathMatch:"full"},
 
 
 
@@ -454,6 +462,8 @@ export const routes: Routes = [
 {path:"instructor-profile/qa",redirectTo:"qa",pathMatch:"full"},
 {path:"instructor-profile/messages",redirectTo:"messages",pathMatch:"full"},
 {path:"instructor-profile/student-suggestions",redirectTo:"student-suggestions",pathMatch:"full"},
+{path:"instructor-profile/instructor-profile",redirectTo:"instructor-profile",pathMatch:"full"},
+{path:"instructor-profile/create-quiz",redirectTo:"create-quiz",pathMatch:"full"},
 
 {path:"instructor-profile/overview",redirectTo:"overview",pathMatch:"full"},
 {path:"instructor-profile/students",redirectTo:"students",pathMatch:"full"},
@@ -484,11 +494,12 @@ export const routes: Routes = [
 {path:"instructor-profile/create-course/overview",redirectTo:"overview",pathMatch:"full"},
 {path:"instructor-profile/create-course/students",redirectTo:"students",pathMatch:"full"},
 {path:"instructor-profile/create-course/reviews",redirectTo:"reviews",pathMatch:"full"},
-{path:"instructor-profile/create-course/student-profile",redirectTo:"student-profile",pathMatch:"full"},
+{path:"instructor-profile/create-course/instructor-profile",redirectTo:"instructor-profile",pathMatch:"full"},
 {path:"instructor-profile/create-course/my-courses",redirectTo:"my-courses",pathMatch:"full"},
 {path:"instructor-profile/create-course/studentHome",redirectTo:"studentHome",pathMatch:"full"},
 {path:"instructor-profile/create-course/edit-course",redirectTo:"edit-course",pathMatch:"full"},
 {path:"instructor-profile/create-course/logOut",redirectTo:"home",pathMatch:"full"},
+{path:"instructor-profile/create-course/create-quiz",redirectTo:"create-quiz",pathMatch:"full"},
 
 
 
@@ -501,7 +512,9 @@ export const routes: Routes = [
 {path:"edit-course/wishedList",redirectTo:"wishedList",pathMatch:"full"},
 {path:"edit-course/instructor-profile",redirectTo:"instructor-profile",pathMatch:"full"},
 {path:"edit-course/logOut",redirectTo:"home",pathMatch:"full"},
-{path:"edit-course/student-profile",redirectTo:"student-profile",pathMatch:"full"},
+{path:"edit-course/create-quiz",redirectTo:"create-quiz",pathMatch:"full"},
+
+// {path:"edit-course/student-profile",redirectTo:"student-profile",pathMatch:"full"},
 
 
 
@@ -516,10 +529,11 @@ export const routes: Routes = [
 {path:"qa/overview",redirectTo:"overview",pathMatch:"full"},
 {path:"qa/students",redirectTo:"students",pathMatch:"full"},
 {path:"qa/reviews",redirectTo:"reviews",pathMatch:"full"},
-{path:"qa/student-profile",redirectTo:"student-profile",pathMatch:"full"},
+{path:"qa/instructor-profile",redirectTo:"instructor-profile",pathMatch:"full"},
 {path:"qa/create-course",redirectTo:"instructor-profile/create-course",pathMatch:"full"},
 {path:"qa/my-courses",redirectTo:"my-courses",pathMatch:"full"},
 {path:"qa/studentHome",redirectTo:"studentHome",pathMatch:"full"},
+{path:"qa/create-quiz",redirectTo:"create-quiz",pathMatch:"full"},
 
 
 //  *********** messages ***********
@@ -531,10 +545,11 @@ export const routes: Routes = [
 {path:"messages/overview",redirectTo:"overview",pathMatch:"full"},
 {path:"messages/students",redirectTo:"students",pathMatch:"full"},
 {path:"messages/reviews",redirectTo:"reviews",pathMatch:"full"},
-{path:"messages/student-profile",redirectTo:"student-profile",pathMatch:"full"},
+{path:"messages/instructor-profile",redirectTo:"instructor-profile",pathMatch:"full"},
 {path:"messages/create-course",redirectTo:"instructor-profile/create-course",pathMatch:"full"},
 {path:"messages/my-courses",redirectTo:"my-courses",pathMatch:"full"},
 {path:"messages/studentHome",redirectTo:"studentHome",pathMatch:"full"},
+{path:"messages/create-quiz",redirectTo:"create-quiz",pathMatch:"full"},
 
 
 //  *********** student-suggestions ***********
@@ -547,10 +562,11 @@ export const routes: Routes = [
 {path:"student-suggestions/overview",redirectTo:"overview",pathMatch:"full"},
 {path:"student-suggestions/students",redirectTo:"students",pathMatch:"full"},
 {path:"student-suggestions/reviews",redirectTo:"reviews",pathMatch:"full"},
-{path:"student-suggestions/student-profile",redirectTo:"student-profile",pathMatch:"full"},
+{path:"student-suggestions/instructor-profile",redirectTo:"instructor-profile",pathMatch:"full"},
 {path:"student-suggestions/create-course",redirectTo:"instructor-profile/create-course",pathMatch:"full"},
 {path:"student-suggestions/my-courses",redirectTo:"my-courses",pathMatch:"full"},
 {path:"student-suggestions/studentHome",redirectTo:"studentHome",pathMatch:"full"},
+{path:"student-suggestions/create-quiz",redirectTo:"create-quiz",pathMatch:"full"},
 
 
 
@@ -565,10 +581,11 @@ export const routes: Routes = [
 {path:"overview/overview",redirectTo:"overview",pathMatch:"full"},
 {path:"overview/students",redirectTo:"students",pathMatch:"full"},
 {path:"overview/reviews",redirectTo:"reviews",pathMatch:"full"},
-{path:"overview/student-profile",redirectTo:"student-profile",pathMatch:"full"},
+{path:"overview/instructor-profile",redirectTo:"instructor-profile",pathMatch:"full"},
 {path:"overview/create-course",redirectTo:"instructor-profile/create-course",pathMatch:"full"},
 {path:"overview/my-courses",redirectTo:"my-courses",pathMatch:"full"},
 {path:"overview/studentHome",redirectTo:"studentHome",pathMatch:"full"},
+{path:"overview/create-quiz",redirectTo:"create-quiz",pathMatch:"full"},
 
 
 
@@ -583,10 +600,11 @@ export const routes: Routes = [
 {path:"students/overview",redirectTo:"overview",pathMatch:"full"},
 {path:"students/students",redirectTo:"students",pathMatch:"full"},
 {path:"students/reviews",redirectTo:"reviews",pathMatch:"full"},
-{path:"students/student-profile",redirectTo:"student-profile",pathMatch:"full"},
+{path:"students/instructor-profile",redirectTo:"instructor-profile",pathMatch:"full"},
 {path:"students/create-course",redirectTo:"instructor-profile/create-course",pathMatch:"full"},
 {path:"students/my-courses",redirectTo:"my-courses",pathMatch:"full"},
 {path:"students/studentHome",redirectTo:"studentHome",pathMatch:"full"},
+{path:"students/create-quiz",redirectTo:"create-quiz",pathMatch:"full"},
 
 
 
@@ -600,19 +618,42 @@ export const routes: Routes = [
 {path:"reviews/overview",redirectTo:"overview",pathMatch:"full"},
 {path:"reviews/students",redirectTo:"students",pathMatch:"full"},
 {path:"reviews/reviews",redirectTo:"reviews",pathMatch:"full"},
-{path:"reviews/student-profile",redirectTo:"student-profile",pathMatch:"full"},
+{path:"reviews/instructor-profile",redirectTo:"instructor-profile",pathMatch:"full"},
 {path:"reviews/create-course",redirectTo:"instructor-profile/create-course",pathMatch:"full"},
 {path:"reviews/my-courses",redirectTo:"my-courses",pathMatch:"full"},
 {path:"reviews/studentHome",redirectTo:"studentHome",pathMatch:"full"},
+{path:"reviews/create-quiz",redirectTo:"create-quiz",pathMatch:"full"},
+
+
+//  *********** create-quiz ***********
+
+
+{path:"create-quiz/student-suggestions",redirectTo:"student-suggestions",pathMatch:"full"},
+{path:"create-quiz/messages",redirectTo:"messages",pathMatch:"full"},
+{path:"create-quiz/qa",redirectTo:"qa",pathMatch:"full"},
+{path:"create-quiz/overview",redirectTo:"overview",pathMatch:"full"},
+{path:"create-quiz/students",redirectTo:"students",pathMatch:"full"},
+{path:"create-quiz/reviews",redirectTo:"reviews",pathMatch:"full"},
+{path:"create-quiz/instructor-profile",redirectTo:"instructor-profile",pathMatch:"full"},
+{path:"create-quiz/create-course",redirectTo:"instructor-profile/create-course",pathMatch:"full"},
+{path:"create-quiz/my-courses",redirectTo:"my-courses",pathMatch:"full"},
+{path:"create-quiz/studentHome",redirectTo:"studentHome",pathMatch:"full"},
+{path:"create-quiz/create-quiz",redirectTo:"create-quiz",pathMatch:"full"},
+{path:"create-quiz/quiz",redirectTo:"quiz",pathMatch:"full"},
+
+{path:"quiz/create-quiz",redirectTo:"create-quiz",pathMatch:"full"},
 
 
 
 
-
-
-
-
-
+{path:"create-quiz/instructor-profile/create-course",redirectTo:"create-course",pathMatch:"full"},
+{path:"create-quiz/my-courses",redirectTo:"my-courses",pathMatch:"full"},
+{path:"create-quiz/studentHome",redirectTo:"studentHome",pathMatch:"full"},
+{path:"create-quiz/explore",redirectTo:"explore",pathMatch:"full"},
+{path:"create-quiz/cart",redirectTo:"cart",pathMatch:"full"},
+{path:"create-quiz/wishedList",redirectTo:"wishedList",pathMatch:"full"},
+{path:"create-quiz/instructor-profile",redirectTo:"instructor-profile",pathMatch:"full"},
+{path:"create-quiz/logOut",redirectTo:"home",pathMatch:"full"},
 
 
 

@@ -211,15 +211,16 @@ padding: 15px;
 transition: all 0.3s ease-in-out;
 }
 
+
 /* للغة الإنجليزية (LTR) */
 :dir(ltr) .profile-menu {
-left: -250px;
+left: -320px;
 right: 0px;
 }
 
 /* للغة العربية (RTL) */
 :dir(rtl) .profile-menu {
-right: -250px;
+right: -320px;
 left: 0;
 }
 

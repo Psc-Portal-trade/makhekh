@@ -76,16 +76,34 @@
 
               <button class="btn btn-sm btn-secondary" (click)="addLecture(i)"> {{ 'course-header.+ Add Lecture' | transloco }}</button>
             </div>
+              <button class="btn btn-outline-primary btn-sm mt-2" (click)="openQuizModalSection(i)">
+                  {{ 'quiz.Create Section Quiz' | transloco }}
+                </button>
           </div>
 
-          <button class="btn btn-primary" (click)="addSection()">{{ 'course-header.+ Add Section' | transloco }}</button>
+          <button class="btn btn-primary w-100" (click)="addSection()">{{ 'course-header.+ Add Section' | transloco }}</button>
+          <br>
+<button class="btn btn-success w-100 mt-2" (click)="openQuizModalCourse()">
+                  {{ 'quiz.Create Course Quiz' | transloco }}
+                </button>
           <app-quiz-form
   *ngIf="isQuizModalOpen"
   [sectionIndex]="selectedSectionIndex"
   [lectureIndex]="selectedLectureIndex"
   (quizData)="handleQuizData($event)">
 </app-quiz-form>
-
+<app-quiz-form-section
+  *ngIf="isQuizModalOpen"
+  [sectionIndex]="selectedSectionIndex"
+  [lectureIndex]="selectedLectureIndex"
+  (quizData)="handleQuizDataSection($event)">
+</app-quiz-form-section>
+<app-quiz-form-course
+  *ngIf="isQuizModalOpen"
+  [sectionIndex]="selectedSectionIndex"
+  [lectureIndex]="selectedLectureIndex"
+  (quizData)="handleQuizDataSection($event)">
+</app-quiz-form-course>
         </div>
 
 

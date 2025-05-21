@@ -1,0 +1,147 @@
+<div class="container-fluid head mt-5 P-0">
+  <div class="container">
+      <div class="d-flex justify-content-between align-items-center pb-4">
+          <h5>
+              <img src="../../assets/Logo EN.png" style="width: 35px; height: 35px; padding-right: 5px;">|
+              <small>{{ 'step' | transloco }} {{ step }} {{ 'of' | transloco }} 1</small>
+          </h5>
+          <a routerLink="create-quiz" class="text-decoration-none" style="color: #2D91EE; line-height: 42.19px; font-weight: 400; font-size: 25px; padding-bottom:10px ;">
+              {{ 'exit' | transloco }}
+          </a>
+      </div>
+  </div>
+</div>
+
+
+
+<!-- Step 1: اختيار نوع الكورس -->
+<div class="content" *ngIf="step === 1">
+  <div class="container cards">
+    <h3 class="text-center pb-4">{{ 'quiz-component.title' | transloco }}</h3>
+    <div class="row">
+     <div class="col-md-6 pb-3" >
+        <div class="card course-card p-3 text-center"  [ngClass]="{ 'active': selectedQuizType === 0 }">
+          <div class="card-body justify-content-center align-content-center">
+            <img [src]="quizzes[0].image" alt="">
+            <h3>{{ quizzes[0].title | transloco }}</h3>
+            <p>{{ quizzes[0].description | transloco }}</p>
+            <app-question-bank-for-any-topic (click)="selectQuizType(0)"></app-question-bank-for-any-topic>
+          </div>
+        </div>
+      </div>
+       <div class="col-md-6 pb-3" >
+        <div class="card course-card p-3 text-center"  [ngClass]="{ 'active': selectedQuizType === 1 }">
+          <div class="card-body justify-content-center align-content-center">
+            <img [src]="quizzes[1].image" alt="">
+            <h3>{{ quizzes[1].title | transloco }}</h3>
+            <p>{{ quizzes[1].description | transloco }}</p>
+            <app-questions-to-your-uploaded-course (click)="selectQuizType(1)"></app-questions-to-your-uploaded-course>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- خطوات نوع الكورس الأول  Question Bank for Any Topic -->
+<!-- <div *ngIf="selectedQuizType === 0 && step === 2" id="type1-step2">
+  <div class="container pt-5">
+    <h4 class="pb-2">{{ 'quiz-component.title1' | transloco }}</h4>
+
+    <div class="form-group mb-3">
+      <label class="pb-2">{{ 'quiz-form.title' | transloco }}</label>
+      <input type="text" class="form-control" [(ngModel)]="questionBankInfo.title">
+    </div>
+
+    <div class="form-group mb-3">
+      <label class="pb-2">{{ 'quiz-form.description' | transloco }}</label>
+      <textarea class="form-control" [(ngModel)]="questionBankInfo.description"></textarea>
+    </div>
+
+   <div class="form-group mb-3">
+  <label class="pb-2">{{ 'quiz-form.time' | transloco }}</label>
+  <input type="datetime-local" class="form-control" [(ngModel)]="questionBankInfo.time">
+</div>
+
+
+    <div class="form-group mb-3">
+      <label class="pb-2">{{ 'quiz-form.duration' | transloco }}</label>
+      <input type="text" class="form-control" [(ngModel)]="questionBankInfo.duration">
+    </div>
+
+    <div class="form-group mb-3">
+      <label class="pb-2">{{ 'quiz-form.passingGrade' | transloco }}</label>
+      <input type="number" class="form-control" [(ngModel)]="questionBankInfo.passingGrade">
+    </div>
+
+    <div class="form-group mb-3">
+      <label class="pb-2">{{ 'quiz-form.questionOrder' | transloco }}</label>
+      <select class="form-control" [(ngModel)]="questionBankInfo.questionOrder">
+        <option value="sequential">{{ 'quiz-form.order.sequential' | transloco }}</option>
+        <option value="random">{{ 'quiz-form.order.random' | transloco }}</option>
+      </select>
+    </div>
+  </div>
+</div> -->
+
+
+
+<!-- خطوات نوع الكورس الثاني   Add Questions to Your Uploaded Course-->
+
+<!-- <div *ngIf="selectedQuizType === 1 && step === 2" id="type2-step2">
+  <div class="container pt-5">
+    <h4 class="pb-2">{{ 'quiz-component.title2' | transloco }}</h4>
+
+    <div class="form-group mb-3">
+      <label class="pb-2">{{ 'quiz-form.title' | transloco }}</label>
+      <input type="text" class="form-control" [(ngModel)]="uploadedQuizInfo.title">
+    </div>
+
+    <div class="form-group mb-3">
+      <label class="pb-2">{{ 'quiz-form.description' | transloco }}</label>
+      <textarea class="form-control" [(ngModel)]="uploadedQuizInfo.description"></textarea>
+    </div>
+
+    <div class="form-group mb-3">
+      <label class="pb-2">{{ 'quiz-form.time' | transloco }}</label>
+      <input type="datetime-local" class="form-control" [(ngModel)]="uploadedQuizInfo.time">
+    </div>
+
+    <div class="form-group mb-3">
+      <label class="pb-2">{{ 'quiz-form.duration' | transloco }}</label>
+      <input type="text" class="form-control" [(ngModel)]="uploadedQuizInfo.duration">
+    </div>
+
+    <div class="form-group mb-3">
+      <label class="pb-2">{{ 'quiz-form.passingGrade' | transloco }}</label>
+      <input type="number" class="form-control" [(ngModel)]="uploadedQuizInfo.passingGrade">
+    </div>
+
+    <div class="form-group mb-3">
+      <label class="pb-2">{{ 'quiz-form.questionOrder' | transloco }}</label>
+      <select class="form-control" [(ngModel)]="uploadedQuizInfo.questionOrder">
+        <option value="sequential">{{ 'quiz-form.order.sequential' | transloco }}</option>
+        <option value="random">{{ 'quiz-form.order.random' | transloco }}</option>
+      </select>
+    </div>
+  </div>
+</div> -->
+
+
+
+<!--
+<div class="container-fluid p-4 mt-5">
+  <div class="container d-flex justify-content-between">
+    <button class="btn btn-outline-secondary" (click)="previous()" [disabled]="step === 1">
+      {{ 'previous' | transloco }}
+    </button>
+
+    <button class="btn btn-primary" (click)="continue()" *ngIf="step < maxSteps">
+      {{ 'next' | transloco }}
+    </button>
+
+    <button class="btn btn-success" (click)="submitQuiz()" *ngIf="step === maxSteps">
+      {{ 'submit' | transloco }}
+    </button>
+  </div>
+</div> -->
