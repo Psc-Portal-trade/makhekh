@@ -6,6 +6,7 @@ import { TranslocoPipe, TranslocoService } from '@ngneat/transloco';
 import { LangService } from '../services/lang.service';
 import { Router, RouterLink } from '@angular/router';
 import { AuthService } from '../services/auth.service';
+import { TeacherService } from '../services/teacher.service';
 
 @Component({
   selector: 'app-student-suggestions',
@@ -37,7 +38,7 @@ email:string=''
 
 
 
-constructor(private langService: LangService,private authService: AuthService,private router: Router) {
+constructor(private langService: LangService,private authService: AuthService,private router: Router,private teacherService: TeacherService) {
     this.setLogo();
 const userData = this.authService.getUserData();
     if (userData) {
@@ -46,6 +47,9 @@ const userData = this.authService.getUserData();
   }
    }
       _translocoService = inject(TranslocoService);
+
+      profileImg: string = '../../assets/download.jfif';
+
       ngOnInit() {
 
         this.langService.lang$.subscribe((lang) => {
@@ -58,6 +62,15 @@ const userData = this.authService.getUserData();
   this.fullName = user?.fullName || '';
   this.email = user?.email || '';
 this.firstLetter = this.fullName.charAt(0).toUpperCase();
+this.teacherService.getInstructorProfile().subscribe({
+  next: (res) => {
+    const profile = res.data;
+    this.profileImg = profile.profileImageUrl || this.profileImg;
+  },
+  error: (err) => {
+    console.error('Error loading profile from API', err);
+  }
+});
 
 
 

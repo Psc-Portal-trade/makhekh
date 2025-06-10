@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
 import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
+import { TeacherService } from '../services/teacher.service';
 
 @Component({
   selector: 'app-second-home',
@@ -28,13 +29,14 @@ export class SecondHomeComponent {
   email: string = '';
   job: string = ''; // هنا هنعرض الوظيفة
 
-  constructor(private authService: AuthService, private router: Router, private http: HttpClient) {
+  constructor(private authService: AuthService, private router: Router, private http: HttpClient,private teacherService: TeacherService) {
     const userData = this.authService.getUserData();
     if (userData) {
       this.fullName = userData.fullName;
       this.role = userData.role;
     }
   }
+profileImg: string = '../../assets/download.jfif';
 
   ngOnInit(): void {
     window.scrollTo(0, 0);
@@ -46,6 +48,19 @@ export class SecondHomeComponent {
     this.firstLetter = this.fullName.charAt(0).toUpperCase();
 
     this.getProfile(); // استدعاء بيانات البروفايل
+
+
+this.teacherService.getInstructorProfile().subscribe({
+  next: (res) => {
+    const profile = res.data;
+    this.profileImg = profile.profileImageUrl || this.profileImg;
+  },
+  error: (err) => {
+    console.error('Error loading profile from API', err);
+  }
+});
+
+
   }
 
   getProfile(): void {

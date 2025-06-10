@@ -4,10 +4,12 @@ import { Router, RouterLink } from '@angular/router';
 import { AuthService } from '../services/auth.service';
 import { LangService } from '../services/lang.service';
 import { TranslocoPipe, TranslocoService } from '@ngneat/transloco';
+import { CommonModule } from '@angular/common';
+import { TeacherService } from '../services/teacher.service';
 
 @Component({
   selector: 'app-create-quiz',
-  imports: [SidebarComponent,TranslocoPipe,RouterLink],
+  imports: [SidebarComponent,TranslocoPipe,RouterLink,CommonModule],
   templateUrl: './create-quiz.component.html',
   styleUrl: './create-quiz.component.css'
 })
@@ -20,7 +22,7 @@ export class CreateQuizComponent {
 email:string=''
 
  logoSrc: string = 'assets/Logo AR.png';
- constructor(private langService: LangService,private authService: AuthService,private router: Router) {
+ constructor(private langService: LangService,private authService: AuthService,private router: Router,private teacherService: TeacherService) {
     this.setLogo();
 
     const userData = this.authService.getUserData();
@@ -31,6 +33,7 @@ email:string=''
   }
 
   _translocoService = inject(TranslocoService);
+profileImg: string = '../../assets/download.jfif';
 
 
 
@@ -49,6 +52,15 @@ email:string=''
   this.email = user?.email || '';
 this.firstLetter = this.fullName.charAt(0).toUpperCase();
 
+this.teacherService.getInstructorProfile().subscribe({
+  next: (res) => {
+    const profile = res.data;
+    this.profileImg = profile.profileImageUrl || this.profileImg;
+  },
+  error: (err) => {
+    console.error('Error loading profile from API', err);
+  }
+});
 
 
   }

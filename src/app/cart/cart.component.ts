@@ -85,18 +85,18 @@ export class CartComponent implements OnInit {
 
   checkout() {
 
-
-    if (this.userRole === 'teacher') {
-      // فتح الـ modal يدويًا
-      const modal = document.getElementById('Modal');
-      if (modal) {
-        const bootstrapModal = new (window as any).bootstrap.Modal(modal);
-        bootstrapModal.show();
-      }
-      return; // وقف تنفيذ الشراء
-    }else{
-      this.cartService.checkout(); // استدعاء checkout() من CartService
-    }
+this.cartService.checkout();
+    // if (this.userRole === 'teacher') {
+    //   // فتح الـ modal يدويًا
+    //   const modal = document.getElementById('Modal');
+    //   if (modal) {
+    //     const bootstrapModal = new (window as any).bootstrap.Modal(modal);
+    //     bootstrapModal.show();
+    //   }
+    //   return; // وقف تنفيذ الشراء
+    // }else{
+    //   this.cartService.checkout(); // استدعاء checkout() من CartService
+    // }
   }
 
 

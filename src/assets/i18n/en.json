@@ -466,8 +466,17 @@
 
 ,"profile": {
   "instructorView": "Instructor View",
-  "name": "Name",
+  "fullName": "Name",
   "email": "Email",
+  "Experience Years":"Experience Years",
+    "Teaching Type":"Teaching Type",
+        "CV URL":"CV URL",
+    "Facebook":"Facebook",
+    "LinkedIn":"LinkedIn",
+    "Twitter":"Twitter",
+    "YouTube":"YouTube",
+    "done":"Done",
+
   "studentView": "Student View",
   "instructorProfile": "Instructor Profile",
   "uploadPhoto": "Upload Photo",

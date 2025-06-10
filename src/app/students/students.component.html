@@ -11,13 +11,33 @@
     <div class="position-relative text-end my-3">
 
       <div class="first-letter">
-       <span>{{firstLetter}}</span>
+
+            <!-- لو في صورة -->
+<img *ngIf="profileImg && profileImg !== '../../assets/download.jfif'"
+     [src]="profileImg"
+     class="rounded-circle"
+     style="width: 50px; height: 50px;" />
+
+<!-- لو مفيش صورة -->
+<span *ngIf="profileImg === '../../assets/download.jfif'">
+  {{ firstLetter }}
+</span>
         <div class="profile-menu">
           <div class="text-center">
             <div class="d-flex align-items-center mb-3 gap-3">
               <div class="first-letterr">
                 <span class="rounded-circle  text-white d-flex justify-content-center align-items-center" style="width: 50px; height: 50px; font-size: 24px;">
-                  <span>{{firstLetter}}</span>
+
+            <!-- لو في صورة -->
+<img *ngIf="profileImg && profileImg !== '../../assets/download.jfif'"
+     [src]="profileImg"
+     class="rounded-circle"
+     style="width: 50px; height: 50px;" />
+
+<!-- لو مفيش صورة -->
+<span *ngIf="profileImg === '../../assets/download.jfif'">
+  {{ firstLetter }}
+</span>
                 </span>
               </div>
               <div class="text-start">

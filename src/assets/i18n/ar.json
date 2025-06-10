@@ -356,10 +356,19 @@
 
 "profile": {
   "instructorView": "عرض المدرب",
-  "name": "الاسم",
+  "fullName": "الاسم",
   "email": "البريد الإلكتروني",
   "studentView": "عرض الطالب",
   "instructorProfile": "الملف الشخصي للمدرب",
+    "Experience Years":"سنوات الخبرة",
+        "Teaching Type":"نوع التدريس",
+    "CV URL":" رابط السيرة الذاتية",
+    "Facebook":"فيسبوك",
+    "LinkedIn":"لينكد إن",
+    "Twitter":"تويتر",
+    "YouTube":"يوتيوب",
+    "done":"تم",
+
   "uploadPhoto": "تحميل صورة",
   "edit": "تعديل",
   "firstName": "الاسم الأول",

@@ -9,13 +9,29 @@
   <div class="position-relative text-end my-3">
 
     <div class="first-letter">
-       <span>{{firstLetter}}</span>
+       <img *ngIf="profile.profileImageUrl && profile.profileImageUrl.trim() !== ''"
+       [src]="profile.profileImageUrl"
+       class="rounded-circle"
+       style="width: 50px; height: 50px;"
+       alt="Profile" />
+
+  <span *ngIf="!profile.profileImageUrl || profile.profileImageUrl.trim() === ''">
+    {{ firstLetter }}
+  </span>
       <div class="profile-menu">
         <div class="text-center">
           <div class="d-flex align-items-center mb-3 gap-3">
             <div class="first-letterr">
               <span class="rounded-circle  text-white d-flex justify-content-center align-items-center" style="width: 50px; height: 50px; font-size: 24px;">
-                 <span>{{firstLetter}}</span>
+                <img *ngIf="profile.profileImageUrl && profile.profileImageUrl.trim() !== ''"
+       [src]="profile.profileImageUrl"
+       class="rounded-circle"
+       style="width: 50px; height: 50px;"
+       alt="Profile" />
+
+  <span *ngIf="!profile.profileImageUrl || profile.profileImageUrl.trim() === ''">
+    {{ firstLetter }}
+  </span>
               </span>
             </div>
             <div class="text-start">
@@ -78,21 +94,20 @@
 
     <div class="row " id="profile" *ngIf="activeTab === 'profile'">
       <div class="col-s-3">
-        <img [src]="profileImage" class="rounded-circle profile-img" style="width: 200px; height: 200px;" alt="{{ 'profile.photoAlt' | transloco }}" />
+        <img [src]="profile.profileImageUrl || profileImg" class="rounded-circle profile-img" style="width: 200px; height: 200px;" alt="{{ 'profile.photoAlt' | transloco }}" />
 
-        <!-- زر تحميل الصورة -->
-        <div *ngIf="!isPhotoUploaded" class="mt-4 d-flex align-items-center gap-2">
-          <label for="file-input" class="btn btn-primary fs-6">{{ 'profile.uploadPhoto' | transloco }}</label>
-          <input type="file" id="file-input" class="d-none" accept="image/*" (change)="onFileSelected($event)" />
-          <button class="btn text-primary border-0">{{ 'profile.edit' | transloco }}</button>
-        </div>
 
-        <!-- زر تعديل الصورة -->
-        <div *ngIf="isPhotoUploaded" class="mt-4 d-flex align-items-center gap-2">
-          <button disabled type="submit" class="btn btn-primary">{{ 'profile.uploadPhoto' | transloco }}</button>
-          <label for="edit-input" class="btn text-primary border-0 fs-6">{{ 'profile.edit' | transloco }}</label>
-          <input type="file" id="edit-input" class="d-none" accept="image/*" (change)="onFileSelected($event)" />
-        </div>
+ <div  class="mt-4 d-flex align-items-center gap-2">
+      <label for="edit-input" class="btn btn-success mb-3">
+ Change Photo
+</label>
+<input type="file"
+       id="edit-input"
+       class="d-none"
+       accept=".jpg,.jpeg,.png"
+       (change)="uploadDirectToApi($event)" />
+            </div>
+
       </div>
 <div class="py-4">
   <!-- Full Name -->

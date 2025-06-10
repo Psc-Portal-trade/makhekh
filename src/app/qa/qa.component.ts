@@ -8,6 +8,7 @@ import { Observable } from 'rxjs';
 import { Router, RouterLink } from '@angular/router';
 import { LangService } from '../services/lang.service';
 import { AuthService } from '../services/auth.service';
+import { TeacherService } from '../services/teacher.service';
 
 @Component({
   selector: 'app-qa',
@@ -27,7 +28,7 @@ email:string=''
   private translocoService = inject(TranslocoService);
   selectedCourse$: Observable<string> = this.translocoService.selectTranslate('AllCourses');
 
- constructor(private qaService: QaService,private langService: LangService,private authService: AuthService,private router: Router) {
+ constructor(private qaService: QaService,private langService: LangService,private authService: AuthService,private router: Router,private teacherService: TeacherService) {
     this.setLogo();
     const userData = this.authService.getUserData();
     if (userData) {
@@ -39,6 +40,7 @@ email:string=''
 
    }
    _translocoService = inject(TranslocoService);
+profileImg: string = '../../assets/download.jfif';
 
   ngOnInit() {
     this.selectedCourse$ = this.translocoService.selectTranslate('AllCourses');
@@ -64,7 +66,15 @@ email:string=''
   this.fullName = user?.fullName || '';
   this.email = user?.email || '';
 this.firstLetter = this.fullName.charAt(0).toUpperCase();
-
+this.teacherService.getInstructorProfile().subscribe({
+  next: (res) => {
+    const profile = res.data;
+    this.profileImg = profile.profileImageUrl || this.profileImg;
+  },
+  error: (err) => {
+    console.error('Error loading profile from API', err);
+  }
+});
 
   }
 

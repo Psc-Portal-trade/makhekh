@@ -24,13 +24,77 @@
                <input id="password" type="password" class="form-control border-black .form-input" [attr.placeholder]="'login.password' | transloco" formControlName="password">
            </div>
 
-           <p *ngIf="errorMessage" class="text-danger mt-2">{{ errorMessage }}</p>
+<p *ngIf="errorMessage && !isForgetModalOpen" class="text-danger mt-2">
+  {{ errorMessage }}
+</p>
 
            <button type="submit" class="btn bg-primary text-white w-100 mt-2">
              {{"login.log in" | transloco}}
            </button>
           <div class="text-center pt-2">
-              <a  href="#" class="">{{"login.Forget password" | transloco}}</a>
+            <a  (click)="openForgetPasswordModal()" class="text-primary anchor">
+  {{ "login.Forget password" | transloco }}
+</a>
+
+<!-- Forget Password Modal -->
+<div class="modal fade" id="loginModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content p-3">
+      <div class="modal-header">
+        <h5 class="modal-title">نسيت كلمة المرور</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="إغلاق"></button>
+      </div>
+
+      <div class="modal-body">
+        <form *ngIf="forgetPasswordStep === 1" [formGroup]="emailForm">
+          <input
+            type="email"
+            formControlName="email"
+            class="form-control"
+            placeholder="أدخل بريدك الإلكتروني"
+          />
+          <div *ngIf="forgetErrorMsg" class="text-danger mt-2">{{ forgetErrorMsg }}</div>
+        </form>
+
+        <form *ngIf="forgetPasswordStep === 2" [formGroup]="resetForm">
+          <input
+            type="text"
+            formControlName="code"
+            class="form-control my-2"
+            placeholder="أدخل كود التفعيل"
+          />
+          <input
+            type="password"
+            formControlName="newPassword"
+            class="form-control"
+            placeholder="كلمة المرور الجديدة"
+          />
+          <div *ngIf="forgetErrorMsg" class="text-danger mt-2">{{ forgetErrorMsg }}</div>
+          <div *ngIf="forgetSuccessMsg" class="text-success mt-2">{{ forgetSuccessMsg }}</div>
+        </form>
+      </div>
+
+      <div class="modal-footer">
+        <button
+          *ngIf="forgetPasswordStep === 1"
+          class="btn btn-primary"
+          [disabled]="emailForm.invalid"
+          (click)="sendResetEmail()"
+        >إرسال</button>
+
+        <button
+          *ngIf="forgetPasswordStep === 2"
+          class="btn btn-primary"
+          [disabled]="resetForm.invalid"
+          (click)="resetPassword()"
+        >تغيير كلمة المرور</button>
+
+<button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="isForgetModalOpen = false">إغلاق</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 
           </div>
          </form>

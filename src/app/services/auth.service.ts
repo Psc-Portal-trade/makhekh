@@ -57,4 +57,14 @@ confirmEmail(payload: { email: string; code: string }) {
     const user = this.getUserData();
     return user?.token || null;
   }
+
+forgotPassword(email: string) {
+  return this.http.post('https://api.makhekh.com/api/Auth/forgot-password', { email });
+}
+
+resetPassword(data: { email: string; code: string; newPassword: string }) {
+  return this.http.post('https://api.makhekh.com/api/Auth/reset-password', data);
+}
+
+
 }

@@ -146,11 +146,40 @@ logout() {
 
 
 
+  profileImg: string = '../../assets/download.jfif';
+uploadDirectToApi(event: any): void {
+  const file = event.target.files[0];
+
+  if (!file) return;
+
+  const allowedTypes = ['image/jpeg', 'image/jpg', 'image/png'];
+
+  if (!allowedTypes.includes(file.type)) {
+    alert('Only JPG and PNG images are allowed.');
+    return;
+  }
+
+  const formData = new FormData();
+  formData.append('file', file);
+
+  this.http.post<any>('https://api.makhekh.com/api/Students/profile/image', formData).subscribe({
+    next: (res) => {
+      console.log('Image uploaded successfully', res);
+      this.getProfile(); // لتحديث الصورة المعروضة
+    },
+    error: (err) => {
+      console.error('Error uploading image', err);
+      alert(err?.error?.message || 'Upload failed.');
+    }
+  });
+}
 
   getProfile(): void {
-    this.http.get<any>('https://api.makhekh.com/api/Student/profile').subscribe({
+    this.http.get<any>('https://api.makhekh.com/api/Students/profile').subscribe({
       next: (res) => {
         this.profile = res.data;
+        this.profileImg = this.profile.file || this.profileImg;
+
       },
       error: (err) => {
         console.error('Error loading profile', err);
@@ -173,7 +202,7 @@ logout() {
       major: this.profile.major
     };
 
-    this.http.put<any>('https://api.makhekh.com/api/Student/profile', body).subscribe({
+    this.http.put<any>('https://api.makhekh.com/api/Students/profile', body).subscribe({
       next: () => {
         this.isEditMode = false;
       },

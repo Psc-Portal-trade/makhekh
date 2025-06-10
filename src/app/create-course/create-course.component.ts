@@ -6,10 +6,12 @@ import { LangService } from '../services/lang.service';
 import { TranslocoPipe, TranslocoService } from '@ngneat/transloco';
 import { InstructorCoursesComponent } from "../instructor-courses/instructor-courses.component";
 import { AuthService } from '../services/auth.service';
+import { TeacherService } from '../services/teacher.service';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-create-course',
-  imports: [RouterLink, SidebarComponent, TranslocoPipe, InstructorCoursesComponent],
+  imports: [RouterLink, SidebarComponent, TranslocoPipe, InstructorCoursesComponent,CommonModule],
   templateUrl: './create-course.component.html',
   styleUrl: './create-course.component.css'
 })
@@ -25,7 +27,7 @@ email:string=''
 
  logoSrc: string = 'assets/Logo AR.png';
 
-  constructor(private langService: LangService,private authService: AuthService,private router: Router) {
+  constructor(private langService: LangService,private authService: AuthService,private router: Router,private teacherService: TeacherService) {
     this.setLogo();
 
     const userData = this.authService.getUserData();
@@ -36,6 +38,7 @@ email:string=''
   }
 
   _translocoService = inject(TranslocoService);
+profileImg: string = '../../assets/download.jfif';
 
   ngOnInit(): void {
       window.scrollTo(0, 0);
@@ -52,6 +55,15 @@ email:string=''
   this.email = user?.email || '';
 this.firstLetter = this.fullName.charAt(0).toUpperCase();
 
+this.teacherService.getInstructorProfile().subscribe({
+  next: (res) => {
+    const profile = res.data;
+    this.profileImg = profile.profileImageUrl || this.profileImg;
+  },
+  error: (err) => {
+    console.error('Error loading profile from API', err);
+  }
+});
 
 
   }
