@@ -87,9 +87,124 @@
             <button class="btn btn-primary" >{{ 'dashboard.getStarted' | transloco }}</button>
           </a>
       </div>
+      <div class="container mt-4">
+        <div class="row">
+          <div class="col-md-4 mb-4" *ngFor="let quiz of quizzes">
+            <div class="card h-100 shadow">
+              <img src="../../assets/course1.png" class="card-img-top" alt="Quiz Image">
+              <div class="card-body d-flex flex-column align-items-center">
+                <h5 class="card-title text-center">{{ quiz.title }}</h5>
+                <button class="btn btn-primary mt-2 fs-6 text-center " (click)="openModal(quiz)">
+                  {{ 'quiz.view_details' | transloco }}
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  <div id="quizModal" class="modal" tabindex="-1" style="display: none;">
+  <div class="modal-dialog modal-lg">
+    <button type="button" class="btn-close position-absolute top-0 end-0 m-3" (click)="closeModal()"></button>
 
+    <div class="modal-content p-3">
+      <div class="modal-header d-flex justify-content-between">
+        <div>
+          <h5 class="modal-title">{{ 'quiz.create' | transloco }}</h5></div>
+<div><button class="btn btn-close " (click)="closeModal()">X</button></div>
 
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="quizForm">
+          <div class="mb-3">
+            <label class="form-label">{{ 'quiz.course_name' | transloco }}</label>
+            <input type="text" formControlName="courseName" class="form-control" [readonly]="true">
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label">{{ 'quiz.description' | transloco }}</label>
+            <textarea formControlName="examDescription" class="form-control" [readonly]="true"></textarea>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">{{ 'quiz.category' | transloco }}</label>
+            <select formControlName="categoryId" class="form-select" [disabled]="true">
+              <option *ngFor="let category of categories" [value]="category.id">
+                {{ category.name }}
+              </option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">{{ 'quiz.quiz_type' | transloco }}</label>
+            <input type="text" formControlName="quizType" class="form-control" [readonly]="true">
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label">{{ 'quiz.duration' | transloco }}</label>
+            <input type="number" formControlName="duration" class="form-control" [readonly]="true">
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label">{{ 'quiz.attempts' | transloco }}</label>
+            <input type="number" formControlName="attempts" class="form-control" [readonly]="true">
+          </div>
+          <div class="mb-3">
+            <label class="form-label">{{ 'quiz.passing_score' | transloco }}</label>
+            <input type="number" class="form-control" formControlName="passingScore">
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label">{{ 'quiz.is_free' | transloco }}</label>
+            <input type="checkbox" formControlName="isFree" [readonly]="true" class="m-2">
+          </div>
+
+          <div class="mb-3" *ngIf="!quizForm.get('isFree')?.value">
+            <label class="form-label">{{ 'quiz.price' | transloco }}</label>
+            <input type="number" formControlName="price" class="form-control" [readonly]="true">
+          </div>
+          
+         
+        </form>
+      </div>
+      
+    </div>
   </div>
+</div>
+
+      
+      <!-- Modal -->
+     <!-- <div class="custom-modal-backdrop" *ngIf="modalVisible"> -->
+  <!-- <div class="custom-modal">
+    <div class="modal-header d-flex justify-content-between align-items-center">
+      <h5 class="modal-title">{{ selectedQuiz?.title }}</h5>
+      <button type="button" class="btn-close" aria-label="Close" (click)="closeModal()"></button>
+    </div>
+    <div class="modal-body">
+      <p><strong>اسم الكورس:</strong> {{ selectedQuiz?.title }}</p>
+      <p><strong>الوصف:</strong> {{ selectedQuiz?.description }}</p>
+      <p><strong>نوع الاختبار:</strong> {{ selectedQuiz?.type === 1 ? 'اختيار من متعدد' : 'مقالي' }}</p>
+      <p><strong>النسبة المطلوبة للنجاح:</strong> {{ selectedQuiz?.passingPercentage }}%</p>
+      <p><strong>عدد المحاولات:</strong> {{ selectedQuiz?.attemptsAllowed }}</p>
+      <p><strong>المدة:</strong> {{ selectedQuiz?.timeLimitInMinutes }} دقيقة</p>
+      <p><strong>مجاني؟</strong> {{ selectedQuiz?.isFree ? 'نعم' : 'لا' }}</p>
+      <p *ngIf="!selectedQuiz?.isFree"><strong>السعر:</strong> {{ selectedQuiz?.price }} جنيه</p>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-secondary" (click)="closeModal()">إغلاق</button>
+    </div>
+    
+    <div class="row">
+      <div class="col-md-4" *ngFor="let quiz of quizzes">
+        <div class="card mb-3">
+          <img src="assets/quiz.jpg" class="card-img-top" alt="quiz image">
+          <div class="card-body">
+            <h5 class="card-title">{{ quiz.title }}</h5>
+            <button class="btn btn-primary" (click)="openModal(quiz)">عرض التفاصيل</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+
+  </div> -->
 
 
 </div>

@@ -43,10 +43,35 @@
           <input type="number" class="form-control" formControlName="passingScore">
         </div>
       </div>
+<!-- Is Free -->
+<div class="mb-3">
+  <label class="form-label">{{ 'quiz.is_free' | transloco }}</label>
+  <div class="form-check">
+    <input class="form-check-input" type="radio" formControlName="isFree" [value]="true" id="freeYes">
+    <label class="form-check-label" for="freeYes">{{ 'quiz.free' | transloco }}</label>
+  </div>
+  <div class="form-check">
+    <input class="form-check-input" type="radio" formControlName="isFree" [value]="false" id="freeNo">
+    <label class="form-check-label" for="freeNo">{{ 'quiz.paid' | transloco }}</label>
+  </div>
+</div>
+<!-- Price if not free -->
+<div class="mb-3" *ngIf="quizForm.get('isFree')?.value === false">
+  <label class="form-label">{{ 'quiz.price' | transloco }}</label>
+  <input type="number" class="form-control" formControlName="price">
+</div>
 
       <div class="mb-3">
         <label class="form-label">{{ 'quiz.description' | transloco }}</label>
         <textarea class="form-control" formControlName="examDescription"></textarea>
+      </div>
+      <!-- Quiz Type Selection -->
+      <div class="mb-3">
+        <label class="form-label">{{ 'quiz.quiz_type' | transloco }}</label>
+          <select class="form-select" formControlName="quizType">
+           <option value="mcq">{{ 'quiz.mcq' | transloco }}</option>
+           <option value="essay">{{ 'quiz.essay' | transloco }}</option>
+          </select>
       </div>
       <!-- Questions List -->
       <div formArrayName="questions">

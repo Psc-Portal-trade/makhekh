@@ -930,9 +930,31 @@
     "questions_required": "At least one question must be added.",
     "question_text_required": "Question number {{index}} is missing text.",
     "option_required": "Option number {{optionIndex}} in question number {{index}} is empty.",
-    "correct_answer_required": "You must select the correct answer in question number {{index}}."
+    "correct_answer_required": "You must select the correct answer in question number {{index}}.",
+  "quiz_type_required": "Quiz type is required.",
+  "is_free_required": "You must specify whether the quiz is free or paid.",
+  "price_required_if_paid": "Price is required if the quiz is paid.",
+  "price_must_be_positive": "Price must be greater than 0.",
+  "invalid_exam_datetime": "Invalid exam date and time.",
+  "duplicate_options": "There are duplicate options in question {{index}}.",
+  "min_options_required": "At least two options are required in question {{index}}.",
+  "essay_answer_required": "A sample answer is required for essay question {{index}}.",
+"quiz_type_mismatch": "All questions must match the selected quiz type (essay or multiple choice)."
+},
+    "quiz_type": "Quiz Type",
+    "mcq": "Multiple Choice (MCQ)",
+    "essay": "Essay",
+    "is_free": "Is the quiz free?",
+    "free": "Free",
+    "paid": "Paid",
+    "price": "Price (SAR)",
+    "category":"Category",
 
-  }
+        "view_details": "Create your quiz questions now"
+  
+    
+
+
   },
     "successMessage2":"You created your quiz successfully!"
 

@@ -951,10 +951,31 @@
   "questions_required": "يجب إضافة سؤال واحد على الأقل.",
   "question_text_required": "السؤال رقم {{index}} لا يحتوي على نص.",
   "option_required": "الخيار رقم {{optionIndex}} في السؤال رقم {{index}} فارغ.",
-  "correct_answer_required": "يجب تحديد الإجابة الصحيحة في السؤال رقم {{index}}."
+  "correct_answer_required": "يجب تحديد الإجابة الصحيحة في السؤال رقم {{index}}.",
+  "quiz_type_required": "نوع الاختبار مطلوب.",
+  "is_free_required": "يجب تحديد ما إذا كان الاختبار مجانيًا أم لا.",
+  "price_required_if_paid": "السعر مطلوب إذا كان الاختبار مدفوعًا.",
+  "price_must_be_positive": "يجب أن يكون السعر أكبر من 0.",
+  "invalid_exam_datetime": "تاريخ ووقت الامتحان غير صالح.",
+  "duplicate_options": "هناك خيارات مكررة في السؤال رقم {{index}}.",
+  "min_options_required": "يجب إدخال خيارين على الأقل في السؤال رقم {{index}}.",
+  "essay_answer_required": "يجب توفير إجابة نموذجية للسؤال المقالي رقم {{index}}.",
+  "quiz_type_mismatch": "يجب أن تكون كل الأسئلة من نفس نوع الاختبار المحدد (مقالي أو اختيار من متعدد)."},
+  "quiz_type": "نوع الاختبار",
+  "mcq": "اختيار من متعدد (MCQ)",
+  "essay": "سؤال مقالي",
+  "is_free": "هل الاختبار مجاني؟",
+  "free": "مجاني",
+  "paid": "مدفوع",
+  "price": "السعر (ر.س)",
+  "category":"الفئة المختارة",
+  "view_details": "أنشئ أسئلة امتحانك الآن"
+
+ 
+ 
 
 }
-},
+,
   "successMessage2":"لقد قمت بإنشاء الاختبار بنجاح!"
 
 

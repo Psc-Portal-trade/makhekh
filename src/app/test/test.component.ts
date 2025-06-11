@@ -4,6 +4,7 @@ import {FormsModule, NgSelectOption} from '@angular/forms';
 import { RouterLink } from '@angular/router';
 import { Router, ActivatedRoute } from '@angular/router';
 import { TranslocoPipe } from '@ngneat/transloco';
+import { CategoriesService } from '../services/categories.service';
 
 @Component({
   selector: 'app-test',
@@ -17,20 +18,21 @@ export class TestComponent {
   step: number = 1; // تتبع رقم الخطوة الحالية
   selectedCourse: number | null = null; // الكورس المختار
   courseTitle: string = '';
-  selectedCategory: string = ''; // الفئة المختارة
+  // selectedCategory: string = ''; // الفئة المختارة
   learningObjectives: string = '';
   requirements: string = '';
   targetAudience: string = '';
 
   // بيانات الكورس
-  courseData = {
-    courseType: '', // نوع الكورس (جديد)
-    category: '',
-    learningObjectives: '',
-    requirements: '',
-    targetAudience: '',
-    courseTitle: ''
-  };
+ courseData = {
+  courseType: '',
+  category: '',
+  categoryId: '', // تمت إضافته
+  learningObjectives: '',
+  requirements: '',
+  targetAudience: '',
+  courseTitle: ''
+};
 
   // قائمة الدورات
   courses = [
@@ -48,32 +50,44 @@ export class TestComponent {
 
   // قائمة الفئات
 // قائمة الفئات مع استخدام مفاتيح الترجمة
-categories = [
-  'development', 'business', 'finance', 'itSoftware',
-  'officeProductivity', 'personalDevelopment', 'design', 'marketing',
-  'lifestyle', 'music', 'photography', 'healthFitness',
-  'teachingAcademics', 'other'
-];
+// categories = [
+//   'development', 'business', 'finance', 'itSoftware',
+//   'officeProductivity', 'personalDevelopment', 'design', 'marketing',
+//   'lifestyle', 'music', 'photography', 'healthFitness',
+//   'teachingAcademics', 'other'
+// ];
+categories: any[] = [];
+selectedCategory: any = null;
 
-  constructor(private router: Router, private route: ActivatedRoute) {}
+  constructor(private router: Router, private route: ActivatedRoute,private categoriesService: CategoriesService) {}
+
+ngOnInit() {
+  this.getCategories();
+}
+
+getCategories(): void {
+  this.categoriesService.getCategories().subscribe({
+    next: (res) => {
+      this.categories = res.data;
+      console.log('✅ Categories:', this.categories);
+    },
+    error: (err) => {
+      console.error('❌ Error fetching categories:', err);
+    }
+  });
+}
+
+
+
+
+
+
 
   // اختيار نوع الكورس
   selectCourse(index: number): void {
     this.selectedCourse = index;
     this.courseData.courseType = this.courses[index].title; // حفظ نوع الكورس المختار
   }
-
-  // الانتقال إلى الخطوة التالية
-  // continue(): void {
-  //   if (this.step === 1 && this.selectedCourse !== null) {
-  //     console.log('Selected Course:', this.courses[this.selectedCourse]);
-  //     this.step++;
-  //   } else if (this.step === 2 && this.courseTitle.trim() !== '') {
-  //     this.step++;
-  //   } else if (this.step === 3) {
-  //     this.step++;
-  //   }
-  // }
 
   // الرجوع للخطوة السابقة
   previous(): void {
@@ -97,11 +111,15 @@ continue(): void {
       this.step++;
     }
   } else if (this.step === 3) {
-    this.isCategoryEmpty = this.selectedCategory.trim() === '';
-    if (!this.isCategoryEmpty) {
-      this.step++;
-    }
+  this.isCategoryEmpty = !this.selectedCategory;
+  if (!this.isCategoryEmpty) {
+    // حفظ الاسم والآي دي
+    this.courseData.category = this.selectedCategory.name;
+    this.courseData.categoryId = this.selectedCategory.id;
+    this.step++;
   }
+}
+
 }
 
 
@@ -136,20 +154,7 @@ checkInputs(): void {
   }
 }
 
-  // submitCourse() {
-  //   // تحديث بيانات الكورس قبل الإرسال
-  //   this.courseData.courseTitle = this.courseTitle;
-  //   this.courseData.category = this.selectedCategory;
-  //   this.courseData.learningObjectives = this.learningObjectives;
-  //   this.courseData.requirements = this.requirements;
-  //   this.courseData.targetAudience = this.targetAudience;
 
-  //   console.log("🚀 Data before navigation:", this.courseData);
-
-  //   this.router.navigate(['/createCoursesDetalis'], {
-  //     queryParams: { course: encodeURIComponent(JSON.stringify(this.courseData)) }
-  //   });
-  // }
 
 
   }

@@ -244,6 +244,7 @@ closeQuizModal() {
 
   sections = [{
     name: '',
+    description: '',
     lectures: [{ title: '', video: null, videoName: '', description: '', activeTab: 'video', quizzes: []as any[]}]
   }];
 
@@ -335,6 +336,131 @@ closeQuizModal() {
     return this.courseData && Object.keys(this.courseData).length > 0 && this.courseData.price > 0;
   }
 
+
+async submitCourseFlow() {
+  try {
+    // 🔐 جلب التوكن
+    const userData = localStorage.getItem('user');
+    const token = userData ? JSON.parse(userData).token : null;
+
+    if (!token) {
+      throw new Error('Missing token');
+    }
+
+    const headers = {
+      Authorization: `Bearer ${token}`
+    };
+
+    // إعداد formData للكورس
+    const formData = new FormData();
+
+    if (this.courseObj.landingPage.photo) {
+      formData.append('thumbnail', this.courseObj.landingPage.photo);
+    }
+
+    if (this.courseObj.categoryId) {
+      formData.append('categoryId', this.courseObj.categoryId);
+    }
+
+    const levelMap: { [key: string]: string } = {
+      Beginner: '1',
+      Intermediate: '2',
+      Advanced: '3',
+    };
+    const level = this.courseObj.landingPage.level;
+    if (level && levelMap[level]) {
+      formData.append('level', levelMap[level]);
+    }
+
+    if (this.courseObj.landingPage.language) {
+      formData.append('language', this.courseObj.landingPage.language.toLowerCase());
+    }
+
+    if (this.courseObj.pricing?.price != null) {
+      formData.append('price', this.courseObj.pricing.price.toString());
+    }
+
+    if (this.courseObj.courseTitle) {
+      formData.append('Title', this.courseObj.courseTitle);
+    }
+
+    if (this.courseObj.pricing?.currency) {
+      formData.append('currency', this.courseObj.pricing.currency);
+    }
+
+    if (this.courseObj.subcategoryId) {
+      formData.append('subcategoryId', this.courseObj.subcategoryId);
+    }
+
+    if (this.courseObj.targetAudience) {
+      formData.append('targetAudience', this.courseObj.targetAudience);
+    }
+
+    if (this.courseObj.requirements) {
+      formData.append('prerequisites', this.courseObj.requirements);
+    }
+
+    if (this.courseObj.landingPage.description) {
+      formData.append('descriptions', this.courseObj.landingPage.description);
+    }
+
+    const typeMap: { [key: string]: string } = {
+      'Recorded Educational Courses': '1',
+      'Live Streamed Educational Courses': '2',
+    };
+    if (this.courseObj.courseType && typeMap[this.courseObj.courseType]) {
+      formData.append('type', typeMap[this.courseObj.courseType]);
+    }
+console.log('🟡 Sending formData...');
+for (const [key, value] of formData.entries()) {
+  console.log(`${key}:`, value);
+}
+
+    // 1. إرسال بيانات الكورس
+    const courseResponse: any = await this.http
+      .post('https://api.makhekh.com/api/Courses', formData, { headers })
+      .toPromise();
+    const courseId = courseResponse.id;
+
+    // 2. إرسال السكاشن واحدة واحدة
+    for (const section of this.courseObj.curriculum) {
+      const sectionFormData = new FormData();
+      sectionFormData.append('title', section.name);
+      sectionFormData.append('description', section.description);
+
+      const sectionResponse: any = await this.http
+        .post(`https://api.makhekh.com/api/courses/${courseId}/Sections`, sectionFormData, { headers })
+        .toPromise();
+      const sectionId = sectionResponse.id;
+
+      // 3. إرسال المحاضرات الخاصة بالسكشن
+      for (const lecture of section.lectures) {
+        const lectureFormData = new FormData();
+        lectureFormData.append('Title', lecture.title);
+        lectureFormData.append('SectionId', sectionId);
+
+        if (lecture.video) {
+          lectureFormData.append('videoFile', lecture.video);
+        }
+
+        await this.http
+          .post(`https://api.makhekh.com/api/Courses/${courseId}/Lectures/video`, lectureFormData, { headers })
+          .toPromise();
+      }
+    }
+
+    // 4. التوجيه بعد النجاح
+    this.router.navigate(['courseDetails'], {
+      queryParams: { data: JSON.stringify({ ...this.courseObj, id: courseId }) },
+    });
+
+  } catch (error) {
+    console.error('Error during course submission:', error);
+    this.warningMessageKey = 'warnings.courseUploadFailed';
+  }
+}
+
+
   nextStep1() {
     // التحقق من صحة البيانات لكل خطوة قبل المتابعة
     if (this.currentStep === 0 && !this.isFirstStepValid()) {
@@ -368,6 +494,8 @@ closeQuizModal() {
       case 3:
         this.courseObj.coupons = [...this.coupons];
         this.instructorCoursesService.addCourse(this.courseObj);
+              this.submitCourseFlow(); // ← هنا نبدأ سلسلة الإرسال
+
         this.router.navigate(['courseDetails'], { queryParams: { data: JSON.stringify(this.courseObj) } });
         return;
     }
@@ -477,14 +605,29 @@ console.log("Course Object:", this.courseObj);
     console.log('Promo link pasted:', this.courseData.promoLink);
   }
 
-  isFirstStepValid(): boolean {
-    const firstSection = this.sections[0];
-    if (!firstSection || firstSection.name.trim() === '') return false;
-    const firstLecture = firstSection.lectures[0];
-    if (!firstLecture || firstLecture.title.trim() === '') return false;
-    if (!firstLecture.video || !firstLecture.description.trim()) return false;
-    return true;
+isFirstStepValid(): boolean {
+  const firstSection = this.sections[0];
+  if (
+    !firstSection ||
+    firstSection.name.trim() === '' ||
+    firstSection.description.trim() === ''
+  ) {
+    return false;
   }
+
+  const firstLecture = firstSection.lectures[0];
+  if (
+    !firstLecture ||
+    firstLecture.title.trim() === '' ||
+    firstLecture.description.trim() === '' ||
+    !firstLecture.video
+  ) {
+    return false;
+  }
+
+  return true;
+}
+
 
   changeTab(sectionIndex: number, lectureIndex: number, tab: 'video' | 'description') {
     this.sections[sectionIndex].lectures[lectureIndex].activeTab = tab;
@@ -494,6 +637,7 @@ console.log("Course Object:", this.courseObj);
   addSection() {
     this.sections.push({
       name: '',
+      description: '',
       lectures: [{ title: '', video: null, videoName: '', description: '', activeTab: 'video' ,quizzes: []as any[]}]
     });
   }
@@ -509,32 +653,37 @@ console.log("Course Object:", this.courseObj);
   }
   warningMessageKey: string = '';
 
-  isStepThreeValid(): boolean {
-    return !!this.course.title &&
-           !!this.course.description &&
-           !!this.course.language &&
-           !!this.course.level &&
-           !!this.course.category &&
-           !!this.course.duration &&
-           !!this.course.lecturer &&
-           !!this.course.lecturerDescription &&
-           !!this.course.photo &&  // التأكد من وجود صورة
-           !!this.course.video;    // التأكد من وجود فيديو
+isStepThreeValid(): boolean {
+  // نتحقق أولاً إننا في الخطوة رقم 1
+  if (this.currentStep !== 1) return true;
+
+  // بعد كده نتحقق من القيم المطلوبة
+  return !!this.course.description?.trim() &&
+         !!this.course.language &&
+         !!this.course.level &&
+         !!this.course.duration ;
+}
+// &&
+// !!this.course.photo
+
+ onFileSelectedd(event: any, type: string) {
+  const file = event.target.files?.[0];
+  if (!file) return;
+
+  if (!this.courseObj.landingPage) {
+    this.courseObj.landingPage = {};
   }
 
-
-  onFileSelectedd(event: any, type: string) {
-    const file = event.target.files[0];
-    if (file) {
-      if (type === 'photo' && ['image/png', 'image/jpeg', 'image/jpg'].includes(file.type)) {
-        this.course.photo = file;
-      } else if (type === 'video' && ['video/mp4', 'video/avi', 'video/mov'].includes(file.type)) {
-        this.course.video = file;
-      } else {
-        alert(`Invalid ${type} format!`);
-      }
-    }
+  if (type === 'photo' && ['image/png', 'image/jpeg', 'image/jpg'].includes(file.type)) {
+    this.courseObj.landingPage.photo = file;
+  } else if (type === 'video' && ['video/mp4', 'video/avi', 'video/mov'].includes(file.type)) {
+    this.courseObj.landingPage.video = file;
+  } else {
+    alert(`❌ Invalid ${type} format!`);
   }
+}
+
+
 
 
   deleteRow(index: number) {

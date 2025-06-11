@@ -1,19 +1,22 @@
 <section class="pt-3">
   <div class="container">
     <div class="row">
-      <div class="col-md-6 d-flex justify-content-around flex-wrap">
-        <a routerLink="development-course"><p class="px-2" >{{ "secondHome.Development" | transloco }}</p></a>
-        <a routerLink="finance-course"> <p class="px-2">{{ "secondHome.Finance & Accounting" | transloco }}</p></a>
-        <a routerLink="it-course"> <p class="px-2">{{ "secondHome.IT & Software" | transloco }}</p> </a>
-        <a routerLink="design-course"><p class="px-2">{{ "secondHome.Design" | transloco }}</p></a>
-      </div>
-      <div class="col-md-6 d-flex justify-content-around flex-wrap">
-        <a routerLink="business-course"><p class="px-2">{{ "secondHome.Business" | transloco }}</p></a>
-        <a routerLink="marketing-course"><p class="px-2">{{ "secondHome.Marketing" | transloco }}</p></a>
-        <a routerLink="health-course"><p class="px-2">{{ "secondHome.Health & Fitness" | transloco }}</p></a>
-        <a routerLink="offer-course"><p class="px-2">{{ "secondHome.Offer Productivity" | transloco }}</p></a>
+      <div class="col-md-12 d-flex justify-content-around flex-wrap">
+        <div *ngFor="let category of categories">
+  <a
+
+    (click)="onSelectCategory(category.name)"
+    [ngClass]="{'active-category': selectedCategoryName === category.name}"
+    class="w-20 text-center"
+  >
+    <p class="px-2">{{ category.name }}</p>
+  </a>
+</div>
+
+
 
       </div>
+
     </div>
   </div>
 </section>

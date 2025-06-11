@@ -28,9 +28,11 @@
 
           <div *ngFor="let section of sections; let i = index" class="card mb-3">
             <div class="card-body">
-              <div class="d-flex justify-content-between align-items-center">
-                <input [(ngModel)]="section.name"  [attr.placeholder]="'course-header.Section Name' | transloco"  class="form-control mb-2 w-75" />
-                <button class="btn btn-danger btn-sm" (click)="removeSection(i)"> {{ 'course-header.Delete Section' | transloco }}</button>
+              <div class="d-flex flex-column align-items-start">
+                <input [(ngModel)]="section.name"  [attr.placeholder]="'course-header.Section Name' | transloco"  class="form-control mb-2 w-100" />
+                <input [(ngModel)]="section.description"  [attr.placeholder]="'course-header.Description' | transloco"  class="form-control mb-2 w-100" />
+
+                <button class="btn btn-danger btn-sm " (click)="removeSection(i)"> {{ 'course-header.Delete Section' | transloco }}</button>
               </div>
 
               <div *ngFor="let lecture of section.lectures; let j = index">
@@ -61,49 +63,20 @@
                 <div *ngIf="lecture.activeTab === 'description'" class="mt-2 mb-2">
                   <textarea [(ngModel)]="lecture.description"  [attr.placeholder]="'course-header.Enter video description' | transloco" class="form-control"></textarea>
                 </div>
-                <button class="btn btn-outline-primary btn-sm mt-2" (click)="openQuizModal(i, j)">
-                  {{ 'quiz.create_new' | transloco }}
-                </button>
 
-                <!-- <app-quiz-form
-                [sectionIndex]="i"
-                [lectureIndex]="j"
-                (quizData)="handleQuizData($event)">
-              </app-quiz-form> -->
 
               <hr/>
               </div>
 
               <button class="btn btn-sm btn-secondary" (click)="addLecture(i)"> {{ 'course-header.+ Add Lecture' | transloco }}</button>
             </div>
-              <button class="btn btn-outline-primary btn-sm mt-2" (click)="openQuizModalSection(i)">
-                  {{ 'quiz.Create Section Quiz' | transloco }}
-                </button>
+
           </div>
 
           <button class="btn btn-primary w-100" (click)="addSection()">{{ 'course-header.+ Add Section' | transloco }}</button>
           <br>
-<button class="btn btn-success w-100 mt-2" (click)="openQuizModalCourse()">
-                  {{ 'quiz.Create Course Quiz' | transloco }}
-                </button>
-          <app-quiz-form
-  *ngIf="isQuizModalOpen"
-  [sectionIndex]="selectedSectionIndex"
-  [lectureIndex]="selectedLectureIndex"
-  (quizData)="handleQuizData($event)">
-</app-quiz-form>
-<app-quiz-form-section
-  *ngIf="isQuizModalOpen"
-  [sectionIndex]="selectedSectionIndex"
-  [lectureIndex]="selectedLectureIndex"
-  (quizData)="handleQuizDataSection($event)">
-</app-quiz-form-section>
-<app-quiz-form-course
-  *ngIf="isQuizModalOpen"
-  [sectionIndex]="selectedSectionIndex"
-  [lectureIndex]="selectedLectureIndex"
-  (quizData)="handleQuizDataSection($event)">
-</app-quiz-form-course>
+
+
         </div>
 
 
@@ -114,10 +87,7 @@
       <h3 class="mb-3">{{ 'course-header.Landing Page' | transloco }}</h3>
 
       <form #courseForm="ngForm">
-        <div class="mb-3">
-          <label class="form-label">{{ 'course-header.Course Title' | transloco }}</label>
-          <input type="text" class="form-control" [(ngModel)]="course.title" name="title" required>
-        </div>
+
 
         <div class="mb-3">
           <label class="form-label">{{ 'course-header.Description' | transloco }}</label>
@@ -143,20 +113,7 @@
         </div>
 
         <div class="row mt-3">
-          <div class="col-md-6">
-            <label class="form-label">{{ 'course-header.Category' | transloco }}</label>
-            <select class="form-select" [(ngModel)]="course.category" name="category" required>
-              <option>{{ 'course-header.Design' | transloco }}</option>
-              <option>{{ 'course-header.Development' | transloco }}</option>
-              <option>{{ 'course-header.Offer Productivity' | transloco }}</option>
-              <option>{{ 'course-header.Health & Fitness' | transloco }}</option>
-              <option>{{ 'course-header.Marketing' | transloco }}</option>
-              <option>{{ 'course-header.Business' | transloco }}</option>
-              <option>{{ 'course-header.IT & Software' | transloco }}</option>
-              <option>{{ 'course-header.Finance & Accounting' | transloco }}</option>
 
-            </select>
-          </div>
           <div class="col-md-6">
             <label class="form-label">{{ 'course-header.Course Duration' | transloco }}</label>
             <select class="form-select" [(ngModel)]="course.duration" name="duration" required>
@@ -167,20 +124,26 @@
               <option value="4 Monthes">{{ 'course-header.4 Monthes' | transloco }}</option>
             </select>
           </div>
-        </div>
 
-        <div class="row mt-3">
-          <div class="col-md-6">
-            <label class="form-label">{{ 'course-header.Promo Video' | transloco }}</label>
-            <input type="file" class="form-control" (change)="onFileSelectedd($event, 'video')" accept="video/*">
-          </div>
+
           <div class="col-md-6">
             <label class="form-label">{{ 'course-header.Course Photo' | transloco }}</label>
             <input type="file" class="form-control" (change)="onFileSelectedd($event, 'photo')" accept="image/*">
           </div>
         </div>
 
+        <div class="row mt-3">
+          <!-- <div class="col-md-6">
+            <label class="form-label">{{ 'course-header.Promo Video' | transloco }}</label>
+            <input type="file" class="form-control" (change)="onFileSelectedd($event, 'video')" accept="video/*">
+          </div> -->
+          <!-- <div class="col-md-6">
+            <label class="form-label">{{ 'course-header.Course Photo' | transloco }}</label>
+            <input type="file" class="form-control" (change)="onFileSelectedd($event, 'photo')" accept="image/*">
+          </div> -->
+        </div>
 
+<!--
         <div class="mb-3 mt-3">
           <label class="form-label"> {{ 'course-header.Lecturer Name' | transloco }}</label>
           <input type="text" class="form-control" [(ngModel)]="course.lecturer" name="lecturer" required>
@@ -189,7 +152,7 @@
         <div class="mb-3">
           <label class="form-label"> {{ 'course-header.Lecturer Description' | transloco }}</label>
           <input type="text" class="form-control" [(ngModel)]="course.lecturerDescription" name="lecturerDescription" required>
-        </div>
+        </div> -->
 
       </form>
     </div>
@@ -199,12 +162,11 @@
 
   <!-- Step 3: Pricing & Promotions Page -->
   <div *ngIf="currentStep === 2" class="container mt-4">
-    <div class="card p-4">
+    <div class="card pb-4">
 
       <div class="container mt-4">
         <!-- Pricing Section -->
-        <div class="card mb-3">
-            <div class="card-body">
+          <div class="card-body">
                 <h5 class="card-title"> {{ 'course-header.Pricing' | transloco }}</h5>
                 <p class="fw-bold">{{ 'course-header.Set a price for your course' | transloco }}</p>
                 <p class="text-muted">{{ 'course-header.Lorem ipsum dolor sit amet, consectetur adipiscing elit.' | transloco }}</p>
@@ -216,6 +178,7 @@
                     <div class="col-md-6">
                         <label class="form-label">{{ 'course-header.Currency' | transloco }}</label>
                         <select class="form-select" [(ngModel)]="courseData.currency">
+                           <option value="SAR">SAR</option>
                             <option value="USD">USD</option>
                             <option value="EUR">EUR</option>
                         </select>
@@ -230,23 +193,23 @@
                 </div>
                 <!-- <button class="btn btn-primary mt-3" (click)="saveData()">Save</button> -->
             </div>
-        </div>
+
 
         <!-- Promotions Section -->
-        <div class="card mb-3">
+        <!-- <div class="card mb-3">
             <div class="card-body">
                 <h5 class="card-title">{{ 'course-header.Promotions' | transloco }}</h5>
                 <p class="fw-bold">{{ 'course-header.Offer Conditions' | transloco }}</p>
                 <p class="text-muted">{{ 'course-header.Each time a student uses this link, the instructor will receive 80%...' | transloco }}</p>
                 <div class="input-group">
                     <input type="text" class="form-control" [(ngModel)]="courseData.promoLink" [attr.placeholder]="'course-header.Copy link' | transloco"   >
-                    <!-- <button class="btn btn-primary" (click)="pastePromoLink()">Paste</button> -->
+                    <button class="btn btn-primary" (click)="pastePromoLink()">Paste</button>
                 </div>
             </div>
-        </div>
+        </div> -->
 
         <!-- Purchase Vouchers Section -->
-        <div class="card mb-3">
+        <!-- <div class="card mb-3">
           <div class="card-body">
               <h5 class="card-title"> {{ 'course-header.Purchase Vouchers' | transloco }}</h5>
               <div class="row">
@@ -265,7 +228,7 @@
               </div>
               <button class="btn btn-primary mt-3" (click)="saveData()"> {{ 'course-header.Purchase Vouchers' | transloco }}</button>
           </div>
-        </div>
+        </div> -->
 
       </div>
     </div>

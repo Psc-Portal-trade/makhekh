@@ -40,6 +40,9 @@ export class QuizFormComponent {
       examDescription: [''],
       attempts: [1, [Validators.required, Validators.min(1)]],
       passingScore: [50, [Validators.required, Validators.min(1), Validators.max(100)]],
+      isFree: [true, Validators.required],
+      price: [0],
+      quizType: ['mcq', Validators.required],
       questions: this.fb.array([]),
     });
 
@@ -61,7 +64,10 @@ export class QuizFormComponent {
   }
   addQuestion(type: 'mcq' | 'essay' = 'mcq') {
     let questionGroup: FormGroup;
-  
+    const selectedType = this.quizForm.get('quizType')?.value;
+    if (type !== selectedType) {
+      return alert(this.translocoService.translate('quiz.errors.quiz_type_mismatch'));
+    }
     if (type === 'mcq') {
       const optionsArray = this.fb.array([
         this.fb.group({ optionValue: ['', Validators.required] }),
@@ -111,6 +117,10 @@ export class QuizFormComponent {
 
   onSubmit() {
     this.errorMessages = [];
+
+    if (this.quizForm.get('isFree')?.value === false && (!this.quizForm.get('price')?.value || this.quizForm.get('price')?.value <= 0)) {
+      this.errorMessages.push('quiz.errors.price_required');
+    }
   
     if (this.quizForm.invalid) {
       this.quizForm.markAllAsTouched();
@@ -217,11 +227,15 @@ export class QuizFormComponent {
       examDescription: [''],
       attempts: [1, [Validators.required, Validators.min(1)]],
       passingScore: [50, [Validators.required, Validators.min(1), Validators.max(100)]],
+      isFree: [true, Validators.required],
+      price: [0],
+      quizType: ['mcq', Validators.required],
       questions: this.fb.array([]),
     });
     this.isFormValid = false;
     this.errorMessages = [];
   }
+  
 
   closeModal() {
     const modal = document.getElementById('quizModal');
