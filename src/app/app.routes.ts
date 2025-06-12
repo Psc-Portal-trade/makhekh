@@ -1060,6 +1060,7 @@ export const routes: Routes = [
 
 
 
+{path:"instructor-profile/create-course/edit-course",redirectTo:"edit-course",pathMatch:"full"},
 
 
 

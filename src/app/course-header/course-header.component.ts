@@ -13,7 +13,7 @@ import { QuizFormCourseComponent } from "../quiz-form-course/quiz-form-course.co
 @Component({
   selector: 'app-course-header',
   standalone: true,
-  imports: [CommonModule, FormsModule, RouterLink, HttpClientModule, TranslocoPipe, QuizFormComponent, QuizFormSectionComponent, QuizFormCourseComponent],
+  imports: [CommonModule, FormsModule, RouterLink, HttpClientModule, TranslocoPipe],
   templateUrl: './course-header.component.html',
   styleUrls: ['./course-header.component.css']
 })
@@ -22,199 +22,6 @@ export class CourseHeaderComponent implements OnInit {
   selectedSectionIndex: number = 0;
   selectedLectureIndex: number = 0;
   selectedRowIndex: number = 0;
-
-
-
-  openQuizModal(sectionIndex: number, lectureIndex: number) {
-    this.selectedSectionIndex = sectionIndex;
-    this.selectedLectureIndex = lectureIndex;
-    this.isQuizModalOpen = true;
-
-
-
-    // فتح المودال يدويًا
-    setTimeout(() => {
-      const modal = document.getElementById('quizModal');
-      if (modal) {
-        modal.classList.add('show');
-        modal.style.display = 'block';
-      }
-    });
-  }
-
-
-  handleQuizData(payload: { data: any, sectionIndex: number, lectureIndex: number }) {
-  const { data, sectionIndex, lectureIndex } = payload;
-
-  const targetLecture = this.sections[sectionIndex].lectures[lectureIndex];
-
-  const quizData = {
-    title: data.title || '',
-    duration: data.duration || 0,
-    questions: data.questions?.map((q: any) => ({
-      text: q.text || '',
-      options: q.options ? [...q.options] : [],
-      correctAnswer: q.correctAnswer || null,
-      answerExplanation: q.answerExplanation || ''
-    })) || []
-  };
-
-  targetLecture.quizzes.push(quizData);
-  this.courseObj.curriculum = [...this.sections];
-
-  console.log("✅ تم إضافة كويز جديد في:");
-  console.log("Section Index:", sectionIndex);
-  console.log("Lecture Index:", lectureIndex);
-  console.log("Quiz Data:", quizData);
-
-  this.closeQuizModal();
-}
-openQuizModalSection(sectionIndex: number) {
-    this.selectedSectionIndex = sectionIndex;
-    this.isQuizModalOpen = true;
-
-
-
-    // فتح المودال يدويًا
-    setTimeout(() => {
-      const modal = document.getElementById('quizModal');
-      if (modal) {
-        modal.classList.add('show');
-        modal.style.display = 'block';
-      }
-    });
-  }
-
-
-  handleQuizDataSection(payload: { data: any, sectionIndex: number, lectureIndex: number }) {
-  const { data, sectionIndex, lectureIndex } = payload;
-
-  const targetLecture = this.sections[sectionIndex].lectures[lectureIndex];
-
-  const quizData = {
-    title: data.title || '',
-    duration: data.duration || 0,
-    questions: data.questions?.map((q: any) => ({
-      text: q.text || '',
-      options: q.options ? [...q.options] : [],
-      correctAnswer: q.correctAnswer || null,
-      answerExplanation: q.answerExplanation || ''
-    })) || []
-  };
-
-  targetLecture.quizzes.push(quizData);
-  this.courseObj.curriculum = [...this.sections];
-
-  console.log("✅ تم إضافة كويز جديد في:");
-  console.log("Section Index:", sectionIndex);
-  console.log("Lecture Index:", lectureIndex);
-  console.log("Quiz Data:", quizData);
-
-  this.closeQuizModal();
-}
-openQuizModalCourse() {
-    this.isQuizModalOpen = true;
-
-
-
-    // فتح المودال يدويًا
-    setTimeout(() => {
-      const modal = document.getElementById('quizModal');
-      if (modal) {
-        modal.classList.add('show');
-        modal.style.display = 'block';
-      }
-    });
-  }
-
-
-  handleQuizDataCourse(payload: { data: any, sectionIndex: number, lectureIndex: number }) {
-  const { data, sectionIndex, lectureIndex } = payload;
-
-  const targetLecture = this.sections[sectionIndex].lectures[lectureIndex];
-
-  const quizData = {
-    title: data.title || '',
-    duration: data.duration || 0,
-    questions: data.questions?.map((q: any) => ({
-      text: q.text || '',
-      options: q.options ? [...q.options] : [],
-      correctAnswer: q.correctAnswer || null,
-      answerExplanation: q.answerExplanation || ''
-    })) || []
-  };
-
-  targetLecture.quizzes.push(quizData);
-  this.courseObj.curriculum = [...this.sections];
-
-  console.log("✅ تم إضافة كويز جديد في:");
-  console.log("Section Index:", sectionIndex);
-  console.log("Lecture Index:", lectureIndex);
-  console.log("Quiz Data:", quizData);
-
-  this.closeQuizModal();
-}
-openQuizModallive( rowIndex: number) {
-
-  this.isQuizModalOpen = true;
-  this.selectedRowIndex = rowIndex;  // حفظ الرقم الفريد للصف المحدد
-
-
-  // فتح المودال يدويًا
-  setTimeout(() => {
-    const modal = document.getElementById('quizModal');
-    if (modal) {
-      modal.classList.add('show');
-      modal.style.display = 'block';
-    }
-  });
-}
-handleQuizDatalive(payload: { data: any, rowIndex: number}) {
-  const { data, rowIndex} = payload;
-
-  const quizDatalive = {
-    title: data.title || '',
-    duration: data.duration || 0,
-    questions: data.questions?.map((q: any) => ({
-      text: q.text || '',
-      options: q.options ? [...q.options] : [],
-      correctAnswer: q.correctAnswer || null,
-      answerExplanation: q.answerExplanation || ''
-    })) || []
-  };
-
-  // إضافة الكويز إلى الصف المحدد
-  if (this.courseObj.courseType === 'Live Streamed Educational Courses') {
-    if (this.selectedSchedule.length > 0) {
-      const selectedRow = this.selectedSchedule[rowIndex];  // الحصول على الصف باستخدام rowIndex
-
-      if (!selectedRow.quizzes) {
-        selectedRow.quizzes = [];  // إذا لم تكن هناك كويزات من قبل، نقوم بإنشاء مصفوفة جديدة
-      }
-
-      selectedRow.quizzes.push(quizDatalive);  // إضافة الكويز للصف
-      this.courseObj.schedules = [...this.selectedSchedule];  // تحديث الكائن الذي يحتوي على البيانات
-      console.log("✅ تم إضافة كويز داخل الجدول:", this.courseObj);
-    } else {
-      console.warn("⚠️ لا توجد صفوف (Schedules) لإضافة الكويز!");
-    }
-  }
-}
-
-
-
-
-
-
-closeQuizModal() {
-  this.isQuizModalOpen = false;
-  const modal = document.getElementById('quizModal');
-  if (modal) {
-    modal.classList.remove('show');
-    modal.style.display = 'none';
-  }
-}
-
 
 
   activeLang: string = 'en'; // تعيين اللغة الافتراضية
@@ -339,23 +146,27 @@ closeQuizModal() {
 
 async submitCourseFlow() {
   try {
-    // 🔐 جلب التوكن
+    this.isLoading = true;
+
     const userData = localStorage.getItem('user');
     const token = userData ? JSON.parse(userData).token : null;
 
-    if (!token) {
-      throw new Error('Missing token');
-    }
+    if (!token) throw new Error('Missing token');
 
     const headers = {
-      Authorization: `Bearer ${token}`
+      Authorization: `Bearer ${token}`,
     };
 
-    // إعداد formData للكورس
     const formData = new FormData();
 
-    if (this.courseObj.landingPage.photo) {
-      formData.append('thumbnail', this.courseObj.landingPage.photo);
+    const photo = this.courseObj?.landingPage?.photo;
+    if (photo instanceof File) {
+      formData.append('thumbnail', photo);
+    } else {
+      alert('❌ Please upload a valid image file (png/jpeg).');
+      console.warn('Thumbnail is missing or not a valid File:', photo);
+      this.isLoading = false;
+      return;
     }
 
     if (this.courseObj.categoryId) {
@@ -367,12 +178,12 @@ async submitCourseFlow() {
       Intermediate: '2',
       Advanced: '3',
     };
-    const level = this.courseObj.landingPage.level;
+    const level = this.courseObj.landingPage?.level;
     if (level && levelMap[level]) {
       formData.append('level', levelMap[level]);
     }
 
-    if (this.courseObj.landingPage.language) {
+    if (this.courseObj.landingPage?.language) {
       formData.append('language', this.courseObj.landingPage.language.toLowerCase());
     }
 
@@ -400,7 +211,7 @@ async submitCourseFlow() {
       formData.append('prerequisites', this.courseObj.requirements);
     }
 
-    if (this.courseObj.landingPage.description) {
+    if (this.courseObj.landingPage?.description) {
       formData.append('descriptions', this.courseObj.landingPage.description);
     }
 
@@ -411,29 +222,43 @@ async submitCourseFlow() {
     if (this.courseObj.courseType && typeMap[this.courseObj.courseType]) {
       formData.append('type', typeMap[this.courseObj.courseType]);
     }
-console.log('🟡 Sending formData...');
-for (const [key, value] of formData.entries()) {
-  console.log(`${key}:`, value);
-}
 
-    // 1. إرسال بيانات الكورس
+    console.log('🟡 Sending formData...');
+    formData.forEach((val, key) => console.log(`${key}:`, val));
+
     const courseResponse: any = await this.http
       .post('https://api.makhekh.com/api/Courses', formData, { headers })
       .toPromise();
-    const courseId = courseResponse.id;
 
-    // 2. إرسال السكاشن واحدة واحدة
+    console.log('✅ Course Creation Response:', courseResponse);
+
+    const courseId = courseResponse.data?.id;
+    this.courseObj.categoryId = courseId;
+    console.log('✅ Course ID set as categoryId:', courseId);
+
     for (const section of this.courseObj.curriculum) {
-      const sectionFormData = new FormData();
-      sectionFormData.append('title', section.name);
-      sectionFormData.append('description', section.description);
+      const sectionBody = {
+        title: section.name,
+        description: section.description,
+      };
 
       const sectionResponse: any = await this.http
-        .post(`https://api.makhekh.com/api/courses/${courseId}/Sections`, sectionFormData, { headers })
+        .post(
+          `https://api.makhekh.com/api/courses/${courseId}/Sections`,
+          sectionBody,
+          {
+            headers: {
+              ...headers,
+              'Content-Type': 'application/json',
+            },
+          }
+        )
         .toPromise();
+
+      console.log('📦 Section Response:', sectionResponse);
+
       const sectionId = sectionResponse.id;
 
-      // 3. إرسال المحاضرات الخاصة بالسكشن
       for (const lecture of section.lectures) {
         const lectureFormData = new FormData();
         lectureFormData.append('Title', lecture.title);
@@ -443,70 +268,107 @@ for (const [key, value] of formData.entries()) {
           lectureFormData.append('videoFile', lecture.video);
         }
 
-        await this.http
+        const lectureResponse: any = await this.http
           .post(`https://api.makhekh.com/api/Courses/${courseId}/Lectures/video`, lectureFormData, { headers })
           .toPromise();
+
+        console.log('🎥 Lecture Upload Response:', lectureResponse);
       }
     }
 
-    // 4. التوجيه بعد النجاح
-    this.router.navigate(['courseDetails'], {
+    // ✅ عمل Approve تلقائي
+    const approveToken = 'eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6IjkzM2RkOGU5LTk2ZDItNDliOS1hOTdiLTJhMGJkMDMyZTc4NyIsImh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3dzLzIwMDUvMDUvaWRlbnRpdHkvY2xhaW1zL2dpdmVubmFtZSI6Ik11c3RhZmEiLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9lbWFpbGFkZHJlc3MiOiJhZG1pbkBtYWhrZWhrLmNvbSIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6IkFkbWluIiwiZXhwIjoxNzQ5OTAyMDMyLCJpc3MiOiJodHRwczovL2FwaS5tYWtoZWtoLmNvbS8iLCJhdWQiOiJNeVNlY3VyZUtleSJ9.Xq3nAOuu_ohD3PqVy4KIC1vNvsA9spTFq5hGbDgd0x4';
+
+    const approveBody = {
+      courseId: courseId,
+      approve: true,
+      comment: "ok"
+    };
+
+    const approveResponse = await this.http
+      .post(
+        'https://api.makhekh.com/api/admin/courses/approve',
+        approveBody,
+        {
+          headers: {
+            Authorization: `Bearer ${approveToken}`,
+            'Content-Type': 'application/json',
+          },
+        }
+      )
+      .toPromise();
+
+    console.log('✅ Course Approved Response:', approveResponse);
+
+    this.isLoading = false;
+
+    this.router.navigate(['instructor-profile/create-course'], {
       queryParams: { data: JSON.stringify({ ...this.courseObj, id: courseId }) },
     });
 
   } catch (error) {
-    console.error('Error during course submission:', error);
+    this.isLoading = false;
+    console.error('❌ Error during course submission:', error);
     this.warningMessageKey = 'warnings.courseUploadFailed';
   }
 }
 
 
-  nextStep1() {
-    // التحقق من صحة البيانات لكل خطوة قبل المتابعة
-    if (this.currentStep === 0 && !this.isFirstStepValid()) {
-      this.warningMessageKey = 'warnings.fillFirstSection';
-      return;
-    }
 
-    if (this.currentStep === 1 && !this.isStepThreeValid()) {
-      this.warningMessageKey = 'warnings.fillCourseData';
-      return;
-    }
 
-    if (this.currentStep === 2 && !this.isStepTwoValid()) {
-      this.warningMessageKey = 'warnings.fillPriceData';
-      return;
-    }
-    // إزالة رسالة التحذير إذا كانت البيانات مكتملة
-    this.warningMessageKey = '';
 
-    // حفظ بيانات كل خطوة في courseObj قبل الانتقال للخطوة التالية
-    switch (this.currentStep) {
-      case 0:
-        this.courseObj.curriculum = this.sections;
-        break;
-      case 1:
-        this.courseObj.landingPage = { ...this.course };
-        break;
-      case 2:
-        this.courseObj.pricing = { ...this.courseData };
-        break;
-      case 3:
-        this.courseObj.coupons = [...this.coupons];
-        this.instructorCoursesService.addCourse(this.courseObj);
-              this.submitCourseFlow(); // ← هنا نبدأ سلسلة الإرسال
+isLoading: boolean = false;
 
-        this.router.navigate(['courseDetails'], { queryParams: { data: JSON.stringify(this.courseObj) } });
-        return;
-    }
 
-    // الانتقال إلى الخطوة التالية فقط إذا لم تكن الأخيرة
-    if (this.currentStep < this.stepsRecorded_Educational_Courses.length - 1) {
-      this.currentStep++;
-    }
-
-    console.log(this.courseObj);
+ nextStep1() {
+  if (this.currentStep === 0 && !this.isFirstStepValid()) {
+    this.warningMessageKey = 'warnings.fillFirstSection';
+    return;
   }
+
+  if (this.currentStep === 1 && !this.isStepThreeValid()) {
+    this.warningMessageKey = 'warnings.fillCourseData';
+    return;
+  }
+
+  if (this.currentStep === 2 && !this.isStepTwoValid()) {
+    this.warningMessageKey = 'warnings.fillPriceData';
+    return;
+  }
+
+  this.warningMessageKey = '';
+
+  switch (this.currentStep) {
+    case 0:
+      this.courseObj.curriculum = this.sections;
+      break;
+    case 1:
+      this.courseObj.landingPage = {
+        ...this.course,
+        photo: this.courseObj.landingPage.photo,
+        video: this.courseObj.landingPage.video
+      };
+      break;
+    case 2:
+      this.courseObj.pricing = { ...this.courseData };
+      break;
+    case 3:
+      this.courseObj.coupons = [...this.coupons];
+      // this.instructorCoursesService.addCourse(this.courseObj);
+
+      // ✅ نشغّل السبنر ونستدعي الارسال
+      this.isLoading = true;
+      this.submitCourseFlow();
+      return; // ⛔ نحذف التنقل من هنا
+  }
+
+  if (this.currentStep < this.stepsRecorded_Educational_Courses.length - 1) {
+    this.currentStep++;
+  }
+
+  console.log(this.courseObj);
+}
+
 
 
   nextStep2() {
@@ -559,7 +421,7 @@ for (const [key, value] of formData.entries()) {
     }
     else if (this.currentStep === 3) {
       this.courseObj.coupons = this.coupons;
-      this.instructorCoursesService.addCourse(this.courseObj);
+      // this.instructorCoursesService.addCourse(this.courseObj);
       this.router.navigate(['courseDetails'], { queryParams: { data: JSON.stringify(this.courseObj) } });
 
     }
@@ -666,22 +528,40 @@ isStepThreeValid(): boolean {
 // &&
 // !!this.course.photo
 
- onFileSelectedd(event: any, type: string) {
+onFileSelectedd(event: any, type: string) {
   const file = event.target.files?.[0];
   if (!file) return;
+
+  console.log('📦 File selected:', file);
+  console.log('📎 File type:', file.type);
+  console.log('📎 File name:', file.name);
 
   if (!this.courseObj.landingPage) {
     this.courseObj.landingPage = {};
   }
 
-  if (type === 'photo' && ['image/png', 'image/jpeg', 'image/jpg'].includes(file.type)) {
-    this.courseObj.landingPage.photo = file;
-  } else if (type === 'video' && ['video/mp4', 'video/avi', 'video/mov'].includes(file.type)) {
-    this.courseObj.landingPage.video = file;
-  } else {
-    alert(`❌ Invalid ${type} format!`);
+  const validImageExtensions = ['jpg', 'jpeg', 'png', 'webp', 'bmp', 'gif', 'svg', 'jfif'];
+  const fileExtension = file.name.split('.').pop()?.toLowerCase();
+  const isImageByType = file.type.startsWith('image/');
+  const isImageByExtension = fileExtension && validImageExtensions.includes(fileExtension);
+
+  if (type === 'photo') {
+    if (isImageByType || isImageByExtension) {
+      this.courseObj.landingPage.photo = file;
+      console.log('✅ Valid image file set:', file);
+    } else {
+      alert(`❌ Invalid image format!\nName: ${file.name}\nType: ${file.type}`);
+    }
+  } else if (type === 'video') {
+    const validVideoTypes = ['video/mp4', 'video/avi', 'video/mov'];
+    if (validVideoTypes.includes(file.type)) {
+      this.courseObj.landingPage.video = file;
+    } else {
+      alert(`❌ Invalid video format!`);
+    }
   }
 }
+
 
 
 

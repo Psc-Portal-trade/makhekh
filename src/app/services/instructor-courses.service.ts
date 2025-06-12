@@ -1,52 +1,31 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 @Injectable({
   providedIn: 'root'
 })
 export class InstructorCoursesService {
-  private courses: any[] = [];
   private selectedCourse: any = null;
 
-  constructor() {}
+  constructor(private http: HttpClient) {}
 
-  // أضف كورس جديد
-  addCourse(course: any): void {
-    this.courses.push(course);
-  }
-
-  // استرجاع كل الكورسات
-  getCourses(): any[] {
-    return this.courses;
-  }
-
-  // حذف كل الكورسات
-  clearCourses(): void {
-    this.courses = [];
-  }
-
-  // تعيين كورس للتعديل
+  // حفظ كورس واحد عند الضغط على Edit
   setCourse(course: any): void {
     this.selectedCourse = course;
   }
 
-  // استرجاع الكورس المحدد
+  // استرجاع الكورس المخزن
   getCourse(): any {
     return this.selectedCourse;
   }
 
-  // مسح الكورس المؤقت
-  clearSelectedCourse(): void {
-    this.selectedCourse = null;
+  // تعديل بيانات الكورس (اختياري – هنا مجرد تخزين محلي)
+  updateCourse(course: any): void {
+    this.selectedCourse = course;
   }
 
-  // ✅ تحديث الكورس المحدد داخل المصفوفة
-  updateCourse(updatedCourse: any): void {
-    const index = this.courses.findIndex(
-      c => c === this.selectedCourse
-    );
-    if (index !== -1) {
-      this.courses[index] = updatedCourse;
-      this.selectedCourse = updatedCourse; // تحديث النسخة المختارة كمان
-    }
+  // استدعاء كل الكورسات من الـ API
+  getCoursesFromApi() {
+    return this.http.get('https://api.makhekh.com/api/Courses/MyCourses');
   }
 }
