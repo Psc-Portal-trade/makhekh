@@ -214,3 +214,83 @@ ul {
     margin-top: 70px;
   }
 } */
+modal{
+  padding: 0px 60px 0px 60px;
+  }
+  
+  .modal-content {
+  max-height: 100vh; /* تعيين أقصى ارتفاع بنسبة 80% من ارتفاع الشاشة */
+  overflow-y: auto; /* السماح بالتمرير عند الحاجة */
+  }
+  
+  
+  :dir(rtl) .btn-success {
+  margin-right: 10px;
+  }
+  
+  
+  
+  .transperant{
+  background-color: transparent;
+  color: transparent;
+  opacity: 0;
+  }
+  
+  .form-check {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  gap: 10px;
+  }
+  
+  :dir(rtl) .form-check {
+  flex-direction: row;
+  }
+  
+  :dir(rtl) .form-check-input {
+  order: 1;
+  margin-right: 10px !important;
+  margin-left: 0 !important;
+  }
+  
+  :dir(rtl) .form-control {
+  order: 2;
+  }
+  
+  .card-body .btn-success {
+    background-color: #28a745;
+    border-color: #28a745;
+    transition: all 0.3s ease;
+  }
+  
+  .card-body .btn-success:hover {
+    background-color: #218838;
+    border-color: #1e7e34;
+    transform: translateY(-2px);
+  }
+  
+  .card-body .btn-danger {
+    background-color: #dc3545;
+    border-color: #dc3545;
+    transition: all 0.3s ease;
+  }
+  
+  .card-body .btn-danger:hover {
+    background-color: #c82333;
+    border-color: #bd2130;
+    transform: translateY(-2px);
+  }
+  
+  .card-body .btn i {
+    margin-right: 8px;
+  }
+  
+  .card-body .d-flex {
+    display: flex;
+    gap: 10px;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 300px;
+  }
+  

@@ -720,6 +720,15 @@
   },
 
   "course-header":{
+     "Book Title":"عنوان الكتاب",
+    "Book Description":"وصف الكتاب",
+    "+ Add Lecture File": "+ إضافة ملف للمحاضرة",
+    "+ Add Section File": "+ إضافة ملف للقسم",
+    "File Name": "اسم الملف",
+    "File Description": "وصف الملف",
+    "Course Book (PDF)":"كتاب الدورة (PDF)",
+"isPaid":"مدفوع",
+"This course is free":"هذه الدورة مجانية",
 
   "Back to Dashboard":"العودة إلى لوحة المعلومات",
   "Step":"خطوة",
@@ -729,12 +738,17 @@
   "Delete Lecture":"حذف المحاضرة",
   "Video":"فيديو",
   "Description":"وصف",
+    "Add Section": "إضافة قسم",
+    "Delete Row": "حذف صف",
+    "Course Title": "عنوان الدورة",
+    "Section": "القسم",
+    "Section Title": "عنوان القسم",
+    "Section Description": "وصف القسم",
   "No selected file":"لا يوجد ملف محدد",
   "Select Video":"حدد الفيديو",
   "+ Add Lecture":"+ إضافة محاضرة",
   "+ Add Section":"+ إضافة قسم",
   "Landing Page":"صفحة الهبوط",
-  "Course Title":"عنوان الدورة",
   "Language":"اللغة",
   "Arabic":"عربي",
   "English":"إنجليزي",
@@ -752,11 +766,12 @@
   "IT & Software":"تكنولوجيا المعلومات والبرمجيات",
   "Finance & Accounting":"المالية والمحاسبة",
   "Course Duration":"مدة الدورة",
-  "Week":"اسبوع",
-  "Month":"شهر",
-  "2 Monthes":"شهرين",
-  "3 Monthes":"3 أشهر",
-  "4 Monthes":"4 أشهر",
+   "Week_2": "من أسبوع إلى أسبوعين",
+    "Week_3": "من أسبوعين إلى 3 أسابيع",
+    "Month_2": "من شهر إلى شهرين",
+    "Month_3": "من شهرين إلى 3 شهور",
+    "Month_4": "من 3 إلى 4 شهور",
+    "Month_5": "من 4 إلى 5 شهور",
   "Promo Video":"فيديو ترويجي",
   "Course Photo":"صورة الكورس",
   "Lecturer Name":"اسم المحاضر",
@@ -801,6 +816,10 @@
   "No of users":"عدد المستخدمين",
   "Limited":"محدود",
   "Unlimited":"غير محدود",
+
+    "Discount percentage": "نسبة الخصم",
+    "Active": "مفعل",
+    "Inactive": "غير مفعل",
   "Coupon start date":"تاريخ بدء القسيمة",
   "Coupon end date":"تاريخ انتهاء القسيمة",
   "Remove":"ازالة",
@@ -918,14 +937,14 @@
     "target_audience_required": "يجب إدخال الجمهور المستهدف"
   },
 
-  "quiz": {
-  "create_new": "إنشاء اختبار المحاضرة",
+ "quiz": {
+  "create_new": "إنشاء اختبار التصنيف الفرعي",
   "create_new1": "انشأ اختبار",
 
   "Create Section Quiz": "إنشاء اختبار قسم",
   "Create Course Quiz": "إنشاء اختبار الكورس",
   "create": "إنشاء الاختبار",
-  "course_name": "اسم الدورة",
+  "course_name": "اسم الأختبار",
   "instructor_name": "اسم المحاضر",
   "exam_datetime": "تاريخ ووقت الامتحان",
   "duration": "المدة (بالدقائق)",
@@ -960,7 +979,15 @@
   "duplicate_options": "هناك خيارات مكررة في السؤال رقم {{index}}.",
   "min_options_required": "يجب إدخال خيارين على الأقل في السؤال رقم {{index}}.",
   "essay_answer_required": "يجب توفير إجابة نموذجية للسؤال المقالي رقم {{index}}.",
-  "quiz_type_mismatch": "يجب أن تكون كل الأسئلة من نفس نوع الاختبار المحدد (مقالي أو اختيار من متعدد)."},
+  "quiz_type_mismatch": "يجب أن تكون كل الأسئلة من نفس نوع الاختبار المحدد (مقالي أو اختيار من متعدد).",
+"description":"أدخل وصف لأختبارك من فضلك",
+"attach_to_required": "يرجى اختيار الجهة التي سيتم إرفاق الأسئلة بها (الكورس أو السيكشن أو المحاضرة).",
+"category_required": "يجب اختيار فئة للاختبار.",
+"no_token": "يرجى تسجيل الدخول أولاً",
+"delete_failed": "فشل في حذف الاختبار، حاول مرة أخرى"
+
+
+},
   "quiz_type": "نوع الاختبار",
   "mcq": "اختيار من متعدد (MCQ)",
   "essay": "سؤال مقالي",
@@ -969,14 +996,99 @@
   "paid": "مدفوع",
   "price": "السعر (ر.س)",
   "category":"الفئة المختارة",
-  "view_details": "أنشئ أسئلة امتحانك الآن"
+  "view_details": "أنشئ أسئلة امتحانك الآن",
+  "marks": "الدرجة",
+  "submit_questions": "إرسال الأسئلة",
+  "correct_answer": "الإجابة النموذجية",
+  "show_questions": "عرض الأسئلة",
+  "questions_preview": "معاينة الأسئلة",
+    "question_label": "السؤال:",
+    "answer": "الإجابة",
+    "correct": "الإجابة الصحيحة",
+    "edit_now": "تعديل الآن",
+    "cancel": "إلغاء",
+    "attach_to": "عنوان الأسئلة سوف تُرفق على:",
+    "attach": {
+      "course": "الدورة",
+      "section": "التصنيف الرئيسي",
+      "lecture": "التصنيف الفرعي"
+    }
+,
+      "section_name":"التصنيف الرئيسي"
+,
+      "course_quiz_details":"تفاصيل الاختبار"
+,
+"select_course": "اختر الدورة",
+"select_section": "اختر التصنيف الرئيسي",
+"select_lecture": "اختر التصنيف الفرعي",
+"view_course_quiz_details": "عرض تفاصيل الاختبار المرتبط",
+"search_placeholder": "بحث باسم الاختبار..",
+"delete_quiz": "حذف الاختبار",
+    "delete_confirm_title": "تأكيد الحذف",
+    "delete_confirm_message": "هل أنت متأكد أنك تريد حذف هذا الاختبار؟",
+    "confirm_delete": "تأكيد الحذف",
+    "cancel": "إلغاء",
+    "success": {
+      "quiz_deleted": "تم حذف الاختبار بنجاح"
+    }
 
- 
- 
+
+
+
+
+
 
 }
 ,
-  "successMessage2":"لقد قمت بإنشاء الاختبار بنجاح!"
+  "successMessage2":"لقد قمت بإنشاء الاختبار بنجاح!",
+
+
+
+"instructor-courses":{
+
+  "noCourses": "لا توجد كورسات لعرضها حالياً.",
+  "deleteConfirmationTitle": "هل أنت متأكد من حذف هذا الكورس؟",
+  "cancel": "إلغاء",
+  "delete": "حذف"
+},"COURSE": {
+    "EDIT_TITLE": "تعديل الدورة",
+    "TITLE": "العنوان",
+    "THUMBNAIL": "صورة الغلاف",
+    "TYPE": "النوع",
+    "RECORDED": "مسجلة",
+    "LIVE": "مباشرة",
+    "LEVEL": "المستوى",
+    "TARGET_AUDIENCE": "الجمهور المستهدف",
+    "PRICE": "السعر",
+    "LANGUAGE": "اللغة",
+    "CATEGORY": "الفئة",
+    "SECTION": "القسم",
+    "SECTION_TITLE": "عنوان القسم",
+    "LECTURE": "المحاضرة",
+    "LECTURE_TITLE": "عنوان المحاضرة",
+    "LECTURE_VIDEO": "فيديو المحاضرة",
+    "EDIT_BUTTON": "تعديل الدورة",
+    "SAVE_BUTTON": "حفظ",
+      "BACK_BUTTON": "رجوع",
+       "MY_COURSES": "دوراتي",
+    "TYPE_RECORDED": "دورات تعليمية مسجلة",
+    "TYPE_LIVE": "دورات تعليمية مباشرة",
+    "TYPE_UNKNOWN": "نوع غير معروف",
+    "REMOVE_BUTTON": "حذف",
+    "SHOW_ALL": "عرض الكل",
+    "SHOW_LESS": "عرض أقل",
+    "NO_COURSES": "لا توجد دورات لديك حتى الآن.",
+    "DELETE_CONFIRM_TITLE": "هل أنت متأكد أنك تريد حذف هذه الدورة؟",
+    "CANCEL_BUTTON": "إلغاء",
+    "DELETE_BUTTON": "حذف"
+  },
+  "LEVELS": {
+    "BEGINNER": "مبتدئ",
+    "INTERMEDIATE": "متوسط",
+    "ADVANCED": "متقدم"
+  }
+
+
 
 
 

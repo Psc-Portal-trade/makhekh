@@ -5,6 +5,7 @@ import { TranslocoPipe, TranslocoService } from '@ngneat/transloco';
 import { QuizService } from '../services/quiz.service';
 import { CategoriesService } from '../services/categories.service';
 import { Router } from '@angular/router';
+import { AuthService } from '../services/auth.service';
 
 
 @Component({
@@ -27,7 +28,7 @@ export class QuestionBankForAnyTopicComponent {
   errorMessages: string[] = [];
 
 
-  constructor(private fb: FormBuilder, private translocoService: TranslocoService,private quizService: QuizService,  private categoriesService: CategoriesService, private router: Router
+  constructor(private fb: FormBuilder, private translocoService: TranslocoService,private quizService: QuizService,  private categoriesService: CategoriesService, private router: Router, private authService: AuthService
   ) {
     this.quizForm = this.fb.group({
       courseName: ['', Validators.required],
@@ -35,7 +36,7 @@ export class QuestionBankForAnyTopicComponent {
       categoryId: [null, Validators.required], // ✅ أضف ده
       examDescription: ['', Validators.required], // ← أضيفي Validators.required هنا
       attempts: [1, [Validators.required, Validators.min(1)]],
-      passingScore: [50, [Validators.required, Validators.min(1), Validators.max(100)]],
+      passingPercentage: [0, [Validators.required, Validators.min(1), Validators.max(100)]],
       isFree: [true, Validators.required], // أو false لو عاوزة الافتراضي يكون مدفوع
       price: [0],
       quizType: ['mcq', Validators.required],
@@ -72,40 +73,7 @@ export class QuestionBankForAnyTopicComponent {
   asFormControl(ctrl: AbstractControl | null): FormControl {
     return ctrl as FormControl;
   }
-  addQuestion(type: 'mcq' | 'essay' = 'mcq') {
-    let questionGroup: FormGroup;
-    const selectedType = this.quizForm.get('quizType')?.value;
-    if (type !== selectedType) {
-      return alert(this.translocoService.translate('quiz.errors.quiz_type_mismatch'));
-    }
-    if (type === 'mcq') {
-      const optionsArray = this.fb.array([
-        this.fb.group({ optionValue: ['', Validators.required] }),
-        this.fb.group({ optionValue: ['', Validators.required] }),
-        this.fb.group({ optionValue: ['', Validators.required] }),
-        this.fb.group({ optionValue: ['', Validators.required] }),
-      ]);
 
-      questionGroup = this.fb.group({
-        type: ['mcq'],
-        text: ['', Validators.required],
-        options: optionsArray,
-        correctOptionIndex: [null, Validators.required],
-        correctAnswer: [''],
-        answerExplanation: [''],
-      });
-    } else {
-      questionGroup = this.fb.group({
-        type: ['essay'],
-        text: ['', Validators.required],
-        answerExplanation: [''],
-      });
-    }
-
-    this.questions.push(questionGroup);
-    this.quizForm.updateValueAndValidity();
-    this.checkFormValidity();
-  }
 
   onQuizTypeChange() {
     // لإجبار Angular على إعادة تقييم الـ *ngIf
@@ -113,19 +81,15 @@ export class QuestionBankForAnyTopicComponent {
   }
   
 
-  removeQuestion(index: number) {
-    this.questions.removeAt(index);
-    this.quizForm.updateValueAndValidity();
-    this.checkFormValidity();
-  }
-
+ 
   checkFormValidity() {
     this.isFormValid =
       !!this.quizForm.get('courseName')?.valid &&
       !!this.quizForm.get('examDateTime')?.valid &&
+      !!this.quizForm.get('examDescription')?.valid &&
       !!this.quizForm.get('duration')?.valid &&
       !!this.quizForm.get('attempts')?.valid &&
-      !!this.quizForm.get('passingScore')?.valid &&
+      !!this.quizForm.get('passingPercentage')?.valid &&
       this.questions.length > 0;
   }
 
@@ -151,7 +115,10 @@ if (hasTypeMismatch) {
     if (controls['isFree'].value === null || controls['isFree'].value === undefined) {
       this.errorMessages.push('quiz.errors.is_free_required');
     }
-  
+    if (!controls['categoryId'].valid) {
+      this.errorMessages.push('quiz.errors.category_required');
+    }
+    
     // ✅ التحقق من السعر إذا كان مدفوعًا
     if (controls['isFree'].value === false) {
       const price = controls['price']?.value;
@@ -164,15 +131,16 @@ if (hasTypeMismatch) {
   
     // ✅ التحقق من الحقول الأساسية
     if (!controls['courseName'].valid) this.errorMessages.push('quiz.errors.course_name');
+    if (!controls['examDescription'].valid) this.errorMessages.push('quiz.errors.description');
 
 
     if (!controls['duration'].valid || controls['duration'].value <= 0) {
       this.errorMessages.push('quiz.errors.duration');
     }
     if (!controls['attempts'].valid) this.errorMessages.push('quiz.errors.attempts');
-    if (!controls['passingScore'].valid ||
-        controls['passingScore'].value < 1 ||
-        controls['passingScore'].value > 100) {
+    if (!controls['passingPercentage'].valid ||
+        controls['passingPercentage'].value < 1 ||
+        controls['passingPercentage'].value > 100) {
       this.errorMessages.push('quiz.errors.passing_score');
     }
   
@@ -208,7 +176,7 @@ if (hasTypeMismatch) {
       title: formValue.courseName,
       description: formValue.examDescription,
       type: formValue.quizType === 'mcq' ? 1 : 2,
-      passingPercentage: formValue.passingScore,
+      passingPercentage: formValue.passingPercentage,
       isFree: formValue.isFree,
       price: formValue.isFree ? 0 : formValue.price,
       categoryId:formValue.categoryId,
@@ -216,7 +184,8 @@ if (hasTypeMismatch) {
       attemptsAllowed: formValue.attempts,
       timeLimitInMinutes: formValue.duration
     };
-    
+    console.log('Passing Score:', formValue.passingPercentage); 
+
     this.quizService.createQuiz(payload).subscribe({
       next: (res:any) => {
         console.log('✅ Quiz created:', res);
@@ -266,7 +235,7 @@ if (hasTypeMismatch) {
       categoryId: [null, Validators.required], // ← أضيفي ده هنا
       examDescription: ['', Validators.required],      
       attempts: [1, [Validators.required, Validators.min(1)]],
-      passingScore: [50, [Validators.required, Validators.min(1), Validators.max(100)]],
+      passingPercentage: [50, [Validators.required, Validators.min(1), Validators.max(100)]],
       isFree: [true, Validators.required],
       price: [0],
       quizType: ['mcq', Validators.required],

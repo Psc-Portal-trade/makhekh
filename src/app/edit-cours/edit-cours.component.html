@@ -1,74 +1,76 @@
 <app-second-nav></app-second-nav>
 
 <div class="container my-4" *ngIf="courseData">
-  <h2 class="mb-4 text-primary">Edit Course</h2>
+  <h2 class="mb-4 text-primary">{{ 'COURSE.EDIT_TITLE' | transloco }}</h2>
 
   <!-- View Mode -->
   <div *ngIf="!isEditing">
     <div class="card p-3 mb-3">
       <img [src]="courseData.thumbnailUrl" alt="Thumbnail" class="img-fluid mb-3" style="max-width: 200px">
-      <p><strong>Title:</strong> {{ courseData.title }}</p>
-      <p><strong>Type:</strong> {{ courseData.type === 1 ? 'Recorded' : 'Live' }}</p>
-      <p><strong>Level:</strong> {{ getLevelText(courseData.level) }}</p>
-      <p><strong>Target Audience:</strong> {{ courseData.targetAudience }}</p>
-      <p><strong>Price:</strong> {{ courseData.price }} {{ courseData.currency }}</p>
-      <p><strong>Language:</strong> {{ courseData.language }}</p>
-      <p><strong>Category:</strong> {{ courseData.category?.name }}</p>
+      <p><strong>{{ 'COURSE.TITLE' | transloco }}:</strong> {{ courseData.title }}</p>
+      <p><strong>{{ 'COURSE.TYPE' | transloco }}:</strong> {{ courseData.type === 1 ? ('COURSE.RECORDED' | transloco) : ('COURSE.LIVE' | transloco) }}</p>
+      <p><strong>{{ 'COURSE.LEVEL' | transloco }}:</strong> {{ getLevelText(courseData.level) }}</p>
+      <p><strong>{{ 'COURSE.TARGET_AUDIENCE' | transloco }}:</strong> {{ courseData.targetAudience }}</p>
+      <p><strong>{{ 'COURSE.PRICE' | transloco }}:</strong> {{ courseData.price }} {{ courseData.currency }}</p>
+      <p><strong>{{ 'COURSE.LANGUAGE' | transloco }}:</strong> {{ courseData.language }}</p>
+      <p><strong>{{ 'COURSE.CATEGORY' | transloco }}:</strong> {{ courseData.category?.name }}</p>
     </div>
 
     <div *ngFor="let section of courseData.sections; let i = index" class="card p-3 mb-3">
-      <h5 class="text-primary">Section {{ i + 1 }}: {{ section.title }}</h5>
+      <h5 class="text-primary">{{ 'COURSE.SECTION' | transloco }} {{ i + 1 }}: {{ section.title }}</h5>
       <div *ngFor="let lecture of section.lectures; let j = index" class="border-top pt-2">
-        <p><strong>Lecture {{ j + 1 }}:</strong> {{ lecture.title }}</p>
+        <p><strong>{{ 'COURSE.LECTURE' | transloco }} {{ j + 1 }}:</strong> {{ lecture.title }}</p>
         <video *ngIf="lecture.videoUrl" [src]="lecture.videoUrl" controls style="max-width: 300px;"></video>
       </div>
     </div>
 
     <div class="text-end">
-      <button class="btn btn-outline-primary" (click)="isEditing = true">Edit Course</button>
-    </div>
+  <button class="btn btn-secondary me-2" (click)="goBack()">{{ 'COURSE.BACK_BUTTON' | transloco }}</button>
+  <button class="btn btn-outline-primary" (click)="isEditing = true">{{ 'COURSE.EDIT_BUTTON' | transloco }}</button>
+</div>
+
   </div>
 
   <!-- Edit Mode -->
   <div *ngIf="isEditing">
     <div class="card p-3 mb-3">
-      <label>Title</label>
+      <label>{{ 'COURSE.TITLE' | transloco }}</label>
       <input class="form-control mb-2" [(ngModel)]="courseData.title">
 
-      <label>Thumbnail</label>
+      <label>{{ 'COURSE.THUMBNAIL' | transloco }}</label>
       <input type="file" class="form-control mb-2" (change)="onThumbnailChange($event)">
       <img *ngIf="courseData.thumbnailUrl" [src]="courseData.thumbnailUrl" class="img-thumbnail mt-2" style="max-width: 200px;">
 
-      <label>Level</label>
+      <label>{{ 'COURSE.LEVEL' | transloco }}</label>
       <select class="form-select mb-2" [(ngModel)]="courseData.level">
-        <option [ngValue]="1">Beginner</option>
-        <option [ngValue]="2">Intermediate</option>
-        <option [ngValue]="3">Advanced</option>
+        <option [ngValue]="1">{{ 'LEVELS.BEGINNER' | transloco }}</option>
+        <option [ngValue]="2">{{ 'LEVELS.INTERMEDIATE' | transloco }}</option>
+        <option [ngValue]="3">{{ 'LEVELS.ADVANCED' | transloco }}</option>
       </select>
 
-      <label>Target Audience</label>
+      <label>{{ 'COURSE.TARGET_AUDIENCE' | transloco }}</label>
       <input class="form-control mb-2" [(ngModel)]="courseData.targetAudience">
 
-      <label>Price</label>
+      <label>{{ 'COURSE.PRICE' | transloco }}</label>
       <input class="form-control mb-2" [(ngModel)]="courseData.price" type="number">
     </div>
 
     <div *ngFor="let section of courseData.sections; let i = index" class="card p-3 mb-3">
-      <label>Section {{ i + 1 }} Title</label>
+      <label>{{ 'COURSE.SECTION_TITLE' | transloco }} {{ i + 1 }}</label>
       <input class="form-control mb-2" [(ngModel)]="section.title">
 
       <div *ngFor="let lecture of section.lectures; let j = index" class="border-top pt-2">
-        <label>Lecture {{ j + 1 }} Title</label>
+        <label>{{ 'COURSE.LECTURE_TITLE' | transloco }} {{ j + 1 }}</label>
         <input class="form-control mb-2" [(ngModel)]="lecture.title">
 
-        <label>Lecture Video</label>
+        <label>{{ 'COURSE.LECTURE_VIDEO' | transloco }}</label>
         <input type="file" class="form-control mb-2" (change)="onLectureVideoChange($event, i, j)">
         <video *ngIf="lecture.videoUrl" [src]="lecture.videoUrl" controls style="max-width: 300px;"></video>
       </div>
     </div>
 
     <div class="text-end">
-      <button class="btn btn-success" (click)="saveChanges()">Save</button>
+      <button class="btn btn-success" (click)="saveChanges()">{{ 'COURSE.SAVE_BUTTON' | transloco }}</button>
     </div>
   </div>
 </div>

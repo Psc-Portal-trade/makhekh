@@ -10,7 +10,7 @@ import { SecondNavComponent } from '../navbar/second-nav/second-nav.component';
   templateUrl: './edit-cours.component.html',
   styleUrls: ['./edit-cours.component.css'],
   standalone: true,
-  imports: [SecondNavComponent, FormsModule, CommonModule]
+  imports: [SecondNavComponent, FormsModule, CommonModule,TranslocoPipe]
 })
 export class EditCoursComponent implements OnInit {
   activeLang: string = 'en';
@@ -74,6 +74,15 @@ getLevelText(level: number): string {
     console.log('✅ Updated course saved in localStorage:', updatedCourse);
     this.isEditing = false;
   }
+
+goBack(): void {
+  // لو عندك Router
+  this.router.navigate(['/instructor-profile/create-course']); // أو أي مسار تروحي له
+}
+
+
+
+
 }
 
 
