@@ -2,12 +2,10 @@ import { Component, inject, OnInit} from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { TranslocoPipe, TranslocoService } from '@ngneat/transloco';
 import { LangService } from '../services/lang.service';
-import { CartIconComponent } from "../cart-icon/cart-icon.component";
-import { WishlistIconComponent } from "../wishlist-icon/wishlist-icon.component";
 
 @Component({
   selector: 'app-navbar',
-  imports: [RouterLink, TranslocoPipe, CartIconComponent, WishlistIconComponent],
+  imports: [RouterLink, TranslocoPipe],
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.css'
 })

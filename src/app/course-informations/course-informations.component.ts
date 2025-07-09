@@ -6,6 +6,7 @@ import { CartService } from '../services/cart.service';
 import { CourseInformationService } from '../services/course-information.service';
 import { WishlistService } from '../services/wishlist.service';
 import { TranslocoPipe } from '@ngneat/transloco';
+declare var bootstrap: any;
 
 @Component({
   selector: 'app-course-informations',
@@ -455,6 +456,20 @@ course2={
   src: 'assets/course-2.png',
 }
 
+openLoginReminderModal() {
+  const modalEl = document.getElementById('loginReminderModal');
+  if (modalEl) {
+    const modal = new bootstrap.Modal(modalEl);
+    modal.show();
+  }
+}
+openLoginReminderModal2() {
+  const modalEl = document.getElementById('loginReminderModal2');
+  if (modalEl) {
+    const modal = new bootstrap.Modal(modalEl);
+    modal.show();
+  }
+}
 
 
   instructor = {
@@ -469,10 +484,12 @@ course2={
 
 
   constructor(private cartService: CartService, private wishlistService: WishlistService,private route: ActivatedRoute,private courseService: CourseInformationService) {}
+userToken: string | null = null;
 
   ngOnInit() {
   window.scrollTo(0, 0);
-
+const user = localStorage.getItem('user');
+  this.userToken = user ? JSON.parse(user).token : null;
   // جلب بيانات الكورس من الخدمة
   this.courseObj = this.courseService.getCourse();
 

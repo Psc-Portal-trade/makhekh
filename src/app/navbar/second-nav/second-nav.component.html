@@ -33,13 +33,13 @@
           <a class="nav-link text-black" routerLink="student-profile" >{{ "second-navbar.student" | transloco }}</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-black"  routerLink="my-courses">{{ "second-navbar.my courses" | transloco }}</a>
+          <a class="nav-link text-black" *ngIf="userRole === 'student'"  routerLink="my-courses">{{ "second-navbar.my courses" | transloco }}</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-black " routerLink="wishedList" ><app-wishlist-icon></app-wishlist-icon></a>
+          <a class="nav-link text-black " *ngIf="userRole === 'student'"  routerLink="wishedList" ><app-wishlist-icon></app-wishlist-icon></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-black" routerLink="cart" ><app-cart-icon></app-cart-icon></a>
+          <a class="nav-link text-black" *ngIf="userRole === 'student'"  routerLink="cart" ><app-cart-icon></app-cart-icon></a>
         </li>
 
         <li class="nav-item">
@@ -165,9 +165,9 @@
       <li class="nav-item"><a class="nav-link" *ngIf="userRole === 'student'" routerLink="student-profile"  >{{ "second-navbar.Student Profile" | transloco }}</a></li>
       <li class="nav-item"><a class="nav-link" *ngIf="userRole === 'teacher'" routerLink="instructor-profile"  >{{ "second-navbar.Instructor Profile" | transloco }}</a></li>
       <!-- <li class="nav-section">Account</li> -->
-      <li class="nav-item"><a class="nav-link"  routerLink="my-courses" >{{ "second-navbar.my courses" | transloco }}</a></li>
-      <li class="nav-item"><a class="nav-link"  routerLink="cart" >{{ "second-navbar.My Cart" | transloco }}</a></li>
-      <li class="nav-item"><a class="nav-link" routerLink="wishedList"  >{{ "second-navbar.Wishlist" | transloco }} </a></li>
+      <li class="nav-item"><a class="nav-link" *ngIf="userRole === 'student'"  routerLink="my-courses" >{{ "second-navbar.my courses" | transloco }}</a></li>
+      <li class="nav-item"><a class="nav-link" *ngIf="userRole === 'student'"  routerLink="cart" >{{ "second-navbar.My Cart" | transloco }}</a></li>
+      <li class="nav-item"><a class="nav-link" *ngIf="userRole === 'student'" routerLink="wishedList"  >{{ "second-navbar.Wishlist" | transloco }} </a></li>
 
       <li class="nav-item"><a class="nav-link"   >{{ "second-navbar.Notifications" | transloco }}</a></li>
       <li class="nav-item"><a class="nav-link"   >{{ "second-navbar.Messages" | transloco }}</a></li>

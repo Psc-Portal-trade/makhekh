@@ -5,7 +5,7 @@
         <div *ngFor="let category of categories">
   <a
 
-    (click)="onSelectCategory(category.name)"
+    (click)="goToExploreWithCategory(category.name)"
     [ngClass]="{'active-category': selectedCategoryName === category.name}"
     class="w-20 text-center"
   >

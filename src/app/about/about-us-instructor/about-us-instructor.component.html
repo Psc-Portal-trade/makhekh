@@ -1,6 +1,6 @@
 <app-second-nav></app-second-nav>
 
-<app-courses class="hidden-sec"></app-courses>
+<app-courses class="hidden-sec"  (categorySelected)="onCategorySelected($event)"  ></app-courses>
 <section class="py-5">
   <div class="container">
     <!-- حقل البحث -->
@@ -11,41 +11,108 @@
       [(ngModel)]="searchQuery"
     />
 
-    <div class="row">
-      <div *ngFor="let course of paginatedCourses" class="col-12 col-md-6 col-lg-4 mb-4"
-
-
-      >
-        <div class="card lecture-card">
-          <div (click)="goToCourseDetails(course)" style="cursor: pointer;">
-            <div class="video-thumbnail">
-              <div class="vid-img">
-                <img alt="" [src]="course.src">
-              </div>
-            </div>
-            <div class="card-body">
-              <h5 class="card-title">{{ course.courseTitle }}</h5>
-              <p class="card-text small text-muted">{{ course.landingPage.description }}</p>
-              <p class="content">{{ course.rate }}
-                <!-- <span [innerHTML]="course.rate"> </span> -->
-                <i class="fa-solid fa-star text-warning"></i>
-
-                <span class="text-muted"> {{ course.watched }} </span>
-                <i class="fa-solid fa-eye text-primary"></i>
-
-              </p>
-              <p>{{ course.pricing.price }} LE</p>
-             </div>
-          </div>
-           <div class="d-flex justify-content-between px-2 pb-3">
-            <button class="btn  btn-design1" *ngIf="!course.isInCart" (click)="addToCart(course)">{{"recently-wished.Add to Cart" | transloco}}</button>
-            <button class="btn btn-design2" *ngIf="course.isInCart" (click)="removeFromCart(course)">{{"recently-wished.Remove from Cart" | transloco}}</button>
-            <button class="btn  heart " *ngIf="!course.isInWishlist" (click)="addToWishList(course)"><i class="fa-regular fa-heart"></i></button>
-            <button class="btn  heart" *ngIf="course.isInWishlist" (click)="removeFromWishList(course)"><i class="fa-solid fa-heart"></i></button>
+   <div class="row">
+    <div class="no-items text-center py-5" *ngIf="filteredCourses.length === 0"
+>
+  <img src="assets/no items yet.jpg" alt="No items yet" class="img-fluid mb-3" style="max-width: 250px;">
+  <p>{{ "my-courses.No items yet" | transloco }}</p>
+</div>
+  <div *ngFor="let course of paginatedCourses" class="col-12 col-md-6 col-lg-4 mb-4">
+    <div class="card lecture-card">
+      <div (click)="goToCourseDetails(course)" style="cursor: pointer;">
+        <div class="video-thumbnail">
+          <div class="vid-img">
+<img
+  alt="Course Thumbnail"
+  [src]="course.thumbnailUrl || 'assets/default-course.png'"
+  class="course-thumbnail"
+/>
           </div>
         </div>
+        <div class="card-body">
+          <h5 class="card-title">{{ course.title }}</h5>
+          <p class="card-text small text-muted">
+            {{ course.description || 'No description available' }}
+          </p>
+          <p class="content">
+            {{ course.averageRating }}
+            <i class="fa-solid fa-star text-warning"></i>
+            <span class="text-muted"> {{ course.enrolledStudentsCount }} </span>
+            <i class="fa-solid fa-eye text-primary"></i>
+          </p>
+          <p>{{ course.price }} {{ course.currency }}</p>
+        </div>
+      </div>
+
+      <div class="d-flex justify-content-between px-2 pb-3">
+
+  <!-- زر إضافة للسلة -->
+  <button
+    class="btn btn-design1"
+    *ngIf="!course.isInCart"
+    (click)="userRole === 'student' ? addToCart(course) : openStudentOnlyModal()"
+  >
+    {{ "recently-wished.Add to Cart" | transloco }}
+  </button>
+
+  <button
+    class="btn btn-design2"
+    *ngIf="course.isInCart"
+    (click)="userRole === 'student' ? removeFromCart(course) : openStudentOnlyModal()"
+  >
+    {{ "recently-wished.Remove from Cart" | transloco }}
+  </button>
+
+  <!-- زر المفضلة -->
+  <button
+    class="btn heart"
+    *ngIf="!course.isInWishlist"
+    (click)="userRole === 'student' ? addToWishList(course) : openStudentOnlyModal()"
+  >
+    <i class="fa-regular fa-heart"></i>
+  </button>
+
+  <button
+    class="btn heart"
+    *ngIf="course.isInWishlist"
+    (click)="userRole === 'student' ? removeFromWishList(course) : openStudentOnlyModal()"
+  >
+    <i class="fa-solid fa-heart"></i>
+  </button>
+
+</div>
+<!-- Modal for teachers -->
+<div
+  class="modal fade"
+  id="studentOnlyModal"
+  tabindex="-1"
+  aria-labelledby="studentOnlyModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content text-center p-4">
+      <div class="modal-header border-0">
+        <h5 class="modal-title w-100" id="studentOnlyModalLabel">
+          {{ 'student-modal.title' | transloco }}
+        </h5>
+      </div>
+      <div class="modal-body">
+        {{ 'student-modal.body' | transloco }}
+      </div>
+      <div class="modal-footer border-0 justify-content-center">
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">
+          {{ 'student-modal.okButton' | transloco }}
+        </button>
       </div>
     </div>
+  </div>
+</div>
+
+
+
+    </div>
+  </div>
+</div>
 
     <!-- أزرار التنقل -->
     <div class="pagination">

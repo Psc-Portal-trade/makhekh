@@ -1,18 +1,70 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { BehaviorSubject, Observable } from 'rxjs';
+import { tap } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
 export class WishlistService {
+  private baseUrl = 'https://api.makhekh.com/api/wishlist';
+
   private listItems = new BehaviorSubject<any[]>([]);
   listItems$ = this.listItems.asObservable();
 
   private listCount = new BehaviorSubject<number>(0);
   listCount$ = this.listCount.asObservable();
 
+  constructor(private http: HttpClient) {}
 
-  constructor() { }
+  // ✅ استخراج التوكن من localStorage عند كل طلب
+  private getHeaders(): HttpHeaders {
+    const user = localStorage.getItem('user');
+    const token = user ? JSON.parse(user).token : null;
+
+    return new HttpHeaders({
+      'Authorization': `Bearer ${token}`
+    });
+  }
+
+  // ==========================
+  // ✅ API-based methods
+  // ==========================
+
+  fetchWishlistFromAPI(): Observable<any[]> {
+    return this.http.get<any[]>(this.baseUrl, {
+      headers: this.getHeaders()
+    }).pipe(
+      tap((items) => {
+        this.listItems.next(items);
+        this.listCount.next(items.length);
+      })
+    );
+  }
+
+  addCourseToWishlistAPI(courseId: string): Observable<any> {
+    return this.http.post(`${this.baseUrl}/${courseId}`, null, {
+      headers: this.getHeaders()
+    }).pipe(
+      tap(() => this.fetchWishlistFromAPI().subscribe())
+    );
+  }
+
+  removeCourseFromWishlistAPI(courseId: string): Observable<any> {
+    return this.http.delete(`${this.baseUrl}/${courseId}`, {
+      headers: this.getHeaders()
+    }).pipe(
+      tap(() => this.fetchWishlistFromAPI().subscribe())
+    );
+  }
+
+  isCourseInWishlist(courseId: string): boolean {
+    return this.listItems.getValue().some(item => item.id === courseId);
+  }
+
+  // ==========================
+  // ✅ Local-only logic
+  // ==========================
 
   addToList(item: any) {
     const currentItems = this.listItems.getValue();
@@ -32,6 +84,4 @@ export class WishlistService {
   isItemInList(itemId: number): boolean {
     return this.listItems.getValue().some(listItem => listItem.id === itemId);
   }
-
-
 }

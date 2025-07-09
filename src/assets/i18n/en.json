@@ -655,7 +655,16 @@
 
 
   "cours-details":{
+    "Title:": "Title :",
+  "Description:": "Description :",
+  "No description": " No description ",
+      "promoVideo":"Promo Video",
+        "Your browser does not support video playback.": "Your browser does not support video playback.",
 
+        "Section": "Section",
+        "SubSection": "SubSection",
+        "Lecture Title": "Lecture Title",
+        "Description": "Description",
   "Students":"Students",
   "ratings":"ratings",
   "Created by":"Created by",
@@ -760,6 +769,20 @@
   "Price Tier":"Price Tier",
   "Free":"Free",
   "Premium":"Premium",
+  "SubSection": "SubSection",
+  "Delete SubSection": "Delete SubSection",
+  "SubSection Name": "SubSection Name",
+  "+ Add SubSection File": "+ Add SubSection File",
+  "+ Add SubSection": "+ Add SubSection",
+
+    "Start Time": "Start Time",
+    "Duration (Minutes)": "Duration (Minutes)",
+    "Zoom Meeting ID": "Zoom Meeting ID",
+    "Zoom Join URL": "Zoom Join URL",
+    "Zoom Password": "Zoom Password",
+    "Is Instant": "Is Instant",
+    "Max Participants": "Max Participants",
+
   "Promotions":"Promotions",
   "Offer Conditions":"Offer Conditions",
   "Each time a student uses this link, the instructor will receive 80%...":"Each time a student uses this link, the instructor will receive 80%...",
@@ -984,7 +1007,6 @@
         "answer": "Answer",
         "correct": "Correct",
         "edit_now": "Edit Now",
-        "cancel": "Cancel",
         "attach_to": "The quiz questions will be attached to:",
   "attach": {
     "course": "Course",
@@ -1022,6 +1044,18 @@
   "cancel": "Cancel",
   "delete": "Delete"
 },"COURSE": {
+
+
+    "DESCRIPTION": "Description",
+    "PREREQUISITES": "Prerequisites",
+
+    "ATTACHMENTS": "Attachments",
+    "SECTION_ATTACHMENTS": "Section Attachments",
+    "LECTURE_ATTACHMENTS": "Lecture Attachments",
+
+    "COUPONS": "Coupons",
+
+
     "EDIT_TITLE": "Edit Course",
     "TITLE": "Title",
     "THUMBNAIL": "Thumbnail",
@@ -1051,7 +1085,15 @@
     "NO_COURSES": "You don’t have any courses yet.",
     "DELETE_CONFIRM_TITLE": "Are you sure you want to delete this course?",
     "CANCEL_BUTTON": "Cancel",
-    "DELETE_BUTTON": "Delete"
+    "DELETE_BUTTON": "Delete",
+
+    "Subsection": "Subsection",
+    "SUBSECTION_TITLE": "Subsection Title",
+
+    "Description": "Description",
+
+    "PROMO_VIDEO": "Promotional Video"
+
   },
 
 "LEVELS": {
@@ -1064,11 +1106,25 @@
 
     }
 ,
+"Description": "Description"
+,
+"PREREQUISITES":"PREREQUISITES",
+"ATTACHMENTS":"ATTACHMENTS",
+"SECTION_ATTACHMENTS":"SECTION ATTACHMENTS",
+"LECTURE_ATTACHMENTS":"LECTURE ATTACHMENTS",
     "successMessage2":"You created your quiz successfully!",
-
-
-
-
+    "SUBSECTION_TITLE":"SUBSECTION TITLE",
+"PROMO_VIDEO":"PROMO VIDEO",
+ "LECTURE": {
+    "LECTURER_NAME": "Lecturer Name",
+    "START_TIME": "Start Time",
+    "ZOOM_LINK": "Zoom Link",
+    "ZOOM_PASSWORD": "Zoom Password",
+    "IS_INSTANT": "Instant",
+    "STATUS": "Status",
+    "MAX_PARTICIPANTS": "Max Participants"
+  }
+,
 "instructor-courses":{
 
   "noCourses": "There are no courses to display currently.",
@@ -1076,6 +1132,11 @@
   "cancel": "Cancel",
   "delete": "Delete"
 },"COURSE": {
+  "CURRENCY": "Currency",
+    "SAR": "Saudi Riyal",
+    "USD": "US Dollar",
+    "EGP": "Egyptian Pound",
+    "Description": "Description",
     "EDIT_TITLE": "Edit Course",
     "TITLE": "Title",
     "THUMBNAIL": "Thumbnail",
@@ -1113,7 +1174,38 @@
     "INTERMEDIATE": "Intermediate",
     "ADVANCED": "Advanced"
   }
+,
+  "COUPON": {
+    "CODE": "Coupon Code",
+    "DISCOUNT": "Discount",
+    "EXPIRY": "Expiry Date"
+  },
+  "ADD": "Add",
+  "ADD_COUPON": "Add Coupon",
+  "DELETE": "Delete",
+  "CANCEL": "Cancel",
+  "Valid": "Valid",
+  "Invalid": "Invalid",
+      "Subsection": "Subsection",
 
+
+"modal": {
+    "loginReminder": {
+      "title": "Alert",
+      "body": "Please log in first to continue.",
+      "okButton": "OK"
+    }
+  },
+   "student-modal": {
+    "title": "Notice",
+    "body": "Please register as a student to use this feature.",
+    "okButton": "OK"
+  },
+  "login-reminder": {
+    "title": "Notice",
+    "body": "Please log in first to use this feature.",
+    "okButton": "OK"
+  }
 
 
 

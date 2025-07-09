@@ -673,10 +673,18 @@
   },
 
 
-
-
   "cours-details":{
+      "Title:": "العنوان :",
+  "Description:": "الوصف :",
+  "No description": "لا يوجد وصف",
 
+
+    "promoVideo":" فيديو ترويجي",
+        "Your browser does not support video playback.": "متصفحك لا يدعم تشغيل الفيديو.",
+        "Section": "قسم",
+        "SubSection": "قسم فرعي",
+        "Lecture Title": "عنوان المحاضرة",
+        "Description": "الوصف",
   "Students":"طلاب",
   "ratings":"التقييمات",
   "Created by":"تم الإنشاء بواسطة",
@@ -780,6 +788,24 @@
   "Set a price for your course":"حدد سعرًا لدورتك",
   "Lorem ipsum dolor sit amet, consectetur adipiscing elit.":"لوريم إيبسوم دولور سيت أميت، إيليت.",
   "Price":"سعر",
+    "Start Time": "وقت البدء",
+    "Duration (Minutes)": "المدة (بالدقائق)",
+    "Zoom Meeting ID": "معرّف اجتماع Zoom",
+    "Zoom Join URL": "رابط الانضمام Zoom",
+    "Zoom Password": "كلمة مرور Zoom",
+    "Is Instant": "فوري؟",
+    "Max Participants": "الحد الأقصى للمشاركين",
+
+  "SubSection": "قسم فرعي",
+  "Delete SubSection": "حذف القسم الفرعي",
+  "SubSection Name": "اسم القسم الفرعي",
+  "+ Add SubSection File": "+ إضافة ملف للقسم الفرعي",
+  "+ Add SubSection": "+ إضافة قسم فرعي",
+
+
+
+
+
   "Currency":"عملة",
   "Price Tier":"فئة السعر",
   "Free":"مجانا",
@@ -1027,7 +1053,6 @@
     "delete_confirm_title": "تأكيد الحذف",
     "delete_confirm_message": "هل أنت متأكد أنك تريد حذف هذا الاختبار؟",
     "confirm_delete": "تأكيد الحذف",
-    "cancel": "إلغاء",
     "success": {
       "quiz_deleted": "تم حذف الاختبار بنجاح"
     }
@@ -1051,6 +1076,17 @@
   "cancel": "إلغاء",
   "delete": "حذف"
 },"COURSE": {
+"CURRENCY": "العملة",
+    "SAR": "ريال سعودي",
+    "USD": "دولار أمريكي",
+    "EGP": "جنيه مصري",
+    "DESCRIPTION": "الوصف",
+    "PREREQUISITES": "المتطلبات السابقة",
+
+    "ATTACHMENTS": "المرفقات",
+    "SECTION_ATTACHMENTS": "مرفقات القسم",
+    "LECTURE_ATTACHMENTS": "مرفقات المحاضرة",
+    "COUPONS": "الكوبونات",
     "EDIT_TITLE": "تعديل الدورة",
     "TITLE": "العنوان",
     "THUMBNAIL": "صورة الغلاف",
@@ -1080,15 +1116,70 @@
     "NO_COURSES": "لا توجد دورات لديك حتى الآن.",
     "DELETE_CONFIRM_TITLE": "هل أنت متأكد أنك تريد حذف هذه الدورة؟",
     "CANCEL_BUTTON": "إلغاء",
-    "DELETE_BUTTON": "حذف"
-  },
+    "DELETE_BUTTON": "حذف",
+
+    "Subsection": "القسم الفرعي",
+    "SUBSECTION_TITLE": "عنوان القسم الفرعي",
+
+    "Description": "الوصف",
+
+    "PROMO_VIDEO": "الفيديو الترويجي"
+
+  },"Description": "الوصف",
+  "PREREQUISITES":" المتطلبات السابقة",
+  "ATTACHMENTS": "المرفقات",
+  "SECTION_ATTACHMENTS": "مرفقات القسم",
+  "LECTURE_ATTACHMENTS": "مرفقات المحاضرة",
   "LEVELS": {
     "BEGINNER": "مبتدئ",
     "INTERMEDIATE": "متوسط",
     "ADVANCED": "متقدم"
+  },
+
+
+"COUPON": {
+    "CODE": "رمز الكوبون",
+    "DISCOUNT": "الخصم",
+    "EXPIRY": "تاريخ الانتهاء"
+  },
+  "ADD": "إضافة",
+  "ADD_COUPON": "إضافة كوبون",
+  "DELETE": "حذف",
+  "CANCEL": "إلغاء",
+  "Valid": "صالح",
+  "Invalid": "غير صالح",
+      "Subsection": "القسم الفرعي",
+    "SUBSECTION_TITLE":" عنوان القسم الفرعي",
+    "PROMO_VIDEO":" الفيديو الترويجي",
+
+"COUPONS": " الكوبونات",
+
+"LECTURE": {
+  "LECTURER_NAME": "اسم المحاضر",
+  "START_TIME": "موعد البداية",
+  "ZOOM_LINK": "رابط الزوم",
+  "ZOOM_PASSWORD": "كلمة سر الزوم",
+  "IS_INSTANT": "فوري",
+  "STATUS": "الحالة",
+  "MAX_PARTICIPANTS": "أقصى عدد مشاركين"
+},
+"modal": {
+    "loginReminder": {
+      "title": "تنبيه",
+      "body": "برجاء التسجيل أولاً للمتابعة.",
+      "okButton": "حسنًا"
+    }
+  },
+   "student-modal": {
+    "title": "تنبيه",
+    "body": "برجاء التسجيل كطالب لاستخدام هذه الميزة.",
+    "okButton": "حسنًا"
+  },
+  "login-reminder": {
+    "title": "تنبيه",
+    "body": "برجاء تسجيل الدخول أولاً لاستخدام هذه الميزة.",
+    "okButton": "حسنًا"
   }
-
-
 
 
 

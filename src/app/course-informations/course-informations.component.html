@@ -25,13 +25,77 @@
                 <p class="mt-2"><strong>{{ 'cours-details.Price:' | transloco }} {{course1.pricing.price}} LE</strong></p>
                 <!-- <p class="text-danger">{{course1.seatsLeft}} seats left</p> -->
                 <div class="btn-container">
-                  <button class="btn btn-design1 full-width" *ngIf="!course1.isInCart" (click)="addToCart1()">{{ 'cours-details.Add to Cart' | transloco }}</button>
-                  <button class="btn btn-design1 full-width" *ngIf="course1.isInCart" (click)="removeFromCart1()">{{ 'cours-details.Remove From Cart' | transloco }}</button>
+  <!-- Add to Cart -->
+  <button
+    class="btn btn-design1 full-width"
+    *ngIf="!course1.isInCart"
+    (click)="userToken ? addToCart1() : openLoginReminderModal()"
+  >
+    {{ 'cours-details.Add to Cart' | transloco }}
+  </button>
 
-                  <button class="btn btn-outline-danger" *ngIf="!course1.isInWishlist" (click)="addToWishlist1()">{{ 'cours-details.Add to wishlist' | transloco }}</button>
-                  <button class="btn btn-danger" *ngIf="course1.isInWishlist" (click)="removeFromWishlist1()">{{ 'cours-details.Remove from list' | transloco }}</button>
-                  <button class="btn btn-design1" (click)="addToCart1()" routerLink="shippingCart" >{{ 'cours-details.Buy Now' | transloco }}</button>
-              </div>
+  <!-- Remove from Cart -->
+  <button
+    class="btn btn-design1 full-width"
+    *ngIf="course1.isInCart"
+    (click)="userToken ? removeFromCart1() : openLoginReminderModal()"
+  >
+    {{ 'cours-details.Remove From Cart' | transloco }}
+  </button>
+
+  <!-- Add to Wishlist -->
+  <button
+    class="btn btn-outline-danger"
+    *ngIf="!course1.isInWishlist"
+    (click)="userToken ? addToWishlist1() : openLoginReminderModal()"
+  >
+    {{ 'cours-details.Add to wishlist' | transloco }}
+  </button>
+
+  <!-- Remove from Wishlist -->
+  <button
+    class="btn btn-danger"
+    *ngIf="course1.isInWishlist"
+    (click)="userToken ? removeFromWishlist1() : openLoginReminderModal()"
+  >
+    {{ 'cours-details.Remove from list' | transloco }}
+  </button>
+
+  <!-- Buy Now -->
+  <button
+    class="btn btn-design1"
+    (click)="userToken ? addToCart1() : openLoginReminderModal()"
+    [routerLink]="userToken ? 'shippingCart' : null"
+  >
+    {{ 'cours-details.Buy Now' | transloco }}
+  </button>
+</div>
+<div
+  class="modal fade"
+  id="loginReminderModal"
+  tabindex="-1"
+  aria-labelledby="loginReminderModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content text-center p-4">
+      <div class="modal-header border-0">
+        <h5 class="modal-title w-100" id="loginReminderModalLabel">
+          {{ 'login-reminder.title' | transloco }}
+        </h5>
+      </div>
+      <div class="modal-body">
+        {{ 'login-reminder.body' | transloco }}
+      </div>
+      <div class="modal-footer border-0 justify-content-center">
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">
+          {{ 'login-reminder.okButton' | transloco }}
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
             </div>
         </div>
     </div>
@@ -140,16 +204,73 @@
               <img [src]="course2.src" alt="Course Thumbnail" class="img-fluid w-100 rounded-2">
               <p class="mt-2"><strong>{{ 'cours-details.Price:' | transloco }} {{course2.pricing.price}} LE</strong></p>
               <p class="text-danger">{{course2.seatsLeft}} {{ 'cours-details.seats left' | transloco }}</p>
-              <div class="btn-container">
-                <!-- زر Add to Cart في صف منفصل -->
-                <button class="btn btn-design1 full-width" *ngIf="!course2.isInCart" (click)="addToCart2()">{{ 'cours-details.Add to Cart' | transloco }}</button>
-                <button class="btn btn-design1 full-width" *ngIf="course2.isInCart" (click)="removeFromCart2()">{{ 'cours-details.Remove From Cart' | transloco }}</button>
+             <div class="btn-container">
+  <button
+    class="btn btn-design1 full-width"
+    *ngIf="!course2.isInCart"
+    (click)="userToken ? addToCart2() : openLoginReminderModal2()"
+  >
+    {{ 'cours-details.Add to Cart' | transloco }}
+  </button>
 
-                <!-- الأزرار الأخرى في صف ثاني مع تقسيم متساوٍ -->
-                <button class="btn btn-outline-danger" *ngIf="!course2.isInWishlist" (click)="addToWishlist2()">{{ 'cours-details.Add to wishlist' | transloco }}</button>
-                <button class="btn btn-danger" *ngIf="course2.isInWishlist" (click)="removeFromWishlist2()">{{ 'cours-details.Remove from list' | transloco }}</button>
-                <button class="btn btn-design1" (click)="addToCart2()" routerLink ="cart">{{ 'cours-details.Buy Now' | transloco }}</button>
-            </div>
+  <button
+    class="btn btn-design1 full-width"
+    *ngIf="course2.isInCart"
+    (click)="userToken ? removeFromCart2() : openLoginReminderModal2()"
+  >
+    {{ 'cours-details.Remove From Cart' | transloco }}
+  </button>
+
+  <button
+    class="btn btn-outline-danger"
+    *ngIf="!course2.isInWishlist"
+    (click)="userToken ? addToWishlist2() : openLoginReminderModal2()"
+  >
+    {{ 'cours-details.Add to wishlist' | transloco }}
+  </button>
+
+  <button
+    class="btn btn-danger"
+    *ngIf="course2.isInWishlist"
+    (click)="userToken ? removeFromWishlist2() : openLoginReminderModal2()"
+  >
+    {{ 'cours-details.Remove from list' | transloco }}
+  </button>
+
+  <button
+    class="btn btn-design1"
+    (click)="userToken ? addToCart2() : openLoginReminderModal2()"
+    [routerLink]="userToken ? 'cart' : null"
+  >
+    {{ 'cours-details.Buy Now' | transloco }}
+  </button>
+</div>
+
+<div
+  class="modal fade"
+  id="loginReminderModal2"
+  tabindex="-1"
+  aria-labelledby="loginReminderModalLabel2"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content text-center p-4">
+      <div class="modal-header border-0">
+        <h5 class="modal-title w-100" id="loginReminderModalLabel2">
+          {{ 'login-reminder.title' | transloco }}
+        </h5>
+      </div>
+      <div class="modal-body">
+        {{ 'login-reminder.body' | transloco }}
+      </div>
+      <div class="modal-footer border-0 justify-content-center">
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">
+          {{ 'login-reminder.okButton' | transloco }}
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
 
           </div>
       </div>

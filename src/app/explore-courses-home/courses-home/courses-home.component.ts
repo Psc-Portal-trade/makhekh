@@ -1,9 +1,9 @@
-import { Component, OnInit } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http'; // <-- هنا
 import { RouterLink } from '@angular/router';
 import { TranslocoPipe } from '@ngneat/transloco';
 import { CategoriesService } from '../../services/categories.service';
 import { CommonModule } from '@angular/common';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core'; // ✅
 
 @Component({
   selector: 'app-courses-home',
@@ -14,13 +14,16 @@ import { CommonModule } from '@angular/common';
 })
 export class CoursesHomeComponent implements OnInit {
   categories: any[] = [];
+@Output() categorySelected = new EventEmitter<string>(); // ✅
 
   constructor(private categoriesService: CategoriesService) {}
 selectedCategoryName: string | null = null;
 
 onSelectCategory(name: string) {
   this.selectedCategoryName = name;
+  this.categorySelected.emit(name); // ✅ إرسال اسم الكاتيجوري للأب
 }
+
 
   ngOnInit() {
     window.scrollTo(0, 0);
@@ -37,5 +40,12 @@ onSelectCategory(name: string) {
     }
   });
 }
+
+
+
+
+
+
+
 
 }

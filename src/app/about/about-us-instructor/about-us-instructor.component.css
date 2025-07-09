@@ -66,3 +66,9 @@
       display: none;
     }
   }
+.course-thumbnail {
+  width: 100%;
+  height: 300px; /* أو أي ارتفاع ثابت يناسب التصميم */
+  object-fit: cover;
+  border-radius: 8px; /* اختياري للتجميل */
+}
