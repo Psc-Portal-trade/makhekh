@@ -574,14 +574,14 @@ async submitCourseFlow() {
     };
 const approveToken = 'eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6IjdiMGY1ZDkwLWJmNTAtNGQ5Mi1iNzE1LTY4MmUxYWZmODEwYSIsImh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3dzLzIwMDUvMDUvaWRlbnRpdHkvY2xhaW1zL2dpdmVubmFtZSI6Ik11c3RhZmEiLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9lbWFpbGFkZHJlc3MiOiJhZG1pbkBtYWhrZWhrLmNvbSIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6IkFkbWluIiwiZXhwIjoxNzUyMTM5ODAwLCJpc3MiOiJodHRwczovL2FwaS5tYWtoZWtoLmNvbS8iLCJhdWQiOiJNeVNlY3VyZUtleSJ9.PbFINqS-9vEDeZAxZt5vBqZ5pIKMFHeoi-_T-04exo4'; // كامل التوكن
 
-    console.log("📤 Approving Course:", approveBody);
-    const approveRes = await this.http.post("https://api.makhekh.com/api/admin/courses/approve", approveBody, {
-      headers: {
-        Authorization: `Bearer ${approveToken}`,
-        'Content-Type': 'application/json'
-      }
-    }).toPromise();
-    console.log("✅ Course Approved:", approveRes);
+    // console.log("📤 Approving Course:", approveBody);
+    // const approveRes = await this.http.post("https://api.makhekh.com/api/admin/courses/approve", approveBody, {
+    //   headers: {
+    //     Authorization: `Bearer ${approveToken}`,
+    //     'Content-Type': 'application/json'
+    //   }
+    // }).toPromise();
+    // console.log("✅ Course Approved:", approveRes);
 
     this.isLoading = false;
     this.router.navigate(['instructor-profile/create-course'], {
@@ -1243,20 +1243,20 @@ async submitCourseFlow2() {
       console.log("✅ Book File Uploaded:", bookUploadRes);
     }
 
-    const approveToken = 'eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6IjdiMGY1ZDkwLWJmNTAtNGQ5Mi1iNzE1LTY4MmUxYWZmODEwYSIsImh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3dzLzIwMDUvMDUvaWRlbnRpdHkvY2xhaW1zL2dpdmVubmFtZSI6Ik11c3RhZmEiLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9lbWFpbGFkZHJlc3MiOiJhZG1pbkBtYWhrZWhrLmNvbSIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6IkFkbWluIiwiZXhwIjoxNzUyMTM5ODAwLCJpc3MiOiJodHRwczovL2FwaS5tYWtoZWtoLmNvbS8iLCJhdWQiOiJNeVNlY3VyZUtleSJ9.PbFINqS-9vEDeZAxZt5vBqZ5pIKMFHeoi-_T-04exo4'; // Replace with real token
-    const approveBody = {
-      courseId,
-      approve: true,
-      comment: 'ok',
-    };
-    console.log('📤 Approving course:', approveBody);
-    const approveRes = await this.http.post('https://api.makhekh.com/api/admin/courses/approve', approveBody, {
-      headers: {
-        Authorization: `Bearer ${approveToken}`,
-        'Content-Type': 'application/json',
-      },
-    }).toPromise();
-    console.log('✅ Course approved:', approveRes);
+    // const approveToken = 'eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6IjdiMGY1ZDkwLWJmNTAtNGQ5Mi1iNzE1LTY4MmUxYWZmODEwYSIsImh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3dzLzIwMDUvMDUvaWRlbnRpdHkvY2xhaW1zL2dpdmVubmFtZSI6Ik11c3RhZmEiLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9lbWFpbGFkZHJlc3MiOiJhZG1pbkBtYWhrZWhrLmNvbSIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6IkFkbWluIiwiZXhwIjoxNzUyMTM5ODAwLCJpc3MiOiJodHRwczovL2FwaS5tYWtoZWtoLmNvbS8iLCJhdWQiOiJNeVNlY3VyZUtleSJ9.PbFINqS-9vEDeZAxZt5vBqZ5pIKMFHeoi-_T-04exo4'; // Replace with real token
+    // const approveBody = {
+    //   courseId,
+    //   approve: true,
+    //   comment: 'ok',
+    // };
+    // console.log('📤 Approving course:', approveBody);
+    // const approveRes = await this.http.post('https://api.makhekh.com/api/admin/courses/approve', approveBody, {
+    //   headers: {
+    //     Authorization: `Bearer ${approveToken}`,
+    //     'Content-Type': 'application/json',
+    //   },
+    // }).toPromise();
+    // console.log('✅ Course approved:', approveRes);
 
     this.isLoading = false;
     this.router.navigate(['instructor-profile/create-course'], {

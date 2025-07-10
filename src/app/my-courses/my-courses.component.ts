@@ -105,6 +105,9 @@ currentPageQuizzes: number = 1;
     this.allCourses = courses || [];
     this.extractAllQuizzes(this.allCourses);
   });
+
+  console.log('All courses:', this.allCourses);
+  console.log('All quizzes:', this.allQuizzes);
 }
 
 onCourseChange() {
@@ -202,14 +205,29 @@ extractAllQuizzes(courses: Course[]) {
 
 
 startQuiz(quiz: any) {
+  console.log('🧪 Quiz to save:', quiz);
+
+  // 🔍 العثور على الكورس الكامل من خلال courseId
+  const course = this.allCourses.find(c => c.id === quiz.courseId);
+
+  if (course) {
+    localStorage.setItem('currentExam', JSON.stringify(quiz));
+    localStorage.setItem('currentExamCourse', JSON.stringify(course));
+    console.log('📚 Saved related course to localStorage:', course);
+  } else {
+    console.warn('⚠️ Course not found for this quiz');
+  }
+
   this.router.navigate(['/exam'], {
     state: {
       quiz,
-      quizIndex: 0, // ممكن تخصصه حسب السياق
+      quizIndex: 0,
       courseTitle: quiz.courseTitle
     }
   });
 }
+
+
 
 get filteredQuizzes() {
   return this.allQuizzes

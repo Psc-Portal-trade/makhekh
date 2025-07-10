@@ -1,98 +1,126 @@
-<nav  class="navbar navbar-expand-lg navbar-primary bg-primary text-white mb-5">
+<!-- ✅ Navbar -->
+<nav class="navbar navbar-expand-lg navbar-primary bg-primary text-white mb-5">
   <div class="container-fluid d-flex justify-content-between">
-    <a class="btn btn-outline-light" routerLink="my-courses">
-       {{ 'course-header.Back to Dashboard' | transloco }}
+    <a class="btn btn-outline-light" routerLink="/my-courses">
+      {{ 'course-header.Back to Dashboard' | transloco }}
     </a>
-    <span class="navbar-brand text-white">{{quiz.courseTitle}}</span>
-    <!-- عرض العدادات الزمنية -->
+    <span class="navbar-brand text-white">{{ quiz?.courseTitle }}</span>
     <div class="text-white">
       <span>{{ minutes | number: '2.0' }}:{{ seconds | number: '2.0' }}</span>
     </div>
   </div>
 </nav>
 
+<!-- ✅ Main Exam Section -->
+<div class="container my-4" *ngIf="!showExamResult && quiz">
+  <h2 class="text-primary mb-3">📝 Exam Section</h2>
+  <h4>{{ quiz.name }}</h4>
 
-<div class="container my-4" *ngIf="!showExamResult">
-  <h2 class="text-primary mb-3"> Exam Section </h2>
+  <!-- ✅ Questions List -->
+  <div *ngFor="let question of paginatedQuestions; let qIndex = index" class="mb-4">
+    <div class="d-flex justify-content-between align-items-start">
+      <h6 class="fw-bold">
+        {{ currentPage * 10 - 10 + qIndex + 1 }}. {{ question.text }}
+      </h6>
 
-  <!-- عرض الأسئلة -->
-  <div *ngIf="quiz && !showExamResult">
-    <h4>{{ quiz.name }}</h4>
-
-    <!-- عرض الأسئلة في الصفحة الحالية مع رقم السؤال -->
-    <div *ngFor="let question of paginatedQuestions; let qIndex = index">
-     <div class="d-flex justify-content-between">
-      <h6 class="fw-bold">{{ currentPage * 10 - 10 + qIndex + 1 }}. {{ question.text }}</h6> <!-- عرض رقم السؤال -->
-      <!-- زرار unique -->
-   <!-- زرار unique -->
-   <button
-   class="btn btn-sm"
-   [ngClass]="{
-     'btn-warning text-white': question.isUnique,
-     'btn-outline-primary': !question.isUnique
-   }"
-   (click)="toggleUnique(question)"
- >
-   <i class="fa fa-flag me-1"></i>
-   {{ question.isUnique ? 'This unique question is added' : 'Unique' }}
- </button>
-     </div>
-      <ul class="mx-0">
-        <!-- <li *ngFor="let option of question.options">
-          <input type="radio"
-                 [name]="'question-' + question.text + '-' + qIndex"
-                 [id]="'option-' + question.text + '-' + option.optionValue"
-                 [value]="option.optionValue" />
-          <label [for]="'option-' + question.text + '-' + option.optionValue" class="mx-2">{{ option.optionValue }}</label>
-        </li> -->
-        <li *ngFor="let option of question.options">
-          <label class="mx-2 d-block">
-            <input
-  type="radio"
-  [name]="'question-' + question.id"
-  [value]="option.optionValue"
-  [(ngModel)]="question.studentAnswer"
-/>
-
-            {{ option.optionValue }}
-          </label>
-        </li>
-        
-        
-
-      </ul>
-    </div>
-
-    <!-- Pagination controls -->
-    <div *ngIf="totalPages > 1" class="pagination-controls">
-      <button *ngFor="let page of [].constructor(totalPages); let i = index"
-              (click)="goToPage(i + 1)" [class.active]="i + 1 === currentPage">
-        {{ i + 1 }}
+      <button
+        class="btn btn-sm"
+        [ngClass]="{
+          'btn-warning text-white': question.isUnique,
+          'btn-outline-primary': !question.isUnique
+        }"
+        (click)="toggleUnique(question)"
+      >
+        <i class="fa fa-flag me-1"></i>
+        {{ question.isUnique ? 'تم تمييز هذا السؤال' : 'تمييز' }}
       </button>
     </div>
 
-    <!-- Submit Button - يظهر فقط في آخر صفحة -->
-    <div *ngIf="currentPage === totalPages">
-      <button class="btn btn-success mt-5" (click)="submitExam()">Submit Exam</button>
-    </div>
+    <ul class="mx-0">
+      <!-- ✅ Multiple Choice -->
+     <!-- ✅ Multiple Choice -->
+<ng-container *ngIf="question.type === 1">
+  <li *ngFor="let option of question.choices">
+    <label class="mx-2 d-block">
+      <input
+        type="radio"
+        [name]="'question-' + question.id"
+        [value]="option.text"
+        [(ngModel)]="question.studentAnswer"
+      />
+      {{ option.text }}
+    </label>
+  </li>
+</ng-container>
+
+
+
+      <!-- ✅ Essay -->
+      <li *ngIf="question.type === 2">
+        <textarea
+          class="form-control"
+          rows="3"
+          placeholder="اكتب إجابتك هنا..."
+          [(ngModel)]="question.studentAnswer"
+        ></textarea>
+      </li>
+    </ul>
+  </div>
+
+  <!-- ✅ Pagination -->
+  <div *ngIf="totalPages > 1" class="pagination-controls my-4 text-center">
+    <button
+      *ngFor="let page of [].constructor(totalPages); let i = index"
+      class="btn btn-sm mx-1"
+      [ngClass]="{
+        'btn-primary': i + 1 === currentPage,
+        'btn-outline-primary': i + 1 !== currentPage
+      }"
+      (click)="goToPage(i + 1)"
+    >
+      {{ i + 1 }}
+    </button>
+  </div>
+
+  <!-- ✅ Submit on last page -->
+  <div *ngIf="currentPage === totalPages" class="text-center mt-4">
+    <button class="btn btn-success px-5 py-2" (click)="submitExam()">✅ إرسال الامتحان</button>
   </div>
 </div>
 
-<div *ngIf="showExamResult" class="alert alert-info  mb-5">
-  <h3 class="text-success mt-2 mb-4">✅ Exam Submitted Successfully!</h3>
-  <p><strong>Answered Questions:</strong> {{ answeredQuestionsCount }}</p>
-  <p><strong>Unanswered Questions:</strong> {{ unansweredQuestionsCount }}</p>
-  <p><strong>Time Spent:</strong> {{ examDurationUsed }}</p>
-  <p><strong>Score Percentage:</strong> {{ scorePercentage | number: '1.0-2' }}%</p>
-  <p><strong>Status:</strong>
+<!-- ✅ Exam Result Section -->
+<div *ngIf="showExamResult" class="alert alert-info mb-5">
+  <h3 class="text-success mt-2 mb-4">✅ {{ 'exam.resultSent' | transloco }}</h3>
+
+  <p>
+    <strong>{{ 'exam.answeredCount' | transloco }}:</strong>
+    {{ answeredQuestionsCount }}
+  </p>
+
+  <p>
+    <strong>{{ 'exam.unansweredCount' | transloco }}:</strong>
+    {{ unansweredQuestionsCount }}
+  </p>
+
+  <p>
+    <strong>{{ 'exam.timeUsed' | transloco }}:</strong>
+    {{ examDurationUsed }}
+  </p>
+
+  <p>
+    <strong>{{ 'exam.percentage' | transloco }}:</strong>
+    {{ scorePercentage | number: '1.0-2' }}%
+  </p>
+
+  <p>
+    <strong>{{ 'exam.status' | transloco }}:</strong>
     <span [ngClass]="{ 'text-success': isPassed, 'text-danger': !isPassed }">
-      {{ isPassed ? 'Passed' : 'Failed' }}
+      {{ isPassed ? ('exam.passed' | transloco) : ('exam.failed' | transloco) }}
     </span>
   </p>
-  <button class="btn btn-outline-primary mt-3"
-        (click)="goToExamResult()">
-  🎯 Watch Result
-</button>
 
-  <!-- <p><strong>Exam Attempts:</strong> {{ attempts }}</p> -->
+  <button class="btn btn-outline-primary mt-3" (click)="goToExamResult()">
+    🎯 {{ 'exam.viewResult' | transloco }}
+  </button>
 </div>
+

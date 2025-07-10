@@ -1193,6 +1193,47 @@
     "minutes": "دقيقة",
     "start": "بدء الاختبار",
     "noResults": "لا يوجد اختبارات متاحة بناءً على الفلاتر."
+  },
+  "exam": {
+    "timeUsed": "الوقت المستخدم",
+    "minute": "دقيقة",
+    "minutes": "دقائق",
+    "second": "ثانية",
+    "seconds": "ثواني",
+    "and": "و",
+     "resultSent": "تم إرسال الامتحان بنجاح!",
+    "answeredCount": "عدد الأسئلة المجابة",
+    "unansweredCount": "عدد الأسئلة غير المجابة",
+    "percentage": "النسبة المئوية",
+    "status": "الحالة",
+    "passed": "✔️ ناجح",
+    "failed": "❌ راسب",
+    "viewResult": "عرض النتائج"
+  },
+  "examResult": {
+    "title": "نتيجة الامتحان",
+    "lecture": "محاضرة",
+    "subSection": "صب سيكشن",
+    "subSectionLecture": "محاضرة داخل صب سيكشن",
+    "sectionQuestions": "أسئلة على السيكشن",
+    "generalQuestions": "أسئلة عامة",
+    "answeredQuestions": "تم الإجابة",
+    "question": "السؤال",
+    "featured": "سؤال مميز",
+    "studentAnswer": "إجابة الطالب",
+    "modelAnswer": "الإجابة النموذجية",
+    "noAnswer": "لم يتم الإجابة",
+    "noData": "لا توجد بيانات متاحة",
+    "sectionTitle": "عنوان السيكشن",
+  "status": "الحالة",
+  "passed": "ناجح",
+  "failed": "راسب",
+  "timeUsed": "الوقت المستخدم",
+  "totalQuestions": "عدد الأسئلة",
+  "correctAnswers": "عدد الإجابات الصحيحة",
+  "unanswered": "عدد الأسئلة غير المجابة",
+  "percentage": "النسبة المئوية"
+
   }
 
 

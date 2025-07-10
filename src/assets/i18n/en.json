@@ -1152,6 +1152,46 @@
     "minutes": "minutes",
     "start": "Start Quiz",
     "noResults": "No quizzes available based on current filters."
+  },
+   "exam": {
+    "timeUsed": "Time Used",
+    "minute": "minute",
+    "minutes": "minutes",
+    "second": "second",
+    "seconds": "seconds",
+    "and": "and",
+    "resultSent": "Exam submitted successfully!",
+    "answeredCount": "Answered Questions",
+    "unansweredCount": "Unanswered Questions",
+    "percentage": "Score Percentage",
+    "status": "Status",
+    "passed": "✔️ Passed",
+    "failed": "❌ Failed",
+    "viewResult": "View Results"
+  },
+  "examResult": {
+    "title": "Exam Result",
+    "lecture": "Lecture",
+    "subSection": "Subsection",
+    "subSectionLecture": "Lecture Inside Subsection",
+    "sectionQuestions": "Section Questions",
+    "generalQuestions": "General Questions",
+    "totalQuestions": "Total Questions",
+    "answeredQuestions": "Answered",
+    "question": "Question",
+    "featured": "Featured Question",
+    "studentAnswer": "Student Answer",
+    "modelAnswer": "Model Answer",
+    "noAnswer": "Not Answered",
+    "noData": "No Data Available",
+    "sectionTitle": "Section Title",
+  "status": "Status",
+  "passed": "Passed",
+  "failed": "Failed",
+  "timeUsed": "Time Used",
+  "correctAnswers": "Correct Answers",
+  "unanswered": "Unanswered",
+  "percentage": "Percentage"
   }
 
 

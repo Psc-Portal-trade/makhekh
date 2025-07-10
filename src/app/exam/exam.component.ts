@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ActivatedRoute, Router, RouterModule } from '@angular/router';
-import { TranslocoPipe } from '@ngneat/transloco';
+import { TranslocoPipe, TranslocoService } from '@ngneat/transloco';
 
 interface Question {
   id: number;
@@ -42,37 +42,54 @@ export class ExamComponent implements OnInit, OnDestroy {
 
 
 
-  constructor(private route: ActivatedRoute, private router: Router) { }
+  constructor(private route: ActivatedRoute, private router: Router,  private translocoService: TranslocoService
+) { }
+ngOnInit(): void {
+  window.scrollTo(0, 0);
 
-  ngOnInit(): void {
-      window.scrollTo(0, 0);
+  const storedQuiz = localStorage.getItem('currentExam');
 
-    const state = this.router.getCurrentNavigation()?.extras.state || history.state;
-    console.log('ExamComponent: Checking state:', state);
-
-    if (state && state.quiz && state.quizIndex !== undefined) {
-      this.quiz = Array.isArray(state.quiz) ? state.quiz[0] : state.quiz;
-      this.quizIndex = state.quizIndex;
-
-      console.log('Quiz data received:', this.quiz);
-      console.log('Quiz Index received:', this.quizIndex);
-
-      // ✅ تهيئة خصائص كل سؤال
-      this.quiz.questions.forEach((q: any, index: number) => {
-        q.id = index + 1;
-        q.isUnique = q.isUnique ?? false;
-        q.studentAnswer = null;
-      });
-
-      this.totalPages = Math.ceil(this.quiz.questions.length / this.questionsPerPage);
-      this.timeLeft = this.quiz.duration * 60;
-      this.paginateQuestions();
-      this.startTimer();
-    } else {
-      console.warn('No quiz data found, redirecting...');
-      this.router.navigate(['/my-courses']);
-    }
+  if (!storedQuiz) {
+    console.warn('⛔ لا يوجد امتحان محفوظ!');
+    this.router.navigate(['/my-courses']);
+    return;
   }
+
+  try {
+    this.quiz = JSON.parse(storedQuiz);
+
+    // تحقق من وجود الأسئلة
+    if (!this.quiz.questions || !Array.isArray(this.quiz.questions)) {
+      console.error('❌ الكويز لا يحتوي على أسئلة!');
+      this.router.navigate(['/my-courses']);
+      return;
+    }
+
+    // تهيئة الأسئلة
+    this.quiz.questions.forEach((q: any, index: number) => {
+      q.id = index + 1;
+      q.isUnique = false;
+      q.studentAnswer = null;
+    });
+
+    // استخراج مدة الامتحان
+    const durationInMinutes = this.quiz.timeLimitInMinutes || this.quiz.duration || 60;
+    this.timeLeft = durationInMinutes * 60;
+
+    this.totalPages = Math.ceil(this.quiz.questions.length / this.questionsPerPage);
+
+    this.paginateQuestions();
+    this.startTimer();
+
+    console.log('✅ Quiz loaded:', this.quiz);
+    console.log('✅ Questions:', this.quiz.questions);
+
+  } catch (err) {
+    console.error('❌ فشل في قراءة الامتحان من localStorage:', err);
+    this.router.navigate(['/my-courses']);
+  }
+}
+
 
   onOptionSelected(question: any, selectedValue: string) {
     question.studentAnswer = selectedValue;
@@ -98,39 +115,96 @@ export class ExamComponent implements OnInit, OnDestroy {
   }
 
   // دالة لتقديم الامتحان عند الضغط على "Submit"
-  submitExam() {
-    clearInterval(this.timer);
+submitExam() {
+  clearInterval(this.timer);
 
-    const totalDuration = this.quiz.duration * 60;
-    const usedDuration = totalDuration - this.timeLeft;
-    const usedMinutes = Math.floor(usedDuration / 60);
-    const usedSeconds = usedDuration % 60;
-    this.examDurationUsed = `${usedMinutes} min : ${usedSeconds} sec`;
+  const totalDuration = (this.quiz.timeLimitInMinutes || 60) * 60;
+  const usedDuration = totalDuration - this.timeLeft;
 
-    let answeredCount = 0;
+  const usedMinutes = Math.floor(usedDuration / 60);
+  const usedSeconds = usedDuration % 60;
 
-    this.quiz.questions.forEach((question: any, index: number) => {
-      if (question.studentAnswer !== null && question.studentAnswer !== undefined) {
-        answeredCount++;
-        console.log(`✅ Answer selected for Q${index + 1}: ${question.studentAnswer}`);
-      }
-    });
+  // ترجمة الكلمات حسب اللغة الحالية
+  const t = (key: string) => this.translocoService.translate(key);
 
-    this.answeredQuestionsCount = answeredCount;
-    this.unansweredQuestionsCount = this.quiz.questions.length - answeredCount;
-    this.scorePercentage = (answeredCount / this.quiz.questions.length) * 100;
-    this.isPassed = this.scorePercentage >= 50;
+  const minText = usedMinutes === 1 ? t('exam.minute') : t('exam.minutes');
+  const secText = usedSeconds === 1 ? t('exam.second') : t('exam.seconds');
+  const andText = t('exam.and');
 
-    const storedAttempts = localStorage.getItem('examAttempts');
-    if (storedAttempts) {
-      this.attempts = Number(storedAttempts) + 1;
-    }
-    localStorage.setItem('examAttempts', this.attempts.toString());
-
-    this.showExamResult = true;
-
-    console.log('✅ Quiz after submit with student answers:', this.quiz.questions);
+  // تنسيق الوقت المستخدم
+  if (usedMinutes > 0 && usedSeconds > 0) {
+    this.examDurationUsed = `${usedMinutes} ${minText} ${andText} ${usedSeconds} ${secText}`;
+  } else if (usedMinutes > 0) {
+    this.examDurationUsed = `${usedMinutes} ${minText}`;
+  } else {
+    this.examDurationUsed = `${usedSeconds} ${secText}`;
   }
+
+  let answeredCount = 0;
+
+  // إنشاء نسخة من الأسئلة مع إجابات الطالب
+  const answeredQuestions = this.quiz.questions.map((question: any) => {
+    const studentAnswer = question.studentAnswer ?? null;
+
+    if (studentAnswer !== null && studentAnswer !== undefined) {
+      answeredCount++;
+    }
+
+    return {
+      id: question.id,
+      text: question.text,
+      type: question.type,
+      studentAnswer: studentAnswer,
+      isUnique: question.isUnique || false,
+      options: question.options || [],
+      modelAnswer: question.modelAnswer ?? null
+    };
+  });
+
+  this.answeredQuestionsCount = answeredCount;
+  this.unansweredQuestionsCount = this.quiz.questions.length - answeredCount;
+  this.scorePercentage = (answeredCount / this.quiz.questions.length) * 100;
+  this.isPassed = this.scorePercentage >= 50;
+
+  // إعداد محاولة الامتحان
+  const attemptData = {
+    id: Date.now(), // ID فريد للمحاولة
+    quizId: this.quiz.id,
+    quizTitle: this.quiz.title,
+    courseId: this.quiz.courseId,
+    courseTitle: this.quiz.courseTitle,
+    timeUsed: this.examDurationUsed,
+    answered: this.answeredQuestionsCount,
+    unanswered: this.unansweredQuestionsCount,
+    percentage: this.scorePercentage,
+    passed: this.isPassed,
+    timestamp: new Date().toISOString(),
+    questions: answeredQuestions
+  };
+
+  // ✅ التأكد من أن examAttempts مصفوفة
+  let previousAttempts: any[] = [];
+
+  try {
+    const attemptsFromStorage = JSON.parse(localStorage.getItem('examAttempts') || '[]');
+    if (Array.isArray(attemptsFromStorage)) {
+      previousAttempts = attemptsFromStorage;
+    } else {
+      console.warn('⚠️ examAttempts is not an array. Reinitializing...');
+    }
+  } catch (error) {
+    console.error('❌ Failed to parse examAttempts:', error);
+  }
+
+  previousAttempts.push(attemptData);
+  localStorage.setItem('examAttempts', JSON.stringify(previousAttempts));
+
+  this.showExamResult = true;
+
+  console.log('✅ Saved Exam Attempt:', attemptData);
+}
+
+
 
 
   goToExamResult() {
