@@ -21,30 +21,53 @@ export class CartComponent implements OnInit {
 
 
 
+
   cartItems: any[] = [];
   totalPrice: number = 0;
   lectures: any[] = [];
   userRole: string = '';
+  total: number = 0;
+currency: string = '';
+  
+ 
+
 
   constructor(private cartService: CartService, private courseService: CourseService,private wishlistService: WishlistService) {}
 
   ngOnInit() {
       window.scrollTo(0, 0);
+       const user = JSON.parse(localStorage.getItem('user') || '{}');
+       console.log('User in cart component:', user); // 👈 هنا بنطبع بيانات المستخدم
+       const token = user.token;
+        console.log('Token in cart component:', token); // 👈 هنا بنطبع التوكن
+    
+    this.userRole = (user?.userRole || '').trim().toLowerCase();
+    console.log('Role in nav:', this.userRole);
 
     this.cartService.cartItems$.subscribe(items => {
-      this.cartItems = items;
-      this.updateTotalPrice();
+    this.cartItems = items;
 
+    const result = this.cartService.getTotalPriceAndCurrency();
+    this.total = result.total;
+    this.currency = result.currency ?? '';
+  });
+     this.cartService.loadCartFromApi();
+    // Subscribe to cart items
+     this.cartService.fetchCartFromAPI().subscribe({
+    next: (response) => {
+      console.log('🛒 Fetched cart from API:', response);
+    },
+    error: (err) => {
+      console.error('❌ Error fetching cart:', err);
+    }
+  });
 
-    const user = JSON.parse(localStorage.getItem('userData') || '{}');
-    this.userRole = (user?.role || '').trim().toLowerCase();
-    console.log('Role in nav:', this.userRole);
-    });
-
-
-
-
-
+  // ✅ اشتراك في البيانات المحدثة بعد ما توصل
+  this.cartService.cartItems$.subscribe(items => {
+    console.log('📦 Cart items in component:', items);
+    this.cartItems = items;
+    this.totalPrice = this.cartService.getTotalPrice();
+  });
 
     this.lectures.forEach(course => {
       course.isInCart = this.cartService.isItemInCart(course.id);
@@ -73,15 +96,23 @@ export class CartComponent implements OnInit {
 
   }
 
-  removeItem(itemId: number) {
-    this.cartService.removeFromCart(itemId);
-    this.updateTotalPrice();
-  }
+  removeItem(itemId: any) {
+  this.cartService.removeCourseFromCartAPI(itemId).subscribe({
+    next: () => {
+      console.log('🗑️ Course removed from cart');
+      this.updateTotalPrice();
+    },
+    error: (err) => {
+      console.error('❌ Error removing item from cart:', err);
+    }
+  });
+}
+
 
   updateTotalPrice() {
     this.totalPrice = this.cartService.getTotalPrice();
   }
-
+  
 
   checkout() {
 
@@ -115,7 +146,18 @@ this.cartService.checkout();
   }
 
   addToWishList(course: any) {
-    this.wishlistService.addToList(course);
+    console.log('🛒 Add to wishlist clicked:', course); // ✅ تأكد إن الزر فعلاً اشتغل
+
+  this.wishlistService.addCourseToWishlistAPI(course.id).subscribe({
+    next: (response) => {
+      console.log('✅ Course added to wishlist:', response);
+      course.isInCart = true;
+    },
+    error: (err) => {
+      console.error('❌ Error adding wishlist:', err);
+    }
+  });
+   
     course.isInWishList = true;
   }
 

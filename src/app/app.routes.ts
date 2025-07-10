@@ -211,6 +211,7 @@ export const routes: Routes = [
 {path:"course-Informations/wishlist",redirectTo:"wishlist",pathMatch:"full"},
 {path:"course-Informations/explore-courses",redirectTo:"explore-courses",pathMatch:"full"},
 {path:"course-Informations/logOut",redirectTo:"home",pathMatch:"full"},
+{path:"course-Informations/my-courses",redirectTo:"my-courses",pathMatch:"full"},
 
 
 

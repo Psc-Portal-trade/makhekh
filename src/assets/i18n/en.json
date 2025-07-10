@@ -937,173 +937,107 @@
 
 
   ,
-    "quiz": {
-    "create_new": "Create Lecture Quiz",
-        "create_new1": "Create one",
-
-    "Create Section Quiz": "Create Section Quiz",
-    "Create Course Quiz": "Create Course Quiz",
-    "create": "Create Quiz",
-    "course_name": "Quiz Name",
-    "instructor_name": "Instructor Name",
-    "exam_datetime": "Exam Date & Time",
-    "duration": "Duration (minutes)",
-    "attempts": "Attempts Allowed",
-    "passing_score": "Passing Score (%)",
-    "description": "Quiz Description",
-    "question": "Question",
-    "options": "Options",
-    "option": "Option",
-    "answer_explanation": "Answer Explanation",
-    "remove_question": "Remove Question",
-    "add_question": "Add Question",
-    "save": "Save Quiz",
-     "add_mcq_question": "Add Multiple Choice Question",
-    "add_essay_question": "Add Essay Question",
-    "errors": {
-    "course_name": "Course name is required.",
-    "instructor_name": "Instructor name is required.",
-    "exam_datetime": "Exam date and time are required.",
-    "duration": "The exam duration must be greater than 0.",
-    "attempts": "Number of attempts is required.",
-    "passing_score": "Passing score must be between 1 and 100.",
-    "questions_required": "At least one question must be added.",
-    "question_text_required": "Question number {{index}} is missing text.",
-    "option_required": "Option number {{optionIndex}} in question number {{index}} is empty.",
-    "correct_answer_required": "You must select the correct answer in question number {{index}}.",
-  "quiz_type_required": "Quiz type is required.",
-  "is_free_required": "You must specify whether the quiz is free or paid.",
-  "price_required_if_paid": "Price is required if the quiz is paid.",
-  "price_must_be_positive": "Price must be greater than 0.",
-  "invalid_exam_datetime": "Invalid exam date and time.",
-  "duplicate_options": "There are duplicate options in question {{index}}.",
-  "min_options_required": "At least two options are required in question {{index}}.",
-  "essay_answer_required": "A sample answer is required for essay question {{index}}.",
-"quiz_type_mismatch": "All questions must match the selected quiz type (essay or multiple choice).",
-"description":"Enter Your Quizz's Description",
-"attach_to_required": "Please select where to attach the quiz (course, section, or lecture).",
-"category_required": "You must select a category for the quiz.",
-"no_token": "Please log in first",
-"delete_failed": "Failed to delete quiz, please try again"
-
-
-},
-    "quiz_type": "Quiz Type",
-    "mcq": "Multiple Choice (MCQ)",
-    "essay": "Essay",
-    "is_free": "Is the quiz free?",
-    "free": "Free",
-    "paid": "Paid",
-    "price": "Price (SAR)",
-    "category":"Category",
-
-        "view_details": "Create your quiz questions now",
-        "marks": "Mark",
-        "submit_questions": "Submit Questions",
-        "correct_answer": "Correct Answer",
-        "show_questions": "Show Questions",
-        "questions_preview": "Questions Preview",
-        "question_label": "Question:",
-        "answer": "Answer",
-        "correct": "Correct",
-        "edit_now": "Edit Now",
-        "attach_to": "The quiz questions will be attached to:",
-  "attach": {
-    "course": "Course",
-    "section": "Section",
-    "lecture": "Lecture"
-
-
-  },
-  "select_course": "Select Course",
-  "select_section": "Select Section",
-  "select_lecture": "Select Lecture",
-  "view_course_quiz_details": "Create your quiz questions now",
-  "search_placeholder": "Search by quiz name...",
-  "delete_quiz": "Delete Quiz",
-    "delete_confirm_title": "Confirm Deletion",
-    "delete_confirm_message": "Are you sure you want to delete this quiz?",
-    "confirm_delete": "Confirm Delete",
-    "cancel": "Cancel",
-    "success": {
-      "quiz_deleted": "Quiz deleted successfully",
-      "section_name":"Section",
-      "course_quiz_details":"Quiz Details"
-
-
-},
-    "successMessage2":"You created your quiz successfully!",
-
-
-
-
-"instructor-courses":{
-
-  "noCourses": "There are no courses to display currently.",
-  "deleteConfirmationTitle": "Are you sure you want to delete this course?",
-  "cancel": "Cancel",
-  "delete": "Delete"
-},"COURSE": {
-
-
-    "DESCRIPTION": "Description",
-    "PREREQUISITES": "Prerequisites",
-
-    "ATTACHMENTS": "Attachments",
-    "SECTION_ATTACHMENTS": "Section Attachments",
-    "LECTURE_ATTACHMENTS": "Lecture Attachments",
-
-    "COUPONS": "Coupons",
-
-
-    "EDIT_TITLE": "Edit Course",
-    "TITLE": "Title",
-    "THUMBNAIL": "Thumbnail",
-    "TYPE": "Type",
-    "RECORDED": "Recorded",
-    "LIVE": "Live",
-    "LEVEL": "Level",
-    "TARGET_AUDIENCE": "Target Audience",
-    "PRICE": "Price",
-    "LANGUAGE": "Language",
-    "CATEGORY": "Category",
-    "SECTION": "Section",
-    "SECTION_TITLE": "Section Title",
-    "LECTURE": "Lecture",
-    "LECTURE_TITLE": "Lecture Title",
-    "LECTURE_VIDEO": "Lecture Video",
-    "EDIT_BUTTON": "Edit Course",
-    "SAVE_BUTTON": "Save",
-    "BACK_BUTTON": "Back",
-    "MY_COURSES": "My Courses",
-    "TYPE_RECORDED": "Recorded Educational Courses",
-    "TYPE_LIVE": "Live Streamed Educational Courses",
-    "TYPE_UNKNOWN": "Unknown Type",
-    "REMOVE_BUTTON": "Remove",
-    "SHOW_ALL": "Show All",
-    "SHOW_LESS": "Show Less",
-    "NO_COURSES": "You don’t have any courses yet.",
-    "DELETE_CONFIRM_TITLE": "Are you sure you want to delete this course?",
-    "CANCEL_BUTTON": "Cancel",
-    "DELETE_BUTTON": "Delete",
-
-    "Subsection": "Subsection",
-    "SUBSECTION_TITLE": "Subsection Title",
-
-    "Description": "Description",
-
-    "PROMO_VIDEO": "Promotional Video"
-
-  },
-
-"LEVELS": {
-    "BEGINNER": "Beginner",
-    "INTERMEDIATE": "Intermediate",
-    "ADVANCED": "Advanced"
-  }
-
-
-
+   "quiz": {
+      "create_new": "Create Lecture Quiz",
+      "create_new1": "Create one",
+      "Create Section Quiz": "Create Section Quiz",
+      "Create Course Quiz": "Create Course Quiz",
+      "create": "Create Quiz",
+      "course_name": "Quiz Name",
+      "instructor_name": "Instructor Name",
+      "exam_datetime": "Exam Date & Time",
+      "duration": "Duration (minutes)",
+      "attempts": "Attempts Allowed",
+      "passing_score": "Passing Score (%)",
+      "description": "Quiz Description",
+      "question": "Question",
+      "options": "Options",
+      "option": "Option",
+      "answer_explanation": "Answer Explanation",
+      "remove_question": "Remove Question",
+      "add_question": "Add Question",
+      "save": "Save Quiz",
+      "add_mcq_question": "Add Multiple Choice Question",
+      "add_essay_question": "Add Essay Question",
+      "submit_questions": "Submit Questions",
+      "correct_answer": "Correct Answer",
+      "marks": "Mark",
+      "show_questions": "Show Questions",
+      "questions_preview": "Questions Preview",
+      "question_label": "Question:",
+      "answer": "Answer",
+      "correct": "Correct",
+      "edit_now": "Edit Now",
+      "view_details": "Create your quiz questions now",
+      "view_course_quiz_details": "Create your quiz questions now",
+      "search_placeholder": "Search by quiz name...",
+      "delete_quiz": "Delete Quiz",
+      "delete_confirm_title": "Confirm Deletion",
+      "delete_confirm_message": "Are you sure you want to delete this quiz?",
+      "confirm_delete": "Confirm Delete",
+      "cancel": "Cancel",
+      "course_quiz_details": "Quiz Details",
+      "section_name": "Section",
+      "select_section": "Select Section",
+      "select_section_lecture": "Select Section Lecture",
+      "select_lecture": "Select Lecture",
+      "select_subsection": "Select SubSection",
+      "select_subsection_lecture": "Select Subsection Lecture",
+      "subsection_name": "SubSection Name",
+      "lecture_name": "Lecture Name",
+      "errors": {
+        "course_name": "Course name is required.",
+        "instructor_name": "Instructor name is required.",
+        "exam_datetime": "Exam date and time are required.",
+        "duration": "The exam duration must be greater than 0.",
+        "attempts": "Number of attempts is required.",
+        "passing_score": "Passing score must be between 1 and 100.",
+        "questions_required": "At least one question must be added.",
+        "question_text_required": "Question number {{index}} is missing text.",
+        "option_required": "Option number {{optionIndex}} in question number {{index}} is empty.",
+        "correct_answer_required": "You must select the correct answer in question number {{index}}.",
+        "quiz_type_required": "Quiz type is required.",
+        "is_free_required": "You must specify whether the quiz is free or paid.",
+        "price_required_if_paid": "Price is required if the quiz is paid.",
+        "price_must_be_positive": "Price must be greater than 0.",
+        "invalid_exam_datetime": "Invalid exam date and time.",
+        "duplicate_options": "There are duplicate options in question {{index}}.",
+        "min_options_required": "At least two options are required in question {{index}}.",
+        "essay_answer_required": "A sample answer is required for essay question {{index}}.",
+        "quiz_type_mismatch": "All questions must match the selected quiz type (essay or multiple choice).",
+        "description": "Enter Your Quizz's Description",
+        "attach_to_required": "Please select where to attach the quiz (course, section, or lecture).",
+        "category_required": "You must select a category for the quiz.",
+        "no_token": "Please log in first",
+        "delete_failed": "Failed to delete quiz, please try again",
+        "no_subSections_available": "No subSections available for this section",
+        "subsection_required": "SubSection is required",
+        "section_required": "Section is required",
+        "lecture_required": "Lecture is required",
+        "question_required": "Question is required",
+        "correct_option_required": "Correct option is required",
+        "marks_required": "Marks are required",
+        "marks_min": "Marks must be at least 1"
+      },
+      "quiz_type": "Quiz Type",
+      "mcq": "Multiple Choice (MCQ)",
+      "essay": "Essay",
+      "is_free": "Is the quiz free?",
+      "free": "Free",
+      "paid": "Paid",
+      "price": "Price (SAR)",
+      "category": "Category",
+      "attach": {
+        "course": "Course",
+        "section": "Section",
+        "lecture": "Lecture",
+        "subSection": "SubSection"
+      },
+      "attach_to": "The quiz questions will be attached to:",
+      "select_course": "Select Course",
+      "success": {
+        "quiz_deleted": "Quiz deleted successfully"
+      }
     }
 ,
 "Description": "Description"
@@ -1205,6 +1139,19 @@
     "title": "Notice",
     "body": "Please log in first to use this feature.",
     "okButton": "OK"
+  },
+  "quizzes": {
+    "allCourses": "All Courses",
+    "allSections": "All Sections",
+    "allSubSections": "All Sub-Sections",
+    "allLectures": "All Lectures",
+    "search": "Search for a quiz...",
+    "course": "Course",
+    "attempts": "Attempts",
+    "duration": "Duration",
+    "minutes": "minutes",
+    "start": "Start Quiz",
+    "noResults": "No quizzes available based on current filters."
   }
 
 

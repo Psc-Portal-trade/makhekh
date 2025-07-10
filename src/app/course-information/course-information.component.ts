@@ -7,6 +7,7 @@ import { CartService } from '../services/cart.service';
 import { CourseInformationService } from '../services/course-information.service';
 import { TranslocoPipe } from '@ngneat/transloco';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
+import { CourseService } from '../services/course.service';
 declare var bootstrap: any;
 
 @Component({
@@ -37,7 +38,9 @@ export class CourseInformationComponent implements OnInit {
     private wishlistService: WishlistService,
     private route: ActivatedRoute,
     private courseService: CourseInformationService,
-    private sanitizer: DomSanitizer
+    private sanitizer: DomSanitizer,
+      private courseStorageService: CourseService, // <-- تمت الإضافة هنا
+
   ) {}
 userRole: string = '';
 
@@ -119,6 +122,29 @@ get uniqueMonths(): string[] {
     this.cartService.addToCart(this.course2);
     this.course2.isInCart = true;
   }
+buyNow() {
+  const course = this.courseObj;
+
+  if (!course || !course.id) {
+    console.warn('❌ لا يوجد بيانات صالحة للكورس لإتمام عملية الشراء.');
+    return;
+  }
+
+  const purchasedCourses = this.courseStorageService.getPurchasedCourses();
+  console.log('📦 الكورسات الحالية في السيرفيس:', purchasedCourses);
+
+  const alreadyPurchased = purchasedCourses.some(c => c.id === course.id);
+
+  if (!alreadyPurchased) {
+    this.courseStorageService.addPurchasedCourses([course]);
+    console.log('✅ تم شراء الكورس بنجاح.');
+  } else {
+    console.log('ℹ️ الكورس موجود مسبقًا في قائمة المشتريات.');
+  }
+
+  console.log('📦 الكورسات بعد الإضافة:', this.courseStorageService.getPurchasedCourses());
+}
+
 
   removeFromCart2() {
     this.cartService.removeFromCart(this.course2.id);

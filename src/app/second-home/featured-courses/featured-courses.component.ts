@@ -118,6 +118,7 @@ userRole: string = '';
     this.cartService.cartItems$.subscribe(() => {
       this.lectures.forEach(course => {
         course.isInCart = this.cartService.isItemInCart(course.id);
+        console.log('Updated cart status for course:', course.title, 'isInCart:', course.isInCart);
       });
     });
 
@@ -158,20 +159,43 @@ openStudentOnlyModal() {
   }
 
   addToCart(course: any) {
-    this.cartService.addToCart(course);
-    course.isInCart = true;
-  }
+  console.log('🛒 Add to cart clicked:', course); // ✅ تأكد إن الزر فعلاً اشتغل
+
+  this.cartService.addToCartAPI(course.id).subscribe({
+    next: (response) => {
+      console.log('✅ Course added to cart:', response);
+      course.isInCart = true;
+    },
+    error: (err) => {
+      console.error('❌ Error adding course:', err);
+    }
+  });
+}
+
 
   removeFromCart(course: any) {
-    this.cartService.removeFromCart(course.id);
-    course.isInCart = false;
+    this.cartService.removeCourseFromCartAPI(course.id).subscribe({
+    next: (response) => {
+      console.log('✅ Course remove from cart:', response);
+      course.isInCart = true;
+    },
+    error: (err) => {
+      console.error('❌ Error removing course:', err);
+    }
+  });
   }
 
   addToWishList(course: any) {
-    this.wishlistService.addToList(course);
-    course.isInWishList = true;
-  }
-
+    this.wishlistService.addCourseToWishlistAPI(course.id).subscribe({
+    next: (response) => {
+      console.log('✅ Course added to wishlist:', response);
+      course.isInCart = true;
+    },
+    error: (err) => {
+      console.error('❌ Error adding course:', err);
+    }
+  });
+}
   removeFromWishList(course: any) {
     this.wishlistService.removeFromList(course.id);
     course.isInWishList = false;
