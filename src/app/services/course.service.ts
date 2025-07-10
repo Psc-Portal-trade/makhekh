@@ -13,8 +13,11 @@ export class CourseService {
   constructor() {}
 
   private loadCoursesFromStorage(): any[] {
+    localStorage.removeItem('purchasedCourses');
+
     const stored = localStorage.getItem(this.localStorageKey);
     return stored ? JSON.parse(stored) : [];
+
   }
 
   private saveCoursesToStorage(courses: any[]) {
@@ -35,6 +38,7 @@ export class CourseService {
       this.saveCoursesToStorage(updatedCourses);
     }
   }
+
 
   getPurchasedCourses() {
     return this.purchasedCourses.getValue();

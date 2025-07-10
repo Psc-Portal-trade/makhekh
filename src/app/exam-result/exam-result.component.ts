@@ -33,39 +33,47 @@ ngOnInit(): void {
   const currentExamCourseStr = localStorage.getItem('currentExamCourse');
 
   if (examAttemptsStr && currentExamCourseStr) {
-    const attempts = JSON.parse(examAttemptsStr);
-    this.currentExamCourse = JSON.parse(currentExamCourseStr);
+    try {
+      const attemptObj = JSON.parse(examAttemptsStr);
+      const courseObj = JSON.parse(currentExamCourseStr);
 
-    this.examAttempts = attempts[0];
-    this.quiz = this.examAttempts;
+      // ✅ إذا كانت محاولة واحدة فقط (كائن)، نضعها مباشرة
+      this.examAttempts = Array.isArray(attemptObj) ? attemptObj[0] : attemptObj;
+      this.quiz = this.examAttempts;
+      this.currentExamCourse = courseObj;
 
-this.quizType = this.findQuizType(this.quiz.quizId, this.currentExamCourse);
+      this.quizType = this.findQuizType(this.quiz.quizId, this.currentExamCourse);
 
-    // ✅ ربط الأسئلة الكاملة من الكويز
-    const fullQuiz = this.currentExamCourse?.quizzes?.find(
-      (q: any) => q.id === this.quiz.quizId
-    );
+      const fullQuiz = this.currentExamCourse?.quizzes?.find(
+        (q: any) => q.id === this.quiz.quizId
+      );
 
-    if (fullQuiz) {
-      this.quiz.questions.forEach((q: any) => {
-        const match = fullQuiz.questions.find((fq: any) => fq.text === q.text);
+      if (fullQuiz) {
+        this.quiz.questions.forEach((q: any) => {
+          const match = fullQuiz.questions.find((fq: any) => fq.text === q.text);
+          if (match) {
+            q.choices = match.choices;
+            q.modelAnswer = match.modelAnswer;
+            q.sectionId = match.sectionId;
+            q.subSectionId = match.subSectionId;
+            q.lectureId = match.lectureId;
+            q.courseId = match.courseId;
+          }
+        });
+      }
 
-        if (match) {
-          q.choices = match.choices;
-          q.modelAnswer = match.modelAnswer;
-          q.sectionId = match.sectionId;
-          q.subSectionId = match.subSectionId;
-          q.lectureId = match.lectureId;
-          q.courseId = match.courseId;
-        }
-      });
+      this.structureQuestionsByCourse();
+
+    } catch (error) {
+      console.error('❌ فشل في قراءة البيانات من localStorage:', error);
+      this.router.navigate(['/my-courses']);
     }
 
-    this.structureQuestionsByCourse();
   } else {
     this.router.navigate(['/my-courses']);
   }
 }
+
 get isPassed(): boolean {
   return this.examAttempts?.passed;
 }

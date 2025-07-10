@@ -137,6 +137,7 @@ buyNow() {
 
   if (!alreadyPurchased) {
     this.courseStorageService.addPurchasedCourses([course]);
+    console.log(course)
     console.log('✅ تم شراء الكورس بنجاح.');
   } else {
     console.log('ℹ️ الكورس موجود مسبقًا في قائمة المشتريات.');

@@ -196,8 +196,7 @@ submitExam() {
     console.error('❌ Failed to parse examAttempts:', error);
   }
 
-  previousAttempts.push(attemptData);
-  localStorage.setItem('examAttempts', JSON.stringify(previousAttempts));
+localStorage.setItem('examAttempts', JSON.stringify(attemptData)); // ✅ صحيح
 
   this.showExamResult = true;
 

@@ -121,31 +121,33 @@ this.courseApiService.getAllCourses().subscribe({
       })) ?? [];
 
       return {
-        id: course.id,
-        title: course.title,
-        description: course.description,
-        thumbnailUrl: course.thumbnailUrl,
-        averageRating: course.averageRating,
-        enrolledStudentsCount: course.enrolledStudentsCount,
-        price: course.price,
-        currency: course.currency,
-        teacherName: course.teacherName,
-        category: course.category?.name,
-        language: course.language,
-        level: course.level,
-        prerequisites: course.prerequisites,
-        targetAudience: course.targetAudience,
-        type: course.type,
-        isApproved: course.isApproved,
-        ratingsCount: course.ratingsCount,
-        totalDurationHours: course.totalDurationHours,
-        createdAt: course.createdAt,
-        lastUpdatedAt: course.lastUpdatedAt,
-        promoVideolUrl: course.promoVideolUrl,
-        isInCart: this.cartService.isItemInCart(course.id),
-        isInWishlist: this.wishlistService.isItemInList(course.id),
-        sections: sections
-      };
+  id: course.id,
+  title: course.title,
+  description: course.description,
+  thumbnailUrl: course.thumbnailUrl,
+  averageRating: course.averageRating,
+  enrolledStudentsCount: course.enrolledStudentsCount,
+  price: course.price,
+  currency: course.currency,
+  teacherName: course.teacherName,
+  category: course.category?.name,
+  language: course.language,
+  level: course.level,
+  prerequisites: course.prerequisites,
+  targetAudience: course.targetAudience,
+  type: course.type,
+  isApproved: course.isApproved,
+  ratingsCount: course.ratingsCount,
+  totalDurationHours: course.totalDurationHours,
+  createdAt: course.createdAt,
+  lastUpdatedAt: course.lastUpdatedAt,
+  promoVideolUrl: course.promoVideolUrl,
+  isInCart: this.cartService.isItemInCart(course.id),
+  isInWishlist: this.wishlistService.isItemInList(course.id),
+  sections: sections,
+  quizzes: course.quizzes ?? [], // 👈 أضف هذا السطر هنا
+};
+
     });
 
     console.log("✅ mapped lectures with contentItems:", this.lectures);
