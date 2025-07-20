@@ -11,73 +11,69 @@
     <li class="nav-item">
       <a class="nav-link active" data-bs-toggle="tab" data-bs-target="#all-courses">{{"my-courses.All Courses" | transloco}}</a>
     </li>
-    <li class="nav-item">
+    <!-- <li class="nav-item">
       <a class="nav-link" data-bs-toggle="tab" data-bs-target="#tests">{{"my-courses.tests" | transloco}}</a>
-    </li>
+    </li> -->
 
   </ul>
 
   <div class="tab-content mt-3">
     <!-- Tab: All Courses -->
     <div id="all-courses" class="tab-pane fade show active">
-      <!-- إظهار input فقط عندما يكون هناك بيانات أو عند البحث -->
-      <input *ngIf="courses.length > 0" type="text" class="form-control mb-3"
-             placeholder="Search for a course..." [(ngModel)]="searchQuery" />
-
-      <div class="container">
-        <div class="container mt-4">
+  <!-- 🔍 حقل البحث -->
   <input
-    *ngIf="lectures.length > 0"
+    *ngIf="allCourses.length > 0"
     type="text"
     class="form-control mb-3"
     placeholder="Search for a course..."
     [(ngModel)]="searchQueryLectures"
     (input)="updateFilteredLectures()" />
 
-  <div class="row gy-3">
-    <div class="no-items" *ngIf="filteredLectures.length === 0">
-      <img src="assets/no items yet.jpg" alt="No items yet" />
-      <p>{{ "my-courses.No items yet" | transloco }}</p>
-    </div>
+  <div class="container mt-4">
+    <div class="row gy-3">
+      <!-- ❌ في حالة عدم وجود نتائج -->
+      <div class="no-items" *ngIf="filteredLectures.length === 0">
+        <img src="assets/no items yet.jpg" alt="No items yet" />
+        <p>{{ "my-courses.No items yet" | transloco }}</p>
+      </div>
 
-    <div
-      class="col-md-4"
-      *ngFor="let course of paginatedLectures"
-      (click)="goToCourseDetails(course)"
-      style="cursor: pointer;">
-      <div class="card course-card">
-        <div class="course-image">
-          <img [src]="course.thumbnailUrl" class="card-img-top" alt="{{ course.title }}" />
-        </div>
-        <div class="card-body">
-          <h5 class="card-title">{{ course.title }}</h5>
-          <p class="card-text instructor">{{ course.teacherName }}</p>
-          <p class="progress-text">{{ course.totalDurationHours || 0 }} ساعات</p>
-          <!-- Progress bar ثابت مثلاً 100% للعرض -->
-          <div class="progress">
-            <div class="progress-bar" style="width:0%;"></div>
+      <!-- ✅ عرض الكروسات -->
+      <div
+        class="col-md-4"
+        *ngFor="let course of paginatedLectures"
+        (click)="goToCourseDetails(course)"
+        style="cursor: pointer;">
+        <div class="card course-card">
+          <div class="course-image">
+            <img [src]="course.thumbnailUrl" class="card-img-top" alt="{{ course.title }}" />
+          </div>
+          <div class="card-body">
+            <h5 class="card-title">{{ course.title }}</h5>
+            <p class="card-text instructor">{{ course.teacherName || 'بدون مدرس' }}</p>
+            <p class="progress-text">{{ course.totalDurationHours || 0 }} ساعات</p>
+            <!-- يمكنك تعديل الـ Progress حسب النسبة -->
+            <div class="progress">
+              <div class="progress-bar" style="width: 0%;"></div>
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
 
-  <!-- Pagination -->
-  <div class="pagination-controls mt-3" *ngIf="filteredLectures.length > 0">
-    <button
-      *ngFor="let page of getPagesArrayLectures()"
-      (click)="goToPageLectures(page)"
-      [class.active]="page === currentPageLectures">
-      {{ page }}
-    </button>
+    <!-- 📄 Pagination -->
+    <div class="pagination-controls mt-3" *ngIf="filteredLectures.length > 0">
+      <button
+        *ngFor="let page of getPagesArrayLectures()"
+        (click)="goToPageLectures(page)"
+        [class.active]="page === currentPageLectures">
+        {{ page }}
+      </button>
+    </div>
   </div>
 </div>
 
 
-      </div>
-    </div>
-
-
+<!--
 <div id="tests" class="tab-pane fade show active p-3">
   <div class="row mb-3">
     <div class="col-md-3">
@@ -145,7 +141,7 @@
   <div *ngIf="paginatedQuizzes.length === 0" class="text-center text-muted my-4">
     <p>{{ 'quizzes.noResults' | transloco }}</p>
   </div>
-</div>
+</div> -->
 
 
 

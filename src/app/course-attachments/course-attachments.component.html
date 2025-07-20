@@ -1,0 +1,77 @@
+<app-second-nav></app-second-nav>
+<section>
+  <div class="container mt-4 row">
+    <!-- ✅ العمود الأيمن: شجرة المحتوى -->
+    <div class="col-md-4 border-end border-start">
+      <!-- الكورس -->
+      <div
+        (click)="selectEntity(1, course.id)"
+        [class.text-primary]="selectedEntityType === 1 && selectedEntityId === course.id"
+        style="cursor: pointer;"
+        class="py-2">
+        📘 {{ 'attachments.courseTitle' | transloco }}
+      </div>
+
+      <div *ngFor="let section of course.sections" class="mt-3 ms-3">
+        <!-- السكشن -->
+        <div
+          (click)="selectEntity(2, section.id)"
+          [class.text-primary]="selectedEntityType === 2 && selectedEntityId === section.id"
+          style="cursor: pointer;"
+          class="py-2">
+          <i class="fa-regular fa-folder" [class.text-danger]="selectedEntityType === 2 && selectedEntityId === section.id"></i>
+          {{ section.title }}
+        </div>
+
+        <!-- المحاضرات داخل السكشن -->
+        <div
+          *ngFor="let lec of section.lectures"
+          class="mx-3 py-2"
+          (click)="selectEntity(3, lec.id)"
+          [class.text-primary]="selectedEntityType === 3 && selectedEntityId === lec.id"
+          style="cursor: pointer;">
+          <i class="fa-solid fa-video" [class.text-danger]="selectedEntityType === 3 && selectedEntityId === lec.id"></i>
+          {{ lec.title }}
+        </div>
+
+        <!-- الصب سيكشن -->
+        <div *ngFor="let sub of section.subSections" class="ms-3">
+          <div class="fw-semibold mt-2">
+            <i class="fa-regular fa-folder-open"></i>
+            {{ sub.title }}
+          </div>
+          <div
+            *ngFor="let lec of sub.lectures"
+            class="mx-3 py-2"
+            (click)="selectEntity(3, lec.id)"
+            [class.text-primary]="selectedEntityType === 3 && selectedEntityId === lec.id"
+            style="cursor: pointer;">
+            <i class="fa-solid fa-video" [class.text-danger]="selectedEntityType === 3 && selectedEntityId === lec.id"></i>
+            {{ lec.title }}
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ✅ العمود الأيسر: الملفات -->
+    <div class="col-md-8 pt-3">
+      <h5>📎 {{ 'attachments.filesTitle' | transloco }}</h5>
+
+      <div *ngIf="filteredAttachments.length === 0" class="text-muted">
+        {{ 'attachments.noFiles' | transloco }}
+      </div>
+
+      <div *ngFor="let file of filteredAttachments" class="card p-2 mb-2">
+
+        <div class="fw-bold">{{ file.fileName }}</div>
+        <p class="mb-1">{{ file.description }}</p>
+        <a
+          [href]="file.fileUrl"
+          target="_blank"
+          class="btn btn-sm btn-outline-primary">
+          {{ 'attachments.download' | transloco }}
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

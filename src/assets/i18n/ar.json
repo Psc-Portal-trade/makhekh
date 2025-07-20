@@ -1208,7 +1208,10 @@
     "status": "الحالة",
     "passed": "✔️ ناجح",
     "failed": "❌ راسب",
-    "viewResult": "عرض النتائج"
+    "viewResult": "عرض النتائج",
+    "timeLimit": "المدة: {{minutes}} دقيقة",
+    "attemptsAllowed": "المحاولات: {{attempts}}",
+    "startButton": "ابدأ الامتحان"
   },
   "examResult": {
     "title": "نتيجة الامتحان",
@@ -1234,7 +1237,27 @@
   "unanswered": "عدد الأسئلة غير المجابة",
   "percentage": "النسبة المئوية"
 
+  },
+    "courseParts":{
+    "Course Content":"محتوى الدورة",
+    "Course Attachments":"مرفقات الدورة",
+    "Course Exams":"امتحانات الدورة",
+    "Exam results for the course":"نتائج الامتحانات للدورة",
+    "Reports": "تقارير"
+
+
+  },
+    "attachments": {
+    "courseTitle": "محتوى الكورس",
+    "filesTitle": "المرفقات",
+    "noFiles": "لا توجد مرفقات متاحة",
+    "download": "تحميل",
+    "exams": "الامتحانات",
+    "timeLimit": "المدة: {{minutes}} دقيقة",
+    "attemptsAllowed": "المحاولات: {{attempts}}",
+    "startButton": "ابدأ الامتحان"
   }
+
 
 
 

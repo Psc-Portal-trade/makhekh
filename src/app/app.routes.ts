@@ -49,6 +49,13 @@ import { ExamResultComponent } from './exam-result/exam-result.component';
 import { EditCoursComponent } from './edit-cours/edit-cours.component';
 import { CreateQuizComponent } from './create-quiz/create-quiz.component';
 import { QuizComponent } from './quiz/quiz.component';
+import { CoursePartsComponent } from './course-parts/course-parts.component';
+import { CourseReportsComponent } from './course-reports/course-reports.component';
+import { CourseExamsComponent } from './course-exams/course-exams.component';
+import { CourseExamsResultsComponent } from './course-exams-results/course-exams-results.component';
+import { CourseAttachmentsComponent } from './course-attachments/course-attachments.component';
+import { CourseExamComponent } from './course-exam/course-exam.component';
+import { CourseExamResultComponent } from './course-exam-result/course-exam-result.component';
 
 export const routes: Routes = [
   {path:"", redirectTo:"home",pathMatch:"full"},
@@ -76,6 +83,13 @@ export const routes: Routes = [
   {path:"edit-course",component:EditCoursComponent},
   {path:"create-quiz",component:CreateQuizComponent},
   {path:"quiz",component:QuizComponent},
+  {path:"course-parts",component:CoursePartsComponent},
+  {path:"course-reports",component:CourseReportsComponent},
+  {path:"course-exams",component:CourseExamsComponent},
+  {path:"course-exams-results",component:CourseExamsResultsComponent},
+  {path:"course-attachments",component:CourseAttachmentsComponent},
+  {path:"course-exam",component:CourseExamComponent},
+  {path:"course-exam-result",component:CourseExamResultComponent},
 
 
 
@@ -342,6 +356,7 @@ export const routes: Routes = [
 {path:"my-courses/my-courses",redirectTo:"my-courses",pathMatch:"full"},
 {path:"my-courses/course-content",redirectTo:"course-content",pathMatch:"full"},
 {path:"my-courses/exam",redirectTo:"exam",pathMatch:"full"},
+{path:"my-courses/course-parts",redirectTo:"course-parts",pathMatch:"full"},
 
 //  *********** exam ***********
 
@@ -453,6 +468,96 @@ export const routes: Routes = [
 {path:"course-content/student-profile",redirectTo:"student-profile",pathMatch:"full"},
 {path:"course-content/logOut",redirectTo:"home",pathMatch:"full"},
 {path:"course-content/create-quiz",redirectTo:"create-quiz",pathMatch:"full"},
+
+
+
+
+//  *********** course-parts ***********
+
+
+
+
+{path:"course-parts/my-courses",redirectTo:"my-courses",pathMatch:"full"},
+{path:"course-parts/studentHome",redirectTo:"studentHome",pathMatch:"full"},
+{path:"course-parts/explore",redirectTo:"explore",pathMatch:"full"},
+{path:"course-parts/cart",redirectTo:"cart",pathMatch:"full"},
+{path:"course-parts/wishedList",redirectTo:"wishedList",pathMatch:"full"},
+{path:"course-parts/instructor-profile",redirectTo:"instructor-profile",pathMatch:"full"},
+{path:"course-parts/student-profile",redirectTo:"student-profile",pathMatch:"full"},
+{path:"course-parts/logOut",redirectTo:"home",pathMatch:"full"},
+{path:"course-parts/course-exams",redirectTo:"course-exams",pathMatch:"full"},
+{path:"course-parts/course-exams-results",redirectTo:"course-exams-results",pathMatch:"full"},
+{path:"course-parts/course-attachments",redirectTo:"course-attachments",pathMatch:"full"},
+{path:"course-parts/course-reports",redirectTo:"course-reports",pathMatch:"full"},
+{path:"course-parts/course-content",redirectTo:"course-content",pathMatch:"full"},
+
+
+
+//  *********** course-exams ***********
+
+
+
+
+{path:"course-exams/my-courses",redirectTo:"my-courses",pathMatch:"full"},
+{path:"course-exams/studentHome",redirectTo:"studentHome",pathMatch:"full"},
+{path:"course-exams/explore",redirectTo:"explore",pathMatch:"full"},
+{path:"course-exams/cart",redirectTo:"cart",pathMatch:"full"},
+{path:"course-exams/wishedList",redirectTo:"wishedList",pathMatch:"full"},
+{path:"course-exams/instructor-profile",redirectTo:"instructor-profile",pathMatch:"full"},
+{path:"course-exams/student-profile",redirectTo:"student-profile",pathMatch:"full"},
+{path:"course-exams/logOut",redirectTo:"home",pathMatch:"full"},
+{path:"course-exams/create-quiz",redirectTo:"create-quiz",pathMatch:"full"},
+{path:"course-exams/course-exams-results",redirectTo:"course-exams-results",pathMatch:"full"},
+{path:"course-exams/cours-exam",redirectTo:"cours-exam",pathMatch:"full"},
+
+
+//  *********** course-exams-results ***********
+
+
+
+
+{path:"course-exams-results/my-courses",redirectTo:"my-courses",pathMatch:"full"},
+{path:"course-exams-results/studentHome",redirectTo:"studentHome",pathMatch:"full"},
+{path:"course-exams-results/explore",redirectTo:"explore",pathMatch:"full"},
+{path:"course-exams-results/cart",redirectTo:"cart",pathMatch:"full"},
+{path:"course-exams-results/wishedList",redirectTo:"wishedList",pathMatch:"full"},
+{path:"course-exams-results/instructor-profile",redirectTo:"instructor-profile",pathMatch:"full"},
+{path:"course-exams-results/student-profile",redirectTo:"student-profile",pathMatch:"full"},
+{path:"course-exams-results/logOut",redirectTo:"home",pathMatch:"full"},
+{path:"course-exams-results/create-quiz",redirectTo:"create-quiz",pathMatch:"full"},
+{path:"course-exams-results/course-exam-result",redirectTo:"course-exam-result",pathMatch:"full"},
+
+
+//  *********** course-attachments ***********
+
+
+
+
+{path:"course-attachments/my-courses",redirectTo:"my-courses",pathMatch:"full"},
+{path:"course-attachments/studentHome",redirectTo:"studentHome",pathMatch:"full"},
+{path:"course-attachments/explore",redirectTo:"explore",pathMatch:"full"},
+{path:"course-attachments/cart",redirectTo:"cart",pathMatch:"full"},
+{path:"course-attachments/wishedList",redirectTo:"wishedList",pathMatch:"full"},
+{path:"course-attachments/instructor-profile",redirectTo:"instructor-profile",pathMatch:"full"},
+{path:"course-attachments/student-profile",redirectTo:"student-profile",pathMatch:"full"},
+{path:"course-attachments/logOut",redirectTo:"home",pathMatch:"full"},
+{path:"course-attachments/create-quiz",redirectTo:"create-quiz",pathMatch:"full"},
+
+
+//  *********** course-reports ***********
+
+
+
+
+{path:"course-reports/my-courses",redirectTo:"my-courses",pathMatch:"full"},
+{path:"course-reports/studentHome",redirectTo:"studentHome",pathMatch:"full"},
+{path:"course-reports/explore",redirectTo:"explore",pathMatch:"full"},
+{path:"course-reports/cart",redirectTo:"cart",pathMatch:"full"},
+{path:"course-reports/wishedList",redirectTo:"wishedList",pathMatch:"full"},
+{path:"course-reports/instructor-profile",redirectTo:"instructor-profile",pathMatch:"full"},
+{path:"course-reports/student-profile",redirectTo:"student-profile",pathMatch:"full"},
+{path:"course-reports/logOut",redirectTo:"home",pathMatch:"full"},
+{path:"course-reports/create-quiz",redirectTo:"create-quiz",pathMatch:"full"},
 
 
 

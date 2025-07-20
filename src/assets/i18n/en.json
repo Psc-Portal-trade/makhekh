@@ -1167,7 +1167,10 @@
     "status": "Status",
     "passed": "✔️ Passed",
     "failed": "❌ Failed",
-    "viewResult": "View Results"
+    "viewResult": "View Results",
+        "timeLimit": "Time Limit: {{minutes}} minutes",
+    "attemptsAllowed": "Attempts Allowed: {{attempts}}",
+    "startButton": "Start Exam"
   },
   "examResult": {
     "title": "Exam Result",
@@ -1192,6 +1195,23 @@
   "correctAnswers": "Correct Answers",
   "unanswered": "Unanswered",
   "percentage": "Percentage"
+  },
+  "courseParts":{
+    "Course Content":"Course Content",
+    "Course Attachments":"Course Attachments",
+    "Course Exams":"Course Exams",
+    "Exam results for the course":"Exam results for the course",
+    "Reports":"Reports"
+  },
+ "attachments": {
+    "courseTitle": "Course Content",
+    "filesTitle": "Attachments",
+    "noFiles": "No attachments available",
+    "download": "Download",
+    "exams":"Exams",
+     "timeLimit": "Time Limit: {{minutes}} minutes",
+    "attemptsAllowed": "Attempts Allowed: {{attempts}}",
+    "startButton": "Start Exam"
   }
 
 

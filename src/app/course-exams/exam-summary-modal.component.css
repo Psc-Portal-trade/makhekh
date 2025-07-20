@@ -1,0 +1,78 @@
+.modal-backdrop {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+.modal-content {
+  background: #fff;
+  border-radius: 12px;
+  padding: 32px 22px;
+  min-width: 350px;
+  max-width: 90vw;
+  max-height: 80vh;
+  overflow-y: auto;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.14);
+}
+.questions-summary {
+  margin: 18px 0 24px 0;
+}
+.question-summary {
+  border-bottom: 1px solid #eee;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+}
+.question-text {
+  font-weight: bold;
+  margin-bottom: 7px;
+}
+.options {
+  margin-bottom: 6px;
+}
+.options div {
+  display: inline-block;
+  margin-left: 14px;
+  padding: 2px 8px;
+  border-radius: 5px;
+  background: #f3f3f3;
+}
+.options div.selected {
+  background: #d0f5e8;
+  font-weight: bold;
+  color: #009688;
+}
+.your-answer {
+  color: #2196f3;
+  font-size: 0.95em;
+  margin-right: 6px;
+}
+.answer-status {
+  font-size: 0.98em;
+  margin-top: 2px;
+}
+.answered {
+  color: #388e3c;
+}
+.unanswered {
+  color: #d32f2f;
+}
+.modal-actions {
+  text-align: left;
+  margin-top: 18px;
+}
+.modal-actions button {
+  margin-left: 12px;
+  padding: 7px 18px;
+  border-radius: 5px;
+  border: none;
+  background: #eee;
+  cursor: pointer;
+  font-size: 1em;
+}
+.modal-actions .finish-btn {
+  background: #009688;
+  color: #fff;
+}

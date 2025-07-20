@@ -1,0 +1,23 @@
+<div class="modal-backdrop" *ngIf="isOpen">
+  <div class="modal-content">
+    <h3>ملخص الامتحان</h3>
+    <div class="questions-summary">
+      <div *ngFor="let q of questions" class="question-summary">
+        <div class="question-text">{{ q.text }}</div>
+        <div class="options">
+          <div *ngFor="let option of q.options" [class.selected]="q.selectedAnswer === option">
+            <span>{{ option }}</span>
+            <span *ngIf="q.selectedAnswer === option" class="your-answer">(إجابتك)</span>
+          </div>
+        </div>
+        <div class="answer-status" [class.answered]="q.isAnswered" [class.unanswered]="!q.isAnswered">
+          {{ q.isAnswered ? 'تمت الإجابة' : 'لم يتم الإجابة' }}
+        </div>
+      </div>
+    </div>
+    <div class="modal-actions">
+      <button (click)="onClose()">إغلاق</button>
+      <button class="finish-btn" (click)="onFinishAttempt()">إنهاء المحاولة</button>
+    </div>
+  </div>
+</div>

@@ -474,7 +474,7 @@ async submitCourseFlow() {
 
             console.log("📤 Uploading Subsection Lecture:", lecture.title);
             const lecRes: any = await this.http.post(
-              `https://api.makhekh.com/api/Courses/${courseId}/Lectures/video`,
+              `https://api.makhekh.com/api/courses/${courseId}/Lectures/video`,
               lForm,
               { headers }
             ).toPromise();
@@ -515,7 +515,7 @@ async submitCourseFlow() {
 
           console.log("📤 Uploading Lecture:", lec.title);
           const lecRes: any = await this.http.post(
-            `https://api.makhekh.com/api/Courses/${courseId}/Lectures/video`,
+            `https://api.makhekh.com/api/courses/${courseId}/Lectures/video`,
             lForm,
             { headers }
           ).toPromise();
@@ -680,11 +680,14 @@ isLoading: boolean = false;
 
 
  nextStep1() {
-  if (this.currentStep === 0 && !this.isFirstStepValid()) {
-    this.warningMessageKey = 'warnings.fillFirstSection';
-    return;
-  }
-
+  // if (this.currentStep === 0 && !this.isFirstStepValid()) {
+  //   this.warningMessageKey = 'warnings.fillFirstSection';
+  //   return;
+  // }
+// if (this.currentStep === 0 ) {
+//     this.warningMessageKey = 'warnings.fillFirstSection';
+//     return;
+//   }
   if (this.currentStep === 1 && !this.isStepThreeValid()) {
     this.warningMessageKey = 'warnings.fillCourseData';
     return;
@@ -798,239 +801,7 @@ isLoading: boolean = false;
 console.log("Course Object:", this.courseObj);
 
   }
-// async submitCourseFlow2() {
-//   try {
-//     this.isLoading = true;
 
-//     const userData = localStorage.getItem('user');
-//     const token = userData ? JSON.parse(userData).token : null;
-//     if (!token) throw new Error('Missing token');
-
-//     const headers = { Authorization: `Bearer ${token}` };
-//     const formData = new FormData();
-
-//     const {
-//       landingPage,
-//       courseTitle,
-//       categoryId,
-//       subcategoryId,
-//       targetAudience,
-//       requirements,
-//     } = this.courseObj;
-
-//     // التحقق من الملفات
-//     if (!(this.courseAssets.photo instanceof File)) {
-//       alert("❌ Please upload a valid image.");
-//       this.isLoading = false;
-//       return;
-//     }
-//     if (!(this.courseAssets.video instanceof File)) {
-//       alert("❌ Please upload a valid video.");
-//       this.isLoading = false;
-//       return;
-//     }
-
-//     // خريطة المستوى
-//     const levelMap: Record<string, string> = {
-//       Beginner: "1",
-//       Intermediate: "2",
-//       Advanced: "3",
-//     };
-
-//     const finalPrice = this.courseData.isPaid ? this.courseData.price ?? 0 : 0;
-//     const currency = this.courseData.isPaid ? this.courseData.currency || "SAR" : "SAR";
-
-//     // التحقق من الحقول الأساسية
-//     if (!courseTitle || !categoryId || !landingPage.language || !landingPage.level || !landingPage.description) {
-//       alert("❌ Missing required course information.");
-//       this.isLoading = false;
-//       return;
-//     }
-
-//     // تعبئة FormData
-//     formData.append("thumbnail", this.courseAssets.photo);
-//     formData.append("promoVideo", this.courseAssets.video);
-//     formData.append("categoryId", categoryId);
-//     if (subcategoryId) formData.append("subcategoryId", subcategoryId);
-//     formData.append("title", courseTitle);
-//     formData.append("language", landingPage.language.toLowerCase() || "");
-//     formData.append("prerequisites", requirements || "");
-//     formData.append("targetAudience", targetAudience || "");
-//     formData.append("descriptions", landingPage.description || "");
-//     formData.append("level", levelMap[landingPage.level as keyof typeof levelMap] || "");
-//     formData.append("type", "2");
-//     formData.append("price", finalPrice.toString());
-//     formData.append("currency", currency);
-
-//     // طباعة البيانات للديباج
-//     for (const [key, value] of formData.entries()) {
-//       console.log(`${key}:`, value);
-//     }
-
-//     // رفع الكورس
-//     const courseResponse: any = await this.http
-//       .post("https://api.makhekh.com/api/Courses", formData, { headers })
-//       .toPromise();
-
-//     const courseId = courseResponse.data?.id;
-//     if (!courseId) throw new Error("❌ Failed to get courseId from response.");
-
-//     // إضافة الأقسام (sections/modules)
-//     for (const [sectionIndex, section] of this.courseObj.schedules.entries()) {
-//       const sectionBody = {
-//         title: section.title,
-//         description: section.description,
-//         orderInCourse: sectionIndex,
-//       };
-
-//       const sectionRes: any = await this.http
-//         .post(`https://api.makhekh.com/api/courses/${courseId}/Sections`, sectionBody, {
-//           headers: { ...headers, "Content-Type": "application/json" },
-//         })
-//         .toPromise();
-
-//       const sectionId = sectionRes.data.id;
-
-//       // رفع ملفات القسم
-//       for (const file of section.files || []) {
-//         const sForm = new FormData();
-//         sForm.append("EntityId", sectionId);
-//         sForm.append("FileName", file.name);
-//         sForm.append("Description", file.description);
-//         sForm.append("attachment", file.file);
-//         sForm.append("EntityType", "2");
-//         await this.http.post("https://api.makhekh.com/api/summary-attachments", sForm, { headers }).toPromise();
-//       }
-
-//       // رفع المحتوى (الدروس أو الوحدات)
-//       for (const content of section.content || []) {
-//         if (content.type === "lesson") {
-//           const body = {
-//             title: content.data.title,
-//             sectionId,
-//             lecturerName: content.data.lecturerName,
-//             description: content.data.description,
-//             startTime: content.data.startTime,
-//             durationInMinutes: content.data.durationInMinutes || 0,
-//             zoomMeetingId: content.data.zoomMeetingId || '',
-//             zoomJoinUrl: content.data.zoomJoinUrl,
-//             zoomPassword: content.data.zoomPassword,
-//             isInstant: content.data.isInstant || false,
-//             status: content.data.status,
-//             maxParticipants: content.data.maxParticipants || 0,
-//           };
-
-//           await this.http
-//             .post(`https://api.makhekh.com/api/Courses/${courseId}/Lectures`, body, {
-//               headers: { ...headers, 'Content-Type': 'application/json' },
-//             })
-//             .toPromise();
-//         }
-
-//         if (content.type === "unit") {
-//           const subBody = {
-//             title: content.data.name,
-//             description: content.data.description,
-//           };
-
-//           const subRes: any = await this.http
-//             .post(`https://api.makhekh.com/api/courses/${sectionId}/subsection`, subBody, {
-//               headers: { ...headers, "Content-Type": "application/json" },
-//             })
-//             .toPromise();
-//           const subId = subRes.data.id;
-
-//           for (const lesson of content.data.lessons || []) {
-//             const body = {
-//               title: lesson.title,
-//               sectionId,
-//               subSectionId: subId,
-//               lecturerName: lesson.lecturerName,
-//               description: lesson.description,
-//               startTime: lesson.startTime,
-//               durationInMinutes: lesson.durationInMinutes || 0,
-//               zoomMeetingId: lesson.zoomMeetingId || '',
-//               zoomJoinUrl: lesson.zoomJoinUrl,
-//               zoomPassword: lesson.zoomPassword,
-//               isInstant: lesson.isInstant || false,
-//               status: lesson.status,
-//               maxParticipants: lesson.maxParticipants || 0,
-//             };
-
-//             await this.http
-//               .post(`https://api.makhekh.com/api/Courses/${courseId}/Lectures`, body, {
-//                 headers: { ...headers, 'Content-Type': 'application/json' },
-//               })
-//               .toPromise();
-//           }
-//         }
-//       }
-//     }
-
-//     // إضافة كوبونات
-//     for (const coupon of this.coupons) {
-//       if (!coupon.code || coupon.discount == null) continue;
-//       await this.http
-//         .post(
-//           "https://api.makhekh.com/api/Coupons",
-//           {
-//             courseId,
-//             code: coupon.code,
-//             discountPercentage: coupon.discount,
-//           },
-//           {
-//             headers: { ...headers, "Content-Type": "application/json" },
-//           }
-//         )
-//         .toPromise();
-//     }
-
-//     // رفع الكتاب إن وجد
-//     if (this.course.book && this.course.bookTitle && this.course.bookDescription) {
-//       const f = new FormData();
-//       f.append("EntityId", courseId);
-//       f.append("FileName", this.course.bookTitle);
-//       f.append("Description", this.course.bookDescription);
-//       f.append("attachment", this.course.book);
-//       f.append("EntityType", "1");
-//       await this.http
-//         .post("https://api.makhekh.com/api/summary-attachments", f, { headers })
-//         .toPromise();
-//     }
-
-//     // الموافقة على الكورس تلقائياً
-//     const approveToken = "eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6IjkzM2RkOGU5LTk2ZDItNDliOS1hOTdiLTJhMGJkMDMyZTc4NyIsImh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3dzLzIwMDUvMDUvaWRlbnRpdHkvY2xhaW1zL2dpdmVubmFtZSI6Im1vc3RhZmExIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvZW1haWxhZGRyZXNzIjoic3RyaW5nIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoiQWRtaW4iLCJleHAiOjE3NTE1NzIyODQsImlzcyI6Imh0dHBzOi8vYXBpLm1ha2hla2guY29tLyIsImF1ZCI6Ik15U2VjdXJlS2V5In0.tdqEtA08bw5SuIHGY6nBTBoxAvNch-awxihIO15btP0"; // ضع التوكن الصحيح هنا
-//     await this.http
-//       .post(
-//         "https://api.makhekh.com/api/admin/courses/approve",
-//         {
-//           courseId,
-//           approve: true,
-//           comment: "ok",
-//         },
-//         {
-//           headers: {
-//             Authorization: `Bearer ${approveToken}`,
-//             "Content-Type": "application/json",
-//           },
-//         }
-//       )
-//       .toPromise();
-
-//     this.isLoading = false;
-
-//     // إعادة التوجيه بعد النجاح
-//     this.router.navigate(["instructor-profile/create-course"], {
-//       queryParams: { data: JSON.stringify({ ...this.courseObj, id: courseId }) },
-//     });
-
-//   } catch (error: any) {
-//     this.isLoading = false;
-//     console.error("❌ Error during course submission:", error?.error || error);
-//     alert("❌ فشل في رفع الكورس، تأكد من البيانات وأعد المحاولة.");
-//     this.warningMessageKey = "warnings.courseUploadFailed";
-//   }
-// }
 async submitCourseFlow2() {
   try {
     this.isLoading = true;

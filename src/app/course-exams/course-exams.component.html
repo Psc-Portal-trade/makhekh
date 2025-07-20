@@ -1,0 +1,88 @@
+<app-second-nav></app-second-nav>
+
+
+<section>
+  <div class="container mt-4 row">
+    <!-- ✅ العمود الأيسر: شجرة المحتوى -->
+    <div class="col-md-4 border-end border-start">
+      <!-- عنوان الكورس -->
+      <div
+        (click)="selectEntity(1, courseData.id)"
+        [class.text-primary]="selectedEntityType === 1 && selectedEntityId === courseData.id"
+        style="cursor: pointer;"
+        class="py-2">
+        📘 {{ courseData?.title }}
+      </div>
+
+      <div *ngFor="let section of courseData?.sections" class="mt-3 ms-3">
+        <!-- عنوان السيكشن -->
+        <div
+          (click)="selectEntity(2, section.id)"
+          [class.text-primary]="selectedEntityType === 2 && selectedEntityId === section.id"
+          style="cursor: pointer;"
+          class="py-2">
+          <i class="fa-regular fa-folder"
+            [class.text-danger]="selectedEntityType === 2 && selectedEntityId === section.id"></i>
+          {{ section.title }}
+        </div>
+
+        <!-- ترتيب contentItems -->
+        <div *ngFor="let item of section.contentItems" class="ms-3">
+          <!-- محاضرة -->
+          <div *ngIf="item.type === 'Lecture'" class="mx-3 py-2"
+            (click)="selectEntity(3, item.lecture.id)"
+            [class.text-primary]="selectedEntityType === 3 && selectedEntityId === item.lecture.id"
+            style="cursor: pointer;">
+            <i class="fa-solid fa-video"
+              [class.text-danger]="selectedEntityType === 3 && selectedEntityId === item.lecture.id"></i>
+            {{ item.lecture.title }}
+          </div>
+
+          <!-- صب سيكشن -->
+          <div *ngIf="item.type === 'SubSection'" class="ms-3">
+            <div class="fw-semibold mt-2"
+              (click)="selectEntity(4, item.subSection.id)"
+              [class.text-primary]="selectedEntityType === 4 && selectedEntityId === item.subSection.id"
+              style="cursor: pointer;">
+              <i class="fa-regular fa-folder-open"
+                [class.text-danger]="selectedEntityType === 4 && selectedEntityId === item.subSection.id"></i>
+              {{ item.subSection.title }}
+            </div>
+
+            <!-- محاضرات داخل الصب سيكشن -->
+            <div *ngFor="let lec of item.subSection.lectures" class="mx-3 py-2"
+              (click)="selectEntity(3, lec.id)"
+              [class.text-primary]="selectedEntityType === 3 && selectedEntityId === lec.id"
+              style="cursor: pointer;">
+              <i class="fa-solid fa-video"
+                [class.text-danger]="selectedEntityType === 3 && selectedEntityId === lec.id"></i>
+              {{ lec.title }}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ✅ العمود الأيمن: الامتحانات -->
+    <div class="col-md-8 pt-3">
+      <h5>📝 {{ 'attachments.exams' | transloco }}</h5>
+
+      <div *ngIf="filteredAttachments.length === 0" class="text-muted">
+        {{ 'attachments.noExams' | transloco }}
+      </div>
+
+      <div *ngFor="let quiz of filteredAttachments" class="card p-2 mb-3">
+        <div class="fw-bold">📄 {{ quiz.title }}</div>
+        <p class="mb-1">
+  ⏱ {{ 'exam.timeLimit' | transloco: { minutes: quiz.timeLimitInMinutes } }} -
+  🧠 {{ 'exam.attemptsAllowed' | transloco: { attempts: quiz.attemptsAllowed } }}
+</p>
+
+<button (click)="startExam(quiz)" class="btn btn-sm btn-primary mt-1">
+  ▶️ {{ 'exam.startButton' | transloco }}
+</button>
+
+      </div>
+    </div>
+  </div>
+</section>

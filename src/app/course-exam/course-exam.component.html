@@ -1,0 +1,138 @@
+<app-second-nav></app-second-nav>
+
+<div class="exam-container">
+  <!-- Right Sidebar (Course Info) -->
+  <div class="course-info-sidebar">
+    <h5>محتوى الكورس</h5>
+    <ng-container *ngIf="nestedSections && nestedSections.length; else loadingSections">
+      <ul class="accordion-list">
+        <ng-container *ngFor="let section of nestedSections">
+          <li>
+            <div class="accordion-header" (click)="toggleSection(section)">
+              <span [class.opened]="section.isOpen">&#9660;</span>
+              {{ section.title }}
+            </div>
+            <ul *ngIf="section.isOpen">
+              <!-- محاضرات القسم -->
+              <li *ngFor="let lecture of section.lectures">
+                <span class="lecture-title">📹 {{ lecture.title }}</span>
+              </li>
+              <!-- السكاشن الفرعية (متداخلة) -->
+              <ng-container *ngFor="let subSection of section.subSections">
+                <li>
+                  <div class="accordion-header sub" (click)="toggleSection(subSection); $event.stopPropagation()">
+                    <span [class.opened]="subSection.isOpen">&#9660;</span>
+                    {{ subSection.title }}
+                  </div>
+                  <ul *ngIf="subSection.isOpen">
+                    <li *ngFor="let lecture of subSection.lectures">
+                      <span class="lecture-title">📹 {{ lecture.title }}</span>
+                    </li>
+                    <!-- دعم مزيد من التداخل لو في سكاشن فرعية أكثر -->
+                    <ng-container *ngIf="subSection.subSections && subSection.subSections.length">
+                      <ng-container *ngFor="let subSub of subSection.subSections">
+                        <li>
+                          <div class="accordion-header sub" (click)="toggleSection(subSub); $event.stopPropagation()">
+                            <span [class.opened]="subSub.isOpen">&#9660;</span>
+                            {{ subSub.title }}
+                          </div>
+                          <ul *ngIf="subSub.isOpen">
+                            <li *ngFor="let lecture of subSub.lectures">
+                              <span class="lecture-title">📹 {{ lecture.title }}</span>
+                            </li>
+                          </ul>
+                        </li>
+                      </ng-container>
+                    </ng-container>
+                  </ul>
+                </li>
+              </ng-container>
+            </ul>
+          </li>
+        </ng-container>
+      </ul>
+    </ng-container>
+    <ng-template #loadingSections>
+      <div>جاري تحميل محتوى الكورس...</div>
+    </ng-template>
+  </div>
+
+  <!-- Center Content (Question) -->
+  <div class="question-main-content">
+    <div class="question-header">
+      <h4>اختبار الفصل الأول ( الاختيار من متعدد )</h4>
+    </div>
+    <div class="question-card">
+      <div class="question-meta">
+        <div class="question-number">
+          <h5>سؤال {{ currentQuestionIndex + 1 }}</h5>
+          <p>الدرجة من 1</p>
+        </div>
+        <div class="flag-question" (click)="toggleFlag()" [class.flagged]="currentQuestion.isFlagged">
+          <i class="fa fa-flag"></i>
+          <span>علم هذا السؤال</span>
+        </div>
+      </div>
+      <hr>
+      <div class="question-body">
+        <p class="question-text">{{ currentQuestion.text }}</p>
+        <div *ngIf="currentQuestion.type === 'mcq'" class="mcq-options">
+          <div *ngFor="let option of currentQuestion.options" class="option">
+            <input type="radio" [name]="'q' + currentQuestion.id" [value]="option" [checked]="currentQuestion.answer === option" (change)="selectAnswer(option)">
+            <label>{{ option }}</label>
+          </div>
+        </div>
+        <div *ngIf="currentQuestion.type === 'essay'">
+          <textarea class="essay-answer" placeholder="اكتب إجابتك هنا..." [value]="currentQuestion.answer" (input)="selectAnswer($event)"></textarea>
+        </div>
+        <div class="clear-choice-container mt-3">
+          <button class="btn btn-secondary" (click)="clearChoice()">أخل اختياري</button>
+        </div>
+      </div>
+    </div>
+    <div class="navigation-buttons">
+      <button (click)="previousQuestion()" [disabled]="currentQuestionIndex === 0">الصفحة السابقة</button>
+      <button (click)="nextQuestion()" *ngIf="currentQuestionIndex < questions.length - 1">الصفحة التالية</button>
+      <button (click)="finishAttempt()" *ngIf="currentQuestionIndex === questions.length - 1" class="finish-btn">إنهاء المحاولة</button>
+    </div>
+  </div>
+
+  <!-- Left Sidebar (Questions Navigation) -->
+  <div class="questions-nav-sidebar" [class.open]="isNavOpen">
+    <button class="toggle-nav-btn" (click)="toggleNav()">{{ isNavOpen ? 'إخفاء' : 'إظهار' }} لوحة الأسئلة</button>
+        <div class="timer-container">
+        <h6>الوقت المتبقي</h6>
+        <div class="timer-display">{{ displayTime }}</div>
+    </div>
+    <div class="questions-grid">
+        <div *ngFor="let q of questions; let i = index"
+             class="question-nav-card"
+             [class.answered]="q.isAnswered"
+             [class.flagged-marker]="q.isFlagged"
+             [class.active]="i === currentQuestionIndex"
+             (click)="goToQuestion(i)">
+          {{ i + 1 }}
+        </div>
+    </div>
+     <div class="sidebar-footer">
+      <button class="finish-btn btn btn-danger" (click)="finishAttempt()">إنهاء المحاولة</button>
+    </div>
+  </div>
+</div>
+
+<!-- ملخص الامتحان (modal) -->
+<app-exam-summary-modal
+  [isOpen]="isSummaryModalOpen"
+  [questions]="questions"
+  (close)="onCloseSummaryModal()"
+  (finishAttempt)="onRequestFinishAttempt()"
+></app-exam-summary-modal>
+
+<!-- تأكيد إنهاء الامتحان (popup) -->
+<app-confirm-finish-popup
+  [isOpen]="isConfirmPopupOpen"
+  [answeredCount]="answeredCount"
+  [unansweredCount]="unansweredCount"
+  (confirm)="onConfirmFinishAttempt()"
+  (cancel)="onCancelFinishAttempt()"
+></app-confirm-finish-popup>

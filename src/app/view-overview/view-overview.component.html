@@ -35,8 +35,13 @@
   <div class="row">
       <div class="col-md-8 p-0 m-0">
           <div class="course-header">
-              <img src="assets/course-image.jpg" alt="Course Image">
-          </div>
+    <ng-container *ngIf="selectedVideoUrl; else courseImage">
+      <video width="100%" height="auto" controls [src]="selectedVideoUrl"></video>
+    </ng-container>
+    <ng-template #courseImage>
+      <img [src]="courseObj?.thumbnailUrl" alt="Course Image">
+    </ng-template>
+  </div>
           <ul class="nav nav-tabs mt-3">
               <li class="nav-item"><a class="nav-link active" [ngClass]="{'active': activeTab === 'overview'}"
                       (click)="setActiveTab('overview')">{{ 'tabs.overview' | transloco }}</a></li>
@@ -242,53 +247,56 @@
         </div>
       </div>
 
-      <div class="col-md-4 sidebar p-0 m-0">
-        <h3 class="fw-bold p-3">{{ 'content.content' | transloco }}</h3>
 
-        <div class="accordion" id="courseAccordion">
-            <div class="accordion-item" *ngFor="let section of course.courseSections; let i = index">
-                <div class="accordion-header">
-                    <button class="accordion-button text-black pb-4 d-flex justify-content-between w-100"
-                            type="button"
-                            (click)="toggleSection(i)">
-                            <div class="read d-flex flex-column" [class.text-end]="isArabic">
-                              <div class="title">
-                                  {{ section.title }}
-                              </div>
-                              <div class="title1 text-muted">
-                                  {{ getLectureCount(section) }} {{ 'content.lectures' | transloco }} •
-                                  {{ getTotalDuration(section) }}
-                              </div>
-                          </div>
+<div class="col-md-4 sidebar p-0 m-0">
+  <h3 class="fw-bold p-3">{{ 'content.content' | transloco }}</h3>
 
-
-                        <span *ngFor="let num of numbers" class="ms-auto"></span>
-                    </button>
-                </div>
-
-                <div [id]="'section' + section.id" class="accordion-collapse collapse"
-                     [ngClass]="{ 'show': section.expanded }">
-                    <div class="accordion-body">
-                        <ul class="lecture-list">
-                            <li *ngFor="let lecture of section.lectures" [class.completed]="lecture.completed"
-                                class="p-2">
-                                <div class="first-part">
-                                    <input type="checkbox" [(ngModel)]="lecture.completed">
-                                    <span class="lecture-title">{{ lecture.title }}</span>
-                                </div>
-                                <div class="second-part">
-                                    <i class="fa-solid fa-circle-play p-1"></i>
-                                    <span class="lecture-duration">
-                                      {{ lecture.duration.replace('min', ('content.minutes' | transloco)) }}
-                                    </span>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
+  <div class="accordion" id="courseAccordion">
+    <div class="accordion-item" *ngFor="let section of courseObj?.sections; let i = index">
+      <div class="accordion-header">
+        <button class="accordion-button text-black pb-4 d-flex justify-content-between w-100"
+                type="button"
+                (click)="toggleSection(i)">
+          <div class="read d-flex flex-column" [class.text-end]="isArabic">
+            <div class="title">{{ section.title }}</div>
+            <div class="title1 text-muted">
+              {{ getTotalLectureCount(section) }} {{ 'content.lectures' | transloco }}
             </div>
+          </div>
+        </button>
+      </div>
+
+      <div class="accordion-collapse collapse" [ngClass]="{ 'show': section.expanded }">
+        <div class="accordion-body">
+          <ul class="lecture-list">
+            <li *ngFor="let content of section.contentItems">
+              <!-- إذا كانت محاضرة مباشرة -->
+              <ng-container *ngIf="content.type === 'Lecture' && content.lecture">
+                <div class="p-2 d-flex justify-content-between align-items-center pointer"
+                     (click)="playVideo(content.lecture.videoUrl)">
+                  <div>{{ content.lecture.title }}</div>
+                  <i class="fa-solid fa-circle-play"></i>
+                </div>
+              </ng-container>
+
+              <!-- إذا كان SubSection -->
+              <ng-container *ngIf="content.type === 'SubSection' && content.subSection">
+                <div class="fw-bold mt-3 mb-2">{{ content.subSection.title }}</div>
+                <li *ngFor="let lec of content.subSection.lectures"
+                    class="p-2 d-flex justify-content-between align-items-center pointer"
+                    (click)="playVideo(lec.videoUrl)">
+                  <div>{{ lec.title }}</div>
+                  <i class="fa-solid fa-circle-play"></i>
+                </li>
+              </ng-container>
+            </li>
+          </ul>
         </div>
+      </div>
     </div>
+  </div>
+</div>
+
 
   </div>
 </div>

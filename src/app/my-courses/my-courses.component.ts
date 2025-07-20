@@ -65,7 +65,7 @@ currentPageLectures: number = 1;
 
 filteredLectures: any[] = [];
 paginatedLectures: any[] = [];
-allQuizzes: any[] = [];
+// allQuizzes: any[] = [];
 
 
 
@@ -87,29 +87,24 @@ currentPageQuizzes: number = 1;
 
 
   constructor(
-    private cartService: CartService,
-    private wishlistService: WishlistService,
     private courseService: CourseService,
     private courseInfoService: CourseInformationService, private router: Router
   ) {}
+  // myCourses: any[] = [];
 
- ngOnInit() {
+ngOnInit() {
+  this.courseService.fetchAndStoreEnrolledCourses(); // تجيب الكورسات
 
   this.courseService.purchasedCourses$.subscribe(courses => {
-    this.lectures = courses || [];
-    this.updateFilteredLectures(); // ⬅️ عند التحميل
-  });
-  //  this.courseService.purchasedCourses$.subscribe(courses => {
-  //   this.extractAllQuizzes(courses || []);
-  // });
-   this.courseService.purchasedCourses$.subscribe(courses => {
     this.allCourses = courses || [];
-    this.extractAllQuizzes(this.allCourses);
-  });
+    this.filteredLectures = this.allCourses;
+    this.updateFilteredLectures(); // للـ pagination
 
-  console.log('All courses:', this.allCourses);
-  console.log('All quizzes:', this.allQuizzes);
+    console.log('📘 All Courses:', this.allCourses);
+  });
 }
+
+
 
 onCourseChange() {
   const course = this.allCourses.find(c => c.id === this.selectedCourseId);
@@ -131,133 +126,17 @@ onSectionChange() {
   this.selectedLectureId = '';
 }
 
-onSubSectionChange() {
-  const sub = this.subSections.find(s => s.id === this.selectedSubSectionId);
-  this.lectures = sub?.lectures || [];
-  this.selectedLectureId = '';
-}
-get paginatedQuizzes() {
-  const start = (this.currentPageQuizzes - 1) * this.itemsPerPage;
-  return this.filteredQuizzes.slice(start, start + this.itemsPerPage);
-}
-
-get totalPagesQuizzes() {
-  return Math.ceil(this.filteredQuizzes.length / this.itemsPerPage);
-}
-
-getPagesArrayQuizzes() {
-  return Array.from({ length: this.totalPagesQuizzes }, (_, i) => i + 1);
-}
-
-goToPageQuizzes(page: number) {
-  this.currentPageQuizzes = page;
-}
-
-extractAllQuizzes(courses: Course[]) {
-  courses.forEach((course) => {
-    course.quizzes?.forEach((quiz) => {
-      this.allQuizzes.push({ ...quiz, courseId: course.id, courseTitle: course.title });
-    });
-
-    course.sections?.forEach((section) => {
-      section.quizzes?.forEach((quiz) => {
-        this.allQuizzes.push({ ...quiz, courseId: course.id, sectionId: section.id, courseTitle: course.title });
-      });
-
-      section.subSections?.forEach((sub) => {
-        sub.quizzes?.forEach((quiz) => {
-          this.allQuizzes.push({
-            ...quiz,
-            courseId: course.id,
-            sectionId: section.id,
-            subSectionId: sub.id,
-            courseTitle: course.title,
-          });
-        });
-
-        sub.lectures?.forEach((lecture) => {
-          lecture.quizzes?.forEach((quiz) => {
-            this.allQuizzes.push({
-              ...quiz,
-              courseId: course.id,
-              sectionId: section.id,
-              subSectionId: sub.id,
-              lectureId: lecture.id,
-              courseTitle: course.title,
-            });
-          });
-        });
-      });
-
-      section.lectures?.forEach((lecture) => {
-        lecture.quizzes?.forEach((quiz) => {
-          this.allQuizzes.push({
-            ...quiz,
-            courseId: course.id,
-            sectionId: section.id,
-            lectureId: lecture.id,
-            courseTitle: course.title,
-          });
-        });
-      });
-    });
-  });
-}
-
-
-startQuiz(quiz: any) {
-  console.log('🧪 Quiz to save:', quiz);
-
-  // 🔍 العثور على الكورس الكامل من خلال courseId
-  const course = this.allCourses.find(c => c.id === quiz.courseId);
-
-  if (course) {
-    localStorage.setItem('currentExam', JSON.stringify(quiz));
-    localStorage.setItem('currentExamCourse', JSON.stringify(course));
-    console.log('📚 Saved related course to localStorage:', course);
-  } else {
-    console.warn('⚠️ Course not found for this quiz');
-  }
-
-  this.router.navigate(['/exam'], {
-    state: {
-      quiz,
-      quizIndex: 0,
-      courseTitle: quiz.courseTitle
-    }
-  });
-}
-
-
-
-get filteredQuizzes() {
-  return this.allQuizzes
-    .filter(quiz =>
-      quiz.title?.toLowerCase().includes(this.searchQuery.toLowerCase())
-    )
-    .filter(quiz =>
-      !this.selectedCourseId || quiz.courseId === this.selectedCourseId
-    )
-    .filter(quiz =>
-      !this.selectedSectionId || quiz.sectionId === this.selectedSectionId
-    )
-    .filter(quiz =>
-      !this.selectedSubSectionId || quiz.subSectionId === this.selectedSubSectionId
-    )
-    .filter(quiz =>
-      !this.selectedLectureId || quiz.lectureId === this.selectedLectureId
-    );
-}
 
 
 updateFilteredLectures() {
-  this.filteredLectures = this.lectures.filter(course =>
+  this.filteredLectures = this.allCourses.filter(course =>
     course.title?.toLowerCase().includes(this.searchQueryLectures.toLowerCase())
   );
 
   const start = (this.currentPageLectures - 1) * this.itemsPerPage;
   this.paginatedLectures = this.filteredLectures.slice(start, start + this.itemsPerPage);
 }
+
 goToPageLectures(page: number) {
   this.currentPageLectures = page;
   this.updateFilteredLectures();
@@ -272,8 +151,10 @@ get totalPagesLectures() {
 }
 
   goToCourseDetails(course: any) {
-    this.courseInfoService.setCourse(course); // تخزين بيانات الكورس عند الضغط عليه
-    this.router.navigate(['course-content']); // الانتقال إلى صفحة التفاصيل
-  }
+  this.courseInfoService.setCourse(course); // الكورس كامل
+  this.courseInfoService.setSelectedCourseId(course.id); // فقط الـ ID
+  this.router.navigate(['course-parts']);
+}
+
 
 }

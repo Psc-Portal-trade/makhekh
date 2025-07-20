@@ -8,12 +8,13 @@ import { CourseInformationService } from '../services/course-information.service
 import { TranslocoPipe } from '@ngneat/transloco';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { CourseService } from '../services/course.service';
+import { HttpClient } from '@angular/common/http';
 declare var bootstrap: any;
 
 @Component({
   selector: 'app-course-information',
   standalone: true,
-  imports: [SecondNavComponent, CommonModule, RouterLink, TranslocoPipe],
+  imports: [SecondNavComponent, CommonModule, TranslocoPipe],
   templateUrl: './course-information.component.html',
   styleUrl: './course-information.component.css'
 })
@@ -34,6 +35,7 @@ export class CourseInformationComponent implements OnInit {
   isArabic = false;
 
   constructor(
+    private http: HttpClient,
     private cartService: CartService,
     private wishlistService: WishlistService,
     private route: ActivatedRoute,
@@ -123,29 +125,22 @@ get uniqueMonths(): string[] {
     this.course2.isInCart = true;
   }
 buyNow() {
-  const course = this.courseObj;
-
-  if (!course || !course.id) {
+  if (!this.courseObj?.id) {
     console.warn('❌ لا يوجد بيانات صالحة للكورس لإتمام عملية الشراء.');
     return;
   }
 
-  const purchasedCourses = this.courseStorageService.getPurchasedCourses();
-  console.log('📦 الكورسات الحالية في السيرفيس:', purchasedCourses);
+  const url = `https://api.makhekh.com/api/enrollments/test?courseId=${this.courseObj.id}`;
 
-  const alreadyPurchased = purchasedCourses.some(c => c.id === course.id);
-
-  if (!alreadyPurchased) {
-    this.courseStorageService.addPurchasedCourses([course]);
-    console.log(course)
-    console.log('✅ تم شراء الكورس بنجاح.');
-  } else {
-    console.log('ℹ️ الكورس موجود مسبقًا في قائمة المشتريات.');
-  }
-
-  console.log('📦 الكورسات بعد الإضافة:', this.courseStorageService.getPurchasedCourses());
+  this.http.post(url, null).subscribe({
+    next: (res) => {
+      console.log('📤 تم إرسال الكورس إلى السيرفر بنجاح:', res);
+    },
+    error: (err) => {
+      console.error('❌ حدث خطأ أثناء إرسال الكورس للسيرفر:', err);
+    }
+  });
 }
-
 
   removeFromCart2() {
     this.cartService.removeFromCart(this.course2.id);

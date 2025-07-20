@@ -1,13 +1,13 @@
 <app-navbar></app-navbar>
 <app-courses-home
-  class="hidden-sec"
+  class="hidden-sec overflow-hidden"
   (categorySelected)="onCategorySelected($event)">
 </app-courses-home>
 
 
 
 <section class="py-5">
-  <div class="container">
+  <div class="container overflow-hidden">
     <!-- حقل البحث -->
     <input
       type="text"
@@ -16,8 +16,8 @@
       [(ngModel)]="searchQuery"
     />
 
-  <div class="row">
-    <div class="no-items text-center py-5" *ngIf="filteredCourses.length === 0"
+  <div class="row overflow-hidden">
+    <div class="no-items text-center py-5 overflow-hidden" *ngIf="filteredCourses.length === 0"
 >
   <img src="assets/no items yet.jpg" alt="No items yet" class="img-fluid mb-3" style="max-width: 250px;">
   <p>{{ "my-courses.No items yet" | transloco }}</p>
