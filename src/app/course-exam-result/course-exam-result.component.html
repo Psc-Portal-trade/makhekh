@@ -1,110 +1,126 @@
 <app-second-nav></app-second-nav>
 
-<div class="page-container" *ngIf="selectedQuiz">
+<!-- ✅ عرض المحتوى فقط بعد تحميل البيانات -->
+<div *ngIf="isDataLoaded; else loadingTemplate">
+
+  <div class="page-container" *ngIf="quizToReview">
     <!-- Main Content -->
     <div class="container py-4">
-        <div class="row">
-            <!-- Quiz Details -->
-            <div class="col-lg-12">
-                <div class="quiz-details-panel">
+      <div class="row">
+        <!-- Quiz Details -->
+        <div class="col-lg-12">
+          <div class="quiz-details-panel">
 
-                    <!-- Retry Button -->
-                    <button class="btn btn-lg mb-4" [ngClass]="{
-                    'btn-primary': remainingAttempts > 0,
-                    'btn-secondary': remainingAttempts <= 0
-                  }" (click)="restartQuiz()" [disabled]="remainingAttempts <= 0">
-            {{ 'course-exam.retry_quiz' | transloco }}
-          </button>
+            <!-- Retry Button -->
+            <button class="btn btn-lg mb-4" [ngClass]="{
+              'btn-primary': remainingAttempts > 0,
+              'btn-secondary': remainingAttempts <= 0
+            }" (click)="restartQuiz()" [disabled]="remainingAttempts <= 0">
+              {{ 'course-exam.retry_quiz' | transloco }}
+            </button>
 
-                    <!-- Warning Message -->
-                    <div *ngIf="remainingAttempts <= 0" class="alert alert-warning" role="alert">
-                        {{ 'course-exam.no_more_attempts' | transloco }}
-                    </div>
-
-                    <!-- Quiz Meta -->
-                    <div class="quiz-meta" *ngIf="quizToReview">
-                        <p>
-                            <strong>{{ 'course-exam.quiz_name' | transloco }}:</strong> {{ quizToReview.title }}
-                        </p>
-                        <p>
-                            <strong>{{ 'course-exam.allowed_attempts' | transloco }}:</strong> {{ quizToReview.attemptsAllowed }} ({{ 'course-exam.remaining_attempts' | transloco }}: {{ quizToReview.attemptsAllowed - quizToReview.studentAttemptsNumber
-                            }})
-                        </p>
-                        <p>
-                            <strong>{{ 'course-exam.time_limit' | transloco }}:</strong> {{ quizToReview.timeLimitInMinutes }} {{ 'course-exam.minutes' | transloco }}
-                        </p>
-                        <p>
-                            <strong>{{ 'course-exam.evaluation_method' | transloco }}:</strong> {{ 'course-exam.last_attempt' | transloco }}
-                        </p>
-                        <p>
-                            <strong>{{ 'course-exam.passing_score' | transloco }}:</strong> {{ quizToReview.passingPercentage }} / 100
-                        </p>
-                    </div>
-
-                    <hr class="my-4">
-
-                    <h4>
-                        {{ 'course-exam.last_attempt_score' | transloco }}: {{ (selectedQuiz.attempts[0]?.score || 0) | number:'1.0-0' }} / 100
-                    </h4>
-
-                    <!-- Attempts List -->
-                    <div *ngIf="quizToReview?.attempts?.length > 0" class="attempts-list">
-                        <div class="row">
-                            <div *ngFor="let attempt of quizToReview.attempts.slice().reverse(); let i = index" class="col-md-6 mb-4">
-                                <div class="attempt-card-new">
-                                    <div class="card-header-new">
-                                        {{ 'course-exam.attempt' | transloco }} {{ quizToReview.attempts.length - i }}
-                                    </div>
-                                    <div class="card-body-new">
-                                        <div class="info-row">
-                                            <span>{{ 'course-exam.status' | transloco }}</span>
-                                            <strong>{{ attempt.isRunning === false ? ('course-exam.finished' | transloco) : ('course-exam.in_progress' | transloco) }}</strong>
-                                        </div>
-                                        <div class="info-row">
-                                            <span>{{ 'course-exam.started' | transloco }}</span>
-                                            <strong>{{ attempt.startedAt ? (attempt.startedAt | date:'short') : '-' }}</strong>
-                                        </div>
-                                        <div class="info-row">
-  <span>{{ 'course-exam.submitted_at' | transloco }}</span>
-  <strong>{{ attempt.submittedAt | date:'short' }}</strong>
-</div>
-                                        <div class="info-row">
-                                            <span>{{ 'course-exam.duration' | transloco }}</span>
-<strong>{{ formatSubmittedDuration(attempt.startedAt, attempt.submittedAt) }}</strong>
-                                        </div>
-                                        <div class="info-row">
-  <span>{{ 'course-exam.correct_answers' | transloco }}</span>
-  <strong>{{ getCorrectAnswersCount(attempt) }} / {{ getTotalQuestions() }}</strong>
-</div>
-                                        <div class="info-row">
-  <span>{{ 'course-exam.grade' | transloco }}</span>
-  <strong>{{ getScorePercentage(attempt) }} / 100</strong>
-</div>
-                                    </div>
-                                    <div class="card-footer-new">
-                                        <a (click)="reviewAttempt(attempt)" class="review-link">
-                      {{ 'course-exam.review' | transloco }}
-                    </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
+            <!-- Warning Message -->
+            <div *ngIf="remainingAttempts <= 0" class="alert alert-warning" role="alert">
+              {{ 'course-exam.no_more_attempts' | transloco }}
             </div>
-        </div>
 
-        <!-- Navigation -->
-        <div class="navigation-buttons mt-4 d-flex justify-content-between">
-            <button class="btn btn-outline-secondary" routerLink="course-exams-results">
-        <i class="fas fa-arrow-right"></i> {{ 'course-exam.back' | transloco }}
-      </button>
+            <!-- Quiz Meta -->
+            <div class="quiz-meta">
+              <p>
+                <strong>{{ 'course-exam.quiz_name' | transloco }}:</strong> {{ quizToReview.title }}
+              </p>
+              <p>
+                <strong>{{ 'course-exam.allowed_attempts' | transloco }}:</strong>
+                {{ quizToReview.attemptsAllowed }}
+                ({{ 'course-exam.remaining_attempts' | transloco }}: {{ quizToReview.attemptsAllowed - quizToReview.studentAttemptsNumber }})
+              </p>
+              <p>
+                <strong>{{ 'course-exam.time_limit' | transloco }}:</strong>
+                {{ quizToReview.timeLimitInMinutes }} {{ 'course-exam.minutes' | transloco }}
+              </p>
+              <p>
+                <strong>{{ 'course-exam.evaluation_method' | transloco }}:</strong>
+                {{ 'course-exam.last_attempt' | transloco }}
+              </p>
+              <p>
+                <strong>{{ 'course-exam.passing_score' | transloco }}:</strong>
+                {{ quizToReview.passingPercentage }} / 100
+              </p>
+            </div>
+
+            <hr class="my-4">
+
+            <h4>
+              {{ 'course-exam.last_attempt_score' | transloco }}:
+              {{ (selectedQuiz?.attempts?.[0]?.score || 0) | number:'1.0-0' }} / 100
+            </h4>
+
+            <!-- Attempts List -->
+            <div *ngIf="quizToReview?.attempts?.length > 0" class="attempts-list">
+              <div class="row">
+                <div *ngFor="let attempt of quizToReview.attempts.slice().reverse(); let i = index" class="col-md-6 mb-4">
+                  <div class="attempt-card-new">
+                    <div class="card-header-new">
+                      {{ 'course-exam.attempt' | transloco }} {{ quizToReview.attempts.length - i }}
+                    </div>
+                    <div class="card-body-new">
+                      <div class="info-row">
+                        <span>{{ 'course-exam.status' | transloco }}</span>
+                        <strong>{{ attempt.isRunning === false ? ('course-exam.finished' | transloco) : ('course-exam.in_progress' | transloco) }}</strong>
+                      </div>
+                      <div class="info-row">
+                        <span>{{ 'course-exam.started' | transloco }}</span>
+                        <strong>{{ attempt.startedAt ? (attempt.startedAt | date:'short') : '-' }}</strong>
+                      </div>
+                      <div class="info-row">
+                        <span>{{ 'course-exam.submitted_at' | transloco }}</span>
+                        <strong>{{ attempt.submittedAt | date:'short' }}</strong>
+                      </div>
+                      <div class="info-row">
+                        <span>{{ 'course-exam.duration' | transloco }}</span>
+                        <strong>{{ formatSubmittedDuration(attempt.startedAt, attempt.submittedAt) }}</strong>
+                      </div>
+                      <div class="info-row">
+                        <span>{{ 'course-exam.correct_answers' | transloco }}</span>
+                        <strong>{{ getCorrectAnswersCount(attempt) }} / {{ getTotalQuestions() }}</strong>
+                      </div>
+                      <div class="info-row">
+                        <span>{{ 'course-exam.grade' | transloco }}</span>
+                        <strong>{{ getScorePercentage(attempt) }} / 100</strong>
+                      </div>
+                    </div>
+                    <div class="card-footer-new">
+                      <a (click)="reviewAttempt(attempt)" class="review-link">
+                        {{ 'course-exam.review' | transloco }}
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
         </div>
+      </div>
+
+      <!-- Navigation -->
+      <div class="navigation-buttons mt-4 d-flex justify-content-between">
+        <button class="btn btn-outline-secondary" routerLink="course-exams-results">
+          <i class="fas fa-arrow-right"></i> {{ 'course-exam.back' | transloco }}
+        </button>
+      </div>
     </div>
+  </div>
+
+  <!-- لا يوجد محاولات -->
+  <div *ngIf="quizToReview && (!quizToReview.attempts || quizToReview.attempts.length === 0)" class="text-center p-5">
+    <p>{{ 'course-exam.no_attempts_found' | transloco }}</p>
+  </div>
 </div>
 
-<!-- Loading or No Data State -->
-<div *ngIf="!selectedQuiz" class="text-center p-5">
+<!-- ⏳ حالة التحميل -->
+<ng-template #loadingTemplate>
+  <div class="text-center p-5">
     <p>{{ 'course-exam.loading_quiz' | transloco }}</p>
-</div>
+  </div>
+</ng-template>

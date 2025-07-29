@@ -9,7 +9,7 @@ import { ExamReviewService } from '../services/exam-review.service';
 
 @Component({
   selector: 'app-course-exams-results',
-  imports: [SecondNavComponent,RouterLink,CommonModule,TranslocoPipe],
+  imports: [SecondNavComponent,CommonModule,TranslocoPipe],
   templateUrl: './course-exams-results.component.html',
   styleUrl: './course-exams-results.component.css'
 })
@@ -87,19 +87,19 @@ export class CourseExamsResultsComponent {
         break;
 
       case 2: // Section
-        this.filteredAttachments = this.quizzesData.sectionQuizzes?.filter((quiz: any) => 
+        this.filteredAttachments = this.quizzesData.sectionQuizzes?.filter((quiz: any) =>
           quiz.sectionId === id
         ) || [];
         break;
 
       case 3: // Lecture
-        this.filteredAttachments = this.quizzesData.lectureQuizzes?.filter((quiz: any) => 
+        this.filteredAttachments = this.quizzesData.lectureQuizzes?.filter((quiz: any) =>
           quiz.lectureId === id
         ) || [];
         break;
 
       case 4: // SubSection
-        this.filteredAttachments = this.quizzesData.subSectionQuizzes?.filter((quiz: any) => 
+        this.filteredAttachments = this.quizzesData.subSectionQuizzes?.filter((quiz: any) =>
           quiz.subSectionId === id
         ) || [];
         break;
@@ -123,15 +123,15 @@ export class CourseExamsResultsComponent {
       console.error('❌ No quiz provided to review.');
       return;
     }
-  
+
     // 🔐 خزّن الداتا في السيرفيس
     this.examReviewService.setCurrentQuiz(quiz);
     this.examReviewService.setFilteredQuizzes(this.filteredAttachments);
-  
+
     // 🚀 التنقل للنتيجة
     this.router.navigate(['/course-exam-result']);
   }
-  
+
 startExam(quiz: any) {
   const quizId = quiz.id;
   if (quizId) {
