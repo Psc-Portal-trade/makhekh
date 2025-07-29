@@ -241,7 +241,7 @@ export class CreateQuizComponent implements OnInit {
       console.error('🚫 لا يوجد توكن، يرجى تسجيل الدخول أولاً');
       return;
     }
-    this.http.get('https://api.makhekh.com/api/teacher/quizzes', {
+    this.http.get('https://api.makhekh.com/api/teacher/quizzes/all-quizzes', {
       headers: { Authorization: `Bearer ${token}` }
     }).subscribe({
       next: (res: any) => {

@@ -16,6 +16,7 @@ import { TranslocoPipe } from '@ngneat/transloco';
 export class CourseExamsComponent implements OnInit {
   courseId: string | null = null;
   courseData: any;
+  quizzesData: any = null; // Store the new API response
   selectedEntityType: number = 1;
   selectedEntityId: string = '';
   filteredAttachments: any[] = [];
@@ -27,6 +28,7 @@ export class CourseExamsComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    window.scrollTo(0, 0);
     this.courseId = this.courseInfoService.getSelectedCourseId();
     console.log('📌 Selected Course ID:', this.courseId);
 
@@ -43,10 +45,26 @@ export class CourseExamsComponent implements OnInit {
       next: (res) => {
         console.log('📘 Course Details:', res);
         this.courseData = res.data;
-        this.selectEntity(1, this.courseData.id);
+        // After getting course details, fetch quizzes using new API
+        this.getQuizzesData();
       },
       error: (err) => {
         console.error('❌ Error fetching course details:', err);
+      }
+    });
+  }
+
+  getQuizzesData() {
+    const url = `https://api.makhekh.com/api/student/quizzes/${this.courseId}/all-quizzes`;
+    this.http.get<any>(url).subscribe({
+      next: (res) => {
+        console.log('📝 Quizzes Data:', res);
+        this.quizzesData = res.data;
+        // Default to showing course quizzes
+        this.selectEntity(1, this.courseData.id);
+      },
+      error: (err) => {
+        console.error('❌ Error fetching quizzes:', err);
       }
     });
   }
@@ -56,59 +74,129 @@ export class CourseExamsComponent implements OnInit {
     this.selectedEntityId = id;
     this.filteredAttachments = [];
 
-    switch (type) {
-      case 1:
-        this.filteredAttachments = this.courseData?.quizzes || [];
-        break;
-
-      case 2: {
-        const section = this.courseData.sections?.find((s: any) => s.id === id);
-        this.filteredAttachments = section?.quizzes || [];
-        break;
-      }
-
-      case 3: {
-        let found = false;
-
-        for (let section of this.courseData.sections || []) {
-          const lecture = section.lectures?.find((l: any) => l.id === id);
-          if (lecture) {
-            this.filteredAttachments = lecture.quizzes || [];
-            found = true;
-            break;
-          }
-
-          for (let sub of section.subSections || []) {
-            const subLec = sub.lectures?.find((l: any) => l.id === id);
-            if (subLec) {
-              this.filteredAttachments = subLec.quizzes || [];
-              found = true;
-              break;
-            }
-          }
-
-          if (found) break;
-        }
-        break;
-      }
-
-      case 4: {
-        for (let section of this.courseData.sections || []) {
-          const sub = section.subSections?.find((s: any) => s.id === id);
-          if (sub) {
-            this.filteredAttachments = sub.quizzes || [];
-            break;
-          }
-        }
-        break;
-      }
+    if (!this.quizzesData) {
+      console.warn('⚠️ Quizzes data not loaded yet');
+      return;
     }
 
-    console.log('📎 Filtered Quizzes:', this.filteredAttachments);
+    switch (type) {
+      case 1: // Course
+        this.filteredAttachments = this.quizzesData.courseQuizzes || [];
+        break;
+
+      case 2: // Section
+        this.filteredAttachments = this.quizzesData.sectionQuizzes?.filter((quiz: any) => 
+          quiz.sectionId === id
+        ) || [];
+        break;
+
+      case 3: // Lecture
+        this.filteredAttachments = this.quizzesData.lectureQuizzes?.filter((quiz: any) => 
+          quiz.lectureId === id
+        ) || [];
+        break;
+
+      case 4: // SubSection
+        this.filteredAttachments = this.quizzesData.subSectionQuizzes?.filter((quiz: any) => 
+          quiz.subSectionId === id
+        ) || [];
+        break;
+    }
+
+    console.log(`📎 Filtered Quizzes for ${this.getEntityTypeName(type)} (${id}):`, this.filteredAttachments);
+  }
+
+  getEntityTypeName(type: number): string {
+    switch (type) {
+      case 1: return 'Course';
+      case 2: return 'Section';
+      case 3: return 'Lecture';
+      case 4: return 'SubSection';
+      default: return 'Unknown';
+    }
   }
 startExam(quiz: any) {
-  this.courseInfoService.setSelectedQuiz(quiz); // حفظ الامتحان في السيرفيس
-  this.router.navigate(['/course-exam']);
+  const quizId = quiz.id;
+  if (quizId) {
+    const url = 'https://api.makhekh.com/api/student/quizzes/start';
+    const body = { quizId: quizId };
+        this.http.post(url, body).subscribe({
+      next: (res: any) => {
+        console.log('✅ Response from starting exam API:', res);
+        if (res.success && res.data && res.data.id) {
+          this.courseInfoService.setAttemptId(res.data.id);
+          this.courseInfoService.setSelectedQuiz(quiz); // حفظ الامتحان في السيرفيس
+          this.router.navigate(['/course-exam']); // توجيه المستخدم بعد نجاح العملية
+        } else {
+          console.error('API response was not successful or did not contain an attempt ID.', res);
+          // يمكنك إضافة رسالة خطأ للمستخدم هنا
+        }
+      },
+      error: (err) => {
+        console.error('API call to start exam failed.', err);
+        // يمكنك إضافة رسالة خطأ للمستخدم هنا
+      }
+    });
+  } else {
+    // في حال عدم وجود quizId، يتم تنفيذ الإجراء القديم كحل بديل
+    this.courseInfoService.setSelectedQuiz(quiz);
+    this.router.navigate(['/course-exam']);
+  }
 }
+
+  hasRunningAttempt(quiz: any): boolean {
+    if (quiz?.attempts?.length > 0) {
+      return quiz.attempts.some((attempt: any) => attempt.isRunning === true);
+    }
+    return false;
+  }
+
+  resumeExam(quiz: any) {
+    const runningAttempt = quiz.attempts?.find((attempt: any) => attempt.isRunning);
+  
+    if (runningAttempt) {
+      const attemptId = runningAttempt.id;
+      const userStr = localStorage.getItem('user');
+      let token = '';
+      if (userStr) {
+        const user = JSON.parse(userStr);
+        token = user.token;
+      }
+  
+      const url = `https://api.makhekh.com/api/student/quizzes/${attemptId}/resume`;
+  
+      this.http.post(url, {
+        headers: {
+          'Authorization': `Bearer ${token}`,
+          'Content-Type': 'application/json'
+        }
+      }).subscribe({
+        next: (res: any) => {
+          if (res.success && res.data) {
+            console.log('✅ Resume response:', res.data);
+  
+            this.courseInfoService.setAttemptId(attemptId);
+            this.courseInfoService.setSelectedQuiz(quiz);
+  
+            const resumeKey = `resume_attempt_data_${attemptId}`;
+            localStorage.setItem(resumeKey, JSON.stringify(res.data));
+  
+            this.courseInfoService.setResumeData(res.data);
+  
+            this.router.navigate(['/course-exam']);
+          } else {
+            console.warn('⚠️ Resume data not found in API response.');
+          }
+        },
+        error: (err) => {
+          console.error('❌ Error fetching resume data:', err);
+        }
+      });
+    } else {
+      console.warn('❌ No running attempt found to resume.');
+    }
+  }
+  
+  
 
 }

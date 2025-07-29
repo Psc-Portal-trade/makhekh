@@ -20,6 +20,7 @@ interface Question {
   styleUrls: ['./exam.component.css']
 })
 export class ExamComponent implements OnInit, OnDestroy {
+  
   quiz: any; // لتخزين بيانات الكويز
   quizIndex!: number; // لتخزين الـ index الخاص بالكويز
   currentPage: number = 1; // الصفحة الحالية

@@ -269,3 +269,20 @@
     padding-top: 15px;
     border-top: 1px solid #eee;
 }
+.hide,
+.appear {
+  opacity: 0;
+  transform: translateY(-10px);
+  max-height: 0;
+  overflow: hidden;
+  transition: all 0.4s ease-in-out;
+  display: none;
+}
+
+.hide.active,
+.appear.active {
+  opacity: 1;
+  transform: translateY(0);
+  max-height: 1000px; /* رقم كبير عشان تدي مساحة تكبر */
+  display: block;
+}

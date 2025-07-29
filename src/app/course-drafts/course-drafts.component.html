@@ -1,5 +1,5 @@
 <section class="container my-5" *ngIf="coursesToShow.length > 0">
-  <h2 class="text-primary mb-3">{{ 'instructor-courses.My Published Courses' | transloco }}</h2>
+  <h2 class="text-primary mb-3">{{ 'instructor-courses.My Draft Courses' | transloco }}</h2>
  <div class="mb-4">
     <input
       type="text"
@@ -26,8 +26,14 @@
             {{ 'instructor-courses.Edit' | transloco }}
           </button>
 
-          <button class="btn btn-danger py-0 px-2 mt-2" (click)="confirmDelete(course)">
+          <button class="btn btn-danger py-0 px-2 mt-2" (click)="confirmDelete2(course)">
             {{ 'instructor-courses.Remove' | transloco }}
+          </button>
+
+          <button  class="btn btn-secondary py-0 px-2 mt-2" (click)="puplish(course)">
+            {{ 'instructor-courses.Puplish' | transloco }}
+
+
           </button>
         </div>
       </div>
@@ -47,7 +53,7 @@
 </div>
 
 <!-- ✅ Delete Confirmation Modal -->
-<div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+<div class="modal fade" id="deleteModal2" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content p-3">
       <h5 class="modal-title" id="deleteModalLabel">
@@ -55,9 +61,10 @@
       </h5>
       <div class="d-flex justify-content-end mt-3">
         <button class="btn btn-secondary me-2" data-bs-dismiss="modal">{{ 'instructor-courses.Cancel' | transloco }}</button>
-        <button class="btn btn-danger" (click)="deleteCourse()" data-bs-dismiss="modal">
-          {{ 'instructor-courses.Delete' | transloco }}
-        </button>
+       <button class="btn btn-danger" (click)="deleteCourse2()" data-bs-dismiss="modal">
+  {{ 'instructor-courses.Delete' | transloco }}
+</button>
+
       </div>
     </div>
   </div>

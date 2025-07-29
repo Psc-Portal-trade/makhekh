@@ -9,4 +9,13 @@ import { SecondNavComponent } from "../navbar/second-nav/second-nav.component";
 })
 export class CourseReportsComponent {
 
+
+
+  ngOnInit(): void {
+    window.scrollTo(0, 0);
+  
+  }
+
+
+
 }

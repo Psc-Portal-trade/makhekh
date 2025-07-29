@@ -74,13 +74,21 @@
       <div *ngFor="let quiz of filteredAttachments" class="card p-2 mb-3">
         <div class="fw-bold">📄 {{ quiz.title }}</div>
         <p class="mb-1">
-  ⏱ {{ 'exam.timeLimit' | transloco: { minutes: quiz.timeLimitInMinutes } }} -
-  🧠 {{ 'exam.attemptsAllowed' | transloco: { attempts: quiz.attemptsAllowed } }}
+  ⏱ {{ 'exam.timeLimit' | transloco: { minutes: quiz.timeLimitInMinutes } }} - 
+  🧠 المحاولات: {{ quiz.attempts?.length || 0 }}/{{ quiz.attemptsAllowed }}
 </p>
 
-<button (click)="startExam(quiz)" class="btn btn-sm btn-primary mt-1">
-  ▶️ {{ 'exam.startButton' | transloco }}
-</button>
+<ng-container *ngIf="hasRunningAttempt(quiz); else startButton">
+  <button (click)="resumeExam(quiz)" class="btn btn-sm btn-success mt-1">
+    🔄 استكمل المحاولة
+  </button>
+</ng-container>
+
+<ng-template #startButton>
+  <button (click)="startExam(quiz)" class="btn btn-sm btn-primary mt-1" [disabled]="(quiz.attempts?.length || 0) >= quiz.attemptsAllowed">
+    ▶️ {{ 'exam.startButton' | transloco }}
+  </button>
+</ng-template>
 
       </div>
     </div>

@@ -12,4 +12,11 @@ import { RouterLink } from '@angular/router';
 })
 export class CoursePartsComponent {
 
+
+  ngOnInit(): void {
+    window.scrollTo(0, 0);
+  
+  }
+
+
 }

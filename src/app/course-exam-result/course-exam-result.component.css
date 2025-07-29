@@ -1,0 +1,274 @@
+:host {
+    display: block;
+    background-color: #f8f9fa;
+    /* Light grey background */
+}
+
+
+/* Header Section */
+
+.header-section {
+    background-color: #ffffff;
+    padding: 1.5rem 0;
+    border-bottom: 1px solid #dee2e6;
+}
+
+.icon-container {
+    background-color: #e9ecef;
+    border-radius: 8px;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.icon-container i {
+    color: #495057;
+    font-size: 1.5rem;
+}
+
+.course-path {
+    font-size: 0.85rem;
+    color: #6c757d;
+}
+
+.quiz-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #212529;
+    margin: 0;
+}
+
+
+/* Main Content Panels */
+
+.quiz-details-panel,
+.course-content-panel {
+    background-color: #ffffff;
+    border: 1px solid #dee2e6;
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
+}
+
+
+/* Quiz Details Specifics */
+
+.status-bar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding: 0.75rem;
+    background-color: #f8f9fa;
+    border: 1px solid #dee2e6;
+    border-radius: 6px;
+    font-size: 0.9rem;
+}
+
+.status-bar span {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.quiz-meta p {
+    margin-bottom: 0.5rem;
+    color: #495057;
+}
+
+
+/* Attempts Section */
+
+.attempts-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    /* Default to 1 column */
+    gap: 1.5rem;
+}
+
+.attempt-card {
+    background-color: #f8f9fa;
+    border: 1px solid #dee2e6;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.attempt-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.attempt-header {
+    padding: 0.75rem 1.25rem;
+    background-color: #e9ecef;
+}
+
+.attempt-header h5 {
+    margin: 0;
+    font-weight: 700;
+}
+
+.attempt-body {
+    padding: 1.25rem;
+}
+
+.attempt-body p {
+    margin-bottom: 0.6rem;
+    font-size: 0.95rem;
+}
+
+.attempt-footer {
+    padding: 0.75rem 1.25rem;
+    text-align: left;
+    border-top: 1px solid #dee2e6;
+}
+
+.review-link {
+    text-decoration: none;
+    font-weight: 600;
+    color: #007bff;
+}
+
+
+/* Right Sidebar (Course Content) */
+
+.course-section {
+    margin-bottom: 1rem;
+}
+
+.course-section h6 {
+    font-weight: 600;
+    color: #343a40;
+    padding: 0.5rem 0;
+    margin-bottom: 0.5rem;
+    border-bottom: 1px solid #e9ecef;
+}
+
+.course-content-panel h5 {
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.list-group-item {
+    border: none;
+    padding: 0.8rem 1rem;
+    font-size: 0.95rem;
+    color: #495057;
+    cursor: pointer;
+    border-right: 3px solid transparent;
+    transition: all 0.2s;
+}
+
+.list-group-item.active-item,
+.list-group-item:hover {
+    background-color: #e7f3ff;
+    color: #0056b3;
+    font-weight: 600;
+    border-right-color: #007bff;
+}
+
+.list-group-item i {
+    color: #6c757d;
+    transition: color 0.2s;
+}
+
+.list-group-item.active-item i,
+.list-group-item:hover i {
+    color: #0056b3;
+}
+
+
+/* Navigation Buttons */
+
+.navigation-buttons .btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 500;
+}
+
+
+/* Responsive Grid for Attempts */
+
+@media (min-width: 992px) {
+    .attempts-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+
+/* New Attempt Card Styles */
+
+.attempt-card-new {
+    background-color: #ffffff;
+    border: 1px solid #e9ecef;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    transition: box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.attempt-card-new:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.card-header-new {
+    background-color: #f8f9fa;
+    padding: 0.75rem 1.25rem;
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: #495057;
+    border-bottom: 1px solid #e9ecef;
+}
+
+.card-body-new {
+    padding: 1.25rem;
+    flex-grow: 1;
+}
+
+.info-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.6rem 0;
+    border-bottom: 1px solid #f1f3f5;
+}
+
+.info-row:last-child {
+    border-bottom: none;
+}
+
+.info-row span {
+    color: #6c757d;
+    font-size: 0.9rem;
+}
+
+.info-row strong {
+    color: #343a40;
+    font-weight: 600;
+    text-align: left;
+}
+
+.card-footer-new {
+    background-color: #f8f9fa;
+    padding: 0.75rem 1.25rem;
+    text-align: center;
+    border-top: 1px solid #e9ecef;
+}
+
+.review-link {
+    color: #007bff;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.review-link:hover {
+    color: #0056b3;
+    text-decoration: underline;
+}

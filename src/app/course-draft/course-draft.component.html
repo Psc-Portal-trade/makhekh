@@ -514,17 +514,48 @@
 </div>
 
     <!-- Editable Sections -->
-    <div *ngFor="let section of courseData.sections; let i = index" class="card p-3 mb-3">
-  <label class="my-1">{{ 'COURSE.SECTION_TITLE' | transloco }} {{ i + 1 }}</label>
+  <!-- عرض السكاشن في وضع التعديل -->
+<!-- عرض السكاشن في وضع التعديل -->
+<!-- عرض السكاشن في وضع التعديل -->
+<!-- عرض السكاشن -->
+<div *ngFor="let section of courseData.sections; let i = index" class="card p-3 mb-3">
+  <!-- عنوان السكشن مع زر الحذف -->
+    <div class="d-flex justify-content-between">
+    <label class="my-1">{{ 'COURSE.SECTION_TITLE' | transloco }} {{ i + 1 }}</label>
+    <div *ngIf="isEditing">
+      <button class="btn btn-danger btn-sm" (click)="deleteSection(i)">
+        {{ 'DELETE' | transloco }}
+      </button>
+    </div>
+  </div>
   <input class="form-control my-2" [(ngModel)]="section.title">
 
   <label class="my-1">{{ 'DESCRIPTION' | transloco }}</label>
   <input class="form-control my-2" [(ngModel)]="section.description">
 
+  <!-- إضافة ملفات PDF للسكشن -->
+  <div *ngFor="let file of section.pdfFiles; let fi = index">
+    <div class="d-flex justify-content-between">
+      <input class="form-control m-2" [(ngModel)]="file.title" placeholder="Title">
+      <input class="form-control m-2" [(ngModel)]="file.description" placeholder="Description">
+      <input type="file" class="form-control m-2" accept=".pdf" (change)="onFileChange($event, i, fi)">
+
+    </div>
+  </div>
+
+  <!-- عرض المحتويات داخل السكشن -->
   <div *ngFor="let item of section.contentItems; let ci = index" class="border-top pt-3">
     <!-- Lecture item -->
     <ng-container *ngIf="item.type === 'Lecture' && item.lecture">
-      <label class="my-1">{{ 'COURSE.LECTURE_TITLE' | transloco }} {{ ci + 1 }}</label>
+      <!-- عنوان المحاضرة مع زر الحذف -->
+            <div class="d-flex justify-content-between">
+        <label class="my-1">{{ 'COURSE.LECTURE_TITLE' | transloco }} {{ ci + 1 }}</label>
+        <div *ngIf="isEditing">
+          <button class="btn btn-danger btn-sm" (click)="deleteLecture(i, ci)">
+            {{ 'DELETE' | transloco }}
+          </button>
+        </div>
+      </div>
       <input class="form-control my-2" [(ngModel)]="item.lecture.title">
 
       <label class="my-1">{{ 'Description' | transloco }}</label>
@@ -533,15 +564,40 @@
       <label class="my-1">{{ 'COURSE.LECTURE_VIDEO' | transloco }}</label>
       <input type="file" class="form-control my-2" (change)="onLectureVideoChange($event, i, ci)">
       <video *ngIf="item.lecture.videoUrl" [src]="item.lecture.videoUrl" controls style="max-width: 300px;" class="my-1"></video>
+
+
+
+
+
     </ng-container>
 
     <!-- SubSection item -->
     <ng-container *ngIf="item.type === 'SubSection' && item.subSection">
-      <label class="my-1">{{ 'SUBSECTION_TITLE' | transloco }} {{ ci + 1 }}</label>
+      <!-- عنوان الصب سيكشن مع زر الحذف -->
+      <div class="d-flex justify-content-between">
+        <label class="my-1">{{ 'SUBSECTION_TITLE' | transloco }} {{ ci + 1 }}</label>
+        <div *ngIf="isEditing">
+          <button class="btn btn-danger btn-sm" (click)="deleteSubSection(i, ci)">
+            {{ 'DELETE' | transloco }}
+          </button>
+        </div>
+      </div>
       <input class="form-control my-2" [(ngModel)]="item.subSection.title">
 
+      <label class="my-1">{{ 'Description' | transloco }}</label>
+      <input class="form-control my-2" [(ngModel)]="item.subSection.description">
+
+      <!-- إضافة محاضرات فقط داخل SubSection -->
       <div *ngFor="let lesson of item.subSection.lectures; let li = index" class="ps-3">
-        <label class="my-1">{{ 'COURSE.LECTURE_TITLE' | transloco }} {{ li + 1 }}</label>
+        <!-- عنوان الدرس مع زر الحذف -->
+        <div class="d-flex justify-content-between">
+          <label class="my-1">{{ 'COURSE.LECTURE_TITLE' | transloco }} {{ li + 1 }}</label>
+          <div *ngIf="isEditing">
+            <button class="btn btn-danger btn-sm" (click)="deleteLesson(i, ci, li)">
+              {{ 'DELETE' | transloco }}
+            </button>
+          </div>
+        </div>
         <input class="form-control my-2" [(ngModel)]="lesson.title">
 
         <label class="my-1">{{ 'Description' | transloco }}</label>
@@ -550,12 +606,190 @@
         <label class="my-1">{{ 'COURSE.LECTURE_VIDEO' | transloco }}</label>
         <input type="file" class="form-control my-2" (change)="onSubLectureVideoChange($event, i, ci, li)">
         <video *ngIf="lesson.videoUrl" [src]="lesson.videoUrl" controls style="max-width: 300px;" class="my-1"></video>
+
+        <!-- إضافة ملفات لكل محاضرة داخل SubSection -->
+        <div *ngFor="let file of lesson.pdfFiles; let fi = index" class="d-flex justify-content-between">
+          <input class="form-control m-2" [(ngModel)]="file.title" placeholder="Title">
+          <input class="form-control m-2" [(ngModel)]="file.description" placeholder="Description">
+          <input type="file" class="form-control m-2" accept=".pdf" (change)="onFileChange($event, i, ci)">
+          <button *ngIf="isEditing" class="btn btn-danger btn-sm" (click)="removeFileFromLesson(i, ci, li, fi)">X</button>
+        </div>
+
+
       </div>
+
+      <!-- زر لإضافة محاضرة داخل SubSection -->
+      <div *ngIf="isEditing" class="mt-2 ps-3">
+          <button type="button" class="btn btn-outline-success btn-sm" data-bs-toggle="modal" data-bs-target="#addLectureToSubSectionModal" (click)="openAddLectureToSubSectionModal(section.id, item.subSection.id)">
+              {{ 'ADD LECTURE' | transloco }}
+          </button>
+      </div>
+
     </ng-container>
+  </div>
+
+  <!-- إضافة محاضرة أو SubSection داخل السكشن -->
+  <div *ngIf="isEditing" class="mt-3 border-top py-3">
+    <button type="button" class="btn btn-outline-secondary btn-sm  my-2" data-bs-toggle="modal" data-bs-target="#addLectureModal" (click)="openAddLectureModal(section.id)">
+      {{ 'ADD LECTURE' | transloco }}
+    </button>
+    <button type="button" class="btn btn-outline-info btn-sm my-2 mx-2" data-bs-toggle="modal" data-bs-target="#addSubSectionModal" (click)="openAddSubSectionModal(section.id)">
+      {{ 'ADD SUBSECTION' | transloco }}
+    </button>
+  </div>
+<hr>
+
+
+<!-- Add Section Modal -->
+
+<!-- Add Lecture Modal -->
+<div class="modal fade" id="addLectureModal" tabindex="-1" aria-labelledby="addLectureModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="addLectureModalLabel">{{ 'ADD LECTURE' | transloco }}</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form #addLectureForm="ngForm">
+          <div class="mb-3">
+            <label for="lectureTitle" class="form-label">{{ 'COURSE.LECTURE_TITLE' | transloco }}</label>
+            <input type="text" class="form-control" id="lectureTitle" [(ngModel)]="newLecture.title" name="title" required>
+          </div>
+          <div class="mb-3">
+            <label for="lectureDescription" class="form-label">{{ 'DESCRIPTION' | transloco }}</label>
+            <textarea class="form-control" id="lectureDescription" rows="3" [(ngModel)]="newLecture.description" name="description" required></textarea>
+          </div>
+          <div class="mb-3">
+            <label for="lectureVideo" class="form-label">{{ 'COURSE.LECTURE_VIDEO' | transloco }}</label>
+            <input type="file" class="form-control" id="lectureVideo" (change)="onNewLectureVideoChange($event)" name="videoFile" required accept="video/*">
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{{ 'CANCEL' | transloco }}</button>
+        <button type="button" class="btn btn-primary" (click)="submitNewLecture()" [disabled]="!addLectureForm.valid">{{ 'ADD' | transloco }}</button>
+         <div class="spinner-border text-dark" role="status" *ngIf="isLoading">
+          <span class="visually-hidden">Loading...</span>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 
-<!-- الكوبونات - وضع التعديل -->
+<!-- Add Lecture to SubSection Modal -->
+<div class="modal fade" id="addLectureToSubSectionModal" tabindex="-1" aria-labelledby="addLectureToSubSectionModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="addLectureToSubSectionModalLabel">{{ 'ADD LECTURE' | transloco }}</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form #addLectureToSubSectionForm="ngForm">
+          <div class="mb-3">
+            <label for="lectureInSubSectionTitle" class="form-label">{{ 'COURSE.LECTURE_TITLE' | transloco }}</label>
+            <input type="text" class="form-control" id="lectureInSubSectionTitle" [(ngModel)]="newLectureInSubSection.title" name="title" required>
+          </div>
+          <div class="mb-3">
+            <label for="lectureInSubSectionDescription" class="form-label">{{ 'DESCRIPTION' | transloco }}</label>
+            <textarea class="form-control" id="lectureInSubSectionDescription" rows="3" [(ngModel)]="newLectureInSubSection.description" name="description" required></textarea>
+          </div>
+          <div class="mb-3">
+            <label for="lectureInSubSectionVideo" class="form-label">{{ 'COURSE.LECTURE_VIDEO' | transloco }}</label>
+            <input type="file" class="form-control" id="lectureInSubSectionVideo" (change)="onNewLectureVideoInSubSectionChange($event)" name="videoFile" required accept="video/*">
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{{ 'CANCEL' | transloco }}</button>
+        <button type="button" class="btn btn-primary" (click)="submitNewLectureToSubSection()" [disabled]="!addLectureToSubSectionForm.valid">{{ 'ADD' | transloco }}</button>
+        <div class="spinner-border text-dark" role="status" *ngIf="isLoading">
+          <span class="visually-hidden">Loading...</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Add SubSection Modal -->
+<div class="modal fade" id="addSubSectionModal" tabindex="-1" aria-labelledby="addSubSectionModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="addSubSectionModalLabel">{{ 'ADD SUBSECTION' | transloco }}</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form #addSubSectionForm="ngForm">
+          <div class="mb-3">
+            <label for="subSectionTitle" class="form-label">{{ 'SUBSECTION_TITLE' | transloco }}</label>
+            <input type="text" class="form-control" id="subSectionTitle" [(ngModel)]="newSubSection.title" name="title" required>
+          </div>
+          <div class="mb-3">
+            <label for="subSectionDescription" class="form-label">{{ 'DESCRIPTION' | transloco }}</label>
+            <textarea class="form-control" id="subSectionDescription" rows="3" [(ngModel)]="newSubSection.description" name="description" required></textarea>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{{ 'CANCEL' | transloco }}</button>
+        <button type="button" class="btn btn-primary" (click)="submitNewSubSection()" [disabled]="!addSubSectionForm.valid">{{ 'ADD' | transloco }}</button>
+       <div class="spinner-border text-dark" role="status" *ngIf="isLoading">
+          <span class="visually-hidden">Loading...</span>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+  </div>
+<div *ngIf="isEditing" class="my-2">
+  <!-- Button to trigger modal -->
+  <button type="button" class="btn btn-outline-primary btn-sm" data-bs-toggle="modal" data-bs-target="#addSectionModal">
+    {{ 'ADD SECTION' | transloco }}
+  </button>
+
+<div class="modal fade" id="addSectionModal" tabindex="-1" aria-labelledby="addSectionModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="addSectionModalLabel">{{ 'ADD SECTION' | transloco }}</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form #addSectionForm="ngForm">
+          <div class="mb-3">
+            <label for="sectionTitle" class="form-label">{{ 'COURSE.SECTION_TITLE' | transloco }}</label>
+            <input type="text" class="form-control" id="sectionTitle" [(ngModel)]="newSection.title" name="title" required>
+          </div>
+          <div class="mb-3">
+            <label for="sectionDescription" class="form-label">{{ 'DESCRIPTION' | transloco }}</label>
+            <textarea class="form-control" id="sectionDescription" rows="3" [(ngModel)]="newSection.description" name="description" required></textarea>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{{ 'CANCEL' | transloco }}</button>
+        <button type="button" class="btn btn-primary" (click)="submitNewSection()" [disabled]="!addSectionForm.valid" data-bs-dismiss="modal">{{ 'ADD' | transloco }}</button>
+         <div class="spinner-border text-dark" role="status" *ngIf="isLoading">
+          <span class="visually-hidden">Loading...</span>
+        </div>
+
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+</div>
+
+
 <div class="card p-3 mb-3">
   <h5 class="text-primary">{{ 'COUPONS' | transloco }}</h5>
 
@@ -594,6 +828,7 @@
       </label>
     </div>
 
+
     <button class="btn btn-sm btn-secondary "  (click)="addingCoupon=false">
       {{ 'CANCEL' | transloco }}
     </button>
@@ -604,11 +839,11 @@
   </button>
 </div>
 
-    <div class="text-end">
-      <button class="btn btn-success " (click)="saveChanges()">{{ 'COURSE.SAVE_BUTTON' | transloco }}</button>
+ <div class="text-end">
+      <button class="btn btn-success" (click)="saveChanges()">{{ 'COURSE.SAVE_BUTTON' | transloco }}</button>
       <div class="spinner-border text-success mx-3 pt-3" role="status" *ngIf="isLoading2">
         <span class="visually-hidden">Loading...</span>
       </div>
     </div>
-  </div>
+</div>
 </div>

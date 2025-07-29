@@ -8,10 +8,11 @@ import { InstructorCoursesComponent } from "../instructor-courses/instructor-cou
 import { AuthService } from '../services/auth.service';
 import { TeacherService } from '../services/teacher.service';
 import { CommonModule } from '@angular/common';
+import { CourseDraftsComponent } from "../course-drafts/course-drafts.component";
 
 @Component({
   selector: 'app-create-course',
-  imports: [RouterLink, SidebarComponent, TranslocoPipe, InstructorCoursesComponent,CommonModule],
+  imports: [RouterLink, SidebarComponent, TranslocoPipe, InstructorCoursesComponent, CommonModule, CourseDraftsComponent],
   templateUrl: './create-course.component.html',
   styleUrl: './create-course.component.css'
 })

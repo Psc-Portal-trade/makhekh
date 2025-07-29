@@ -1,0 +1,126 @@
+<app-second-nav></app-second-nav>
+
+<div class="review-container-wrapper container">
+  <!-- زر إظهار الشريط الجانبي عند الطي -->
+  <button *ngIf="isSidebarCollapsed" class="show-sidebar-btn" (click)="toggleSidebar()">
+    &#9776;
+  </button>
+
+  <div class="review-container">
+    <!-- الشريط الجانبي -->
+    <div class="review-sidebar" [class.collapsed]="isSidebarCollapsed">
+      <div class="sidebar-header">
+        <button class="close-btn" (click)="toggleSidebar()">×</button>
+        <h4>{{ 'course-exam.quiz_navigation' | transloco }}</h4>
+      </div>
+      <div class="quiz-info">
+        <h5>{{ quiz?.title }}</h5>
+      </div>
+      <div class="questions-grid">
+        <div *ngFor="let question of quiz?.questions; let i = index"
+             class="question-box"
+             [ngClass]="getQuestionState(question)"
+             (click)="scrollToQuestion(i + 1)">
+          <div *ngIf="question.isFlagged" class="flag-indicator"></div>
+          {{ i + 1 }}
+          <div class="answer-icon-container">
+            <div *ngIf="getQuestionState(question) === 'correct'" class="icon-circle correct-icon">✓</div>
+            <div *ngIf="getQuestionState(question) === 'incorrect'" class="icon-circle incorrect-icon">✗</div>
+          </div>
+        </div>
+      </div>
+      <div class="sidebar-footer">
+        <a class="finish-review" routerLink="/course-exam-result">
+          {{ 'course-exam.finish_review' | transloco }}
+        </a>
+      </div>
+    </div>
+
+    <!-- المحتوى الرئيسي -->
+    <div class="review-main mt-5">
+      <div class="card-body-new">
+        <div class="info-row">
+          <span>{{ 'course-exam.status' | transloco }}</span>
+          <strong>
+            {{ attempt.isRunning === false ? ('course-exam.finished' | transloco) : ('course-exam.in_progress' | transloco) }}
+          </strong>
+        </div>
+        <div class="info-row">
+          <span>{{ 'course-exam.started' | transloco }}</span>
+          <strong>{{ attempt.startedAt ? (attempt.startedAt | date:'short') : '-' }}</strong>
+        </div>
+        <div class="info-row">
+          <span>{{ 'course-exam.submitted_at' | transloco }}</span>
+          <strong>{{ attempt.submittedAt | date:'short' }}</strong>
+        </div>
+        <div class="info-row">
+          <span>{{ 'course-exam.duration' | transloco }}</span>
+          <strong>{{ formatSubmittedDuration(attempt.startedAt, attempt.submittedAt) }}</strong>
+        </div>
+        <div class="info-row">
+          <span>{{ 'course-exam.correct_answers' | transloco }}</span>
+          <strong>{{ getCorrectAnswersCount(attempt) }} / {{ getTotalQuestions() }}</strong>
+        </div>
+        <div class="info-row">
+          <span>{{ 'course-exam.grade' | transloco }}</span>
+          <strong>{{ getScorePercentage(attempt) }} / 100</strong>
+        </div>
+      </div>
+
+      <!-- عرض الأسئلة -->
+      <div *ngFor="let question of quizToReview?.questions; let i = index" class="question-card" [id]="'question-' + (i + 1)">
+        <div class="question-header">
+          <div class="question-number">
+            <h5>{{ 'course-exam.question' | transloco }} {{ i + 1 }}</h5>
+            <span
+              [ngClass]="getQuestionState(question) === 'correct' ? 'correct-text' :
+                          getQuestionState(question) === 'incorrect' ? 'incorrect-text' : 'unanswered-text'">
+              {{
+                getQuestionState(question) === 'correct'
+                  ? ('course-exam.correct' | transloco)
+                  : getQuestionState(question) === 'incorrect'
+                    ? ('course-exam.incorrect' | transloco)
+                    : ('course-exam.unanswered' | transloco)
+              }}
+            </span>
+            <span>
+              {{ 'course-exam.grade' | transloco }} {{ getQuestionState(question) === 'correct' ? '1' : '0' }} / 1
+            </span>
+          </div>
+          <div class="flag-question" *ngIf="getIsUnique(question.id)">
+            <span>🚩 {{ 'course-exam.flagged_question' | transloco }}</span>
+          </div>
+        </div>
+
+        <div class="question-body">
+          <p>{{ question.text }}</p>
+
+          <div class="choices">
+            <div *ngFor="let choice of question.choices" class="choice">
+              <input
+                type="radio"
+                [name]="'q' + question.id"
+                [id]="choice.id"
+                [value]="choice.id"
+                [checked]="getStudentAnswer(question.id) === choice.id"
+                disabled
+              />
+              <label [for]="choice.id">{{ choice.text }}</label>
+
+              <span *ngIf="choice.isCorrect" class="correct-indicator">✓</span>
+              <span *ngIf="getStudentAnswer(question.id) === choice.id && !choice.isCorrect" class="incorrect-indicator">✗</span>
+            </div>
+          </div>
+
+          <div class="model-answer mt-2">
+            <strong>{{ 'course-exam.model_answer' | transloco }}:</strong> {{ question.modelAnswer }}
+          </div>
+
+          <div class="answer-explanation mt-1">
+            <em>{{ 'course-exam.answer_explanation' | transloco }}:</em> {{ question.answerExplanation }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

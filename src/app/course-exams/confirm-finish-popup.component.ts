@@ -1,10 +1,11 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { TranslocoPipe } from '@ngneat/transloco';
 
 @Component({
   selector: 'app-confirm-finish-popup',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule,TranslocoPipe],
   templateUrl: './confirm-finish-popup.component.html',
   styleUrls: ['./confirm-finish-popup.component.css']
 })

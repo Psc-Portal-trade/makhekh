@@ -1,0 +1,110 @@
+<app-sidebar></app-sidebar>
+
+<div>
+  <div class="head1 d-flex justify-content-end align-items-center px-3">
+
+
+    <div class="mx-3 second-sec">
+      <i class="fa-solid fa-bell"></i>
+      <!-- <a class="pe-3 text-decoration-none text-black " routerLink="student-profile">  student View  <i class="fa-solid fa-people-arrows px-1"></i></a> -->
+    </div>
+    <div class="position-relative text-end my-3">
+
+      <div class="first-letter">
+
+            <!-- لو في صورة -->
+<img *ngIf="profileImg && profileImg !== '../../assets/download.jfif'"
+     [src]="profileImg"
+     class="rounded-circle"
+     style="width: 50px; height: 50px;" />
+
+<!-- لو مفيش صورة -->
+<span *ngIf="profileImg === '../../assets/download.jfif'">
+  {{ firstLetter }}
+</span>
+        <div class="profile-menu">
+          <div class="text-center">
+            <div class="d-flex align-items-center mb-3 gap-3">
+              <div class="first-letterr">
+                <span class="rounded-circle  text-white d-flex justify-content-center align-items-center" style="width: 50px; height: 50px; font-size: 24px;">
+
+            <!-- لو في صورة -->
+<img *ngIf="profileImg && profileImg !== '../../assets/download.jfif'"
+     [src]="profileImg"
+     class="rounded-circle"
+     style="width: 50px; height: 50px;" />
+
+<!-- لو مفيش صورة -->
+<span *ngIf="profileImg === '../../assets/download.jfif'">
+  {{ firstLetter }}
+</span>
+                </span>
+              </div>
+              <div class="text-start">
+                 <h5 class="mb-0">{{fullName}}</h5>
+                    <p class="text-muted mb-0">{{email}}</p>
+              </div>
+            </div>
+           </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item" routerLink="studentHome">{{ "second-navbar.home" | transloco }}</li>
+            <li class="list-group-item">{{ "second-navbar.my courses" | transloco }}</li>
+            <li class="list-group-item" routerLink="cart">{{ "second-navbar.My Cart" | transloco }} </li>
+            <li class="list-group-item" routerLink="wishedList">{{ "second-navbar.Wishlist" | transloco }}</li>
+            <li class="list-group-item" >{{ "second-navbar.Instructor Dashboard" | transloco }}</li>
+            <li class="divider"></li>
+
+            <li class="list-group-item" >{{ "second-navbar.Notifications" | transloco }}</li>
+            <li class="list-group-item">{{ "second-navbar.Messages" | transloco }}</li>
+            <li class="divider"></li>
+
+            <li class="list-group-item">{{ "second-navbar.Account Settings" | transloco }}</li>
+            <li class="list-group-item">{{ "second-navbar.Payment Methods" | transloco }}</li>
+            <li class="divider"></li>
+
+            <li class="list-group-item"  (click)="changeLang()">{{ "second-navbar.Language" | transloco }}</li>
+            <li class="divider"></li>
+
+            <li class="list-group-item">{{ "second-navbar.Help and Support" | transloco }}</li>
+            <li class="list-group-item text-danger" (click)="logout()"> {{ "second-navbar.Log out" | transloco }}</li>
+          </ul>
+
+        </div>
+      </div>
+
+    </div>
+    </div>
+
+
+    
+        <div class="table-container mt-5">
+        <h2 class="mb-4">{{'navigation.orders' | transloco}}</h2>
+        
+        <table class="table table-striped table-hover">
+          <thead class="thead-dark">
+            <tr>
+              <th scope="col">{{'orders.studentName' | transloco}}</th>
+              <th scope="col">{{'orders.courseName' | transloco}}</th>
+              <th scope="col">{{'orders.subscriptionDate' | transloco}}</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let order of orders">
+              <td>{{ order.studentName }}</td>
+              <td>{{ order.courseName }}</td>
+              <td>{{ order.subscriptionDate }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+</div>
+
+
+
+
+
+
+
+
+

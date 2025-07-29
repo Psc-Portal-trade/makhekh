@@ -1,21 +1,27 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { TranslocoPipe } from '@ngneat/transloco';
-import { SecondNavComponent } from '../navbar/second-nav/second-nav.component';
-import { finalize } from 'rxjs/operators';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Component, OnInit } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
+import { TranslocoPipe } from '@ngneat/transloco';
+declare var bootstrap: any;
+import { SecondNavComponent } from '../navbar/second-nav/second-nav.component';
 import { CategoriesService } from '../services/categories.service';
 
 @Component({
-  selector: 'app-edit-cours',
-  templateUrl: './edit-cours.component.html',
-  styleUrls: ['./edit-cours.component.css'],
-  standalone: true,
-  imports: [SecondNavComponent, FormsModule, CommonModule,TranslocoPipe]
+  selector: 'app-course-draft',
+  imports: [SecondNavComponent, FormsModule, CommonModule,TranslocoPipe],
+  templateUrl: './course-draft.component.html',
+  styleUrl: './course-draft.component.css'
 })
-export class EditCoursComponent implements OnInit {
+export class CourseDraftComponent implements OnInit {
+  newLecture: any = { title: '', description: '' };
+  newSubSection = { title: '', description: '' };
+  newLectureInSubSection = { title: '', description: '' };
+  newLectureVideoFile: File | null = null;
+  lectureVideoFile: File | null = null;
+  currentSectionId: string | null = null;
+  currentSubSectionId: string | null = null;
   activeLang: string = 'en';
  courseData: any = {
     title: '',
@@ -34,29 +40,36 @@ export class EditCoursComponent implements OnInit {
   changingVideo = false;
   isEditing: boolean = false;
   categories: any[] = [];
+  newSection: any = { title: '', description: '' };
+isLoading: boolean = false;
 
   constructor(private router: Router,private http: HttpClient,private categoriesService: CategoriesService) {}
 originalCourseData: any = {};
 
    ngOnInit(): void {
-     this.categoriesService.getCategories().subscribe({
-  next: (res) => {
-    console.log('📦 categories response:', res); // <-- راقبي دي
-    this.categories = Array.isArray(res) ? res : res.data || []; // تأكيد التحويل لمصفوفة
-  },
-  error: (err) => console.error('Error loading categories:', err)
-});
-    const storedCourse = localStorage.getItem('selectedCourse');
-    if (storedCourse) {
-      this.courseData = JSON.parse(storedCourse);
-this.originalCourseData = JSON.parse(JSON.stringify(this.courseData)); // ✅ نسخة للقراءة فقط
-
-      console.log('📦 Loaded course from localStorage:', this.courseData);
-    } else {
-      console.warn('❌ No course found in localStorage. Redirecting...');
-      this.router.navigate(['/instructor-profile/create-course']);
-    }
+    window.scrollTo(0, 0);
+    this.categoriesService.getCategories().subscribe({
+      next: (res) => {
+        console.log('📦 categories response:', res);
+        this.categories = Array.isArray(res) ? res : res.data || [];
+      },
+      error: (err) => console.error('Error loading categories:', err)
+    });
+    this.loadCourseData();
   }
+
+  loadCourseData(): void {
+  const storedCourse = localStorage.getItem('selectedCourse');
+  if (storedCourse) {
+    this.courseData = JSON.parse(storedCourse);
+    this.originalCourseData = JSON.parse(JSON.stringify(this.courseData));
+    console.log('📦 Loaded course from localStorage:', this.courseData);
+  } else {
+    console.warn('❌ No course found in localStorage. Redirecting...');
+    this.router.navigate(['/instructor-profile/create-course']);
+  }
+}
+
 getLevelText(level: number): string {
   switch (level) {
     case 1:
@@ -160,6 +173,47 @@ saveChanges(): void {
       );
     }
   }
+// ✅ حذف الأقسام المحذوفة
+for (const deletedSection of this.deletedSections) {
+  const sectionId = deletedSection.id;
+  updateRequests.push(
+    this.http.delete(`https://api.makhekh.com/api/Courses/${courseId}/Sections/${sectionId}`, {
+      headers: new HttpHeaders({ 'Authorization': `Bearer ${token}` })
+    }).toPromise().then(res => {
+      console.log("✅ تم حذف السكشن:", res);
+    }).catch(err => {
+      console.error("❌ خطأ أثناء حذف السكشن:", err);
+    })
+  );
+}
+
+// ✅ حذف المحاضرات المحذوفة
+for (const deletedLecture of this.deletedLectures) {
+  const lectureId = deletedLecture.id;
+  updateRequests.push(
+    this.http.delete(`https://api.makhekh.com/api/Courses/${courseId}/Lectures/${lectureId}`, {
+      headers: new HttpHeaders({ 'Authorization': `Bearer ${token}` })
+    }).toPromise().then(res => {
+      console.log("✅ تم حذف المحاضرة:", res);
+    }).catch(err => {
+      console.error("❌ خطأ أثناء حذف المحاضرة:", err);
+    })
+  );
+}
+
+// ✅ حذف الـ sub-sections المحذوفة
+for (const deletedSubSection of this.deletedSubSections) {
+  const subSectionId = deletedSubSection.id;
+  updateRequests.push(
+    this.http.delete(`https://api.makhekh.com/api/Courses/section/subsection/${subSectionId}`, {
+      headers: new HttpHeaders({ 'Authorization': `Bearer ${token}` })
+    }).toPromise().then(res => {
+      console.log("✅ تم حذف الـ SubSection:", res);
+    }).catch(err => {
+      console.error("❌ خطأ أثناء حذف الـ SubSection:", err);
+    })
+  );
+}
 
   // ✅ كوبون جديد
   if (this.newCoupon.code && this.newCoupon.discountPercentage > 0) {
@@ -491,6 +545,319 @@ deleteCoupon(index: number) {
       }
     });
 }
+// لحذف المحاضرة داخل SubSection
+deleteLesson(sectionIndex: number, subSectionIndex: number, lessonIndex: number) {
+  this.courseData.sections[sectionIndex].contentItems[subSectionIndex].subSection.lectures.splice(lessonIndex, 1);
+}
+
+// لحذف المحاضرة
+deleteLecture(sectionIndex: number, contentItemIndex: number): void {
+  const lecture = this.courseData.sections[sectionIndex].contentItems[contentItemIndex].lecture;
+  this.deletedLectures.push(lecture);  // إضافة المحاضرة المحذوفة
+  this.courseData.sections[sectionIndex].contentItems.splice(contentItemIndex, 1);  // إزالة المحاضرة من الكورس
+}
+
+
+
+// لحذف الصب سيكشن
+deleteSubSection(sectionIndex: number, contentItemIndex: number): void {
+  const subSection = this.courseData.sections[sectionIndex].contentItems[contentItemIndex].subSection;
+  this.deletedSubSections.push(subSection);  // إضافة الصب سيكشن المحذوف
+  this.courseData.sections[sectionIndex].contentItems.splice(contentItemIndex, 1);  // إزالة الصب سيكشن من الكورس
+}
+
+// لحذف السكشن
+deleteSection(index: number): void {
+  const section = this.courseData.sections[index];
+  if (section?.id) {
+    this.deletedSections.push(section);  // أضف للقائمة
+  }
+  this.courseData.sections.splice(index, 1);  // احذف من الواجهة فقط
+}
+
+getToken(): string {
+  const user = localStorage.getItem('user');
+  return user ? JSON.parse(user).token : '';
+}
+
+
+
+fetchUpdatedCourse(): void {
+  const courseId = this.courseData.id;
+ const token = this.getToken();
+
+  if (!token) return;
+
+  this.isLoading = true;
+
+  const apiUrl = `https://api.makhekh.com/api/Courses/${courseId}/drafted`;
+  this.http.get(apiUrl, {
+    headers: new HttpHeaders({ 'Authorization': `Bearer ${token}` })
+  }).subscribe({
+    next: (response: any) => {
+      const updatedCourse = response.data; // ✅ استخدم data فقط
+
+      this.courseData = updatedCourse;
+      localStorage.setItem('selectedCourse', JSON.stringify(updatedCourse));
+
+      this.isLoading = false;
+
+      // إغلاق المودال إذا كان مفتوح
+      const modalElement = document.getElementById('addSectionModal');
+      if (modalElement) {
+        const modal = bootstrap.Modal.getInstance(modalElement);
+        modal?.hide();
+      }
+    },
+    error: () => {
+      this.isLoading = false;
+    }
+  });
+}
+
+
+submitNewSection(): void {
+  this.isLoading = true; // بدء تحميل البيانات (تشغيل الـ spinner)
+
+  const courseId = this.courseData.id;
+  const apiUrl = `https://api.makhekh.com/api/courses/${courseId}/Sections`;
+
+  this.http.post(apiUrl, this.newSection).subscribe({
+    next: (response: any) => {
+      console.log('Section added successfully', response);
+      this.courseData.sections.push(response.data); // إضافة السكشن الجديد إلى الكورس
+
+      // حفظ الكورس في الـ localStorage
+      localStorage.setItem('selectedCourse', JSON.stringify(this.courseData));
+
+      // استدعاء API للحصول على الكورس المعدل
+      this.fetchUpdatedCourse(); // جلب الكورس المحدث
+
+      this.newSection = { title: '', description: '' };
+
+      // إغلاق الموديل بعد إضافة السكشن
+      const modalElement = document.getElementById('addSectionModal');
+      if (modalElement) {
+        const modal = bootstrap.Modal.getInstance(modalElement);
+        modal?.hide();
+      }
+
+      this.isLoading = false; // إيقاف الـ spinner
+    },
+    error: (err) => {
+      console.error('Error adding section', err);
+      this.isLoading = false; // إيقاف الـ spinner في حالة حدوث خطأ
+    }
+  });
+}
+
+
+
+
+openAddLectureModal(sectionId: string): void {
+  this.currentSectionId = sectionId;
+  this.newLecture = { title: '', description: '' };
+  this.lectureVideoFile = null;
+}
+
+openAddSubSectionModal(sectionId: string): void {
+  this.currentSectionId = sectionId;
+  this.newSubSection = { title: '', description: '' };
+}
+
+openAddLectureToSubSectionModal(sectionId: string, subSectionId: string): void {
+    this.currentSectionId = sectionId;
+    this.currentSubSectionId = subSectionId;
+    this.newLectureInSubSection = { title: '', description: '' };
+    this.newLectureVideoFile = null;
+    console.log(`Modal for adding lecture to section ${sectionId} and subsection ${subSectionId} opened.`);
+  }
+
+  onNewLectureVideoInSubSectionChange(event: any): void {
+    const file = event.target.files[0];
+    if (file) {
+      this.newLectureVideoFile = file;
+    }
+  }
+
+submitNewLectureToSubSection(): void {
+  if (!this.newLectureInSubSection.title || !this.newLectureVideoFile || !this.currentSectionId || !this.currentSubSectionId) {
+    console.error('Missing data for new lecture in subsection');
+    return;
+  }
+  this.isLoading = true; // بدء تحميل البيانات
+
+  const courseId = this.courseData.id;
+  const apiUrl = `https://api.makhekh.com/api/Courses/${courseId}/Lectures/video`;
+
+  const formData = new FormData();
+  formData.append('Title', this.newLectureInSubSection.title);
+  formData.append('Description', this.newLectureInSubSection.description);
+  formData.append('SectionId', this.currentSectionId);
+  formData.append('SubSectionId', this.currentSubSectionId);
+  formData.append('videoFile', this.newLectureVideoFile, this.newLectureVideoFile.name);
+
+  this.http.post(apiUrl, formData).subscribe({
+    next: (response) => {
+      console.log('Lecture added to subsection successfully', response);
+      this.courseData.sections.forEach((section: any) => {
+        if (section.id === this.currentSectionId) {
+          section.contentItems.forEach((item: any) => {
+            if (item.subSection && item.subSection.id === this.currentSubSectionId) {
+              item.subSection.lectures.push(response); // إضافة المحاضرة الجديدة داخل الصب سيكشن
+            }
+          });
+        }
+      });
+
+      // تحديث الكورس في الـ localStorage
+      localStorage.setItem('selectedCourse', JSON.stringify(this.courseData));
+
+      // استدعاء API للحصول على الكورس المعدل
+      this.fetchUpdatedCourse();
+
+      // إغلاق الموديل
+      const modalElement = document.getElementById('addLectureToSubSectionModal');
+      if (modalElement) {
+        const modal = bootstrap.Modal.getInstance(modalElement);
+        modal?.hide();
+      }
+
+      this.newLectureInSubSection = { title: '', description: '' };
+      this.newLectureVideoFile = null;
+      this.isLoading = false;
+    },
+    error: (err) => {
+      console.error('Error adding lecture to subsection', err);
+      this.isLoading = false; // إيقاف الـ spinner في حالة حدوث خطأ
+    }
+  });
+}
+
+
+onNewLectureVideoChange(event: any): void {
+  if (event.target.files && event.target.files.length) {
+    this.lectureVideoFile = event.target.files[0];
+  }
+}
+
+submitNewLecture(): void {
+  if (!this.currentSectionId || !this.lectureVideoFile) {
+    console.error('Section ID or video file is missing');
+    return;
+  }
+  this.isLoading = true; // بدء تحميل البيانات
+
+  const courseId = this.courseData.id;
+  const apiUrl = `https://api.makhekh.com/api/Courses/${courseId}/Lectures/video`;
+
+  const formData = new FormData();
+  formData.append('Title', this.newLecture.title);
+  formData.append('Description', this.newLecture.description);
+  formData.append('SectionId', this.currentSectionId);
+  formData.append('videoFile', this.lectureVideoFile, this.lectureVideoFile.name);
+
+  this.http.post(apiUrl, formData).subscribe({
+    next: (response: any) => {
+      console.log('Lecture added successfully', response);
+      this.courseData.sections.forEach((section: any) => {
+        if (section.id === this.currentSectionId) {
+          section.contentItems.push(response); // إضافة المحاضرة الجديدة إلى السكشن
+        }
+      });
+
+      // تحديث الكورس في الـ localStorage
+      localStorage.setItem('selectedCourse', JSON.stringify(this.courseData));
+
+      // استدعاء API للحصول على الكورس المعدل
+      this.fetchUpdatedCourse();
+
+      const closeButton = document.querySelector('#addLectureModal .btn-close');
+      if (closeButton) {
+        (closeButton as HTMLElement).click();
+      }
+      this.isLoading = false;
+    },
+    error: (err) => {
+      console.error('Error adding lecture', err);
+      this.isLoading = false; // إيقاف الـ spinner في حالة حدوث خطأ
+    }
+  });
+}
+
+submitNewSubSection(): void {
+  if (!this.currentSectionId) {
+    console.error('Section ID is missing');
+    return;
+  }
+  this.isLoading = true; // بدء تحميل البيانات
+
+  const apiUrl = `https://api.makhekh.com/api/courses/section/${this.currentSectionId}/subsection`;
+
+  const payload = {
+    title: this.newSubSection.title,
+    description: this.newSubSection.description
+  };
+
+  this.http.post(apiUrl, payload).subscribe({
+    next: (response: any) => {
+      console.log('Sub-section added successfully', response);
+      this.courseData.sections.forEach((section: any) => {
+        if (section.id === this.currentSectionId) {
+          section.contentItems.push({ type: 'SubSection', subSection: response.data }); // إضافة الصب سيكشن الجديد
+        }
+      });
+
+      // تحديث الكورس في الـ localStorage
+      localStorage.setItem('selectedCourse', JSON.stringify(this.courseData));
+
+      // استدعاء API للحصول على الكورس المعدل
+      this.fetchUpdatedCourse();
+
+      const closeButton = document.querySelector('#addSubSectionModal .btn-close');
+      if (closeButton) {
+        (closeButton as HTMLElement).click();
+      }
+      this.isLoading = false;
+    },
+    error: (err) => {
+      console.error('Error adding sub-section', err);
+      this.isLoading = false; // إيقاف الـ spinner في حالة حدوث خطأ
+    }
+  });
+}
+
+
+deletedSections: any[] = [];
+  deletedLectures: any[] = [];
+  deletedSubSections: any[] = [];
+
+// دالة لرفع الملفات الخاصة بالسكشن
+onFileChange(event: any, sectionIndex: number, fileIndex: number) {
+  const file = event.target.files[0]; // الحصول على الملف المحمل
+  if (file) {
+    // حفظ الملف داخل البيانات الخاصة بالسكشن
+    this.courseData.sections[sectionIndex].pdfFiles[fileIndex].file = file;
+  }
+}
+
+
+// دالة لحذف ملف من السكشن
+removeFileFromSection(sectionIndex: number, fileIndex: number) {
+  this.courseData.sections[sectionIndex].pdfFiles.splice(fileIndex, 1);
+}
+
+// دالة لحذف ملف من المحاضرة
+removeFileFromLecture(sectionIndex: number, contentItemIndex: number, fileIndex: number) {
+  this.courseData.sections[sectionIndex].contentItems[contentItemIndex].lecture.pdfFiles.splice(fileIndex, 1);
+}
+
+// دالة لحذف ملف من درس داخل SubSection
+removeFileFromLesson(sectionIndex: number, contentItemIndex: number, subSectionIndex: number, fileIndex: number) {
+  this.courseData.sections[sectionIndex].contentItems[contentItemIndex].subSection.lectures[subSectionIndex].pdfFiles.splice(fileIndex, 1);
+}
+
+
 
 
 

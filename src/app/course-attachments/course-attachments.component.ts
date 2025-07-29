@@ -29,6 +29,7 @@ export class CourseAttachmentsComponent implements OnInit {
   ) {}
 
   ngOnInit() {
+    window.scrollTo(0, 0);
     const courseId = this.courseInfoService.getSelectedCourseId();
     if (courseId) {
       this.courseService.fetchCourseDetails(courseId).subscribe(res => {
