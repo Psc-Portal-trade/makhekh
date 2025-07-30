@@ -17,6 +17,7 @@ import { TranslocoPipe } from '@ngneat/transloco';
   styleUrls: ['./my-courses.component.css']
 })
 export class MyCoursesComponent implements OnInit {
+
   courses: any[] = [];
   wishlistCourses: any[] = [];
   searchQuery: string = '';
@@ -25,6 +26,8 @@ export class MyCoursesComponent implements OnInit {
   currentPage: number = 1;
   currentPageWishlist: number = 1;
   itemsPerPage: number = 6;
+
+  
 
   constructor(
     private cartService: CartService,
@@ -74,6 +77,7 @@ export class MyCoursesComponent implements OnInit {
 
   get paginatedWishlistCourses() {
     const start = (this.currentPageWishlist - 1) * this.itemsPerPage;
+    this.wishlistService.fetchWishlistFromAPI();
     return this.filteredWishlistCourses.slice(start, start + this.itemsPerPage);
   }
 

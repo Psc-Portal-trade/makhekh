@@ -18,26 +18,49 @@ import { TranslocoPipe } from "@ngneat/transloco";
 export class WishlistEndComponent implements OnInit{
 
 
-
+userRole: string = '';
   lectures: any[] = [];
+   wishlistItems: any[] = [];
 
 
   constructor(private cartService: CartService, private wishlistService: WishlistService,private courseInfoService: CourseInformationService, private router: Router) {}
   ngOnInit() {
       window.scrollTo(0, 0);
+       const user = JSON.parse(localStorage.getItem('user') || '{}');
+       //console.log('User in cart component:', user); // 👈 هنا بنطبع بيانات المستخدم
+       const token = user.token;
+        console.log('Token in wishlist component:', token); // 👈 هنا بنطبع التوكن
+    
+    this.userRole = (user?.userRole || '').trim().toLowerCase();
+    console.log('Role in nav:', this.userRole);
+     this.wishlistService.loadWishlistFromApi();
+    // Subscribe to cart items
+     this.wishlistService.fetchWishlistFromAPI().subscribe({
+    next: (response) => {
+      console.log('🛒 Fetched wishlist from API:', response);
+    },
+    error: (err) => {
+      console.error('❌ Error fetching cart:', err);
+    }
+  });
 
+  this.wishlistService.listItems$.subscribe(items => {
+    console.log('📦 Cart items in component:', items);
+    this.wishlistItems = items;
+    // this.totalPrice = this.cartService.getTotalPrice();
+  });
     this.wishlistService.listItems$.subscribe(items => {
-      this.lectures = items;
+      this.wishlistItems = items;
     });
 
 
 
-    this.lectures.forEach(course => {
-      course.isInCart = this.cartService.isItemInCart(course.id);
+    this.wishlistItems.forEach(course => {
+      course.isInCart = this.wishlistService.isCourseInCart(course.id);
     });
 
     this.cartService.cartItems$.subscribe(() => {
-      this.lectures.forEach(course => {
+      this.wishlistItems.forEach(course => {
         course.isInCart = this.cartService.isItemInCart(course.id);
       });
     });
@@ -48,13 +71,12 @@ export class WishlistEndComponent implements OnInit{
     });
 
     this.wishlistService.listItems$.subscribe(() => {
-      this.lectures.forEach(course => {
+      this.wishlistItems.forEach(course => {
         course.isInWishList = this.wishlistService.isItemInList(course.id);
       });
     });
 
-
-
+    
 
   }
 
@@ -63,14 +85,30 @@ export class WishlistEndComponent implements OnInit{
     this.router.navigate(['course-Information']); // الانتقال إلى صفحة التفاصيل
   }
 
-  addToCart(course: any) {
-    this.cartService.addToCart(course);
-    course.isInCart = true;
-  }
+   addToCart(course: any) {
+  console.log('🛒 Add to cart clicked:', course); // ✅ تأكد إن الزر فعلاً اشتغل
 
-  removeFromCart(course: any) {
-    this.cartService.removeFromCart(course.id);
-    course.isInCart = false;
+  this.cartService.addToCartAPI(course.id).subscribe({
+    next: (response) => {
+      console.log('✅ Course added to cart:', response);
+      course.isInCart = true;
+    },
+    error: (err) => {
+      console.error('❌ Error adding course:', err);
+    }
+  });
+}
+
+    removeFromCart(course: any) {
+    this.cartService.removeCourseFromCartAPI(course.id).subscribe({
+    next: (response) => {
+      console.log('✅ Course remove from cart:', response);
+      course.isInCart = true;
+    },
+    error: (err) => {
+      console.error('❌ Error removing course:', err);
+    }
+  });
   }
 
   addToWishList(course: any) {
@@ -79,8 +117,15 @@ export class WishlistEndComponent implements OnInit{
   }
 
   removeFromWishList(course: any) {
-    this.wishlistService.removeFromList(course.id);
-    course.isInWishList = false;
+   this.wishlistService.removeCourseFromWishlistAPI(course.id).subscribe({
+    next: (response) => {
+      console.log('✅ Course remove from wishlist Sucessfully:', response);
+      course.isInCart = true;
+    },
+    error: (err) => {
+      console.error('❌ Error removing course:', err);
+    }
+  });
   }
 
 

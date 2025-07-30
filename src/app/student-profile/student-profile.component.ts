@@ -19,6 +19,9 @@ export class StudentProfileComponent {
   role: string = '';
   userRole: string = '';
 email:string=''
+token:string=''
+
+  //logo
 
 
  logoSrc: string = 'assets/Logo AR.png';
@@ -46,9 +49,13 @@ email:string=''
   this.userRole = user?.userRole || ''; // هنا بنستخرج الرول
   this.fullName = user?.fullName || '';
   this.email = user?.email || '';
+  
 this.firstLetter = this.fullName.charAt(0).toUpperCase();
+console.log('User Role:', this.userRole); // هنا بنطبع الرول في الكونسول
+
 
   }
+ 
 
   changeLang(): void {
     const htmlTag = document.documentElement;

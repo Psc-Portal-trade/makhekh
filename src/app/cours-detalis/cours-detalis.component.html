@@ -33,6 +33,7 @@
                   <button class="btn btn-outline-danger" *ngIf="!course1.isInWishlist" (click)="addToWishlist1()">{{ 'cours-details.Add to wishlist' | transloco }}</button>
                   <button class="btn btn-danger" *ngIf="course1.isInWishlist" (click)="removeFromWishlist1()">{{ 'cours-details.Remove from list' | transloco }}</button>
                   <button class="btn btn-design1" routerLinke="cart" (click)="addToCart1()">{{ 'cours-details.Buy Now' | transloco }}</button>
+                   <button class="btn btn-design1"  (click)="BuyNow()">{{ 'cours-details.Buy Now' | transloco }}</button>
               </div>
             </div>
         </div>

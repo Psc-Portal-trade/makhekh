@@ -173,6 +173,17 @@ openStudentOnlyModal() {
   }
   addToCart(course: any) {
     this.cartService.addToCart(course);
+     console.log('🛒 Add to cart clicked:', course); // ✅ تأكد إن الزر فعلاً اشتغل
+
+  this.cartService.addToCartAPI(course.id).subscribe({
+    next: (response) => {
+      console.log('✅ Course added to cart:', response);
+      course.isInCart = true;
+    },
+    error: (err) => {
+      console.error('❌ Error adding course:', err);
+    }
+  });
     course.isInCart = true;
   }
 
@@ -183,22 +194,24 @@ openStudentOnlyModal() {
 
 
 addToWishList(course: any) {
-  this.wishlistService.addToList(course); // الاحتفاظ بالوظيفة القديمة (لو مستخدمة داخليًا)
-  course.isInWishList = true;
+  // this.wishlistService.addToList(course); // الاحتفاظ بالوظيفة القديمة (لو مستخدمة داخليًا)
+  
 
   // إضافة الكورس للويش ليست من الـ API
   this.wishlistService.addCourseToWishlistAPI(course.id).subscribe({
     next: () => {
       console.log('✅ Course added to wishlist API');
+      course.isInWishList = true;
     },
     error: (err) => {
       console.error('❌ Error adding to wishlist API:', err);
     }
   });
+  course.isInWishList = true;
 }
 
 removeFromWishList(course: any) {
-  this.wishlistService.removeFromList(course.id); // الاحتفاظ بالوظيفة القديمة
+  // this.wishlistService.removeFromList(course.id); // الاحتفاظ بالوظيفة القديمة
   course.isInWishList = false;
 
   // إزالة الكورس من الويش ليست من الـ API
@@ -210,6 +223,7 @@ removeFromWishList(course: any) {
       console.error('❌ Error removing from wishlist API:', err);
     }
   });
+   course.isInWishList = false;
 }
 
   set searchQuery(value: string) {

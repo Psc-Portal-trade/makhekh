@@ -95,121 +95,149 @@ export class RecommendedVideosComponent implements OnInit{
 
   ];
 
-  constructor(private cartService: CartService, private wishlistService: WishlistService,private courseInfoService: CourseInformationService, private router: Router,  private courseApiService: CourseApiService // ✅ أضفناها
-) {}
-userRole: string = '';
-
-  ngOnInit() {
-  const user = localStorage.getItem('user');
-  this.userRole = user ? JSON.parse(user).userRole : '';
-
-  this.courseApiService.getAllCourses().subscribe({
-  next: (response) => {
-    const allCourses = response?.data || [];
-    this.lectures = allCourses.slice(0, 7); // ✅ خدي أول 7 بس
-
-    console.log('Courses loaded:', this.lectures);
-
-    this.lectures.forEach(course => {
-      course.isInCart = this.cartService.isItemInCart(course.id);
-      course.isInWishlist = this.wishlistService.isItemInList(course.id);
-    });
-
-    this.cartService.cartItems$.subscribe(() => {
-      this.lectures.forEach(course => {
-        course.isInCart = this.cartService.isItemInCart(course.id);
-      });
-    });
-
-    this.wishlistService.listItems$.subscribe(() => {
-      this.lectures.forEach(course => {
-        course.isInWishlist = this.wishlistService.isItemInList(course.id);
-      });
-    });
-  },
-  error: (err) => {
-    console.error('Error loading courses:', err);
-  }
-});
-
-}
-
-  openStudentOnlyModal() {
-  const modalEl = document.getElementById('studentOnlyModal');
-  if (modalEl) {
-    const modal = new bootstrap.Modal(modalEl);
-    modal.show();
-  }
-}
-
-  goToCourseDetails(course: any) {
-    this.courseInfoService.setCourse(course); // تخزين بيانات الكورس عند الضغط عليه
-    this.router.navigate(['course-Information']); // الانتقال إلى صفحة التفاصيل
-  }
-
-  addToCart(course: any) {
-    this.cartService.addToCart(course);
-    course.isInCart = true;
-  }
-
-  removeFromCart(course: any) {
-    this.cartService.removeFromCart(course.id);
-    course.isInCart = false;
-  }
-
-
-
-  addToWishList(course: any) {
-    this.wishlistService.addToList(course);
-    course.isInWishList = true;
-  }
-
-  removeFromWishList(course: any) {
-    this.wishlistService.removeFromList(course.id);
-    course.isInWishList = false;
-  }
-
-
-  private scrollContainer: HTMLElement | null = null;
-  private isDragging = false;
-  private startX = 0;
-  private scrollLeft = 0;
-
-  ngAfterViewInit() {
-    this.scrollContainer = document.querySelector('.scroll-container');
-  }
-
-  // حركة الماوس
-  onMouseMove(event: MouseEvent) {
-    if (this.scrollContainer) {
-      const { clientX } = event;
-      const { offsetWidth, scrollWidth } = this.scrollContainer;
-      const maxScroll = scrollWidth - offsetWidth;      const percentage = clientX / offsetWidth;
-      this.scrollContainer.scrollLeft = maxScroll * percentage;
-    }
-  }
-
-  // عند بدء التاتش
-  onTouchStart(event: TouchEvent) {
-    if (!this.scrollContainer) return;
-    this.isDragging = true;
-    this.startX = event.touches[0].pageX - this.scrollContainer.offsetLeft;
-    this.scrollLeft = this.scrollContainer.scrollLeft;
-  }
-
-  // أثناء السحب بالتاتش
-  onTouchMove(event: TouchEvent) {
-    if (!this.scrollContainer || !this.isDragging) return;
-    event.preventDefault();
-    const x = event.touches[0].pageX - this.scrollContainer.offsetLeft;
-    const walk = (x - this.startX) * 2; // التحكم في سرعة السحب
-    this.scrollContainer.scrollLeft = this.scrollLeft - walk;
-  }
-
-  // عند إنهاء السحب
-  onTouchEnd() {
-    this.isDragging = false;
-  }
-
-
+ userRole: string = '';
+ 
+   constructor(private cartService: CartService, private wishlistService: WishlistService,private courseInfoService: CourseInformationService, private router: Router, private courseApiService: CourseApiService) {}
+   ngOnInit() {
+   const user = localStorage.getItem('user');
+   this.userRole = user ? JSON.parse(user).userRole : '';
+ 
+   this.courseApiService.getAllCourses().subscribe({
+   next: (response) => {
+     const allCourses = response?.data || [];
+     this.lectures = allCourses.slice(0, 7); // ✅ خدي أول 7 بس
+ 
+     console.log('Courses loaded:', this.lectures);
+ 
+     this.lectures.forEach(course => {
+       course.isInCart = this.cartService.isItemInCart(course.id);
+       course.isInWishlist = this.wishlistService.isItemInList(course.id);
+     });
+ 
+     this.cartService.cartItems$.subscribe(() => {
+       this.lectures.forEach(course => {
+         course.isInCart = this.cartService.isItemInCart(course.id);
+         console.log('Updated cart status for course:', course.title, 'isInCart:', course.isInCart);
+       });
+     });
+ 
+     this.wishlistService.listItems$.subscribe(() => {
+       this.lectures.forEach(course => {
+         course.isInWishlist = this.wishlistService.isItemInList(course.id);
+       });
+     });
+   },
+   error: (err) => {
+     console.error('Error loading courses:', err);
+   }
+ });
+ 
+ }
+ 
+ 
+ handleRemoveFromWishlist(item: any) {
+   if (this.userRole === 'student') {
+     this.removeFromWishList(item);
+   } else {
+     this.openStudentOnlyModal();
+   }
+ }
+ 
+ openStudentOnlyModal() {
+   const modalEl = document.getElementById('studentOnlyModal');
+   if (modalEl) {
+     const modal = new bootstrap.Modal(modalEl);
+     modal.show();
+   }
+ }
+ 
+ 
+   goToCourseDetails(course: any) {
+     this.courseInfoService.setCourse(course); // تخزين بيانات الكورس عند الضغط عليه
+     this.router.navigate(['course-Information']); // الانتقال إلى صفحة التفاصيل
+   }
+ 
+   addToCart(course: any) {
+   console.log('🛒 Add to cart clicked:', course); // ✅ تأكد إن الزر فعلاً اشتغل
+ 
+   this.cartService.addToCartAPI(course.id).subscribe({
+     next: (response) => {
+       console.log('✅ Course added to cart:', response);
+       course.isInCart = true;
+     },
+     error: (err) => {
+       console.error('❌ Error adding course:', err);
+     }
+   });
+ }
+ 
+ 
+   removeFromCart(course: any) {
+     this.cartService.removeCourseFromCartAPI(course.id).subscribe({
+     next: (response) => {
+       console.log('✅ Course remove from cart:', response);
+       course.isInCart = true;
+     },
+     error: (err) => {
+       console.error('❌ Error removing course:', err);
+     }
+   });
+   }
+ 
+   addToWishList(course: any) {
+     this.wishlistService.addCourseToWishlistAPI(course.id).subscribe({
+     next: (response) => {
+       console.log('✅ Course added to wishlist:', response);
+       course.isInCart = true;
+     },
+     error: (err) => {
+       console.error('❌ Error adding course:', err);
+     }
+   });
+ }
+   removeFromWishList(course: any) {
+     this.wishlistService.removeFromList(course.id);
+     course.isInWishList = false;
+   }
+ 
+   private scrollContainer: HTMLElement | null = null;
+   private isDragging = false;
+   private startX = 0;
+   private scrollLeft = 0;
+ 
+   ngAfterViewInit() {
+     this.scrollContainer = document.querySelector('.scroll-container');
+   }
+ 
+   // حركة الماوس
+   onMouseMove(event: MouseEvent) {
+     if (this.scrollContainer) {
+       const { clientX } = event;
+       const { offsetWidth, scrollWidth } = this.scrollContainer;
+       const maxScroll = scrollWidth - offsetWidth;      const percentage = clientX / offsetWidth;
+       this.scrollContainer.scrollLeft = maxScroll * percentage;
+     }
+   }
+ 
+   // عند بدء التاتش
+   onTouchStart(event: TouchEvent) {
+     if (!this.scrollContainer) return;
+     this.isDragging = true;
+     this.startX = event.touches[0].pageX - this.scrollContainer.offsetLeft;
+     this.scrollLeft = this.scrollContainer.scrollLeft;
+   }
+ 
+   // أثناء السحب بالتاتش
+   onTouchMove(event: TouchEvent) {
+     if (!this.scrollContainer || !this.isDragging) return;
+     event.preventDefault();
+     const x = event.touches[0].pageX - this.scrollContainer.offsetLeft;
+     const walk = (x - this.startX) * 2; // التحكم في سرعة السحب
+     this.scrollContainer.scrollLeft = this.scrollLeft - walk;
+   }
+ 
+   // عند إنهاء السحب
+   onTouchEnd() {
+     this.isDragging = false;
+   }
 }

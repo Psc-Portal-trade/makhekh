@@ -31,6 +31,16 @@ export class WishlistService {
   // ✅ API-based methods
   // ==========================
 
+ loadWishlistFromApi() {
+  this.http.get<any>(`${this.baseUrl}`).subscribe(response => {
+    console.log('wishlist response from API:', response);
+
+    const items = response.data || [];  // 👈 Extract the `data` array
+    this.listItems.next(items);
+    this.listCount.next(items.length);
+  });
+}
+
   fetchWishlistFromAPI(): Observable<any[]> {
     return this.http.get<any[]>(this.baseUrl, {
       headers: this.getHeaders()
@@ -46,7 +56,10 @@ export class WishlistService {
     return this.http.post(`${this.baseUrl}/${courseId}`, null, {
       headers: this.getHeaders()
     }).pipe(
-      tap(() => this.fetchWishlistFromAPI().subscribe())
+     tap(response => {
+      console.log('✅ addTowishlistAPI response:', response); // 👈 هنا بنطبع البيانات
+      this.fetchWishlistFromAPI().subscribe();
+    })
     );
   }
 
@@ -58,7 +71,7 @@ export class WishlistService {
     );
   }
 
-  isCourseInWishlist(courseId: string): boolean {
+  isCourseInCart(courseId: string): boolean {
     return this.listItems.getValue().some(item => item.id === courseId);
   }
 

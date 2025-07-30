@@ -9,16 +9,17 @@
         <div class="row">
         <div class="col-md-4">
           <div class="vid-img">
-            <img alt="" [src]="item.src">
+            <img alt="" [src]="item.thumbnailUrl" style="width: 100%; height: 250px;">
           </div>
         </div>
         <div class="col-md-4">
-          <h5 class="py-2">{{ item.courseTitle }}</h5>
+          <h5 class="py-2">{{ item.Title }}</h5>
+         
           <p >{{ item.rate }}
             <i class="fa-solid fa-star text-warning mx-1"></i>
              <span class="text-muted"> {{ item.watched }}</span>
           </p>
-          <p><strong>Price:</strong> {{ item.pricing.price}} LE</p>
+          <p><strong>السعر:</strong> {{ item.price}} {{item.currency}}</p>
         </div>
         <div class="col-md-4">
           <button class="btn btn-colors  " (click)="removeItem(item.id)">{{ 'cart.Remove' | transloco }}</button>
@@ -44,7 +45,7 @@
     </div>
 
     <div class="py-3">
-      <h4>{{ 'cart.Total Price:' | transloco }} <strong>{{ totalPrice }} LE</strong></h4>
+      <h4>{{ 'cart.Total Price:' | transloco }} <strong> {{ total }} {{ currency }}  </strong></h4>
       <div class="d-flex">
         <div class="py-2 "><button class="btn btn-primary" (click)="checkout()">{{ 'cart.Checkout' | transloco }}</button></div>
 
@@ -79,6 +80,7 @@
   </div>
 
 </section>
+
 
 <app-recently-wished-listed></app-recently-wished-listed>
 <app-similar-courses></app-similar-courses>

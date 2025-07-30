@@ -636,8 +636,9 @@ course2={
     this.wishlistService.removeFromList(this.course2.id);
     this.course2.isInWishlist = false;
   }
-
-
+BuyNow() {
+  
+}
 
 
 

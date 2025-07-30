@@ -10,12 +10,14 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let item of lectures">
+        
+        <tr *ngFor="let item of wishlistItems; let i = index">
+          
           <td class="d-flex align-items-center">
-            <img [src]="item.src" alt="Course Image" class="wishlist-img mx-2">
-            {{ item.courseTitle }}
+            <img [src]="item.thumbnailUrl" alt="Course Image" class="wishlist-img mx-2">
+            {{ item.Title }}
           </td>
-          <td class="text-danger fw-bold">${{ item.pricing.price }} LE</td>
+          <td class="text-danger fw-bold">${{ item.price }} LE</td>
           <td>
             <button class="btn btn-outline-secondary btn-sm mx-2"  (click)="goToCourseDetails(item)"><i class="fa-solid fa-eye mx-1"></i>  {{"wishlist.Preview" | transloco}}</button>
             <button class="btn btn-primary btn-sm mx-2" *ngIf="!item.isInCart" (click)="addToCart(item)"><i class="fa-solid fa-cart-shopping mx-1"></i>   {{"wishlist.Cart" | transloco}}</button>
@@ -29,7 +31,7 @@
 
   <!-- Responsive for mobile -->
   <div class="d-block d-md-none">
-    <div *ngFor="let item of lectures" class="card mb-3">
+    <div *ngFor="let item of wishlistItems; let i = index" class="card mb-3">
       <div class="row g-0 align-items-center">
         <div class="col-3">
           <img [src]="item.src" alt="Course Image" class="wishlist-img">
