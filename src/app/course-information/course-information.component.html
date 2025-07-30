@@ -165,9 +165,12 @@
   <!-- Buy Now -->
   <button
     class="btn btn-design1"
-    (click)="userRole === 'student' ? addToCart2() : openStudentOnlyModal()"
-    [routerLink]="userRole === 'student' ? 'cart' : null"
+    (click)="userRole === 'student' ? buyNow() : openStudentOnlyModal()"
+
   >
+<!-- [routerLink]="userRole === 'student' ? 'cart' : null" -->
+
+
     {{ 'cours-details.Buy Now' | transloco }}
   </button>
 </div>
@@ -209,35 +212,6 @@
   </div>
 
 
-
-
-  <!-- <div class="container-fluid my-4 px-5">
-    <div class="row">
-      <div class="col-md-6">
-        <h3>{{ 'cours-details.Instructor' | transloco }}</h3>
-        <h2 class="text-primary">{{course1.instructor}}</h2>
-        <p>{{ 'cours-details.Lorem ipsum dolor sit amet, consectetur adipiscing elit.' | transloco }}</p>
-        <div class="row">
-          <div class="col-md-2 instructor-img">
-            <img [src]="course1.instructorImage" alt="" class="">
-          </div>
-          <div class="col-md-8">
-            <ul class="d-flex justify-content-center flex-column ">
-              <li class="py-1"><i class="fa-solid fa-star mx-1"></i> {{instructor.Rating}}  {{ 'cours-details.Instructor Rating' | transloco }}</li>
-              <li class="py-1"><i class="fa-solid fa-tv mx-1"></i> {{instructor.Courses}} {{ 'cours-details.Courses' | transloco }}</li>
-              <li class="py-1"><i class="fa-solid fa-users mx-1"></i> {{instructor.Students}} {{ 'cours-details.Students' | transloco }}</li>
-              <li class="py-1"><i class="fa-solid fa-comment mx-1"></i> {{instructor.Reviews}} {{ 'cours-details.Reviews' | transloco }}</li>
-
-            </ul>
-
-          </div>
-
-        </div>
-        <p>{{ 'cours-details.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Itaque optio consequuntur voluptates ipsa illum rem laudantium fugit modi saepe numquam perferendis, expedita porro quo, dolorum iure repellendus. Non culpa minus explicabo deserunt ab odit labore deleniti similique esse obcaecati perspiciatis corporis sed minima facilis quidem quibusdam, iusto omnis laudantium iure assumenda officiis consequatur nihil. Laudantium, enim, nisi error minus reprehenderit earum itaque alias ad ea numquam accusantium praesentium vel eveniet nihil, rem debitis rerum eaque quo nemo? Error, hic ratione autem deserunt doloribus aperiam rem quo nemo ab quaerat, provident expedita nesciunt distinctio ex dignissimos natus odit maiores soluta nisi.' | transloco }}</p>
-      </div>
-    </div>
-
-  </div> -->
 
 </section>
 
@@ -405,9 +379,10 @@
   <!-- Buy Now -->
   <button
     class="btn btn-design1"
-    (click)="userRole === 'student' ? addToCart2() : openStudentOnlyModal()"
-    [routerLink]="userRole === 'student' ? 'cart' : null"
+    (click)="userRole === 'student' ? buyNow() : openStudentOnlyModal()"
   >
+  <!-- [routerLink]="userRole === 'student' ? 'cart' : null" -->
+
     {{ 'cours-details.Buy Now' | transloco }}
   </button>
 </div>

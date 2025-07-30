@@ -9,9 +9,31 @@ import { TranslocoPipe, TranslocoService } from '@ngneat/transloco';
 import { SecondNavComponent } from "../navbar/second-nav/second-nav.component";
 import { ActivatedRoute } from '@angular/router';
 import { CourseInformationService } from '../services/course-information.service';
+import { AttachmentService } from '../services/attachment.service';
 
 
 
+interface Lecture {
+  id: string;
+  title: string;
+  durationInMinutes: number;
+  videoUrl: string;
+  // ... وغيرها
+}
+
+interface SubSection {
+  id: string;
+  title: string;
+  lectures: Lecture[];
+}
+
+interface Section {
+  id: string;
+  title: string;
+  lectures: Lecture[];
+  subSections: SubSection[];
+  expanded?: boolean;
+}
 
 
 
@@ -252,7 +274,8 @@ export class ViewOverviewComponent implements OnInit{
       Reviews:9
     };
 
-  constructor(private qaService: QaService ,private reviewService: ReviewService,private route: ActivatedRoute,private courseService: CourseInformationService ,private translocoService: TranslocoService) {
+  constructor(private qaService: QaService ,private reviewService: ReviewService,private route: ActivatedRoute,private courseService: CourseInformationService ,private translocoService: TranslocoService,  private attachmentService: AttachmentService // ✅ أضفنا دي
+) {
 
 
 
@@ -351,16 +374,16 @@ export class ViewOverviewComponent implements OnInit{
     ]
   };
 
-  toggleSection(index: number) {
-    this.course.courseSections[index].expanded = !this.course.courseSections[index].expanded;
+toggleSection(index: number) {
+  this.courseObj.sections[index].expanded = !this.courseObj.sections[index].expanded;
 
-       // إغلاق كل الـ Sections الأخرى عند فتح واحد فقط (لإضافة تأثير الأكورديون)
-     this.course.courseSections.forEach((section, i) => {
-      if (i !== index) {
-        section.expanded = false;
-      }
-    });
-  }
+  this.courseObj.sections.forEach((section: any, i: number) => {
+    if (i !== index) {
+      section.expanded = false;
+    }
+  });
+}
+
 
   toggleLectureCompletion(lecture: any) {
     lecture.completed = !lecture.completed;
@@ -391,31 +414,39 @@ export class ViewOverviewComponent implements OnInit{
   getLectureCount(section: any): number {
     return section.lectures.length;
   }
+getTotalLectureCount(section: any): number {
+  const directLectures = section.lectures?.length || 0;
+  const subLectures = section.subSections?.reduce((total: number, sub: any) => {
+    return total + (sub.lectures?.length || 0);
+  }, 0);
+
+  return directLectures + subLectures;
+}
 
   getTotalDuration(section: any): string {
     let totalMinutes = section.lectures.reduce((sum: number, lecture: any) => {
       return sum + parseInt(lecture.duration.split(' ')[0]); // استخراج الأرقام فقط
     }, 0);
-  
+
     let hours = Math.floor(totalMinutes / 60);
     let minutes = totalMinutes % 60;
-  
+
     // الحصول على اللغة الحالية
     const currentLang = this.translocoService.getActiveLang();
-  
+
     if (currentLang === 'ar') {
-      return hours > 0 
+      return hours > 0
         ? `${hours} ${this.translocoService.translate('content.hours')} ${minutes} ${this.translocoService.translate('content.minutes')}`
         : `${minutes} ${this.translocoService.translate('content.minutes')}`;
     } else {
-      return hours > 0 
+      return hours > 0
         ? `${hours}h ${minutes}m`
         : `${minutes} min`; // الإنجليزية تبقى كما هي
     }
   }
-  
-  
-  
+
+
+
   activeTab: string = 'overview'; // الحالة الافتراضية عند فتح الصفحة
 
   setActiveTab(tab: string) {
@@ -484,53 +515,51 @@ questionText: string = '';
   averageRating: number = 0;  // ✅ تعريف المتغير هنا
   totalReviewers: number = 0;  // ✅ تعريف المتغير هنا
 
+selectedVideoUrl: string | null = null;
 
-  ngOnInit() {
-    this.translocoService.langChanges$.subscribe(lang => {
-      this.isArabic = lang === 'ar'; // تحقق إذا كانت اللغة عربية
-    });
-
-    this.courseObj = this.courseService.getCourse();
-
-    if (!this.courseObj) {
-      console.log("لا يوجد بيانات متاحة للكورس.");
-      return; // إنهاء التنفيذ إذا لم تكن هناك بيانات
-    } else {
-      console.log("تم جلب بيانات الكورس:", this.courseObj);
-    }
-
-  console.log(this.courseObj.courseType)
+playVideo(videoUrl: string) {
+  this.selectedVideoUrl = videoUrl;
+}
 
 
+ngOnInit() {
+  this.translocoService.langChanges$.subscribe(lang => {
+    this.isArabic = lang === 'ar';
+  });
 
-  if (this.courseObj.courseType === "Live Streamed Educational Courses") {
-    this.course2 = {
-      ...this.courseObj
-    };
-    this.course1 = { ...this.course1, courseType: "" };
+  this.courseObj = this.courseService.getCourse();
+
+  if (!this.courseObj) {
+    console.log("لا يوجد بيانات متاحة للكورس.");
+    return;
   } else {
-    this.course1 = {
-      ...this.courseObj
-    };
-    this.course2 = { ...this.course2, courseType: "" };
+    console.log("تم جلب بيانات الكورس:", this.courseObj);
   }
 
+  const courseId = this.courseObj.id;
 
-
-
-
-    // الاستماع إلى التغييرات الحية في قائمة الأسئلة
-    this.qaService.getQuestions().subscribe(questions => {
-      this.questions = questions;
-      console.log('QA List Updated:', this.questions); // ✅ تتبع التحديثات
-    });
-    this.reviewService.averageRating$.subscribe(rating => {
-      this.averageRating = rating;
-    });
-    this.reviewService.totalReviewers$.subscribe(total => {
-      this.totalReviewers = total;
-    });
+  // ✅ نداء مرفقات الكورس
+  this.attachmentService.getCourseAttachments(courseId).subscribe({
+    next: (res) => {
+      console.log("📎 مرفقات الكورس:", res.data);
+    },
+    error: (err) => {
+      console.error("❌ خطأ في تحميل المرفقات:", err);
+    }
+  });
+this.attachmentService.fetchCourseDetails(courseId).subscribe({
+  next: (res) => {
+    console.log('🎓 بيانات الكورس:', res.data);
+    this.courseObj = res.data; // خزينها لو هتستخدمها
+  },
+  error: (err) => {
+    console.error('❌ خطأ في جلب بيانات الكورس:', err);
   }
+});
+
+  // ... باقي الكود بتاع courseType وغيره
+}
+
 
   sendQuestion() {
     if (this.questionText.trim()) {
@@ -577,9 +606,9 @@ questionText: string = '';
 
 //// certification /////
 @ViewChild('certificateCanvas', { static: false }) certificateCanvas!: ElementRef<HTMLCanvasElement>;
-  
+
 certificateVisible = false;
-userName: string = "Juliana Silva";  
+userName: string = "Juliana Silva";
 
 
 generateCertificate() {

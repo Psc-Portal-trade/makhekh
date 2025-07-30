@@ -22,9 +22,153 @@
       </div>
 
       <div class="col-md-9 content-section rounded-2">
-        <!-- Step 1: Curriculum -->
+
+
+  <!-- Step 2: Course Landing Page -->
+
     <div *ngIf="currentStep === 0">
-<h3 class="mb-4">{{ 'course-header.Curriculum' | transloco }}</h3>
+
+
+<div class="card p-4">
+      <h3 class="mb-3">{{ 'course-header.Landing Page' | transloco }}</h3>
+
+      <form #courseForm="ngForm">
+
+
+        <div class="mb-3">
+          <label class="form-label">{{ 'course-header.Description' | transloco }}</label>
+          <input type="text" class="form-control" [(ngModel)]="course.description" name="description" required>
+        </div>
+
+        <div class="row">
+          <div class="col-md-6">
+            <label class="form-label">{{ 'course-header.Language' | transloco }}</label>
+            <select class="form-select" [(ngModel)]="course.language" name="language" required>
+              <option value="Arabic">{{ 'course-header.Arabic' | transloco }}</option>
+              <option value="English">{{ 'course-header.English' | transloco }}</option>
+            </select>
+          </div>
+          <div class="col-md-6">
+            <label class="form-label">{{ 'course-header.Set Level' | transloco }}</label>
+            <select class="form-select" [(ngModel)]="course.level" name="level" required>
+              <option value="1"> {{ 'course-header.Beginner' | transloco }}</option>
+              <option value="2">{{ 'course-header.Intermediate' | transloco }}</option>
+              <option value="3">{{ 'course-header.Advanced' | transloco }}</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="row mt-3">
+
+          <div class="col-md-6">
+            <label class="form-label">{{ 'course-header.Course Duration' | transloco }}</label>
+           <select class="form-select" [(ngModel)]="course.duration" name="duration" required>
+  <option value="Week - 2 weeks">{{ 'course-header.Week_2' | transloco }}</option>
+  <option value="2 Week - 3 weeks">{{ 'course-header.Week_3' | transloco }}</option>
+  <option value="Month - 2 Monthes">{{ 'course-header.Month_2' | transloco }}</option>
+  <option value="2 Monthes - 3 Monthes">{{ 'course-header.Month_3' | transloco }}</option>
+  <option value="3 Monthes - 4 Monthes">{{ 'course-header.Month_4' | transloco }}</option>
+  <option value="4 Monthes - 5 Monthes">{{ 'course-header.Month_5' | transloco }}</option>
+</select>
+
+          </div>
+
+
+          <div class="col-md-6">
+            <label class="form-label">{{ 'course-header.Course Photo' | transloco }}</label>
+            <input type="file" class="form-control" (change)="onFileSelectedd($event, 'photo')" accept=".jpg,.jpeg,.png,.webp,.bmp,.gif,.svg,.jfif,image/*">
+          </div>
+        </div>
+
+        <div class="row mt-3">
+          <div class="col-md-6">
+            <label class="form-label">{{ 'course-header.Promo Video' | transloco }}</label>
+            <input type="file" class="form-control" (change)="onFileSelectedd($event, 'video')" accept="video/*">
+          </div>
+
+        </div>
+<div class="row mt-3">
+
+  <!-- رفع الكتاب PDF -->
+  <div class="col-md-6">
+    <label class="form-label">{{ 'course-header.Course Book (PDF)' | transloco }}</label>
+    <input
+      type="file"
+      class="form-control"
+      (change)="onFileSelectedd($event, 'book')"
+      accept=".pdf,application/pdf">
+  </div>
+
+  <!-- اسم الكتاب -->
+  <div class="col-md-6">
+  <label class="form-label">{{ 'course-header.Book Title' | transloco }}</label>
+    <input
+      type="text"
+    class="form-control"
+    [(ngModel)]="course.bookTitle"
+    name="bookTitle">
+  </div>
+
+  <!-- وصف الكتاب -->
+  <div class="col-md-6">
+  <label class="form-label">{{ 'course-header.Book Description' | transloco }}</label>
+    <input
+     type="text"
+    class="form-control"
+    [(ngModel)]="course.bookDescription"
+    name="bookDescription">
+  </div>
+
+</div>
+
+      </form>
+    </div>
+
+<div class="card mt-2 pb-4">
+
+      <div class="container mt-4">
+        <!-- Pricing Section -->
+         <div class="card-body">
+  <h5 class="card-title">{{ 'course-header.Pricing' | transloco }}</h5>
+  <p class="fw-bold">{{ 'course-header.Set a price for your course' | transloco }}</p>
+
+  <div class="form-check form-switch mb-3">
+    <input class="form-check-input" type="checkbox" id="isPaidToggle" [(ngModel)]="courseData.isPaid">
+    <label class="form-check-label" for="isPaidToggle">
+      {{ courseData.isPaid ? ('course-header.Paid' | transloco) : ('course-header.Free' | transloco) }}
+    </label>
+  </div>
+
+  <div *ngIf="courseData.isPaid">
+    <div class="row g-2">
+      <div class="col-md-6">
+        <label class="form-label">{{ 'course-header.Price' | transloco }}</label>
+        <input class="form-control" type="number" [(ngModel)]="courseData.price" placeholder="">
+      </div>
+
+      <div class="col-md-6">
+        <label class="form-label">{{ 'course-header.Currency' | transloco }}</label>
+        <select class="form-select" [(ngModel)]="courseData.currency">
+          <option value="SAR">SAR</option>
+          <option value="USD">USD</option>
+          <option value="EUR">EUR</option>
+        </select>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="!courseData.isPaid" class="alert alert-info mt-3">
+    {{ 'course-header.This course is free' | transloco }}
+  </div>
+</div>
+
+      </div>
+    </div>
+</div>
+
+<!-- Step 2: Curriculum -->
+  <div *ngIf="currentStep === 1" class="container mt-4">
+    <h3 class="mb-4">{{ 'course-header.Curriculum' | transloco }}</h3>
 
   <div *ngFor="let section of sections; let sectionIndex = index" class="card mb-4">
     <div class="card-body">
@@ -278,208 +422,18 @@
   <button class="btn btn-primary w-100" (click)="addSection()">
     {{ 'course-header.+ Add Section' | transloco }}
   </button>
-</div>
-
-
-
-
-
-
-
-  <!-- Step 2: Course Landing Page -->
-  <div *ngIf="currentStep === 1" class="container mt-4">
-    <div class="card p-4">
-      <h3 class="mb-3">{{ 'course-header.Landing Page' | transloco }}</h3>
-
-      <form #courseForm="ngForm">
-
-
-        <div class="mb-3">
-          <label class="form-label">{{ 'course-header.Description' | transloco }}</label>
-          <input type="text" class="form-control" [(ngModel)]="course.description" name="description" required>
-        </div>
-
-        <div class="row">
-          <div class="col-md-6">
-            <label class="form-label">{{ 'course-header.Language' | transloco }}</label>
-            <select class="form-select" [(ngModel)]="course.language" name="language" required>
-              <option value="Arabic">{{ 'course-header.Arabic' | transloco }}</option>
-              <option value="English">{{ 'course-header.English' | transloco }}</option>
-            </select>
-          </div>
-          <div class="col-md-6">
-            <label class="form-label">{{ 'course-header.Set Level' | transloco }}</label>
-            <select class="form-select" [(ngModel)]="course.level" name="level" required>
-              <option value="1"> {{ 'course-header.Beginner' | transloco }}</option>
-              <option value="2">{{ 'course-header.Intermediate' | transloco }}</option>
-              <option value="3">{{ 'course-header.Advanced' | transloco }}</option>
-            </select>
-          </div>
-        </div>
-
-        <div class="row mt-3">
-
-          <div class="col-md-6">
-            <label class="form-label">{{ 'course-header.Course Duration' | transloco }}</label>
-           <select class="form-select" [(ngModel)]="course.duration" name="duration" required>
-  <option value="Week - 2 weeks">{{ 'course-header.Week_2' | transloco }}</option>
-  <option value="2 Week - 3 weeks">{{ 'course-header.Week_3' | transloco }}</option>
-  <option value="Month - 2 Monthes">{{ 'course-header.Month_2' | transloco }}</option>
-  <option value="2 Monthes - 3 Monthes">{{ 'course-header.Month_3' | transloco }}</option>
-  <option value="3 Monthes - 4 Monthes">{{ 'course-header.Month_4' | transloco }}</option>
-  <option value="4 Monthes - 5 Monthes">{{ 'course-header.Month_5' | transloco }}</option>
-</select>
-
-          </div>
-
-
-          <div class="col-md-6">
-            <label class="form-label">{{ 'course-header.Course Photo' | transloco }}</label>
-            <input type="file" class="form-control" (change)="onFileSelectedd($event, 'photo')" accept=".jpg,.jpeg,.png,.webp,.bmp,.gif,.svg,.jfif,image/*">
-          </div>
-        </div>
-
-        <div class="row mt-3">
-          <div class="col-md-6">
-            <label class="form-label">{{ 'course-header.Promo Video' | transloco }}</label>
-            <input type="file" class="form-control" (change)="onFileSelectedd($event, 'video')" accept="video/*">
-          </div>
-
-        </div>
-<div class="row mt-3">
-
-  <!-- رفع الكتاب PDF -->
-  <div class="col-md-6">
-    <label class="form-label">{{ 'course-header.Course Book (PDF)' | transloco }}</label>
-    <input
-      type="file"
-      class="form-control"
-      (change)="onFileSelectedd($event, 'book')"
-      accept=".pdf,application/pdf">
-  </div>
-
-  <!-- اسم الكتاب -->
-  <div class="col-md-6">
-  <label class="form-label">{{ 'course-header.Book Title' | transloco }}</label>
-    <input
-      type="text"
-    class="form-control"
-    [(ngModel)]="course.bookTitle"
-    name="bookTitle">
-  </div>
-
-  <!-- وصف الكتاب -->
-  <div class="col-md-6">
-  <label class="form-label">{{ 'course-header.Book Description' | transloco }}</label>
-    <input
-     type="text"
-    class="form-control"
-    [(ngModel)]="course.bookDescription"
-    name="bookDescription">
-  </div>
-
-</div>
-
-<!--
-        <div class="mb-3 mt-3">
-          <label class="form-label"> {{ 'course-header.Lecturer Name' | transloco }}</label>
-          <input type="text" class="form-control" [(ngModel)]="course.lecturer" name="lecturer" required>
-        </div>
-
-        <div class="mb-3">
-          <label class="form-label"> {{ 'course-header.Lecturer Description' | transloco }}</label>
-          <input type="text" class="form-control" [(ngModel)]="course.lecturerDescription" name="lecturerDescription" required>
-        </div> -->
-
-      </form>
-    </div>
   </div>
 
 
 
   <!-- Step 3: Pricing & Promotions Page -->
-  <div *ngIf="currentStep === 2" class="container mt-4">
-    <div class="card pb-4">
+  <!-- <div *ngIf="currentStep === 2" class="container mt-4">
 
-      <div class="container mt-4">
-        <!-- Pricing Section -->
-         <div class="card-body">
-  <h5 class="card-title">{{ 'course-header.Pricing' | transloco }}</h5>
-  <p class="fw-bold">{{ 'course-header.Set a price for your course' | transloco }}</p>
-
-  <div class="form-check form-switch mb-3">
-    <input class="form-check-input" type="checkbox" id="isPaidToggle" [(ngModel)]="courseData.isPaid">
-    <label class="form-check-label" for="isPaidToggle">
-      {{ courseData.isPaid ? ('course-header.Paid' | transloco) : ('course-header.Free' | transloco) }}
-    </label>
-  </div>
-
-  <div *ngIf="courseData.isPaid">
-    <div class="row g-2">
-      <div class="col-md-6">
-        <label class="form-label">{{ 'course-header.Price' | transloco }}</label>
-        <input class="form-control" type="number" [(ngModel)]="courseData.price" placeholder="">
-      </div>
-
-      <div class="col-md-6">
-        <label class="form-label">{{ 'course-header.Currency' | transloco }}</label>
-        <select class="form-select" [(ngModel)]="courseData.currency">
-          <option value="SAR">SAR</option>
-          <option value="USD">USD</option>
-          <option value="EUR">EUR</option>
-        </select>
-      </div>
-    </div>
-  </div>
-
-  <div *ngIf="!courseData.isPaid" class="alert alert-info mt-3">
-    {{ 'course-header.This course is free' | transloco }}
-  </div>
-</div>
-
-
-        <!-- Promotions Section -->
-        <!-- <div class="card mb-3">
-            <div class="card-body">
-                <h5 class="card-title">{{ 'course-header.Promotions' | transloco }}</h5>
-                <p class="fw-bold">{{ 'course-header.Offer Conditions' | transloco }}</p>
-                <p class="text-muted">{{ 'course-header.Each time a student uses this link, the instructor will receive 80%...' | transloco }}</p>
-                <div class="input-group">
-                    <input type="text" class="form-control" [(ngModel)]="courseData.promoLink" [attr.placeholder]="'course-header.Copy link' | transloco"   >
-                    <button class="btn btn-primary" (click)="pastePromoLink()">Paste</button>
-                </div>
-            </div>
-        </div> -->
-
-        <!-- Purchase Vouchers Section -->
-        <!-- <div class="card mb-3">
-          <div class="card-body">
-              <h5 class="card-title"> {{ 'course-header.Purchase Vouchers' | transloco }}</h5>
-              <div class="row">
-                  <div class="col-md-6" *ngFor="let option of courseData.voucherOptions; let i = index">
-                      <div class="form-check">
-                          <input class="form-check-input" type="radio" name="voucher-option" [(ngModel)]="courseData.selectedVoucher" [value]="option.value">
-                          <label class="form-check-label"> {{ activeLang === 'ar' ? option.labelAr : option.labelEn }}</label>
-                      </div>
-                      <ul>
-                        <li *ngFor="let feature of activeLang === 'ar' ? option.featuresAr : option.featuresEn">
-                          {{ feature }}
-                        </li>
-
-                      </ul>
-                  </div>
-              </div>
-              <button class="btn btn-primary mt-3" (click)="saveData()"> {{ 'course-header.Purchase Vouchers' | transloco }}</button>
-          </div>
-        </div> -->
-
-      </div>
-    </div>
-  </div>
+  </div> -->
 
   <!-- Step 4: Create Coupons Page -->
 
-  <div *ngIf="currentStep === 3" class="container mt-4">
+  <div *ngIf="currentStep === 2" class="container mt-4">
   <div class="container mt-4">
     <div *ngFor="let coupon of coupons; let i = index" class="card shadow-sm p-4 mb-3">
       <h5 class="fw-bold">{{ 'course-header.Coupon' | transloco }} {{ i + 1 }}</h5>
@@ -530,7 +484,19 @@
     {{ warningMessageKey | transloco }}
   </p>
 
-
+<!-- زر حفظ كمسودة -->
+<button
+  class="btn btn-outline-secondary mt-3 m-2"
+  *ngIf="currentStep === 0 ||currentStep === 1 "
+  (click)="saveAsDraft()"
+  [disabled]="isLoading"
+>
+  {{ 'course-header.Save as Draft' | transloco }}
+</button>
+<!-- السبنر -->
+<div class="spinner-border text-secondary mt-2" role="status" *ngIf="isLoading2">
+  <span class="visually-hidden">Loading...</span>
+</div>
 
  <!-- زر الإرسال -->
 <button

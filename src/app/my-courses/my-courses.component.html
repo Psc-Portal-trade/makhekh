@@ -11,285 +11,145 @@
     <li class="nav-item">
       <a class="nav-link active" data-bs-toggle="tab" data-bs-target="#all-courses">{{"my-courses.All Courses" | transloco}}</a>
     </li>
-    <li class="nav-item">
+    <!-- <li class="nav-item">
       <a class="nav-link" data-bs-toggle="tab" data-bs-target="#tests">{{"my-courses.tests" | transloco}}</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" data-bs-toggle="tab" data-bs-target="#wishlist">{{"my-courses.Wishlist" | transloco}}</a>
-    </li>
+    </li> -->
+
   </ul>
 
   <div class="tab-content mt-3">
     <!-- Tab: All Courses -->
     <div id="all-courses" class="tab-pane fade show active">
-      <!-- إظهار input فقط عندما يكون هناك بيانات أو عند البحث -->
-      <input *ngIf="courses.length > 0" type="text" class="form-control mb-3"
-             placeholder="Search for a course..." [(ngModel)]="searchQuery" />
+  <!-- 🔍 حقل البحث -->
+  <input
+    *ngIf="allCourses.length > 0"
+    type="text"
+    class="form-control mb-3"
+    placeholder="Search for a course..."
+    [(ngModel)]="searchQueryLectures"
+    (input)="updateFilteredLectures()" />
 
-      <div class="container">
-        <div class="row gy-3">
-          <!-- إظهار الصورة والباراجراف عندما لا يوجد بيانات أو عند البحث بدون نتائج -->
-          <div class="no-items" *ngIf="filteredCourses.length === 0">
-            <img src="assets/no items yet.jpg" alt="No items yet">
-            <p>{{"my-courses.No items yet" | transloco}}</p>
+  <div class="container mt-4">
+    <div class="row gy-3">
+      <!-- ❌ في حالة عدم وجود نتائج -->
+      <div class="no-items" *ngIf="filteredLectures.length === 0">
+        <img src="assets/no items yet.jpg" alt="No items yet" />
+        <p>{{ "my-courses.No items yet" | transloco }}</p>
+      </div>
+
+      <!-- ✅ عرض الكروسات -->
+      <div
+        class="col-md-4"
+        *ngFor="let course of paginatedLectures"
+        (click)="goToCourseDetails(course)"
+        style="cursor: pointer;">
+        <div class="card course-card">
+          <div class="course-image">
+            <img [src]="course.thumbnailUrl" class="card-img-top" alt="{{ course.title }}" />
           </div>
-
-          <!-- عرض الكورسات عندما تكون موجودة -->
-          <div class="col-md-4" *ngFor="let course of paginatedCourses"
-               (click)="goToCourseDetails(course)" style="cursor: pointer;">
-            <div class="card course-card">
-              <div class="course-image">
-                <img [src]="course.src" class="card-img-top" alt="{{ course.courseTitle }}">
-              </div>
-              <div class="card-body">
-                <h5 class="card-title">{{ course.courseTitle }}</h5>
-                <p class="card-text instructor">{{course.instructor}}</p>
-                <p class="progress-text">{{ course.progress }}% {{"my-courses.complete" | transloco}}</p>
-                <div class="progress">
-                  <div class="progress-bar" [style.width.%]="course.progress"></div>
-                </div>
-              </div>
+          <div class="card-body">
+            <h5 class="card-title">{{ course.title }}</h5>
+            <p class="card-text instructor">{{ course.teacherName || 'بدون مدرس' }}</p>
+            <p class="progress-text">{{ course.totalDurationHours || 0 }} ساعات</p>
+            <!-- يمكنك تعديل الـ Progress حسب النسبة -->
+            <div class="progress">
+              <div class="progress-bar" style="width: 0%;"></div>
             </div>
           </div>
         </div>
-
-        <!-- Pagination -->
-        <div class="pagination-controls" *ngIf="filteredCourses.length > 0">
-          <button *ngFor="let page of getPagesArray()" (click)="goToPage(page)" [class.active]="page === currentPage">
-            {{ page }}
-          </button>
-        </div>
       </div>
     </div>
 
+    <!-- 📄 Pagination -->
+    <div class="pagination-controls mt-3" *ngIf="filteredLectures.length > 0">
+      <button
+        *ngFor="let page of getPagesArrayLectures()"
+        (click)="goToPageLectures(page)"
+        [class.active]="page === currentPageLectures">
+        {{ page }}
+      </button>
+    </div>
+  </div>
+</div>
 
 
+<!--
+<div id="tests" class="tab-pane fade show active p-3">
+  <div class="row mb-3">
+    <div class="col-md-3">
+      <select class="form-select" [(ngModel)]="selectedCourseId" (change)="onCourseChange()">
+        <option value="">{{ 'quizzes.allCourses' | transloco }}</option>
+        <option *ngFor="let course of allCourses" [value]="course.id">{{ course.title }}</option>
+      </select>
+    </div>
 
-    <div id="tests" class="tab-pane fade">
-      <input *ngIf="courses.length > 0" type="text" class="form-control mb-3"
-             placeholder="Search for a course..." [(ngModel)]="searchQuery" />
-    
-      <div class="container">
-        <div class="row gy-3">
-    
-          <!-- لا توجد كورسات -->
-          <div class="no-items" *ngIf="courses.length === 0 || (searchQuery && filteredCourses.length === 0)">
-            <img src="assets/no items yet.jpg" alt="No items yet">
-            <p>{{"my-courses.No items yet" | transloco}}</p>
-          </div>
-    
-          <div class="accordion accordion-flush" id="accordionFlushExample">
-            <ng-container *ngFor="let course of paginatedCourses; let i = index">
-              <div class="accordion-item">
-                <h2 class="accordion-header" [id]="'flush-heading' + i">
-                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                          [attr.data-bs-target]="'#flush-collapse' + i" aria-expanded="false"
-                          [attr.aria-controls]="'flush-collapse' + i">
-                    {{ course.courseTitle }}
-                  </button>
-                </h2>
-                <div [id]="'flush-collapse' + i" class="accordion-collapse collapse"
-                     [attr.aria-labelledby]="'flush-heading' + i" data-bs-parent="#accordionFlushExample">
-                  <div class="accordion-body">
-                    <div class="container">
-                      <div class="row">
-                        <div class="col-md-4">
-                          <img [src]="course.src" class="card-img-top" alt="{{ course.courseTitle }}">
-                        </div>
-                        <div class="col-md-8">
-    
-                          <!-- ✅ Recorded Courses -->
-                          <div *ngIf="course.courseType === 'Recorded Educational Courses'">
-                            <div class="accordion" id="accordionExample">
-                              <div class="accordion-item" *ngFor="let section of course.curriculum; let sIndex = index">
-                                <h2 class="accordion-header" [id]="'section-heading-' + sIndex">
-                                  <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                                          [attr.data-bs-target]="'#collapse-section-' + sIndex" aria-expanded="false"
-                                          [attr.aria-controls]="'collapse-section-' + sIndex">
-                                    {{ sIndex + 1 }}- {{ section.name }}
-                                  </button>
-                                </h2>
-                                <div [id]="'collapse-section-' + sIndex" class="accordion-collapse collapse"
-                                     [attr.aria-labelledby]="'section-heading-' + sIndex" data-bs-parent="#accordionExample">
-                                  <div class="accordion-body">
-                                    <div class="container">
-                                      <div class="row">
-                                        <div class="col-md-12 my-2"
-                                             *ngFor="let lecture of section.lectures; let lIndex = index">
-                                          <div class="lecture-item">
-                                            <div class="d-flex justify-content-between">
-                                              <h5>
-                                                <span class="text-primary">{{ sIndex + 1 }}.{{ lIndex + 1 }} -</span>
-                                                {{ lecture.title }}
-                                              </h5>
-                                              <p><strong>Duration:</strong> {{ lecture.quizzes[0]?.duration }}</p>
-                                            </div>
-                                            <div class="d-flex justify-content-between align-items-center">
-                                              <div class="quiz-index">
-                                                <span>{{ lecture.quizzes.length }} Quizzes</span>
-                                              </div>
-                                              <div>
-                                                <span>{{ getQuizAttempts(sIndex, lIndex) }} / 3
-                                                  <span class="text-danger">Trials</span>
-                                                </span>
-                                              </div>
-                                              <div>
-                                                <button *ngIf="getQuizAttempts(sIndex, lIndex) < 3"
-                                                        class="btn btn-primary"
-                                                        (click)="startQuiz(lecture, sIndex, lIndex, course)">
-                                                  Start
-                                                </button>
-                                                <button *ngIf="getQuizAttempts(sIndex, lIndex) >= 3"
-                                                        class="btn btn-secondary"
-                                                        (click)="viewResult()">
-                                                  Watch Result
-                                                </button>
-                                              </div>
-                                            </div>
-                                          </div>
-                                        </div>
-                                      </div>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-    
-                          <!-- ✅ Live Streamed Courses -->
-                          <div *ngIf="course.courseType === 'Live Streamed Educational Courses'">
-                            <div class="accordion" id="accordionLiveExample">
-                              <div class="accordion-item" *ngFor="let schedule of course.schedules; let sIndex = index">
-                                <h2 class="accordion-header" [id]="'schedule-heading-' + sIndex">
-                                  <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                                          [attr.data-bs-target]="'#collapse-schedule-' + sIndex" aria-expanded="false"
-                                          [attr.aria-controls]="'collapse-schedule-' + sIndex">
-                                    Session: {{ schedule.courseTitle }}
-                                  </button>
-                                </h2>
-                                <div [id]="'collapse-schedule-' + sIndex" class="accordion-collapse collapse"
-                                     [attr.aria-labelledby]="'schedule-heading-' + sIndex"
-                                     data-bs-parent="#accordionLiveExample">
-                                  <div class="accordion-body">
-                                    <div *ngFor="let quiz of schedule.quizzes; let qIndex = index" class="lecture-item mb-3">
-                                      <div class="d-flex justify-content-between">
-                                        <h5><span class="text-primary">{{ qIndex + 1 }} -</span> {{ quiz.title }}</h5>
-                                        <p><strong>Duration:</strong> {{ quiz.duration }}</p>
-                                      </div>
-                                      <div class="d-flex justify-content-between align-items-center">
-                                        <div class="quiz-index">
-                                          <span>1 Quiz</span>
-                                        </div>
-                                        <div>
-                                          <span>{{ getQuizAttempts(sIndex, qIndex) }} / 3
-                                            <span class="text-danger">Trials</span>
-                                          </span>
-                                        </div>
-                                        <div>
-                                          <!-- شرط الوقت -->
-                                          <ng-container *ngIf="isScheduleAvailable(schedule.date, schedule.time); else waitingMsg">
-                                            <button *ngIf="getQuizAttempts(sIndex, qIndex) < 3"
-                                                    class="btn btn-primary"
-                                                    (click)="startQuiz(quiz, sIndex, qIndex, course)">
-                                              Start
-                                            </button>
-                                            <button *ngIf="getQuizAttempts(sIndex, qIndex) >= 3"
-                                                    class="btn btn-secondary"
-                                                    (click)="viewResult()">
-                                              Watch Result
-                                            </button>
-                                          </ng-container>
-                                          <ng-template #waitingMsg>
-                                            <p class="text-danger m-0"><strong>Waiting for the lecture</strong></p>
-                                          </ng-template>
-                                        </div>
-                                      </div>
-                                      
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-    
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </ng-container>
-          </div>
-    
-        </div>
-    
-        <!-- Pagination -->
-        <div class="pagination-controls" *ngIf="filteredCourses.length > 0">
-          <button *ngFor="let page of getPagesArray()" (click)="goToPage(page)" [class.active]="page === currentPage">
-            {{ page }}
-          </button>
-        </div>
+    <div class="col-md-3">
+      <select class="form-select" [(ngModel)]="selectedSectionId" (change)="onSectionChange()" [disabled]="!sections.length">
+        <option value="">{{ 'quizzes.allSections' | transloco }}</option>
+        <option *ngFor="let sec of sections" [value]="sec.id">{{ sec.title }}</option>
+      </select>
+    </div>
+
+    <div class="col-md-3">
+      <select class="form-select" [(ngModel)]="selectedSubSectionId" (change)="onSubSectionChange()" [disabled]="!subSections.length">
+        <option value="">{{ 'quizzes.allSubSections' | transloco }}</option>
+        <option *ngFor="let sub of subSections" [value]="sub.id">{{ sub.title }}</option>
+      </select>
+    </div>
+
+    <div class="col-md-3">
+      <select class="form-select" [(ngModel)]="selectedLectureId" [disabled]="!lectures.length">
+        <option value="">{{ 'quizzes.allLectures' | transloco }}</option>
+        <option *ngFor="let lec of lectures" [value]="lec.id">{{ lec.title }}</option>
+      </select>
+    </div>
+  </div>
+
+  <input
+    *ngIf="allQuizzes.length > 0"
+    type="text"
+    class="form-control mb-3"
+    [placeholder]="'quizzes.search' | transloco"
+    [(ngModel)]="searchQuery"
+  />
+
+  <div class="row gy-3">
+    <div class="col-md-6" *ngFor="let quiz of paginatedQuizzes">
+      <div class="card p-3 shadow-sm">
+        <h5>{{ quiz.title }}</h5>
+        <p><strong>{{ 'quizzes.course' | transloco }}:</strong> {{ quiz.courseTitle }}</p>
+        <p><strong>{{ 'quizzes.attempts' | transloco }}:</strong> {{ quiz.attemptsAllowed }}</p>
+        <p><strong>{{ 'quizzes.duration' | transloco }}:</strong> {{ quiz.timeLimitInMinutes }} {{ 'quizzes.minutes' | transloco }}</p>
+        <button class="btn btn-primary btn-sm" (click)="startQuiz(quiz)">
+          {{ 'quizzes.start' | transloco }}
+        </button>
       </div>
     </div>
-    
-    
+  </div>
+
+  <div class="mt-4 text-center" *ngIf="totalPagesQuizzes > 1">
+    <button
+      class="btn btn-sm me-1"
+      *ngFor="let page of getPagesArrayQuizzes()"
+      [class.btn-primary]="page === currentPage"
+      [class.btn-outline-primary]="page !== currentPage"
+      (click)="goToPageQuizzes(page)">
+      {{ page }}
+    </button>
+  </div>
+
+  <div *ngIf="paginatedQuizzes.length === 0" class="text-center text-muted my-4">
+    <p>{{ 'quizzes.noResults' | transloco }}</p>
+  </div>
+</div> -->
 
 
 
 
 
 
-    <!-- Tab: Wishlist -->
-    <div id="wishlist" class="tab-pane fade">
-      <div class="no-items" *ngIf="filteredWishlistCourses.length === 0">
-        <img src="assets/no items yet.jpg" alt="No items yet">
-        <p>{{"my-courses.No items yet" | transloco}}</p>
-      </div>
 
-      <div class="container mt-4">
-        <!-- إظهار input فقط عندما يكون هناك بيانات أو عند البحث -->
-        <input *ngIf="wishlistCourses.length > 0" type="text" class="form-control mb-3"
-               placeholder="Search for a course..." [(ngModel)]="searchQueryWishlist" />
 
-        <div class="row g-3">
-          <div class="col-lg-4 col-md-6 col-sm-12 mb-4" *ngFor="let course of paginatedWishlistCourses">
-            <div class="card lecture-card">
-              <div class="video-thumbnail">
-                <img alt="" [src]="course.src" class="w-100">
-              </div>
-              <div class="card-body">
-                <h5 class="card-title">{{ course.courseTitle }}</h5>
-                <p class="card-text small text-muted">{{ course.landingPage.describtion }}</p>
-                <p class="content">
-                  {{ course.rate }}
-                  <i class="fa-solid fa-star text-warning"></i>
-                  <span class="text-muted"> {{ course.watched }}</span>
-                </p>
-                <p>{{ course.pricing.price }} LE</p>
-                <div class="d-flex justify-content-between align-items-center">
-                  <button class="btn btn-design1" *ngIf="!course.isInCart" (click)="addToCart(course)">{{"my-courses.Add to Cart" | transloco}}</button>
-                  <button class="btn btn-design2" *ngIf="course.isInCart" (click)="removeFromCart(course)">{{"my-courses.Remove from Cart" | transloco}}</button>
-                  <button class="btn heart" *ngIf="!course.isInWishList" (click)="addToWishList(course)">
-                    <i class="fa-regular fa-heart"></i>
-                  </button>
-                  <button class="btn heart text-danger" *ngIf="course.isInWishList" (click)="removeFromWishList(course)">
-                    <i class="fa-solid fa-heart"></i>
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Pagination for Wishlist -->
-        <div class="pagination-controls mt-3" *ngIf="filteredWishlistCourses.length > 0">
-          <button *ngFor="let page of getPagesArrayWishlist()" (click)="goToPageWishlist(page)"
-                  [class.active]="page === currentPageWishlist">
-            {{ page }}
-          </button>
-        </div>
-      </div>
-    </div>
 
   </div>
 </div>

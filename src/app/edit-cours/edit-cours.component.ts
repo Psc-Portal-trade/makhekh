@@ -136,8 +136,11 @@ onSubLectureVideoChange(event: any, sectionIndex: number, contentIndex: number, 
     this.lectureVideoFiles[lecture.id] = file;
   }
 }
+isLoading2: boolean = false;
 
 saveChanges(): void {
+  this.isLoading2 = true;
+
   const courseId = this.courseData.id;
   const courseType = this.courseData.type; // 1 = فيديو، 2 = لايف
   const updateRequests: Promise<any>[] = [];
@@ -432,6 +435,8 @@ saveChanges(): void {
       this.newCoupon = { code: '', discountPercentage: 0, expiryDate: '', isValid: true };
       this.addingCoupon = false;
       this.isEditing = false;
+      this.isLoading2 = false;
+
     })
     .catch(err => {
       console.error('❌ Error during saving:', err);

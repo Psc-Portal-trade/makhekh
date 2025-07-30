@@ -38,7 +38,7 @@
 </div>
 
 <app-second-home-header></app-second-home-header>
-<app-continue-learning></app-continue-learning>
+<app-continue-learning *ngIf="userRole !== 'teacher'"></app-continue-learning>
 <app-recommended-videos></app-recommended-videos>
 <app-featured-courses></app-featured-courses>
 

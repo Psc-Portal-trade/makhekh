@@ -1,0 +1,147 @@
+<app-second-nav></app-second-nav>
+
+<div class="exam-container">
+    <!-- Sidebar Right -->
+    <div class="course-info-sidebar">
+        <h5>{{ 'course-exam.course_content' | transloco }}</h5>
+        <ng-container *ngIf="nestedSections && nestedSections.length; else loadingSections">
+            <ul class="accordion-list">
+                <ng-container *ngFor="let section of nestedSections">
+                    <li>
+                        <div class="accordion-header" (click)="toggleSection(section)">
+                            <span [class.opened]="section.isOpen">&#9660;</span> {{ section.title }}
+                        </div>
+                        <ul *ngIf="section.isOpen">
+                            <li *ngFor="let lecture of section.lectures">
+                                <span class="lecture-title">📹 {{ lecture.title }}</span>
+                            </li>
+                            <ng-container *ngFor="let subSection of section.subSections">
+                                <li>
+                                    <div class="accordion-header sub" (click)="toggleSection(subSection); $event.stopPropagation()">
+                                        <span [class.opened]="subSection.isOpen">&#9660;</span> {{ subSection.title }}
+                                    </div>
+                                    <ul *ngIf="subSection.isOpen">
+                                        <li *ngFor="let lecture of subSection.lectures">
+                                            <span class="lecture-title">📹 {{ lecture.title }}</span>
+                                        </li>
+                                        <ng-container *ngIf="subSection.subSections && subSection.subSections.length">
+                                            <ng-container *ngFor="let subSub of subSection.subSections">
+                                                <li>
+                                                    <div class="accordion-header sub" (click)="toggleSection(subSub); $event.stopPropagation()">
+                                                        <span [class.opened]="subSub.isOpen">&#9660;</span> {{ subSub.title }}
+                                                    </div>
+                                                    <ul *ngIf="subSub.isOpen">
+                                                        <li *ngFor="let lecture of subSub.lectures">
+                                                            <span class="lecture-title">📹 {{ lecture.title }}</span>
+                                                        </li>
+                                                    </ul>
+                                                </li>
+                                            </ng-container>
+                                        </ng-container>
+                                    </ul>
+                                </li>
+                            </ng-container>
+                        </ul>
+                    </li>
+                </ng-container>
+            </ul>
+        </ng-container>
+        <ng-template #loadingSections>
+            <div>{{ 'course-exam.loading_course_content' | transloco }}</div>
+        </ng-template>
+    </div>
+
+    <!-- Main Content -->
+    <div class="question-main-content">
+        <div class="question-header">
+            <h4>{{ 'course-exam.exam_title' | transloco }}</h4>
+        </div>
+
+        <div class="question-card">
+            <div class="question-meta">
+                <div class="question-number">
+                    <h5>{{ 'course-exam.question_number' | transloco }} {{ currentQuestionIndex + 1 }}</h5>
+                    <p>{{ 'course-exam.question_grade' | transloco }}</p>
+                </div>
+                <div class="flag-question" (click)="toggleFlag()" [class.flagged]="currentQuestion.isFlagged">
+                    <i class="fa fa-flag"></i>
+                    <span>{{ 'course-exam.flag_this_question' | transloco }}</span>
+                </div>
+            </div>
+
+            <hr>
+            <div class="question-body">
+                <p class="question-text">{{ currentQuestion.text }}</p>
+
+                <div *ngIf="currentQuestion.type === 'mcq'" class="mcq-options">
+                    <div *ngFor="let choice of currentQuestion.choices" class="option">
+                        <input type="radio" [name]="'q' + currentQuestion.id" [value]="choice.id" [checked]="currentQuestion.answer === choice.id" (change)="selectAnswer(choice.id)">
+                        <label>{{ choice.text }}</label>
+                    </div>
+                </div>
+
+                <div *ngIf="currentQuestion.type === 'essay'">
+                    <textarea class="essay-answer" [placeholder]="'course-exam.write_answer_here' | transloco" [value]="currentQuestion.answer" (input)="selectAnswer($event)">
+          </textarea>
+                </div>
+
+                <div class="clear-choice-container mt-3">
+                    <button class="btn btn-secondary" (click)="clearChoice()">{{ 'course-exam.clear_choice' | transloco }}</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="navigation-buttons">
+            <button (click)="previousQuestion()" [disabled]="currentQuestionIndex === 0">
+        {{ 'course-exam.previous_page' | transloco }}
+      </button>
+
+            <button (click)="nextQuestion()" *ngIf="currentQuestionIndex < questions.length - 1">
+        {{ 'course-exam.next_page' | transloco }}
+      </button>
+
+            <button (click)="finishAttempt()" *ngIf="currentQuestionIndex === questions.length - 1" class="finish-btn">
+        {{ 'course-exam.finish_attempt' | transloco }}
+      </button>
+
+            <button class="btn btn-dark py-2" (click)="handleBackToExams()">
+        {{ 'course-exam.back' | transloco }}
+      </button>
+        </div>
+    </div>
+
+    <!-- Navigation Sidebar -->
+    <div class="questions-nav-sidebar">
+        <div class="hide" [class.active]="isNavOpen">
+            <button class="toggle-nav-btn" (click)="toggleNav()">{{ 'course-exam.hide' | transloco }}</button>
+
+            <div class="timer-container">
+                <h6>{{ 'course-exam.remaining_time' | transloco }}</h6>
+                <div class="timer-display">{{ displayTime }}</div>
+            </div>
+
+            <div class="questions-grid">
+                <div *ngFor="let q of questions; let i = index" class="question-nav-card" [class.answered]="q.isAnswered" [class.flagged-marker]="q.isFlagged" [class.active]="i === currentQuestionIndex" (click)="goToQuestion(i)">
+                    {{ i + 1 }}
+                </div>
+            </div>
+
+            <div class="sidebar-footer">
+                <button class="finish-btn btn btn-danger" (click)="finishAttempt()">
+          {{ 'course-exam.finish_attempt' | transloco }}
+        </button>
+            </div>
+        </div>
+
+        <div class="appear" [class.active]="!isNavOpen">
+            <button class="toggle-nav-btn" (click)="toggleNav()">{{ 'course-exam.show' | transloco }}</button>
+        </div>
+    </div>
+
+    <!-- Modals -->
+    <app-exam-summary-modal [isOpen]="isSummaryModalOpen" [questions]="questions" (close)="onCloseSummaryModal()" (finishAttempt)="onRequestFinishAttempt()">
+    </app-exam-summary-modal>
+
+    <app-confirm-finish-popup [isOpen]="isConfirmPopupOpen" [answeredCount]="answeredCount" [unansweredCount]="unansweredCount" (confirm)="onConfirmFinishAttempt()" (cancel)="onCancelFinishAttempt()">
+    </app-confirm-finish-popup>
+</div>

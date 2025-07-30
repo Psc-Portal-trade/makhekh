@@ -170,7 +170,10 @@ openStudentOnlyModal() {
       console.error('❌ Error adding course:', err);
     }
   });
+<<<<<<< HEAD
   course.isInCart = true;
+=======
+>>>>>>> f8d7636eb28baa3c110e40c20e74521bf52e0631
 }
 
 

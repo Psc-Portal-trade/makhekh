@@ -28,7 +28,7 @@ export class ExploreCoursesHomeComponent implements OnInit {
   itemsPerPage = 12;
 
 
- lectures: {
+lectures: {
   id: string;
   title: string;
   description: string;
@@ -40,9 +40,20 @@ export class ExploreCoursesHomeComponent implements OnInit {
   teacherName: string;
   category: string;
   language: string;
+  level: number;
+  prerequisites: string;
+  targetAudience: string;
+  type: number;
+  isApproved: boolean;
+  ratingsCount: number;
+  totalDurationHours: number;
+  createdAt: string;
+  lastUpdatedAt: string | null;
+  promoVideolUrl: string;
   isInCart: boolean;
   isInWishlist: boolean;
 }[] = [];
+
 
 selectedCategory: string | null = null;
 
@@ -58,9 +69,60 @@ onCategorySelected(categoryName: string) {
 ngOnInit() {
   window.scrollTo(0, 0);
 
- this.courseApiService.getAllCourses().subscribe({
-  next: (response: { data: any[] }) => {
+this.courseApiService.getAllCourses().subscribe({
+  next: (response: any) => {
     this.lectures = response.data.map((course: any) => {
+      const sections = course.sections?.map((section: any) => ({
+        id: section.id,
+        title: section.title,
+        description: section.description,
+        quizzes: section.quizzes ?? [],
+        summaryAttachments: section.summaryAttachments ?? [],
+        contentItems: section.contentItems?.map((item: any) => {
+          if (item.type === 'Lecture' && item.lecture) {
+            return {
+              type: 'Lecture',
+              id: item.id,
+              title: item.title,
+              lecture: {
+                id: item.lecture.id,
+                title: item.lecture.title,
+                description: item.lecture.description,
+                videoUrl: item.lecture.videoUrl,
+                startUrl: item.lecture.startUrl,
+                startTime: item.lecture.startTime,
+                durationInMinutes: item.lecture.durationInMinutes,
+                zoomMeetingId: item.lecture.zoomMeetingId,
+                zoomStartUrl: item.lecture.zoomStartUrl,
+                zoomJoinUrl: item.lecture.zoomJoinUrl,
+                zoomPassword: item.lecture.zoomPassword,
+                isInstant: item.lecture.isInstant,
+                status: item.lecture.status,
+                quizzes: item.lecture.quizzes ?? [],
+                summaryAttachments: item.lecture.summaryAttachments ?? []
+              }
+            };
+          } else if (item.type === 'SubSection' && item.subSection) {
+            return {
+              type: 'SubSection',
+              id: item.id,
+              title: item.title,
+              subSection: {
+                id: item.subSection.id,
+                title: item.subSection.title,
+                lectures: item.subSection.lectures ?? [],
+                quizzes: item.subSection.quizzes ?? [],
+                summaryAttachments: item.subSection.summaryAttachments ?? []
+              }
+            };
+          } else {
+            return null;
+          }
+        }).filter(Boolean) ?? [],
+        lectures: section.lectures ?? [],
+        subSections: section.subSections ?? []
+      })) ?? [];
+
       return {
         id: course.id,
         title: course.title,
@@ -73,17 +135,30 @@ ngOnInit() {
         teacherName: course.teacherName,
         category: course.category?.name,
         language: course.language,
+        level: course.level,
+        prerequisites: course.prerequisites,
+        targetAudience: course.targetAudience,
+        type: course.type,
+        isApproved: course.isApproved,
+        ratingsCount: course.ratingsCount,
+        totalDurationHours: course.totalDurationHours,
+        createdAt: course.createdAt,
+        lastUpdatedAt: course.lastUpdatedAt,
+        promoVideolUrl: course.promoVideolUrl,
         isInCart: this.cartService.isItemInCart(course.id),
-        isInWishlist: this.wishlistService.isItemInList(course.id)
+        isInWishlist: this.wishlistService.isItemInList(course.id),
+        sections: sections
       };
     });
 
-    console.log("✅ mapped lectures:", this.lectures);
+    console.log("✅ mapped lectures with contentItems:", this.lectures);
   },
   error: (err) => {
     console.error('❌ Error loading courses:', err);
   }
 });
+
+
 
 }
 

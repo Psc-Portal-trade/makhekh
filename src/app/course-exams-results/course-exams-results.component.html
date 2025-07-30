@@ -1,0 +1,61 @@
+<app-second-nav></app-second-nav>
+
+<section>
+    <div class="container mt-4 row">
+        <!-- ✅ Left Column: Course Tree -->
+        <div class="col-md-4 border-end border-start">
+            <!-- Course Title -->
+            <div (click)="selectEntity(1, courseData.id)" [class.text-primary]="selectedEntityType === 1 && selectedEntityId === courseData.id" style="cursor: pointer;" class="py-2">
+                📘 {{ courseData?.title }}
+            </div>
+
+            <div *ngFor="let section of courseData?.sections" class="mt-3 ms-3">
+                <!-- Section Title -->
+                <div (click)="selectEntity(2, section.id)" [class.text-primary]="selectedEntityType === 2 && selectedEntityId === section.id" style="cursor: pointer;" class="py-2">
+                    <i class="fa-regular fa-folder" [class.text-danger]="selectedEntityType === 2 && selectedEntityId === section.id"></i> {{ section.title }}
+                </div>
+
+                <!-- Content Items -->
+                <div *ngFor="let item of section.contentItems" class="ms-3">
+                    <!-- Lecture -->
+                    <div *ngIf="item.type === 'Lecture'" class="mx-3 py-2" (click)="selectEntity(3, item.lecture.id)" [class.text-primary]="selectedEntityType === 3 && selectedEntityId === item.lecture.id" style="cursor: pointer;">
+                        <i class="fa-solid fa-video" [class.text-danger]="selectedEntityType === 3 && selectedEntityId === item.lecture.id"></i> {{ item.lecture.title }}
+                    </div>
+
+                    <!-- SubSection -->
+                    <div *ngIf="item.type === 'SubSection'" class="ms-3">
+                        <div class="fw-semibold mt-2" (click)="selectEntity(4, item.subSection.id)" [class.text-primary]="selectedEntityType === 4 && selectedEntityId === item.subSection.id" style="cursor: pointer;">
+                            <i class="fa-regular fa-folder-open" [class.text-danger]="selectedEntityType === 4 && selectedEntityId === item.subSection.id"></i> {{ item.subSection.title }}
+                        </div>
+
+                        <!-- Lectures Inside SubSection -->
+                        <div *ngFor="let lec of item.subSection.lectures" class="mx-3 py-2" (click)="selectEntity(3, lec.id)" [class.text-primary]="selectedEntityType === 3 && selectedEntityId === lec.id" style="cursor: pointer;">
+                            <i class="fa-solid fa-video" [class.text-danger]="selectedEntityType === 3 && selectedEntityId === lec.id"></i> {{ lec.title }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ✅ Right Column: Exams -->
+        <div class="col-md-8 pt-3">
+            <h5>📝 {{ 'attachments.exams' | transloco }}</h5>
+
+            <div *ngIf="filteredAttachments.length === 0" class="text-muted">
+                {{ 'attachments.noExams' | transloco }}
+            </div>
+
+            <div *ngFor="let quiz of filteredAttachments" class="card p-2 mb-3">
+                <div class="fw-bold">📄 {{ quiz.title }}</div>
+                <p class="mb-1">
+                    ⏱ {{ 'attachments.timeLimit' | transloco: { minutes: quiz.timeLimitInMinutes } }} - 🧠 {{ 'attachments.attemptsAllowed' | transloco: { attempts: quiz.attemptsAllowed } }}
+                </p>
+                <div class="d-flex justify-content-center">
+                    <button class="btn btn-primary mt-2" (click)="gotoQuizDetails(quiz)">
+            {{ 'attachments.reviewAttempts' | transloco }}
+          </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

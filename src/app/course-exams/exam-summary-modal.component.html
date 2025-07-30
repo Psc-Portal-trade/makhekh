@@ -1,0 +1,27 @@
+<div class="modal-backdrop" *ngIf="isOpen">
+    <div class="modal-content">
+        <h3>{{ 'course-exam.exam_summary' | transloco }}</h3>
+        <div class="questions-summary">
+            <div *ngFor="let q of questions" class="question-summary">
+                <div class="question-text">{{ q.text }}</div>
+                <div class="options">
+                    <div *ngFor="let option of q.options" [class.selected]="q.selectedAnswer === option">
+                        <span>{{ option }}</span>
+                        <span *ngIf="q.selectedAnswer === option" class="your-answer">
+              ({{ 'course-exam.your_answer' | transloco }})
+            </span>
+                    </div>
+                </div>
+                <div class="answer-status" [class.answered]="q.isAnswered" [class.unanswered]="!q.isAnswered">
+                    {{ q.isAnswered ? ('course-exam.answered' | transloco) : ('course-exam.unanswered' | transloco) }}
+                </div>
+            </div>
+        </div>
+        <div class="modal-actions">
+            <button (click)="onClose()">{{ 'course-exam.close' | transloco }}</button>
+            <button class="finish-btn" (click)="onFinishAttempt()">
+        {{ 'course-exam.finish_attempt' | transloco }}
+      </button>
+        </div>
+    </div>
+</div>

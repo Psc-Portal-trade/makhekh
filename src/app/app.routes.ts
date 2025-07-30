@@ -49,6 +49,16 @@ import { ExamResultComponent } from './exam-result/exam-result.component';
 import { EditCoursComponent } from './edit-cours/edit-cours.component';
 import { CreateQuizComponent } from './create-quiz/create-quiz.component';
 import { QuizComponent } from './quiz/quiz.component';
+import { CoursePartsComponent } from './course-parts/course-parts.component';
+import { CourseReportsComponent } from './course-reports/course-reports.component';
+import { CourseExamsComponent } from './course-exams/course-exams.component';
+import { CourseExamsResultsComponent } from './course-exams-results/course-exams-results.component';
+import { CourseAttachmentsComponent } from './course-attachments/course-attachments.component';
+import { CourseExamComponent } from './course-exam/course-exam.component';
+import { CourseExamResultComponent } from './course-exam-result/course-exam-result.component';
+import { OrdersComponent } from './orders/orders.component';
+import { CourseDraftComponent } from './course-draft/course-draft.component';
+import { ViewAttemptComponent } from './view-attempt/view-attempt.component';
 
 export const routes: Routes = [
   {path:"", redirectTo:"home",pathMatch:"full"},
@@ -76,6 +86,25 @@ export const routes: Routes = [
   {path:"edit-course",component:EditCoursComponent},
   {path:"create-quiz",component:CreateQuizComponent},
   {path:"quiz",component:QuizComponent},
+  {path:"course-parts",component:CoursePartsComponent},
+  {path:"course-reports",component:CourseReportsComponent},
+  {path:"course-exams",component:CourseExamsComponent},
+  {path:"course-exams-results",component:CourseExamsResultsComponent},
+  {path:"course-attachments",component:CourseAttachmentsComponent},
+  {path:"course-exam",component:CourseExamComponent},
+  {path:"course-exam-result",component:CourseExamResultComponent},
+{path:"course-draft",component:CourseDraftComponent},
+{path:"view-attempt",component:ViewAttemptComponent},
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -211,6 +240,7 @@ export const routes: Routes = [
 {path:"course-Informations/wishlist",redirectTo:"wishlist",pathMatch:"full"},
 {path:"course-Informations/explore-courses",redirectTo:"explore-courses",pathMatch:"full"},
 {path:"course-Informations/logOut",redirectTo:"home",pathMatch:"full"},
+{path:"course-Informations/my-courses",redirectTo:"my-courses",pathMatch:"full"},
 
 
 
@@ -341,6 +371,7 @@ export const routes: Routes = [
 {path:"my-courses/my-courses",redirectTo:"my-courses",pathMatch:"full"},
 {path:"my-courses/course-content",redirectTo:"course-content",pathMatch:"full"},
 {path:"my-courses/exam",redirectTo:"exam",pathMatch:"full"},
+{path:"my-courses/course-parts",redirectTo:"course-parts",pathMatch:"full"},
 
 //  *********** exam ***********
 
@@ -358,6 +389,7 @@ export const routes: Routes = [
 {path:"exam-result/instructor-profile",redirectTo:"instructor-profile",pathMatch:"full"},
 {path:"exam-result/logOut",redirectTo:"home",pathMatch:"full"},
 {path:"exam-result/student-profile",redirectTo:"student-profile",pathMatch:"full"},
+
 
 //  *********** course-Information ***********
 
@@ -448,10 +480,138 @@ export const routes: Routes = [
 {path:"course-content/explore",redirectTo:"explore",pathMatch:"full"},
 {path:"course-content/cart",redirectTo:"cart",pathMatch:"full"},
 {path:"course-content/wishedList",redirectTo:"wishedList",pathMatch:"full"},
-{path:"course-content/instructor-profile",redirectTo:"instructor-profile",pathMatch:"full"},
 {path:"course-content/student-profile",redirectTo:"student-profile",pathMatch:"full"},
 {path:"course-content/logOut",redirectTo:"home",pathMatch:"full"},
 {path:"course-content/create-quiz",redirectTo:"create-quiz",pathMatch:"full"},
+
+
+
+
+//  *********** course-parts ***********
+
+
+
+
+{path:"course-parts/my-courses",redirectTo:"my-courses",pathMatch:"full"},
+{path:"course-parts/studentHome",redirectTo:"studentHome",pathMatch:"full"},
+{path:"course-parts/explore",redirectTo:"explore",pathMatch:"full"},
+{path:"course-parts/cart",redirectTo:"cart",pathMatch:"full"},
+{path:"course-parts/wishedList",redirectTo:"wishedList",pathMatch:"full"},
+{path:"course-parts/student-profile",redirectTo:"student-profile",pathMatch:"full"},
+{path:"course-parts/logOut",redirectTo:"home",pathMatch:"full"},
+{path:"course-parts/course-exams",redirectTo:"course-exams",pathMatch:"full"},
+{path:"course-parts/course-exams-results",redirectTo:"course-exams-results",pathMatch:"full"},
+{path:"course-parts/course-attachments",redirectTo:"course-attachments",pathMatch:"full"},
+{path:"course-parts/course-reports",redirectTo:"course-reports",pathMatch:"full"},
+{path:"course-parts/course-content",redirectTo:"course-content",pathMatch:"full"},
+
+
+
+//  *********** course-exams ***********
+
+
+
+
+{path:"course-exams/my-courses",redirectTo:"my-courses",pathMatch:"full"},
+{path:"course-exams/studentHome",redirectTo:"studentHome",pathMatch:"full"},
+{path:"course-exams/explore",redirectTo:"explore",pathMatch:"full"},
+{path:"course-exams/cart",redirectTo:"cart",pathMatch:"full"},
+{path:"course-exams/wishedList",redirectTo:"wishedList",pathMatch:"full"},
+{path:"course-exams/student-profile",redirectTo:"student-profile",pathMatch:"full"},
+{path:"course-exams/logOut",redirectTo:"home",pathMatch:"full"},
+{path:"course-exams/create-quiz",redirectTo:"create-quiz",pathMatch:"full"},
+{path:"course-exams/course-exams-results",redirectTo:"course-exams-results",pathMatch:"full"},
+{path:"course-exams/cours-exam",redirectTo:"cours-exam",pathMatch:"full"},
+
+
+//  *********** course-exams-results ***********
+
+
+
+
+{path:"course-exams-results/my-courses",redirectTo:"my-courses",pathMatch:"full"},
+{path:"course-exams-results/studentHome",redirectTo:"studentHome",pathMatch:"full"},
+{path:"course-exams-results/explore",redirectTo:"explore",pathMatch:"full"},
+{path:"course-exams-results/cart",redirectTo:"cart",pathMatch:"full"},
+{path:"course-exams-results/wishedList",redirectTo:"wishedList",pathMatch:"full"},
+{path:"course-exams-results/student-profile",redirectTo:"student-profile",pathMatch:"full"},
+{path:"course-exams-results/logOut",redirectTo:"home",pathMatch:"full"},
+{path:"course-exams-results/create-quiz",redirectTo:"create-quiz",pathMatch:"full"},
+{path:"course-exams-results/course-exam-result",redirectTo:"course-exam-result",pathMatch:"full"},
+
+//  *********** course-exams-result ***********
+
+{path:"course-exam-result/instructor-profile/create-course",redirectTo:"create-course",pathMatch:"full"},
+{path:"course-exam-result/my-courses",redirectTo:"my-courses",pathMatch:"full"},
+{path:"course-exam-result/studentHome",redirectTo:"studentHome",pathMatch:"full"},
+{path:"course-exam-result/explore",redirectTo:"explore",pathMatch:"full"},
+{path:"course-exam-result/cart",redirectTo:"cart",pathMatch:"full"},
+{path:"course-exam-result/wishedList",redirectTo:"wishedList",pathMatch:"full"},
+{path:"course-exam-result/student-profile",redirectTo:"student-profile",pathMatch:"full"},
+{path:"course-exam-result/logOut",redirectTo:"home",pathMatch:"full"},
+{path:"course-exam-result/course-exams-results",redirectTo:"course-exams-results",pathMatch:"full"},
+{path:"course-exam-result/course-exams",redirectTo:"course-exams",pathMatch:"full"},
+{path:"course-exam-result/view-attempt",redirectTo:"view-attempt",pathMatch:"full"},
+
+//  *********** view-attempt ***********
+
+
+{path:"view-attempt/instructor-profile/create-course",redirectTo:"create-course",pathMatch:"full"},
+{path:"view-attempt/my-courses",redirectTo:"my-courses",pathMatch:"full"},
+{path:"view-attempt/studentHome",redirectTo:"studentHome",pathMatch:"full"},
+{path:"view-attempt/explore",redirectTo:"explore",pathMatch:"full"},
+{path:"view-attempt/cart",redirectTo:"cart",pathMatch:"full"},
+{path:"view-attempt/wishedList",redirectTo:"wishedList",pathMatch:"full"},
+{path:"view-attempt/student-profile",redirectTo:"student-profile",pathMatch:"full"},
+{path:"view-attempt/logOut",redirectTo:"home",pathMatch:"full"},
+{path:"view-attempt/course-exams-results",redirectTo:"course-exams-results",pathMatch:"full"},
+{path:"view-attempt/course-exams",redirectTo:"course-exams",pathMatch:"full"},
+{path:"view-attempt/course-exam-result",redirectTo:"course-exam-result",pathMatch:"full"},
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//  *********** course-attachments ***********
+
+
+
+
+{path:"course-attachments/my-courses",redirectTo:"my-courses",pathMatch:"full"},
+{path:"course-attachments/studentHome",redirectTo:"studentHome",pathMatch:"full"},
+{path:"course-attachments/explore",redirectTo:"explore",pathMatch:"full"},
+{path:"course-attachments/cart",redirectTo:"cart",pathMatch:"full"},
+{path:"course-attachments/wishedList",redirectTo:"wishedList",pathMatch:"full"},
+{path:"course-attachments/instructor-profile",redirectTo:"instructor-profile",pathMatch:"full"},
+{path:"course-attachments/student-profile",redirectTo:"student-profile",pathMatch:"full"},
+{path:"course-attachments/logOut",redirectTo:"home",pathMatch:"full"},
+{path:"course-attachments/create-quiz",redirectTo:"create-quiz",pathMatch:"full"},
+
+
+//  *********** course-reports ***********
+
+
+
+
+{path:"course-reports/my-courses",redirectTo:"my-courses",pathMatch:"full"},
+{path:"course-reports/studentHome",redirectTo:"studentHome",pathMatch:"full"},
+{path:"course-reports/explore",redirectTo:"explore",pathMatch:"full"},
+{path:"course-reports/cart",redirectTo:"cart",pathMatch:"full"},
+{path:"course-reports/wishedList",redirectTo:"wishedList",pathMatch:"full"},
+{path:"course-reports/instructor-profile",redirectTo:"instructor-profile",pathMatch:"full"},
+{path:"course-reports/student-profile",redirectTo:"student-profile",pathMatch:"full"},
+{path:"course-reports/logOut",redirectTo:"home",pathMatch:"full"},
+{path:"course-reports/create-quiz",redirectTo:"create-quiz",pathMatch:"full"},
 
 
 
@@ -468,6 +628,7 @@ export const routes: Routes = [
 {path:"instructor-profile/overview",redirectTo:"overview",pathMatch:"full"},
 {path:"instructor-profile/students",redirectTo:"students",pathMatch:"full"},
 {path:"instructor-profile/reviews",redirectTo:"reviews",pathMatch:"full"},
+{path:"instructor-profile/orders",redirectTo:"orders",pathMatch:"full"},
 
 
 {path:"qa",component:QaComponent},
@@ -477,6 +638,8 @@ export const routes: Routes = [
 {path:"overview",component:OverviewComponent},
 {path:"students",component:StudentsComponent},
 {path:"reviews",component:ReviewsComponent},
+{path:"orders",component:OrdersComponent},
+
 
 
 
@@ -500,9 +663,27 @@ export const routes: Routes = [
 {path:"instructor-profile/create-course/edit-course",redirectTo:"edit-course",pathMatch:"full"},
 {path:"instructor-profile/create-course/logOut",redirectTo:"home",pathMatch:"full"},
 {path:"instructor-profile/create-course/create-quiz",redirectTo:"create-quiz",pathMatch:"full"},
+{path:"instructor-profile/create-course/course-draft",redirectTo:"course-draft",pathMatch:"full"},
 
 
 
+
+
+// drafts
+
+{path:"course-draft/instructor-profile/create-course",redirectTo:"create-course",pathMatch:"full"},
+{path:"course-draft/my-courses",redirectTo:"my-courses",pathMatch:"full"},
+{path:"course-draft/studentHome",redirectTo:"studentHome",pathMatch:"full"},
+{path:"course-draft/explore",redirectTo:"explore",pathMatch:"full"},
+{path:"course-draft/cart",redirectTo:"cart",pathMatch:"full"},
+{path:"course-draft/wishedList",redirectTo:"wishedList",pathMatch:"full"},
+{path:"course-draft/instructor-profile",redirectTo:"instructor-profile",pathMatch:"full"},
+{path:"course-draft/logOut",redirectTo:"home",pathMatch:"full"},
+
+
+
+
+// edit courses
 
 {path:"edit-course/instructor-profile/create-course",redirectTo:"create-course",pathMatch:"full"},
 {path:"edit-course/my-courses",redirectTo:"my-courses",pathMatch:"full"},
@@ -655,401 +836,6 @@ export const routes: Routes = [
 {path:"create-quiz/instructor-profile",redirectTo:"instructor-profile",pathMatch:"full"},
 {path:"create-quiz/logOut",redirectTo:"home",pathMatch:"full"},
 
-
-
-
-// ------------ courses routes --------------
-//  development-courses
-
-{path:"development-courses/home",redirectTo:"home",pathMatch:"full"},
-{path:"development-courses/explore-courses",redirectTo:"explore-courses",pathMatch:"full"},
-{path:"development-courses/about",redirectTo:"about",pathMatch:"full"},
-{path:"development-courses/register",redirectTo:"register",pathMatch:"full"},
-{path:"development-courses/login",redirectTo:"login",pathMatch:"full"},
-{path:"development-courses/shippingCart",redirectTo:"shippingCart",pathMatch:"full"},
-{path:"development-courses/wishlist",redirectTo:"wishlist",pathMatch:"full"},
-{path:"development-courses/explore-courses",redirectTo:"explore-courses",pathMatch:"full"},
-{path:"development-courses/course-Informations",redirectTo:"course-Informations",pathMatch:"full"},
-
-
-
-
-{path:"development-courses/development-courses",redirectTo:"development-courses",pathMatch:"full"},
-{path:"development-courses/finance-courses",redirectTo:"finance-courses",pathMatch:"full"},
-{path:"development-courses/it-courses",redirectTo:"it-courses",pathMatch:"full"},
-{path:"development-courses/design-courses",redirectTo:"design-courses",pathMatch:"full"},
-{path:"development-courses/business-courses",redirectTo:"business-courses",pathMatch:"full"},
-{path:"development-courses/marketing-courses",redirectTo:"marketing-courses",pathMatch:"full"},
-{path:"development-courses/health-courses",redirectTo:"health-courses",pathMatch:"full"},
-{path:"development-courses/offer-courses",redirectTo:"offer-courses",pathMatch:"full"},
-
-//  finance-courses
-
-{path:"finance-courses/home",redirectTo:"home",pathMatch:"full"},
-{path:"finance-courses/explore-courses",redirectTo:"explore-courses",pathMatch:"full"},
-{path:"finance-courses/about",redirectTo:"about",pathMatch:"full"},
-{path:"finance-courses/register",redirectTo:"register",pathMatch:"full"},
-{path:"finance-courses/login",redirectTo:"login",pathMatch:"full"},
-{path:"finance-courses/shippingCart",redirectTo:"shippingCart",pathMatch:"full"},
-{path:"finance-courses/wishlist",redirectTo:"wishlist",pathMatch:"full"},
-{path:"finance-courses/explore-courses",redirectTo:"explore-courses",pathMatch:"full"},
-{path:"finance-courses/course-Informations",redirectTo:"course-Informations",pathMatch:"full"},
-
-
-
-
-{path:"finance-courses/development-courses",redirectTo:"development-courses",pathMatch:"full"},
-{path:"finance-courses/finance-courses",redirectTo:"finance-courses",pathMatch:"full"},
-{path:"finance-courses/it-courses",redirectTo:"it-courses",pathMatch:"full"},
-{path:"finance-courses/design-courses",redirectTo:"design-courses",pathMatch:"full"},
-{path:"finance-courses/business-courses",redirectTo:"business-courses",pathMatch:"full"},
-{path:"finance-courses/marketing-courses",redirectTo:"marketing-courses",pathMatch:"full"},
-{path:"finance-courses/health-courses",redirectTo:"health-courses",pathMatch:"full"},
-{path:"finance-courses/offer-courses",redirectTo:"offer-courses",pathMatch:"full"},
-
-
-//  it-courses
-
-{path:"it-courses/home",redirectTo:"home",pathMatch:"full"},
-{path:"it-courses/explore-courses",redirectTo:"explore-courses",pathMatch:"full"},
-{path:"it-courses/about",redirectTo:"about",pathMatch:"full"},
-{path:"it-courses/register",redirectTo:"register",pathMatch:"full"},
-{path:"it-courses/login",redirectTo:"login",pathMatch:"full"},
-{path:"it-courses/shippingCart",redirectTo:"shippingCart",pathMatch:"full"},
-{path:"it-courses/wishlist",redirectTo:"wishlist",pathMatch:"full"},
-{path:"it-courses/explore-courses",redirectTo:"explore-courses",pathMatch:"full"},
-{path:"it-courses/course-Informations",redirectTo:"course-Informations",pathMatch:"full"},
-
-
-
-
-{path:"it-courses/development-courses",redirectTo:"development-courses",pathMatch:"full"},
-{path:"it-courses/finance-courses",redirectTo:"finance-courses",pathMatch:"full"},
-{path:"it-courses/it-courses",redirectTo:"it-courses",pathMatch:"full"},
-{path:"it-courses/design-courses",redirectTo:"design-courses",pathMatch:"full"},
-{path:"it-courses/business-courses",redirectTo:"business-courses",pathMatch:"full"},
-{path:"it-courses/marketing-courses",redirectTo:"marketing-courses",pathMatch:"full"},
-{path:"it-courses/health-courses",redirectTo:"health-courses",pathMatch:"full"},
-{path:"it-courses/offer-courses",redirectTo:"offer-courses",pathMatch:"full"},
-
-
-//  design-courses
-
-{path:"design-courses/home",redirectTo:"home",pathMatch:"full"},
-{path:"design-courses/explore-courses",redirectTo:"explore-courses",pathMatch:"full"},
-{path:"design-courses/about",redirectTo:"about",pathMatch:"full"},
-{path:"design-courses/register",redirectTo:"register",pathMatch:"full"},
-{path:"design-courses/login",redirectTo:"login",pathMatch:"full"},
-{path:"design-courses/shippingCart",redirectTo:"shippingCart",pathMatch:"full"},
-{path:"design-courses/wishlist",redirectTo:"wishlist",pathMatch:"full"},
-{path:"design-courses/explore-courses",redirectTo:"explore-courses",pathMatch:"full"},
-{path:"design-courses/course-Informations",redirectTo:"course-Informations",pathMatch:"full"},
-
-
-
-
-{path:"design-courses/development-courses",redirectTo:"development-courses",pathMatch:"full"},
-{path:"design-courses/finance-courses",redirectTo:"finance-courses",pathMatch:"full"},
-{path:"design-courses/it-courses",redirectTo:"it-courses",pathMatch:"full"},
-{path:"design-courses/design-courses",redirectTo:"design-courses",pathMatch:"full"},
-{path:"design-courses/business-courses",redirectTo:"business-courses",pathMatch:"full"},
-{path:"design-courses/marketing-courses",redirectTo:"marketing-courses",pathMatch:"full"},
-{path:"design-courses/health-courses",redirectTo:"health-courses",pathMatch:"full"},
-{path:"design-courses/offer-courses",redirectTo:"offer-courses",pathMatch:"full"},
-
-//  business-courses
-
-{path:"business-courses/home",redirectTo:"home",pathMatch:"full"},
-{path:"business-courses/explore-courses",redirectTo:"explore-courses",pathMatch:"full"},
-{path:"business-courses/about",redirectTo:"about",pathMatch:"full"},
-{path:"business-courses/register",redirectTo:"register",pathMatch:"full"},
-{path:"business-courses/login",redirectTo:"login",pathMatch:"full"},
-{path:"business-courses/shippingCart",redirectTo:"shippingCart",pathMatch:"full"},
-{path:"business-courses/wishlist",redirectTo:"wishlist",pathMatch:"full"},
-{path:"business-courses/explore-courses",redirectTo:"explore-courses",pathMatch:"full"},
-{path:"business-courses/course-Informations",redirectTo:"course-Informations",pathMatch:"full"},
-
-
-
-
-{path:"business-courses/development-courses",redirectTo:"development-courses",pathMatch:"full"},
-{path:"business-courses/finance-courses",redirectTo:"finance-courses",pathMatch:"full"},
-{path:"business-courses/it-courses",redirectTo:"it-courses",pathMatch:"full"},
-{path:"business-courses/design-courses",redirectTo:"design-courses",pathMatch:"full"},
-{path:"business-courses/business-courses",redirectTo:"business-courses",pathMatch:"full"},
-{path:"business-courses/marketing-courses",redirectTo:"marketing-courses",pathMatch:"full"},
-{path:"business-courses/health-courses",redirectTo:"health-courses",pathMatch:"full"},
-{path:"business-courses/offer-courses",redirectTo:"offer-courses",pathMatch:"full"},
-
-//  marketing-courses
-
-{path:"marketing-courses/home",redirectTo:"home",pathMatch:"full"},
-{path:"marketing-courses/explore-courses",redirectTo:"explore-courses",pathMatch:"full"},
-{path:"marketing-courses/about",redirectTo:"about",pathMatch:"full"},
-{path:"marketing-courses/register",redirectTo:"register",pathMatch:"full"},
-{path:"marketing-courses/login",redirectTo:"login",pathMatch:"full"},
-{path:"marketing-courses/shippingCart",redirectTo:"shippingCart",pathMatch:"full"},
-{path:"marketing-courses/wishlist",redirectTo:"wishlist",pathMatch:"full"},
-{path:"marketing-courses/explore-courses",redirectTo:"explore-courses",pathMatch:"full"},
-{path:"marketing-courses/course-Informations",redirectTo:"course-Informations",pathMatch:"full"},
-
-
-
-
-
-{path:"marketing-courses/development-courses",redirectTo:"development-courses",pathMatch:"full"},
-{path:"marketing-courses/finance-courses",redirectTo:"finance-courses",pathMatch:"full"},
-{path:"marketing-courses/it-courses",redirectTo:"it-courses",pathMatch:"full"},
-{path:"marketing-courses/design-courses",redirectTo:"design-courses",pathMatch:"full"},
-{path:"marketing-courses/business-courses",redirectTo:"business-courses",pathMatch:"full"},
-{path:"marketing-courses/marketing-courses",redirectTo:"marketing-courses",pathMatch:"full"},
-{path:"marketing-courses/health-courses",redirectTo:"health-courses",pathMatch:"full"},
-{path:"marketing-courses/offer-courses",redirectTo:"offer-courses",pathMatch:"full"},
-
-//  health-courses
-
-{path:"health-courses/home",redirectTo:"home",pathMatch:"full"},
-{path:"health-courses/explore-courses",redirectTo:"explore-courses",pathMatch:"full"},
-{path:"health-courses/about",redirectTo:"about",pathMatch:"full"},
-{path:"health-courses/register",redirectTo:"register",pathMatch:"full"},
-{path:"health-courses/login",redirectTo:"login",pathMatch:"full"},
-{path:"health-courses/shippingCart",redirectTo:"shippingCart",pathMatch:"full"},
-{path:"health-courses/wishlist",redirectTo:"wishlist",pathMatch:"full"},
-{path:"health-courses/explore-courses",redirectTo:"explore-courses",pathMatch:"full"},
-{path:"health-courses/course-Informations",redirectTo:"course-Informations",pathMatch:"full"},
-
-
-
-
-{path:"health-courses/development-courses",redirectTo:"development-courses",pathMatch:"full"},
-{path:"health-courses/finance-courses",redirectTo:"finance-courses",pathMatch:"full"},
-{path:"health-courses/it-courses",redirectTo:"it-courses",pathMatch:"full"},
-{path:"health-courses/design-courses",redirectTo:"design-courses",pathMatch:"full"},
-{path:"health-courses/business-courses",redirectTo:"business-courses",pathMatch:"full"},
-{path:"health-courses/marketing-courses",redirectTo:"marketing-courses",pathMatch:"full"},
-{path:"health-courses/health-courses",redirectTo:"health-courses",pathMatch:"full"},
-{path:"health-courses/offer-courses",redirectTo:"offer-courses",pathMatch:"full"},
-
-
-//  offer-course
-
-{path:"offer-courses/home",redirectTo:"home",pathMatch:"full"},
-{path:"offer-courses/explore-courses",redirectTo:"explore-courses",pathMatch:"full"},
-{path:"offer-courses/about",redirectTo:"about",pathMatch:"full"},
-{path:"offer-courses/register",redirectTo:"register",pathMatch:"full"},
-{path:"offer-courses/login",redirectTo:"login",pathMatch:"full"},
-{path:"offer-courses/shippingCart",redirectTo:"shippingCart",pathMatch:"full"},
-{path:"offer-courses/wishlist",redirectTo:"wishlist",pathMatch:"full"},
-{path:"offer-courses/explore-courses",redirectTo:"explore-courses",pathMatch:"full"},
-{path:"offer-courses/course-Informations",redirectTo:"course-Informations",pathMatch:"full"},
-
-
-
-
-{path:"offer-courses/development-courses",redirectTo:"development-courses",pathMatch:"full"},
-{path:"offer-courses/finance-courses",redirectTo:"finance-courses",pathMatch:"full"},
-{path:"offer-courses/it-courses",redirectTo:"it-courses",pathMatch:"full"},
-{path:"offer-courses/design-courses",redirectTo:"design-courses",pathMatch:"full"},
-{path:"offer-courses/business-courses",redirectTo:"business-courses",pathMatch:"full"},
-{path:"offer-courses/marketing-courses",redirectTo:"marketing-courses",pathMatch:"full"},
-{path:"offer-courses/health-courses",redirectTo:"health-courses",pathMatch:"full"},
-{path:"offer-courses/offer-courses",redirectTo:"offer-courses",pathMatch:"full"},
-
-
-
-
-
-// ---------------- course routes ------------
-//  development-course
-
-{path:"development-course/studentHome",redirectTo:"studentHome",pathMatch:"full"},
-{path:"development-course/explore",redirectTo:"explore",pathMatch:"full"},
-{path:"development-course/cart",redirectTo:"cart",pathMatch:"full"},
-{path:"development-course/wishedList",redirectTo:"wishedList",pathMatch:"full"},
-{path:"development-course/instructor-profile",redirectTo:"instructor-profile",pathMatch:"full"},
-{path:"development-course/logOut",redirectTo:"home",pathMatch:"full"},
-{path:"development-course/student-profile",redirectTo:"student-profile",pathMatch:"full"},
-{path:"development-course/my-courses",redirectTo:"my-courses",pathMatch:"full"},
-{path:"development-course/course-Information",redirectTo:"course-Information",pathMatch:"full"},
-
-
-
-
-
-
-
-{path:"development-course/development-course",redirectTo:"development-course",pathMatch:"full"},
-{path:"development-course/finance-course",redirectTo:"finance-course",pathMatch:"full"},
-{path:"development-course/it-course",redirectTo:"it-course",pathMatch:"full"},
-{path:"development-course/design-course",redirectTo:"design-course",pathMatch:"full"},
-{path:"development-course/business-course",redirectTo:"business-course",pathMatch:"full"},
-{path:"development-course/marketing-course",redirectTo:"marketing-course",pathMatch:"full"},
-{path:"development-course/health-course",redirectTo:"health-course",pathMatch:"full"},
-{path:"development-course/offer-course",redirectTo:"offer-course",pathMatch:"full"},
-
-//  finance-course
-
-{path:"finance-course/studentHome",redirectTo:"studentHome",pathMatch:"full"},
-{path:"finance-course/explore",redirectTo:"explore",pathMatch:"full"},
-{path:"finance-course/cart",redirectTo:"cart",pathMatch:"full"},
-{path:"finance-course/wishedList",redirectTo:"wishedList",pathMatch:"full"},
-{path:"finance-course/instructor-profile",redirectTo:"instructor-profile",pathMatch:"full"},
-{path:"finance-course/logOut",redirectTo:"home",pathMatch:"full"},
-{path:"finance-course/student-profile",redirectTo:"student-profile",pathMatch:"full"},
-{path:"finance-course/my-courses",redirectTo:"my-courses",pathMatch:"full"},
-{path:"finance-course/course-Information",redirectTo:"course-Information",pathMatch:"full"},
-
-
-
-{path:"finance-course/development-course",redirectTo:"development-course",pathMatch:"full"},
-{path:"finance-course/finance-course",redirectTo:"finance-course",pathMatch:"full"},
-{path:"finance-course/it-course",redirectTo:"it-course",pathMatch:"full"},
-{path:"finance-course/design-course",redirectTo:"design-course",pathMatch:"full"},
-{path:"finance-course/business-course",redirectTo:"business-course",pathMatch:"full"},
-{path:"finance-course/marketing-course",redirectTo:"marketing-course",pathMatch:"full"},
-{path:"finance-course/health-course",redirectTo:"health-course",pathMatch:"full"},
-{path:"finance-course/offer-course",redirectTo:"offer-course",pathMatch:"full"},
-
-
-//  it-course
-
-{path:"it-course/studentHome",redirectTo:"studentHome",pathMatch:"full"},
-{path:"it-course/explore",redirectTo:"explore",pathMatch:"full"},
-{path:"it-course/cart",redirectTo:"cart",pathMatch:"full"},
-{path:"it-course/wishedList",redirectTo:"wishedList",pathMatch:"full"},
-{path:"it-course/instructor-profile",redirectTo:"instructor-profile",pathMatch:"full"},
-{path:"it-course/logOut",redirectTo:"home",pathMatch:"full"},
-{path:"it-course/student-profile",redirectTo:"student-profile",pathMatch:"full"},
-{path:"it-course/my-courses",redirectTo:"my-courses",pathMatch:"full"},
-{path:"it-course/course-Information",redirectTo:"course-Information",pathMatch:"full"},
-
-
-
-{path:"it-course/development-course",redirectTo:"development-course",pathMatch:"full"},
-{path:"it-course/finance-course",redirectTo:"finance-course",pathMatch:"full"},
-{path:"it-course/it-course",redirectTo:"it-course",pathMatch:"full"},
-{path:"it-course/design-course",redirectTo:"design-course",pathMatch:"full"},
-{path:"it-course/business-course",redirectTo:"business-course",pathMatch:"full"},
-{path:"it-course/marketing-course",redirectTo:"marketing-course",pathMatch:"full"},
-{path:"it-course/health-course",redirectTo:"health-course",pathMatch:"full"},
-{path:"it-course/offer-course",redirectTo:"offer-course",pathMatch:"full"},
-
-
-//  design-course
-
-{path:"design-course/studentHome",redirectTo:"studentHome",pathMatch:"full"},
-{path:"design-course/explore",redirectTo:"explore",pathMatch:"full"},
-{path:"design-course/cart",redirectTo:"cart",pathMatch:"full"},
-{path:"design-course/wishedList",redirectTo:"wishedList",pathMatch:"full"},
-{path:"design-course/instructor-profile",redirectTo:"instructor-profile",pathMatch:"full"},
-{path:"design-course/logOut",redirectTo:"home",pathMatch:"full"},
-{path:"design-course/student-profile",redirectTo:"student-profile",pathMatch:"full"},
-{path:"design-course/my-courses",redirectTo:"my-courses",pathMatch:"full"},
-{path:"design-course/course-Information",redirectTo:"course-Information",pathMatch:"full"},
-
-
-
-{path:"design-course/development-course",redirectTo:"development-course",pathMatch:"full"},
-{path:"design-course/finance-course",redirectTo:"finance-course",pathMatch:"full"},
-{path:"design-course/it-course",redirectTo:"it-course",pathMatch:"full"},
-{path:"design-course/design-course",redirectTo:"design-course",pathMatch:"full"},
-{path:"design-course/business-course",redirectTo:"business-course",pathMatch:"full"},
-{path:"design-course/marketing-course",redirectTo:"marketing-course",pathMatch:"full"},
-{path:"design-course/health-course",redirectTo:"health-course",pathMatch:"full"},
-{path:"design-course/offer-course",redirectTo:"offer-course",pathMatch:"full"},
-
-//  business-course
-
-{path:"business-course/studentHome",redirectTo:"studentHome",pathMatch:"full"},
-{path:"business-course/explore",redirectTo:"explore",pathMatch:"full"},
-{path:"business-course/cart",redirectTo:"cart",pathMatch:"full"},
-{path:"business-course/wishedList",redirectTo:"wishedList",pathMatch:"full"},
-{path:"business-course/instructor-profile",redirectTo:"instructor-profile",pathMatch:"full"},
-{path:"business-course/logOut",redirectTo:"home",pathMatch:"full"},
-{path:"business-course/student-profile",redirectTo:"student-profile",pathMatch:"full"},
-{path:"business-course/my-courses",redirectTo:"my-courses",pathMatch:"full"},
-{path:"business-course/course-Information",redirectTo:"course-Information",pathMatch:"full"},
-
-
-
-{path:"business-course/development-course",redirectTo:"development-course",pathMatch:"full"},
-{path:"business-course/finance-course",redirectTo:"finance-course",pathMatch:"full"},
-{path:"business-course/it-course",redirectTo:"it-course",pathMatch:"full"},
-{path:"business-course/design-course",redirectTo:"design-course",pathMatch:"full"},
-{path:"business-course/business-course",redirectTo:"business-course",pathMatch:"full"},
-{path:"business-course/marketing-course",redirectTo:"marketing-course",pathMatch:"full"},
-{path:"business-course/health-course",redirectTo:"health-course",pathMatch:"full"},
-{path:"business-course/offer-course",redirectTo:"offer-course",pathMatch:"full"},
-
-//  marketing-course
-
-{path:"marketing-course/studentHome",redirectTo:"studentHome",pathMatch:"full"},
-{path:"marketing-course/explore",redirectTo:"explore",pathMatch:"full"},
-{path:"marketing-course/cart",redirectTo:"cart",pathMatch:"full"},
-{path:"marketing-course/wishedList",redirectTo:"wishedList",pathMatch:"full"},
-{path:"marketing-course/instructor-profile",redirectTo:"instructor-profile",pathMatch:"full"},
-{path:"marketing-course/logOut",redirectTo:"home",pathMatch:"full"},
-{path:"marketing-course/student-profile",redirectTo:"student-profile",pathMatch:"full"},
-{path:"marketing-course/my-courses",redirectTo:"my-courses",pathMatch:"full"},
-{path:"marketing-course/course-Information",redirectTo:"course-Information",pathMatch:"full"},
-
-
-
-
-{path:"marketing-course/development-course",redirectTo:"development-course",pathMatch:"full"},
-{path:"marketing-course/finance-course",redirectTo:"finance-course",pathMatch:"full"},
-{path:"marketing-course/it-course",redirectTo:"it-course",pathMatch:"full"},
-{path:"marketing-course/design-course",redirectTo:"design-course",pathMatch:"full"},
-{path:"marketing-course/business-course",redirectTo:"business-course",pathMatch:"full"},
-{path:"marketing-course/marketing-course",redirectTo:"marketing-course",pathMatch:"full"},
-{path:"marketing-course/health-course",redirectTo:"health-course",pathMatch:"full"},
-{path:"marketing-course/offer-course",redirectTo:"offer-course",pathMatch:"full"},
-
-//  health-course
-
-{path:"health-course/studentHome",redirectTo:"studentHome",pathMatch:"full"},
-{path:"health-course/explore",redirectTo:"explore",pathMatch:"full"},
-{path:"health-course/cart",redirectTo:"cart",pathMatch:"full"},
-{path:"health-course/wishedList",redirectTo:"wishedList",pathMatch:"full"},
-{path:"health-course/instructor-profile",redirectTo:"instructor-profile",pathMatch:"full"},
-{path:"health-course/logOut",redirectTo:"home",pathMatch:"full"},
-{path:"health-course/student-profile",redirectTo:"student-profile",pathMatch:"full"},
-{path:"health-course/my-courses",redirectTo:"my-courses",pathMatch:"full"},
-{path:"health-course/course-Information",redirectTo:"course-Information",pathMatch:"full"},
-
-
-{path:"health-course/development-course",redirectTo:"development-course",pathMatch:"full"},
-{path:"health-course/finance-course",redirectTo:"finance-course",pathMatch:"full"},
-{path:"health-course/it-course",redirectTo:"it-course",pathMatch:"full"},
-{path:"health-course/design-course",redirectTo:"design-course",pathMatch:"full"},
-{path:"health-course/business-course",redirectTo:"business-course",pathMatch:"full"},
-{path:"health-course/marketing-course",redirectTo:"marketing-course",pathMatch:"full"},
-{path:"health-course/health-course",redirectTo:"health-course",pathMatch:"full"},
-{path:"health-course/offer-course",redirectTo:"offer-course",pathMatch:"full"},
-
-
-//  offer-course
-
-{path:"offer-course/studentHome",redirectTo:"studentHome",pathMatch:"full"},
-{path:"offer-course/explore",redirectTo:"explore",pathMatch:"full"},
-{path:"offer-course/cart",redirectTo:"cart",pathMatch:"full"},
-{path:"offer-course/wishedList",redirectTo:"wishedList",pathMatch:"full"},
-{path:"offer-course/instructor-profile",redirectTo:"instructor-profile",pathMatch:"full"},
-{path:"offer-course/logOut",redirectTo:"home",pathMatch:"full"},
-{path:"offer-course/student-profile",redirectTo:"student-profile",pathMatch:"full"},
-{path:"offer-course/my-courses",redirectTo:"my-courses",pathMatch:"full"},
-{path:"offer-course/course-Information",redirectTo:"course-Information",pathMatch:"full"},
-
-
-
-{path:"offer-course/development-course",redirectTo:"development-course",pathMatch:"full"},
-{path:"offer-course/finance-course",redirectTo:"finance-course",pathMatch:"full"},
-{path:"offer-course/it-course",redirectTo:"it-course",pathMatch:"full"},
-{path:"offer-course/design-course",redirectTo:"design-course",pathMatch:"full"},
-{path:"offer-course/business-course",redirectTo:"business-course",pathMatch:"full"},
-{path:"offer-course/marketing-course",redirectTo:"marketing-course",pathMatch:"full"},
-{path:"offer-course/health-course",redirectTo:"health-course",pathMatch:"full"},
-{path:"offer-course/offer-course",redirectTo:"offer-course",pathMatch:"full"},
 
 
 

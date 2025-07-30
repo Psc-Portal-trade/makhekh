@@ -1,0 +1,47 @@
+.correct-answer {
+  color: green;
+  font-weight: bold;
+}
+
+.wrong-answer {
+  color: red;
+}
+
+.student-answer {
+  font-style: italic;
+}
+
+.icon-user {
+  margin-right: 5px;
+}
+
+.question-box {
+  background-color: #f9f9f9;
+  padding: 10px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+.exam-summary-card {
+  background: #bdc9d3;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin-bottom: 30px;
+  border: 1px solid #e0e0e0;
+}
+
+.exam-summary-item {
+  margin-bottom: 10px;
+  font-size: 16px;
+  color: #333;
+}
+
+.status-pass {
+  color: #28a745;
+  font-weight: bold;
+}
+
+.status-fail {
+  color: #dc3545;
+  font-weight: bold;
+}

@@ -19,6 +19,7 @@
     <a routerLink="overview" (click)="closeMobileMenu()">{{'navigation.overview' | transloco}}</a>
     <a routerLink="students" (click)="closeMobileMenu()">{{'navigation.students' | transloco}}</a>
     <a routerLink="reviews" (click)="closeMobileMenu()">{{'navigation.reviews' | transloco}}</a>
+    <a routerLink="/orders" (click)="closeMobileMenu()">{{'navigation.orders' | transloco}}</a>
 
   </div>
 </div>
@@ -92,6 +93,10 @@
             [class.active]="selectedItem === 'reviews'" class="pb-3">
             <a style="color:black;">{{'navigation.reviews' | transloco}}</a>
           </li>
+          <li *ngIf="activeSection === 'performance'" routerLink='/orders' (click)="selectItem('orders')"
+          [class.active]="selectedItem === 'orders'" class="pb-3">
+          <a style="color:black;">{{'navigation.orders' | transloco}}</a>
+        </li>
         </ul>
       </ul>
     </div>

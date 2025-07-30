@@ -1,111 +1,111 @@
 {
 
 
-  "navbar":{
-  "register":"التسجيل",
-  "login":"تسجيل الدخول",
-  "teach in Makhekh":"درس على مخيخ",
-  "about us":"من نحن",
-  "home":"الرئيسية",
-  "search":"بحث",
-  "explore":"استكشف"
-},
-"footer":{
-  "discover more skills and learn with us":"اكتشف المزيد من المهارات وتعلم معنا",
-  "hurry up and get your certificate":"سارع بالحصول على شهادتك",
-  "legal and Accessibility":" القانونية وإمكانية الوصول ",
-  "terms and Conditions":"الشروط والأحكام",
-  "privacy policy":"سياسة الخصوصية",
-  "about makhekh":"عن مخيخ",
-  "about us":"من نحن",
-  "customer Reviews":"اراء العملاء",
-  "contact Us":"تواصل معنا"
-},
-"second-navbar":{
-  "register":"التسجيل",
-  "login":"تسجيل الدخول",
-  "instructor":"المدربين",
-  "student":"ملف الطالب",
-  "explore":"أستكشف",
-  "home":"الرئيسية",
-  "search":"بحث",
-  "my courses":"دوراتي",
-  "My Cart":"عربة التسوق",
-  "Wishlist":"المفضلة",
-  "Instructor Dashboard":"لوحة  المدرب",
-  "Notifications":"الأشعارات",
-  "Messages":"الرسائل",
-  "Account Settings":"إعدادات الحساب",
-  "Payment Methods":"طرق الدفع",
-  "Language":"اللغة",
-  "Help and Support":"المساعدة والدعم",
-  "Log out":"تسجيل الخروج",
-  "Student Profile":"الملف الشخصي للطالب",
-  "Instructor Profile":"الملف الشخصي للمدرب"
-
-
-
-
-
-
-
-
-},
-
-
-"home":{
-
-  "header-section":{
-        "discover our variety of courses.":"اكتشف مجموعة متنوعة من الدورات لدينا.",
-        "lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ultricies sapien a nibh scelerisque scelerisque":"لوريم إيبسوم دولور سيت أميت،  إيليت. لوريم إيبسوم دولور سيت أميت،  إيليت.لوريم إيبسوم دولور سيت أميت،  إيليت.",
-        "find Courses":"البحث عن الدورات"
-  },
-  "secondary-section-home":{
-    "all the skills you need in one place.":"جميع المهارات التي تحتاجها في مكان واحد.",
-    "development":"تطوير",
-    "delivering productivity":"تقديم الإنتاجية",
-    "health and Fitness":"الصحة واللياقة البدنية",
-    "marketing":"تسويق",
-    "administration":"إدارة",
-    "design":"تصميم",
-    "information Technology and Software":"تكنولوجيا المعلومات والبرمجيات",
-    "finance and Accounting":"المالية والمحاسبة",
-    "view all JavaScript courses":"عرض جميع دورات جافا اسكريبت ",
-    "view all React courses":"عرض جميع دورات  ريأكت",
-    "view all Angular courses":"عرض جميع دورات  انجيولار",
-    "view all Java courses":"عرض جميع دورات  جافا",
-    "view all Android courses":"عرض جميع دورات  اندرويد",
-    "view all CSS  courses":"عرض جميع دورات CSS",
-    "view all Web Development courses":"عرض جميع دورات تطوير الويب"
-  } ,
-  "third-section-home":{
-    "invest in your career with us":"استثمر في مسيرتك المهنية معنا",
-    "writing an English paragraph":"كتابة برجراف إنجليزي واحدة من أهم الطرق لتعليم دارس اللغة الإنجليزية الكتابة ابة بابة برجراف إنجليزي واحدة من أهم الطرق لتعليم دارس اللغة الإنجليزية الكتابة رجراف إنجليزي واحدة من أهم الطرق لتعليم دارس اللغة الإنجليزية الكتابة ",
-    "Get Offers":"احصل على العروض",
-    "flexible Learning":"التعلم المرن",
-    "get Your Certificate":"احصل على شهادتك",
-    "explore Courses":"استكشف الدورات",
-    "writing an English Paragraph is one of the most important ways to teach English learners to write":"كتابة برجراف إنجليزي واحدة من أهم الطرق لتعليم دارس اللغة الإنجليزية الكتابة التعلم الم"
-  },
-  "fourth-section-home":{
-  "join thousands of learners achieving their goals.":"انضم إلى آلاف المتعلمين الذين يحققون أهدافهم",
-  "daniela Turk":"دانييلا تورك",
-  "business Administration":"إدارة الأعمال",
-  "lorem Ipsum is simply dummy text of the printing industry.":" هو ببساطة نص شكلي (بمعنى أنه ليس بالضرورة أن يكون نصًا) يُستخدم في صناعة الطباعة.",
-  "ahmed Raouf":"أحمد رؤوف",
-  "engineering University":"جامعة الهندسة",
-  "lydia Anas":"ليديا أنس",
-  "frontend Engineer":"مهندس واجهة أمامية",
-  "omar Khaled":"عمر خالد",
-  "software Engineer":"مهندس برمجيات",
-  "sara Mahmoud":"سارة محمد",
-  "uI/UX Designer":"مصمم واجهة المستخدم وتجربة المستخدم"
-  }
-
+    "navbar": {
+        "register": "التسجيل",
+        "login": "تسجيل الدخول",
+        "teach in Makhekh": "درس على مخيخ",
+        "about us": "من نحن",
+        "home": "الرئيسية",
+        "search": "بحث",
+        "explore": "استكشف"
+    },
+    "footer": {
+        "discover more skills and learn with us": "اكتشف المزيد من المهارات وتعلم معنا",
+        "hurry up and get your certificate": "سارع بالحصول على شهادتك",
+        "legal and Accessibility": " القانونية وإمكانية الوصول ",
+        "terms and Conditions": "الشروط والأحكام",
+        "privacy policy": "سياسة الخصوصية",
+        "about makhekh": "عن مخيخ",
+        "about us": "من نحن",
+        "customer Reviews": "اراء العملاء",
+        "contact Us": "تواصل معنا"
+    },
+    "second-navbar": {
+        "register": "التسجيل",
+        "login": "تسجيل الدخول",
+        "instructor": "المدربين",
+        "student": "ملف الطالب",
+        "explore": "أستكشف",
+        "home": "الرئيسية",
+        "search": "بحث",
+        "my courses": "دوراتي",
+        "My Cart": "عربة التسوق",
+        "Wishlist": "المفضلة",
+        "Instructor Dashboard": "لوحة  المدرب",
+        "Notifications": "الأشعارات",
+        "Messages": "الرسائل",
+        "Account Settings": "إعدادات الحساب",
+        "Payment Methods": "طرق الدفع",
+        "Language": "اللغة",
+        "Help and Support": "المساعدة والدعم",
+        "Log out": "تسجيل الخروج",
+        "Student Profile": "الملف الشخصي للطالب",
+        "Instructor Profile": "الملف الشخصي للمدرب"
+
+
+
+
+
+
+
+
+    },
+
+
+    "home": {
+
+        "header-section": {
+            "discover our variety of courses.": "اكتشف مجموعة متنوعة من الدورات لدينا.",
+            "lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ultricies sapien a nibh scelerisque scelerisque": "لوريم إيبسوم دولور سيت أميت،  إيليت. لوريم إيبسوم دولور سيت أميت،  إيليت.لوريم إيبسوم دولور سيت أميت،  إيليت.",
+            "find Courses": "البحث عن الدورات"
+        },
+        "secondary-section-home": {
+            "all the skills you need in one place.": "جميع المهارات التي تحتاجها في مكان واحد.",
+            "development": "تطوير",
+            "delivering productivity": "تقديم الإنتاجية",
+            "health and Fitness": "الصحة واللياقة البدنية",
+            "marketing": "تسويق",
+            "administration": "إدارة",
+            "design": "تصميم",
+            "information Technology and Software": "تكنولوجيا المعلومات والبرمجيات",
+            "finance and Accounting": "المالية والمحاسبة",
+            "view all JavaScript courses": "عرض جميع دورات جافا اسكريبت ",
+            "view all React courses": "عرض جميع دورات  ريأكت",
+            "view all Angular courses": "عرض جميع دورات  انجيولار",
+            "view all Java courses": "عرض جميع دورات  جافا",
+            "view all Android courses": "عرض جميع دورات  اندرويد",
+            "view all CSS  courses": "عرض جميع دورات CSS",
+            "view all Web Development courses": "عرض جميع دورات تطوير الويب"
+        },
+        "third-section-home": {
+            "invest in your career with us": "استثمر في مسيرتك المهنية معنا",
+            "writing an English paragraph": "كتابة برجراف إنجليزي واحدة من أهم الطرق لتعليم دارس اللغة الإنجليزية الكتابة ابة بابة برجراف إنجليزي واحدة من أهم الطرق لتعليم دارس اللغة الإنجليزية الكتابة رجراف إنجليزي واحدة من أهم الطرق لتعليم دارس اللغة الإنجليزية الكتابة ",
+            "Get Offers": "احصل على العروض",
+            "flexible Learning": "التعلم المرن",
+            "get Your Certificate": "احصل على شهادتك",
+            "explore Courses": "استكشف الدورات",
+            "writing an English Paragraph is one of the most important ways to teach English learners to write": "كتابة برجراف إنجليزي واحدة من أهم الطرق لتعليم دارس اللغة الإنجليزية الكتابة التعلم الم"
+        },
+        "fourth-section-home": {
+            "join thousands of learners achieving their goals.": "انضم إلى آلاف المتعلمين الذين يحققون أهدافهم",
+            "daniela Turk": "دانييلا تورك",
+            "business Administration": "إدارة الأعمال",
+            "lorem Ipsum is simply dummy text of the printing industry.": " هو ببساطة نص شكلي (بمعنى أنه ليس بالضرورة أن يكون نصًا) يُستخدم في صناعة الطباعة.",
+            "ahmed Raouf": "أحمد رؤوف",
+            "engineering University": "جامعة الهندسة",
+            "lydia Anas": "ليديا أنس",
+            "frontend Engineer": "مهندس واجهة أمامية",
+            "omar Khaled": "عمر خالد",
+            "software Engineer": "مهندس برمجيات",
+            "sara Mahmoud": "سارة محمد",
+            "uI/UX Designer": "مصمم واجهة المستخدم وتجربة المستخدم"
+        }
+
 
 
 
-},
+    },
 
 
 
@@ -115,23 +115,23 @@
 
 
 
-"login":{
-  "login in to your account":"تسجيل الدخول إلى حسابك",
-  "email":"البريد الألكتروني",
-  "password":"كلمة السر",
-  "log in":"اشتراك",
-  "Forget password":"هل نسيت كلمة السر؟",
-  "dont have account":"ليس لديك حساب؟",
-  "Other login options":"خيارات اخري",
-  "sign up Student":"تسجيل كطالب",
-  "sign up Teacher":"تسجيل كمعلم",
+    "login": {
+        "login in to your account": "تسجيل الدخول إلى حسابك",
+        "email": "البريد الألكتروني",
+        "password": "كلمة السر",
+        "log in": "اشتراك",
+        "Forget password": "هل نسيت كلمة السر؟",
+        "dont have account": "ليس لديك حساب؟",
+        "Other login options": "خيارات اخري",
+        "sign up Student": "تسجيل كطالب",
+        "sign up Teacher": "تسجيل كمعلم",
 
-  "email required":"البريد الإلكتروني مطلوب",
-  "enter a valid email address.":"أدخل بريد إلكتروني صالح",
-  "Password required":"كلمة المرور مطلوبة",
-  "enter a valid password.":"أدخل كلمة مرور صالحة",
-  "Password must contain at least one letter, one number, and one special character.":"يجب أن تحتوي كلمة المرور على حرف واحد على الأقل ورقم واحد وحرف خاص واحد"
-  },
+        "email required": "البريد الإلكتروني مطلوب",
+        "enter a valid email address.": "أدخل بريد إلكتروني صالح",
+        "Password required": "كلمة المرور مطلوبة",
+        "enter a valid password.": "أدخل كلمة مرور صالحة",
+        "Password must contain at least one letter, one number, and one special character.": "يجب أن تحتوي كلمة المرور على حرف واحد على الأقل ورقم واحد وحرف خاص واحد"
+    },
 
 
 
@@ -139,269 +139,274 @@
 
 
 
-  "register": {
-    "Register with us and start learning now": "سجل معنا وابدأ التعلم الآن",
-    "Full Name": "الاسم بالكامل",
-    "Full Name is required":"الاسم الكامل مطلوب",
-    "Email": "البريد الإلكتروني",
-    "Password": "كلمة المرور",
-    "Email is required": "البريد الإلكتروني مطلوب",
-    "Enter a valid email": "أدخل بريدًا إلكترونيًا صالحًا",
-    "Password is required": "كلمة المرور مطلوبة",
-    "Enter a valid password": "أدخل كلمة مرور صالحة",
-    "Password must contain at least one letter, one number, and one special character": "يجب أن تحتوي كلمة المرور على حرف واحد على الأقل، رقم واحد، وحرف خاص واحد",
-    "Send me special offers, personalized recommendations, and learning tips": "أرسل لي عروضًا خاصة، وتوصيات مخصصة، ونصائح تعليمية",
-    "Sign Up": "اشتراك",
-    "Already have an account?": "هل لديك حساب بالفعل؟",
-    "Login": "تسجيل الدخول"
-  },
+    "register": {
+        "Register with us and start learning now": "سجل معنا وابدأ التعلم الآن",
+        "Full Name": "الاسم بالكامل",
+        "Full Name is required": "الاسم الكامل مطلوب",
+        "Email": "البريد الإلكتروني",
+        "Password": "كلمة المرور",
+        "Email is required": "البريد الإلكتروني مطلوب",
+        "Enter a valid email": "أدخل بريدًا إلكترونيًا صالحًا",
+        "Password is required": "كلمة المرور مطلوبة",
+        "Enter a valid password": "أدخل كلمة مرور صالحة",
+        "Password must contain at least one letter, one number, and one special character": "يجب أن تحتوي كلمة المرور على حرف واحد على الأقل، رقم واحد، وحرف خاص واحد",
+        "Send me special offers, personalized recommendations, and learning tips": "أرسل لي عروضًا خاصة، وتوصيات مخصصة، ونصائح تعليمية",
+        "Sign Up": "اشتراك",
+        "Already have an account?": "هل لديك حساب بالفعل؟",
+        "Login": "تسجيل الدخول"
+    },
 
 
 
 
 
 
-"about":{
-  "start teaching with us":"ابدأ التدريس معنا ",
-  "be a teacher and help learners":"البريد الألكتروني",
-  "start now":"أبدأ الأن",
-  "why_join_us": "لماذا تنضم إلينا؟",
-  "get_rewards": "احصل على المكافآت",
-  "get_rewards_desc": "وسع شبكة علاقاتك، وابنِ خبرتك، واكسب المال",
-  "motivate_learners": "حفّز المتعلمين",
-  "motivate_learners_desc": "ساعد المتعلمين على تحقيق أهدافهم، وتوسيع معارفهم، وتطوير مسيرتهم المهنية",
-  "teach_your_way": "درّس بطريقتك",
-  "teach_your_way_desc": "يمكنك تحميل مقاطع الفيديو المسجلة الخاصة بك، أو بدء بث مباشر. أضف محتواك الخاص",
-  "explain_courses": "دعنا نشرح نوع الدورات التي ستقوم بإنشائها",
-  "online_questions": "الأسئلة عبر الإنترنت / للتحميل",
-  "live_recorded_courses": "الدورات التعليمية المباشرة المسجلة",
-  "live_courses": "الدورات التعليمية المباشرة",
-  "recorded_courses": "الدورات التعليمية المسجلة",
-  "recorded_courses_desc": "يمكنك تحميل فيديو مسجل على موقعنا وزيادة عدد المتعلمين. حدد جمهورك المستهدف، اختر موضوعًا واعدًا وقدم الفائدة للمتعلمين الآخرين",
-  "testimonial_quote_1": "أنا فخور بوجودي هنا. على الرغم من أن العمل كمدرس بدوام كامل يعد عملاً شاقًا، إلا أنه يتيح لك العمل متى وأين وكيفما تريد.",
-  "testimonial_author_1": "ندي محسن",
-  "testimonial_role_1": "مصمم تجربة المستخدم وواجهة المستخدم",
-  "testimonial_quote_2": "أنا فخور بوجودي هنا. على الرغم من أن العمل كمدرس بدوام كامل يعد عملاً شاقًا، إلا أنه يتيح لك العمل متى وأين وكيفما تريد.",
-  "testimonial_author_2": "ندي محسن",
-  "testimonial_role_2": "مصمم تجربة المستخدم وواجهة المستخدم",
-  "previous": "السابق"
-
-},
-
-
-
-
-"secondHome":{
-
-"Welcome, Name":"مرحباً، ",
-"UX Designer":"مصمم تجربة المستخدم",
-"Development":"تطوير",
-"Finance & Accounting":"المالية والمحاسبة",
-"IT & Software":"تكنولوجيا المعلومات والبرمجيات",
-"Design":"تصميم",
-"Business":"عمل",
-"Marketing":"تسويق",
-"Health & Fitness":"الصحة واللياقة البدنية",
-"Offer Productivity":"عرض الإنتاجية",
-"recommended videos":"مقاطع فيديو موصى بها",
-"Featured Courses":"الدورات المميزة",
-"Continue learning":"استمر في التعلم"
-
-},
-
-
-
-
-
-
-
-
-
-
-"navigation": {
-  "internalNav": "التنقل الداخلي",
-  "sidebar": "الشريط الجانبي",
-  "student-view":"عرض الطالب",
-  "letter":"ح",
-  "communication": "التواصل",
-  "performance": "الأداء",
-  "messages": "الرسائل",
-  "suggestions": "اقتراحات الطلاب",
-  "overview": "نظرة عامة",
-  "students": "الطلاب",
-  "reviews": "المراجعات",
-  "courses":"الدورات",
-  "createCourses":"إنشاء الدورات",
-  "Profile":"الملف الشخصي",
-  "Quizes":"الاختبارات"
-
-},
-"dashboard": {
-  "createCourse": "أنشئ دورتك الخاصة",
-  "getStarted": "ابدأ الآن",
-  "createQuiz": "انشئ اختبارك الخاص"
-
-
-},
-"resources": {
-  "title": "هذه الموارد ستساعدك في الإجابة على جميع أسئلتك واستفساراتك",
-  "courseType": "ما نوع الدورات التي يمكنك إنشاؤها؟",
-  "seeMore": "المزيد →",
-  "engageLearners": "كيف تجذب المزيد من المتعلمين؟"
-},
-"benefits": {
-  "title": "العديد من الفوائد",
-  "coursePrice": "إضافة سعر الدورة",
-  "createCoupons": "إنشاء كوبونات",
-  "promoPrices": "أسعار ترويجية"
-},
-"cta": {
-  "question": "هل أنت مستعد للبدء؟",
-  "createCourse": "أنشئ دورتك"
-},
-"Q&A": "الأسئلة والأجوبة",
-"AllCourses": "جميع الدورات",
-"Question": "السؤال",
-"Answer": "الإجابة",
-"Action": "الإجراء",
-"noAnswerYet": "لا توجد أجوبة بعد.",
-"noQuestionsYet":" لا توجد أسئلة بعد.",
-"Edit": "تعديل",
-"Send an Answer": "إرسال إجابة",
-"Save": "حفظ",
- "course1":"الدورة الأولي",
- "course2":"الدورة الثانية",
- "course3":"الدورة الثالثة",
-
-"messages": {
-"title": "الرسائل",
-"all_courses": "كل الدورات",
-"course1": "دورة 1",
-"course2": "دورة 2",
-"course3": "دورة 3",
-"compose": "إنشاء رسالة",
-"read": "مقروءة",
-"unread": "غير مقروءة",
-"time_ago": "منذ 3 سنوات",
-"type_message": "اكتب رسالتك...",
-"send": "إرسال",
-"new_message": "رسالة جديدة",
-"to": "إلى:",
-"instructor_name": "اسم المدرب",
-"message":"رسالة"
-
-},
-"suggestions": {
-"title": "اقتراحات الطلاب",
-"comment1": "لوريم إيبسوم دولور سيت أميت، كونسيكتيتور أديبيسينج إليت. سيد أليكوام فاريترا تيليس نيك فيفيرا. أنين تيمبوس فينيبوس سيم، إت سوليسيتودين ماجنا لوكتوس نيك.",
-"reply": "رد",
-"write_reply": "اكتب ردك...",
-"send": "إرسال",
-"show_more": "عرض المزيد من الاقتراحات",
-"no_suggestions": "لا توجد اقتراحات متاحة"
-},
-"overview": {
-"title": "نظرة عامة",
-"allcourses": "جميع الدورات",
-"course 1": "الدورة 1",
-"course 2": "الدورة 2",
-"course 3": "الدورة 3",
-"extract_report": "استخراج التقرير",
-"total_revenue": "إجمالي الإيرادات",
-"total_enrollments": "إجمالي التسجيلات",
-"total_sales": "إجمالي المبيعات"
-}
-,
-"course 1": "الدورة 1",
-"course 2": "الدورة 2",
-"course 3": "الدورة 3",
-
-"LE":"جنية",
-"students": {
-  "title": "الطلاب",
-  "all_courses": "جميع الدورات",
-  "course_1": "الدورة ١",
-  "course_2": "الدورة ٢",
-  "course_3": "الدورة ٣",
-  "no_of_student": "عدد الطلاب",
-  "no_of_student_completed": "عدد الطلاب الذين أكملوا الدورة",
-  "suggestions": "اقتراحات الطلاب",
-  "no_of_questions": "عدد الأسئلة"
-},
-"noDataAvailable": "لا توجد بيانات متاحة للتقرير",
-"reviews": {
-"title": "التقييمات",
-"InstructorRating":"تقييم المُحاضر"
-},
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-"profile": {
-  "instructorView": "عرض المدرب",
-  "fullName": "الاسم",
-  "email": "البريد الإلكتروني",
-  "studentView": "عرض الطالب",
-  "instructorProfile": "الملف الشخصي للمدرب",
-    "Experience Years":"سنوات الخبرة",
-        "Teaching Type":"نوع التدريس",
-    "CV URL":" رابط السيرة الذاتية",
-    "Facebook":"فيسبوك",
-    "LinkedIn":"لينكد إن",
-    "Twitter":"تويتر",
-    "YouTube":"يوتيوب",
-    "done":"تم",
-
-  "uploadPhoto": "تحميل صورة",
-  "edit": "تعديل",
-  "firstName": "الاسم الأول",
-  "lastName": "الاسم الأخير",
-  "mainAddress": "العنوان الرئيسي",
-  "emailAddress": "عنوان البريد الإلكتروني",
-  "save": "حفظ",
-  "pageTitle": "الملف الشخصي",
-  "profileTab": "الملف الشخصي",
-  "suggestionsTab": "اقتراحات الطلاب",
-  "photoAlt": "صورة الملف الشخصي",
-  "occupation": "المهنة",
-  "facebook": "فيسبوك",
-  "linkedin": "لينكد إن",
-  "copyLink": "نسخ الرابط",
-  "language": "اللغة",
-  "english": "الإنجليزية",
-  "arabic": "العربية",
-  "address": "العنوان",
-  "file": "ملف",
-  "addProposal": "إضافة اقتراح",
-  "proposalDescription": "وصف الاقتراح",
-  "category": "التصنيف",
-  "courses": "الدورات",
-  "design": "تصميم",
-  "development": "تطوير",
-  "marketing": "تسويق",
-  "webDesign": "تصميم مواقع",
-  "uxUi": "تصميم تجربة المستخدم",
-  "fullStack": "تطوير الويب الشامل"
-}
-
-,
+    "about": {
+        "start teaching with us": "ابدأ التدريس معنا ",
+        "be a teacher and help learners": "البريد الألكتروني",
+        "start now": "أبدأ الأن",
+        "why_join_us": "لماذا تنضم إلينا؟",
+        "get_rewards": "احصل على المكافآت",
+        "get_rewards_desc": "وسع شبكة علاقاتك، وابنِ خبرتك، واكسب المال",
+        "motivate_learners": "حفّز المتعلمين",
+        "motivate_learners_desc": "ساعد المتعلمين على تحقيق أهدافهم، وتوسيع معارفهم، وتطوير مسيرتهم المهنية",
+        "teach_your_way": "درّس بطريقتك",
+        "teach_your_way_desc": "يمكنك تحميل مقاطع الفيديو المسجلة الخاصة بك، أو بدء بث مباشر. أضف محتواك الخاص",
+        "explain_courses": "دعنا نشرح نوع الدورات التي ستقوم بإنشائها",
+        "online_questions": "الأسئلة عبر الإنترنت / للتحميل",
+        "live_recorded_courses": "الدورات التعليمية المباشرة المسجلة",
+        "live_courses": "الدورات التعليمية المباشرة",
+        "recorded_courses": "الدورات التعليمية المسجلة",
+        "recorded_courses_desc": "يمكنك تحميل فيديو مسجل على موقعنا وزيادة عدد المتعلمين. حدد جمهورك المستهدف، اختر موضوعًا واعدًا وقدم الفائدة للمتعلمين الآخرين",
+        "testimonial_quote_1": "أنا فخور بوجودي هنا. على الرغم من أن العمل كمدرس بدوام كامل يعد عملاً شاقًا، إلا أنه يتيح لك العمل متى وأين وكيفما تريد.",
+        "testimonial_author_1": "ندي محسن",
+        "testimonial_role_1": "مصمم تجربة المستخدم وواجهة المستخدم",
+        "testimonial_quote_2": "أنا فخور بوجودي هنا. على الرغم من أن العمل كمدرس بدوام كامل يعد عملاً شاقًا، إلا أنه يتيح لك العمل متى وأين وكيفما تريد.",
+        "testimonial_author_2": "ندي محسن",
+        "testimonial_role_2": "مصمم تجربة المستخدم وواجهة المستخدم",
+        "previous": "السابق"
+
+    },
+
+
+
+
+    "secondHome": {
+
+        "Welcome, Name": "مرحباً، ",
+        "UX Designer": "مصمم تجربة المستخدم",
+        "Development": "تطوير",
+        "Finance & Accounting": "المالية والمحاسبة",
+        "IT & Software": "تكنولوجيا المعلومات والبرمجيات",
+        "Design": "تصميم",
+        "Business": "عمل",
+        "Marketing": "تسويق",
+        "Health & Fitness": "الصحة واللياقة البدنية",
+        "Offer Productivity": "عرض الإنتاجية",
+        "recommended videos": "مقاطع فيديو موصى بها",
+        "Featured Courses": "الدورات المميزة",
+        "Continue learning": "استمر في التعلم"
+
+    },
+
+
+
+
+
+
+
+
+
+
+    "navigation": {
+        "internalNav": "التنقل الداخلي",
+        "sidebar": "الشريط الجانبي",
+        "student-view": "عرض الطالب",
+        "letter": "ح",
+        "communication": "التواصل",
+        "performance": "الأداء",
+        "messages": "الرسائل",
+        "suggestions": "اقتراحات الطلاب",
+        "overview": "نظرة عامة",
+        "students": "الطلاب",
+        "reviews": "المراجعات",
+        "courses": "الدورات",
+        "createCourses": "إنشاء الدورات",
+        "Profile": "الملف الشخصي",
+        "Quizes": "الاختبارات",
+        "orders": "الطلبات"
+    },
+    "dashboard": {
+        "title": "لوحة التحكم",
+        "welcome": "مرحبا بك في لوحة التحكم",
+        "createCourse": "أنشئ دورتك الخاصة",
+        "getStarted": "ابدأ الآن",
+        "createQuiz": "انشئ اختبارك الخاص"
+    },
+    "orders": {
+        "title": "الطلبات",
+        "studentName": "اسم الطالب",
+        "courseName": "اسم الدورة",
+        "subscriptionDate": "تاريخ الاشتراك"
+    },
+    "resources": {
+        "title": "هذه الموارد ستساعدك في الإجابة على جميع أسئلتك واستفساراتك",
+        "courseType": "ما نوع الدورات التي يمكنك إنشاؤها؟",
+        "seeMore": "المزيد →",
+        "engageLearners": "كيف تجذب المزيد من المتعلمين؟"
+    },
+    "benefits": {
+        "title": "العديد من الفوائد",
+        "coursePrice": "إضافة سعر الدورة",
+        "createCoupons": "إنشاء كوبونات",
+        "promoPrices": "أسعار ترويجية"
+    },
+    "cta": {
+        "question": "هل أنت مستعد للبدء؟",
+        "createCourse": "أنشئ دورتك"
+    },
+    "Q&A": "الأسئلة والأجوبة",
+    "AllCourses": "جميع الدورات",
+    "Question": "السؤال",
+    "Answer": "الإجابة",
+    "Action": "الإجراء",
+    "noAnswerYet": "لا توجد أجوبة بعد.",
+    "noQuestionsYet": " لا توجد أسئلة بعد.",
+    "Edit": "تعديل",
+    "Send an Answer": "إرسال إجابة",
+    "Save": "حفظ",
+    "course1": "الدورة الأولي",
+    "course2": "الدورة الثانية",
+    "course3": "الدورة الثالثة",
+
+    "messages": {
+        "title": "الرسائل",
+        "all_courses": "كل الدورات",
+        "course1": "دورة 1",
+        "course2": "دورة 2",
+        "course3": "دورة 3",
+        "compose": "إنشاء رسالة",
+        "read": "مقروءة",
+        "unread": "غير مقروءة",
+        "time_ago": "منذ 3 سنوات",
+        "type_message": "اكتب رسالتك...",
+        "send": "إرسال",
+        "new_message": "رسالة جديدة",
+        "to": "إلى:",
+        "instructor_name": "اسم المدرب",
+        "message": "رسالة"
+
+    },
+    "suggestions": {
+        "title": "اقتراحات الطلاب",
+        "comment1": "لوريم إيبسوم دولور سيت أميت، كونسيكتيتور أديبيسينج إليت. سيد أليكوام فاريترا تيليس نيك فيفيرا. أنين تيمبوس فينيبوس سيم، إت سوليسيتودين ماجنا لوكتوس نيك.",
+        "reply": "رد",
+        "write_reply": "اكتب ردك...",
+        "send": "إرسال",
+        "show_more": "عرض المزيد من الاقتراحات",
+        "no_suggestions": "لا توجد اقتراحات متاحة"
+    },
+    "overview": {
+        "title": "نظرة عامة",
+        "allcourses": "جميع الدورات",
+        "course 1": "الدورة 1",
+        "course 2": "الدورة 2",
+        "course 3": "الدورة 3",
+        "extract_report": "استخراج التقرير",
+        "total_revenue": "إجمالي الإيرادات",
+        "total_enrollments": "إجمالي التسجيلات",
+        "total_sales": "إجمالي المبيعات"
+    },
+    "course 1": "الدورة 1",
+    "course 2": "الدورة 2",
+    "course 3": "الدورة 3",
+
+    "LE": "جنية",
+    "students": {
+        "title": "الطلاب",
+        "all_courses": "جميع الدورات",
+        "course_1": "الدورة ١",
+        "course_2": "الدورة ٢",
+        "course_3": "الدورة ٣",
+        "no_of_student": "عدد الطلاب",
+        "no_of_student_completed": "عدد الطلاب الذين أكملوا الدورة",
+        "suggestions": "اقتراحات الطلاب",
+        "no_of_questions": "عدد الأسئلة"
+    },
+    "noDataAvailable": "لا توجد بيانات متاحة للتقرير",
+    "reviews": {
+        "title": "التقييمات",
+        "InstructorRating": "تقييم المُحاضر"
+    },
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    "profile": {
+        "instructorView": "عرض المدرب",
+        "fullName": "الاسم",
+        "email": "البريد الإلكتروني",
+        "studentView": "عرض الطالب",
+        "instructorProfile": "الملف الشخصي للمدرب",
+        "Experience Years": "سنوات الخبرة",
+        "Teaching Type": "نوع التدريس",
+        "CV URL": " رابط السيرة الذاتية",
+        "Facebook": "فيسبوك",
+        "LinkedIn": "لينكد إن",
+        "Twitter": "تويتر",
+        "YouTube": "يوتيوب",
+        "done": "تم",
+
+        "uploadPhoto": "تحميل صورة",
+        "edit": "تعديل",
+        "firstName": "الاسم الأول",
+        "lastName": "الاسم الأخير",
+        "mainAddress": "العنوان الرئيسي",
+        "emailAddress": "عنوان البريد الإلكتروني",
+        "save": "حفظ",
+        "pageTitle": "الملف الشخصي",
+        "profileTab": "الملف الشخصي",
+        "suggestionsTab": "اقتراحات الطلاب",
+        "photoAlt": "صورة الملف الشخصي",
+        "occupation": "المهنة",
+        "facebook": "فيسبوك",
+        "linkedin": "لينكد إن",
+        "copyLink": "نسخ الرابط",
+        "language": "اللغة",
+        "english": "الإنجليزية",
+        "arabic": "العربية",
+        "address": "العنوان",
+        "file": "ملف",
+        "addProposal": "إضافة اقتراح",
+        "proposalDescription": "وصف الاقتراح",
+        "category": "التصنيف",
+        "courses": "الدورات",
+        "design": "تصميم",
+        "development": "تطوير",
+        "marketing": "تسويق",
+        "webDesign": "تصميم مواقع",
+        "uxUi": "تصميم تجربة المستخدم",
+        "fullStack": "تطوير الويب الشامل"
+    }
+
+    ,
     "step": "الخطوة",
     "of": "من",
     "exit": "خروج",
@@ -423,101 +428,98 @@
     "course3_title": "دورات تعليمية مسجلة مع بث مباشر",
     "course3_description": "قم بتحميل مقاطع الفيديو المسجلة ولكن مع جداول بث مباشر. ضبط جدولك بالتاريخ والوقت، وعدد الطلاب، وضبط رابط البث المباشر.",
     "course4_title": "أسئلة عبر الإنترنت / أوف لاين",
-    "course4_description": "يمكنك إعداد نوع الأسئلة والاختبارات. عبر الإنترنت حيث يمكن للمتعلمين إرسال إجاباتهم أو أوف لاين كملف PDF حيث يمكن للمتعلمين تنزيل الأسئلة."
-    ,"step3": {
-      "title": "اختر الفئة",
-      "selectCategory": "اختر فئة"
+    "course4_description": "يمكنك إعداد نوع الأسئلة والاختبارات. عبر الإنترنت حيث يمكن للمتعلمين إرسال إجاباتهم أو أوف لاين كملف PDF حيث يمكن للمتعلمين تنزيل الأسئلة.",
+    "step3": {
+        "title": "اختر الفئة",
+        "selectCategory": "اختر فئة"
     },
     "categories": {
-      "development": "تطوير",
-      "business": "الأعمال",
-      "finance": "المالية والمحاسبة",
-      "itSoftware": "تكنولوجيا المعلومات والبرمجيات",
-      "officeProductivity": "إنتاجية المكاتب",
-      "personalDevelopment": "التطوير الشخصي",
-      "design": "تصميم",
-      "marketing": "التسويق",
-      "lifestyle": "نمط الحياة",
-      "music": "الموسيقى",
-      "photography": "التصوير والفيديو",
-      "healthFitness": "الصحة واللياقة البدنية",
-      "teachingAcademics": "التدريس والأكاديميات",
-      "other": "أخرى"
+        "development": "تطوير",
+        "business": "الأعمال",
+        "finance": "المالية والمحاسبة",
+        "itSoftware": "تكنولوجيا المعلومات والبرمجيات",
+        "officeProductivity": "إنتاجية المكاتب",
+        "personalDevelopment": "التطوير الشخصي",
+        "design": "تصميم",
+        "marketing": "التسويق",
+        "lifestyle": "نمط الحياة",
+        "music": "الموسيقى",
+        "photography": "التصوير والفيديو",
+        "healthFitness": "الصحة واللياقة البدنية",
+        "teachingAcademics": "التدريس والأكاديميات",
+        "other": "أخرى"
     },
     "step1": {
-      "title": "اختر نوع الدورة التعليمية"
+        "title": "اختر نوع الدورة التعليمية"
     },
 
 
-"quiz-component": {
-  "title": "اختر نوع بنك الأسئلة",
-  "title1": "بنك أسئلة لأي موضوع",
-  "description1": "يمكنك إنشاء بنك أسئلة في أي مجال تختاره، سواء كان أكاديميًا أو مهنيًا أو موضوعًا تهتم به — ساعد المتعلمين على التدريب، واختبار معرفتهم، والنمو.",
-  "title2": "أضف أسئلة إلى دورتك المحمّلة",
-  "description2": "هل سبق أن حمّلت دورتك؟ يمكنك الآن إنشاء بنك أسئلة مخصص لها لتعزيز ما شاهده المتعلمون وتقييم مدى فهمهم بفعالية.",
-  "category":"التصنيف"
+    "quiz-component": {
+        "title": "اختر نوع بنك الأسئلة",
+        "title1": "بنك أسئلة لأي موضوع",
+        "description1": "يمكنك إنشاء بنك أسئلة في أي مجال تختاره، سواء كان أكاديميًا أو مهنيًا أو موضوعًا تهتم به — ساعد المتعلمين على التدريب، واختبار معرفتهم، والنمو.",
+        "title2": "أضف أسئلة إلى دورتك المحمّلة",
+        "description2": "هل سبق أن حمّلت دورتك؟ يمكنك الآن إنشاء بنك أسئلة مخصص لها لتعزيز ما شاهده المتعلمون وتقييم مدى فهمهم بفعالية.",
+        "category": "التصنيف"
 
-},
+    },
 
-"quiz-form": {
-  "title": "عنوان الكويز",
-  "description": "الوصف",
-  "time": "الوقت ",
-  "duration": "المدة (مثلاً: 30 دقيقة)",
-  "passingGrade": "درجة النجاح (%)",
-  "questionOrder": "طريقة ترتيب الأسئلة",
-  "order": {
-    "sequential": "ترتيب متسلسل",
-    "random": "عشوائي"
-  }
-}
-,
+    "quiz-form": {
+        "title": "عنوان الكويز",
+        "description": "الوصف",
+        "time": "الوقت ",
+        "duration": "المدة (مثلاً: 30 دقيقة)",
+        "passingGrade": "درجة النجاح (%)",
+        "questionOrder": "طريقة ترتيب الأسئلة",
+        "order": {
+            "sequential": "ترتيب متسلسل",
+            "random": "عشوائي"
+        }
+    },
 
 
     "Recorded Educational Courses": "دورات تعليمية مسجلة",
-    "You can upload a recorded made video on our website and increase the no of learners. Define your target audience, pick a promising topic and benefit other learners.":
-    "يمكنك تحميل فيديو مسجل على موقعنا وزيادة عدد المتعلمين. حدد جمهورك المستهدف، اختر موضوعًا واعدًا وقدم الفائدة للمتعلمين الآخرين.",
+    "You can upload a recorded made video on our website and increase the no of learners. Define your target audience, pick a promising topic and benefit other learners.": "يمكنك تحميل فيديو مسجل على موقعنا وزيادة عدد المتعلمين. حدد جمهورك المستهدف، اختر موضوعًا واعدًا وقدم الفائدة للمتعلمين الآخرين.",
     "Live Streamed Educational Courses": "دورات تعليمية مباشرة",
-    "Upload live videos and will help you to reserve your class with the capacity you need. Calendar schedule where you can adjust all your data. Submit your course link.":
-    "قم بتحميل مقاطع فيديو مباشرة وسيساعدك ذلك في حجز فصلك الدراسي بالسعة التي تحتاجها. يمكنك ضبط جدولك الزمني وتقديم رابط دورتك."
+    "Upload live videos and will help you to reserve your class with the capacity you need. Calendar schedule where you can adjust all your data. Submit your course link.": "قم بتحميل مقاطع فيديو مباشرة وسيساعدك ذلك في حجز فصلك الدراسي بالسعة التي تحتاجها. يمكنك ضبط جدولك الزمني وتقديم رابط دورتك."
 
-    ,"course": {
-      "webDevelopment": "دورة تطوير الويب",
-      "progress": "تقدمك",
-      "of": "من",
-      "complete": "مكتملة",
-      "finishToGetCertificate": "أكمل الدورة للحصول على شهادتك",
-      "imageAlt": "صورة الدورة",
-      "overview": "نظرة عامة",
-      "notes": "ملاحظات",
-      "qAndA": "الأسئلة والأجوبة",
-      "reviews": "التقييمات",
-      "resources": "الموارد",
-      "certification": "الشهادة",
-      "instructor": "المحاضر",
-      "instructorDesc": "لوريم إيبسوم دولور سيت أميت، كونسيكتيتور أديبيسينج إيليت.",
-      "getCertificate": "احصل على الشهادة",
-      "complete75": "يجب إكمال 75% على الأقل من الدورة للحصول على الشهادة."
-    }
     ,
+    "course": {
+        "webDevelopment": "دورة تطوير الويب",
+        "progress": "تقدمك",
+        "of": "من",
+        "complete": "مكتملة",
+        "finishToGetCertificate": "أكمل الدورة للحصول على شهادتك",
+        "imageAlt": "صورة الدورة",
+        "overview": "نظرة عامة",
+        "notes": "ملاحظات",
+        "qAndA": "الأسئلة والأجوبة",
+        "reviews": "التقييمات",
+        "resources": "الموارد",
+        "certification": "الشهادة",
+        "instructor": "المحاضر",
+        "instructorDesc": "لوريم إيبسوم دولور سيت أميت، كونسيكتيتور أديبيسينج إيليت.",
+        "getCertificate": "احصل على الشهادة",
+        "complete75": "يجب إكمال 75% على الأقل من الدورة للحصول على الشهادة."
+    },
     "instructor": {
-      "becomeInstructor": "كن مدربا الان",
-      "signupTitle": "سجل وانضم كمدرب",
-      "fullName": "الاسم الكامل",
-      "email": "البريد الإلكتروني",
-      "password": "كلمة المرور",
-      "terms": "أرسل لي عروضًا خاصة، توصيات مخصصة، ونصائح تعليمية.",
-      "signup": "سجل",
-      "alreadyHaveAccount": "لديك حساب بالفعل؟",
-      "login": "تسجيل الدخول",
-      "knowledgeTitle": "أخبرنا عن خبرتك",
-      "teachingExperience": "ما نوع التدريس الذي مارسته من قبل؟",
-      "personal": "شخصي / غير رسمي",
-      "professional": "مهني",
-      "online": "عبر الإنترنت",
-      "others": "أخرى",
-      "previous": "السابق",
-      "next": "التالي",
+        "becomeInstructor": "كن مدربا الان",
+        "signupTitle": "سجل وانضم كمدرب",
+        "fullName": "الاسم الكامل",
+        "email": "البريد الإلكتروني",
+        "password": "كلمة المرور",
+        "terms": "أرسل لي عروضًا خاصة، توصيات مخصصة، ونصائح تعليمية.",
+        "signup": "سجل",
+        "alreadyHaveAccount": "لديك حساب بالفعل؟",
+        "login": "تسجيل الدخول",
+        "knowledgeTitle": "أخبرنا عن خبرتك",
+        "teachingExperience": "ما نوع التدريس الذي مارسته من قبل؟",
+        "personal": "شخصي / غير رسمي",
+        "professional": "مهني",
+        "online": "عبر الإنترنت",
+        "others": "أخرى",
+        "previous": "السابق",
+        "next": "التالي",
         "nameRequired": "الاسم مطلوب",
         "emailRequired": "البريد الإلكتروني مطلوب",
         "validEmail": "يرجى إدخال بريد إلكتروني صحيح",
@@ -525,670 +527,831 @@
         "validPassword": "يرجى إدخال كلمة مرور صحيحة",
         "passwordHint": "يجب أن تحتوي كلمة المرور على حرف واحد على الأقل، رقم واحد، ورمز خاص."
 
-    },"auth": {
-      "alreadyHaveAccount": "لديك حساب بالفعل؟",
-      "login": "تسجيل الدخول"
-    }
-    ,
-"content2": {
-  "title1": "أخبرنا عن معرفتك",
-  "title2": "ما نوع التدريس الذي مارسته من قبل؟",
-  "Personal": "شخصي/غير رسمي",
-  "Professional": "احترافي",
-  "Online": "عبر الإنترنت",
-  "Others": "أخرى",
-  "text": "يرجى تحديد نوع التدريس الخاص بك ...",
-  "Previous": "السابق",
-  "Next": "التالي"
-},
-"content3": {
-  "title1": "أخبرنا عن معرفتك",
-  "title2": "ما مدى احترافك في إنشاء المحتوى؟",
-  "Beginner": "مبتدئ",
-  "knowledge": "لدي بعض المعرفة",
-  "experienced": "ذو خبرة",
-  "videos": "لدي مقاطع فيديو جاهزة للرفع",
-  "Previous": "السابق",
-  "Next": "التالي"
-},
-"content4": {
-  "title1": "أخبرنا عن معرفتك",
-  "title2": "هل لديك جمهور لمشاركة دورتك معه؟",
-  "Beginner": "ليس في الوقت الحالي",
-  "knowledge": "لدي بعض المتابعين",
-  "experienced": "لدي عدد كبير من المتابعين",
-  "videos": "لدي مقاطع فيديو جاهزة للرفع",
-  "Previous": "السابق",
-  "Done": "تم"
-}
-,
+    },
+    "auth": {
+        "alreadyHaveAccount": "لديك حساب بالفعل؟",
+        "login": "تسجيل الدخول"
+    },
+    "content2": {
+        "title1": "أخبرنا عن معرفتك",
+        "title2": "ما نوع التدريس الذي مارسته من قبل؟",
+        "Personal": "شخصي/غير رسمي",
+        "Professional": "احترافي",
+        "Online": "عبر الإنترنت",
+        "Others": "أخرى",
+        "text": "يرجى تحديد نوع التدريس الخاص بك ...",
+        "Previous": "السابق",
+        "Next": "التالي"
+    },
+    "content3": {
+        "title1": "أخبرنا عن معرفتك",
+        "title2": "ما مدى احترافك في إنشاء المحتوى؟",
+        "Beginner": "مبتدئ",
+        "knowledge": "لدي بعض المعرفة",
+        "experienced": "ذو خبرة",
+        "videos": "لدي مقاطع فيديو جاهزة للرفع",
+        "Previous": "السابق",
+        "Next": "التالي"
+    },
+    "content4": {
+        "title1": "أخبرنا عن معرفتك",
+        "title2": "هل لديك جمهور لمشاركة دورتك معه؟",
+        "Beginner": "ليس في الوقت الحالي",
+        "knowledge": "لدي بعض المتابعين",
+        "experienced": "لدي عدد كبير من المتابعين",
+        "videos": "لدي مقاطع فيديو جاهزة للرفع",
+        "Previous": "السابق",
+        "Done": "تم"
+    },
 
-  "Course": {
-    "name": "دورة تطوير الويب"
-  },
-  "progress": {
-    "yourProgress": "تقدمك",
-    "of": "من",
-    "complete": "مكتمل",
-    "finishCourse": "أكمل الدورة للحصول على الشهادة"
-  },
-  "tabs": {
-    "overview": "نظرة عامة",
-    "notes": "ملاحظات",
-    "qna": "سؤال & جواب",
-    "reviews": "التقييمات",
-    "resources": "الموارد",
-    "certification": "الشهادة"
-  },
-  "Instructor": {
-    "title": "المحاضر",
-    "rating": "تقييم المحاضر",
-    "courses": "الدورات",
-    "students": "الطلاب",
-    "reviews": "التقييمات",
-    "description":"محاضر متمرس في تطوير الويب."
+    "Course": {
+        "name": "دورة تطوير الويب"
+    },
+    "progress": {
+        "yourProgress": "تقدمك",
+        "of": "من",
+        "complete": "مكتمل",
+        "finishCourse": "أكمل الدورة للحصول على الشهادة"
+    },
+    "tabs": {
+        "overview": "نظرة عامة",
+        "notes": "ملاحظات",
+        "qna": "سؤال & جواب",
+        "reviews": "التقييمات",
+        "resources": "الموارد",
+        "certification": "الشهادة"
+    },
+    "Instructor": {
+        "title": "المحاضر",
+        "rating": "تقييم المحاضر",
+        "courses": "الدورات",
+        "students": "الطلاب",
+        "reviews": "التقييمات",
+        "description": "محاضر متمرس في تطوير الويب."
 
-  },
-  "ratings": {
-    "total": "التقييم"
-  },
-  "Students": {
-    "total": "الطلاب"
-  },
-  "duration": {
-    "total": "المدة"
-  }
-  ,
-  "notes": {
-    "placeholder": "أدخل ملاحظتك..."
-  },
-  "buttons": {
-    "cancel": "إلغاء",
-    "save": "حفظ"
-  },
-  "actions": {
-    "saveNote": "حفظ الملاحظة",
-    "cancel": "إلغاء",
-    "sendQuestion": "إرسال السؤال"
-  },
-  "qna": {
-    "addQuestion": "أضف سؤالك واحصل على إجابة",
-    "placeholder": "أدخل سؤالك...",
-    "send": "إرسال السؤال",
-    "questions": "الأسئلة",
-    "question": "السؤال",
-    "answer": "الإجابة",
-    "noAnswer": "لا يوجد إجابة بعد",
-    "noQuestions": "لا توجد أسئلة متاحة."
-  },
-  "Resources": {
-    "challenge": "تحدَّ نفسك ومارس ما تعلمته",
-    "onlineQuestions": "أسئلة أونلاين",
-    "downloadPDF": "تحميل الأسئلة (PDF)",
-    "webDevQuestions": "أسئلة تطوير الويب"
-  },
-  "certification": {
-    "get": "احصل على الشهادة",
-    "warning": "⚠️ يجب إكمال 75٪ على الأقل من الدورة للحصول على الشهادة.",
-    "save": "حفظ كـ",
-    "print": "طباعة"
-  },
-  "content": {
-    "content": "محتوى الدورة",
-    "lectures": "المحاضرات",
-    "hours":"ساعة",
-    "minutes":"دقيقة"
-}
-,
-  "lectures": {
-    "allLectures": "جميع المحاضرات",
-    "currentLecture": "المحاضرة الحالية",
-    "selectLecture": "اختر محاضرة",
-    "count": "Lectures"
+    },
+    "ratings": {
+        "total": "التقييم"
+    },
+    "Students": {
+        "total": "الطلاب"
+    },
+    "duration": {
+        "total": "المدة"
+    },
+    "notes": {
+        "placeholder": "أدخل ملاحظتك..."
+    },
+    "buttons": {
+        "cancel": "إلغاء",
+        "save": "حفظ"
+    },
+    "actions": {
+        "saveNote": "حفظ الملاحظة",
+        "cancel": "إلغاء",
+        "sendQuestion": "إرسال السؤال"
+    },
+    "qna": {
+        "addQuestion": "أضف سؤالك واحصل على إجابة",
+        "placeholder": "أدخل سؤالك...",
+        "send": "إرسال السؤال",
+        "questions": "الأسئلة",
+        "question": "السؤال",
+        "answer": "الإجابة",
+        "noAnswer": "لا يوجد إجابة بعد",
+        "noQuestions": "لا توجد أسئلة متاحة."
+    },
+    "Resources": {
+        "challenge": "تحدَّ نفسك ومارس ما تعلمته",
+        "onlineQuestions": "أسئلة أونلاين",
+        "downloadPDF": "تحميل الأسئلة (PDF)",
+        "webDevQuestions": "أسئلة تطوير الويب"
+    },
+    "certification": {
+        "get": "احصل على الشهادة",
+        "warning": "⚠️ يجب إكمال 75٪ على الأقل من الدورة للحصول على الشهادة.",
+        "save": "حفظ كـ",
+        "print": "طباعة"
+    },
+    "content": {
+        "content": "محتوى الدورة",
+        "lectures": "المحاضرات",
+        "hours": "ساعة",
+        "minutes": "دقيقة"
+    },
+    "lectures": {
+        "allLectures": "جميع المحاضرات",
+        "currentLecture": "المحاضرة الحالية",
+        "selectLecture": "اختر محاضرة",
+        "count": "Lectures"
 
-  },
-  "sections": {
-    "title": "القسم"
-  },
+    },
+    "sections": {
+        "title": "القسم"
+    },
 
 
 
 
 
 
-  "cart":
-  {
-  "Shopping Cart":"عربة التسوق",
-  "courses in cart":"الدورات في عربة التسوق",
-  "Remove":"ازالة",
-  "Move to wishlist":"انتقل إلى قائمة الرغبات",
-  "Remove from wishlist":"إزالة من قائمة الرغبات",
-  "Continue Shopping":"متابعة التسوق",
-  "Checkout":"الدفع",
-  "Total Price:":"السعر الكلى :",
-"needStudentAccount": "لإتمام عملية شراء هذا الكورس، يتعيّن عليك التسجيل كطالب.",
-"Close":"أغلق",
-"Please Login First":"رجاء قم بتسجيل الدخول أولا",
-"alert":"تنبيه"
-  },
+    "cart": {
+        "Shopping Cart": "عربة التسوق",
+        "courses in cart": "الدورات في عربة التسوق",
+        "Remove": "ازالة",
+        "Move to wishlist": "انتقل إلى قائمة الرغبات",
+        "Remove from wishlist": "إزالة من قائمة الرغبات",
+        "Continue Shopping": "متابعة التسوق",
+        "Checkout": "الدفع",
+        "Total Price:": "السعر الكلى :",
+        "needStudentAccount": "لإتمام عملية شراء هذا الكورس، يتعيّن عليك التسجيل كطالب.",
+        "Close": "أغلق",
+        "Please Login First": "رجاء قم بتسجيل الدخول أولا",
+        "alert": "تنبيه"
+    },
 
 
-  "cours-details":{
-      "Title:": "العنوان :",
-  "Description:": "الوصف :",
-  "No description": "لا يوجد وصف",
+    "cours-details": {
+        "Title:": "العنوان :",
+        "Description:": "الوصف :",
+        "No description": "لا يوجد وصف",
 
 
-    "promoVideo":" فيديو ترويجي",
+        "promoVideo": " فيديو ترويجي",
         "Your browser does not support video playback.": "متصفحك لا يدعم تشغيل الفيديو.",
         "Section": "قسم",
         "SubSection": "قسم فرعي",
         "Lecture Title": "عنوان المحاضرة",
         "Description": "الوصف",
-  "Students":"طلاب",
-  "ratings":"التقييمات",
-  "Created by":"تم الإنشاء بواسطة",
-  "Last updates":"آخر التحديثات",
-  "Live Course":"دورة مباشرة",
-  "Book your spot":"احجز مكانك",
-  "What will you learn":"ماذا ستتعلم",
-  "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer sed porttitor nisl.":"لوريم إيبسوم دولور سيت أميت، إيليت. عدد صحيح هو بورتيتور نيسل.",
-  "seats left":"المقاعد المتبقية",
-  "Add to Cart":"أضف إلى السلة",
-  "Remove From Cart":"إزالة من عربة التسوق",
-  "Add to wishlist":"أضف إلى قائمة الرغبات",
-  "Remove from list":"إزالة من القائمة",
-  "Buy Now":"اشتري الآن",
-  "This course includes:":"تتضمن هذه الدورة:",
-  "Assignments & quizzes":"الواجبات والاختبارات",
-  "Certification":"شهادة",
-  "Course Content":"محتوى الدورة",
-  "sections":"الأقسام",
-  "Lectures":"المحاضرات",
-  "total length":"الطول الإجمالي",
-  "Instructor":"مدرب",
-  "Lorem ipsum dolor sit amet, consectetur adipiscing elit.":"لوريم إيبسوم دولور سيت أميت،  إيليت.",
-  "Instructor Rating":"تقييم المدرب",
-  "Courses":"الدورات",
-  "Reviews":"المراجعات",
-  "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Itaque optio consequuntur voluptates ipsa illum rem laudantium fugit modi saepe numquam perferendis, expedita porro quo, dolorum iure repellendus. Non culpa minus explicabo deserunt ab odit labore deleniti similique esse obcaecati perspiciatis corporis sed minima facilis quidem quibusdam, iusto omnis laudantium iure assumenda officiis consequatur nihil. Laudantium, enim, nisi error minus reprehenderit earum itaque alias ad ea numquam accusantium praesentium vel eveniet nihil, rem debitis rerum eaque quo nemo? Error, hic ratione autem deserunt doloribus aperiam rem quo nemo ab quaerat, provident expedita nesciunt distinctio ex dignissimos natus odit maiores soluta nisi.":"لوريم إيبسوم، دولور سيت أميت كونسيكتور أديبيسينج إيليت. إنه خيار نتيجة يتقلب  لا يوجد خطأ ناقص توضيح ما هو مطلوب من تفاصيل العمل المشابهة، فهي تمتلك خبرة جسدية مع الحد الأدنى من السهولة لأي شيء آخر، فقط الثناء الكامل الذي تفترضه المكاتب لا شيء.  ناقص  خطأ،  ديسكونتيو إكس ديجنيسيموس ناتوس أوديت مايوريس سولوتا نيسي.لوريم إيبسوم، دولور سيت أميت كونسيكتور أديبيسينج إيليت. إنه خيار نتيجة يتقلب  لا يوجد خطأ ناقص توضيح ما هو مطلوب من تفاصيل العمل المشابهة، فهي تمتلك خبرة جسدية مع الحد الأدنى من السهولة لأي شيء آخر، فقط الثناء الكامل الذي تفترضه المكاتب لا شيء.  ناقص  خطأ،  ديسكونتيو إكس ديجنيسيموس ناتوس أوديت مايوريس سولوتا نيسي.",
-  "Price:":"سعر:",
-  "Online Live Videos":"مقاطع فيديو مباشرة عبر الإنترنت",
-  "Reserve your seat and schedule the available time for you. Enjoy learning online from anywhere as if you are in class. Try the experience. Ask all questions and get your answers.":"احجز مقعدك وحدد الوقت المتاح لك. استمتع بالتعلم عبر الإنترنت من أي مكان كما لو كنت في قاعة دراسية. جرّب التجربة. اطرح جميع أسئلتك واحصل على إجابات.",
-  "Course Schedules and Timings":"جداول الدورات ومواعيدها",
-  "Search by":"Search by",
-  "Course Title":"عنوان الدورة",
-  "Date":"تاريخ",
-  "Time":"وقت",
-  "Lecturer name":"اسم المحاضر",
-  "Status":"حالة",
-  "Join Link":"انضم إلى الرابط",
-  "Reserve":"احتياطي"
+        "Students": "طلاب",
+        "ratings": "التقييمات",
+        "Created by": "تم الإنشاء بواسطة",
+        "Last updates": "آخر التحديثات",
+        "Live Course": "دورة مباشرة",
+        "Book your spot": "احجز مكانك",
+        "What will you learn": "ماذا ستتعلم",
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer sed porttitor nisl.": "لوريم إيبسوم دولور سيت أميت، إيليت. عدد صحيح هو بورتيتور نيسل.",
+        "seats left": "المقاعد المتبقية",
+        "Add to Cart": "أضف إلى السلة",
+        "Remove From Cart": "إزالة من عربة التسوق",
+        "Add to wishlist": "أضف إلى قائمة الرغبات",
+        "Remove from list": "إزالة من القائمة",
+        "Buy Now": "اشتري الآن",
+        "This course includes:": "تتضمن هذه الدورة:",
+        "Assignments & quizzes": "الواجبات والاختبارات",
+        "Certification": "شهادة",
+        "Course Content": "محتوى الدورة",
+        "sections": "الأقسام",
+        "Lectures": "المحاضرات",
+        "total length": "الطول الإجمالي",
+        "Instructor": "مدرب",
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit.": "لوريم إيبسوم دولور سيت أميت،  إيليت.",
+        "Instructor Rating": "تقييم المدرب",
+        "Courses": "الدورات",
+        "Reviews": "المراجعات",
+        "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Itaque optio consequuntur voluptates ipsa illum rem laudantium fugit modi saepe numquam perferendis, expedita porro quo, dolorum iure repellendus. Non culpa minus explicabo deserunt ab odit labore deleniti similique esse obcaecati perspiciatis corporis sed minima facilis quidem quibusdam, iusto omnis laudantium iure assumenda officiis consequatur nihil. Laudantium, enim, nisi error minus reprehenderit earum itaque alias ad ea numquam accusantium praesentium vel eveniet nihil, rem debitis rerum eaque quo nemo? Error, hic ratione autem deserunt doloribus aperiam rem quo nemo ab quaerat, provident expedita nesciunt distinctio ex dignissimos natus odit maiores soluta nisi.": "لوريم إيبسوم، دولور سيت أميت كونسيكتور أديبيسينج إيليت. إنه خيار نتيجة يتقلب  لا يوجد خطأ ناقص توضيح ما هو مطلوب من تفاصيل العمل المشابهة، فهي تمتلك خبرة جسدية مع الحد الأدنى من السهولة لأي شيء آخر، فقط الثناء الكامل الذي تفترضه المكاتب لا شيء.  ناقص  خطأ،  ديسكونتيو إكس ديجنيسيموس ناتوس أوديت مايوريس سولوتا نيسي.لوريم إيبسوم، دولور سيت أميت كونسيكتور أديبيسينج إيليت. إنه خيار نتيجة يتقلب  لا يوجد خطأ ناقص توضيح ما هو مطلوب من تفاصيل العمل المشابهة، فهي تمتلك خبرة جسدية مع الحد الأدنى من السهولة لأي شيء آخر، فقط الثناء الكامل الذي تفترضه المكاتب لا شيء.  ناقص  خطأ،  ديسكونتيو إكس ديجنيسيموس ناتوس أوديت مايوريس سولوتا نيسي.",
+        "Price:": "سعر:",
+        "Online Live Videos": "مقاطع فيديو مباشرة عبر الإنترنت",
+        "Reserve your seat and schedule the available time for you. Enjoy learning online from anywhere as if you are in class. Try the experience. Ask all questions and get your answers.": "احجز مقعدك وحدد الوقت المتاح لك. استمتع بالتعلم عبر الإنترنت من أي مكان كما لو كنت في قاعة دراسية. جرّب التجربة. اطرح جميع أسئلتك واحصل على إجابات.",
+        "Course Schedules and Timings": "جداول الدورات ومواعيدها",
+        "Search by": "Search by",
+        "Course Title": "عنوان الدورة",
+        "Date": "تاريخ",
+        "Time": "وقت",
+        "Lecturer name": "اسم المحاضر",
+        "Status": "حالة",
+        "Join Link": "انضم إلى الرابط",
+        "Reserve": "احتياطي"
 
-  },
+    },
 
-  "course-header":{
-     "Book Title":"عنوان الكتاب",
-    "Book Description":"وصف الكتاب",
-    "+ Add Lecture File": "+ إضافة ملف للمحاضرة",
-    "+ Add Section File": "+ إضافة ملف للقسم",
-    "File Name": "اسم الملف",
-    "File Description": "وصف الملف",
-    "Course Book (PDF)":"كتاب الدورة (PDF)",
-"isPaid":"مدفوع",
-"This course is free":"هذه الدورة مجانية",
+    "course-header": {
+        "Save as Draft": " حفظ كمسودة",
+        "Book Title": "عنوان الكتاب",
+        "Book Description": "وصف الكتاب",
+        "+ Add Lecture File": "+ إضافة ملف للمحاضرة",
+        "+ Add Section File": "+ إضافة ملف للقسم",
+        "File Name": "اسم الملف",
+        "File Description": "وصف الملف",
+        "Course Book (PDF)": "كتاب الدورة (PDF)",
+        "isPaid": "مدفوع",
+        "This course is free": "هذه الدورة مجانية",
 
-  "Back to Dashboard":"العودة إلى لوحة المعلومات",
-  "Step":"خطوة",
-  "Curriculum":"مقرر",
-  "Delete Section":"حذف القسم",
-  "Lecture":"محاضرة",
-  "Delete Lecture":"حذف المحاضرة",
-  "Video":"فيديو",
-  "Description":"وصف",
-    "Add Section": "إضافة قسم",
-    "Delete Row": "حذف صف",
-    "Course Title": "عنوان الدورة",
-    "Section": "القسم",
-    "Section Title": "عنوان القسم",
-    "Section Description": "وصف القسم",
-  "No selected file":"لا يوجد ملف محدد",
-  "Select Video":"حدد الفيديو",
-  "+ Add Lecture":"+ إضافة محاضرة",
-  "+ Add Section":"+ إضافة قسم",
-  "Landing Page":"صفحة الهبوط",
-  "Language":"اللغة",
-  "Arabic":"عربي",
-  "English":"إنجليزي",
-  "Set Level":"تعيين المستوى",
-  "Beginner":"مبتدئ",
-  "Intermediate":"متوسط",
-  "Advanced":"متقدم",
-  "Category":"فئة",
-  "Design":"تصميم",
-  "Development":"تطوير",
-  "Offer Productivity":"عرض الإنتاجية",
-  "Health & Fitness":"الصحة واللياقة البدنية",
-  "Marketing":"تسويق",
-  "Business":"ادارة اعمال",
-  "IT & Software":"تكنولوجيا المعلومات والبرمجيات",
-  "Finance & Accounting":"المالية والمحاسبة",
-  "Course Duration":"مدة الدورة",
-   "Week_2": "من أسبوع إلى أسبوعين",
-    "Week_3": "من أسبوعين إلى 3 أسابيع",
-    "Month_2": "من شهر إلى شهرين",
-    "Month_3": "من شهرين إلى 3 شهور",
-    "Month_4": "من 3 إلى 4 شهور",
-    "Month_5": "من 4 إلى 5 شهور",
-  "Promo Video":"فيديو ترويجي",
-  "Course Photo":"صورة الكورس",
-  "Lecturer Name":"اسم المحاضر",
-  "Lecturer Description":"وصف المحاضر",
-  "Pricing":"التسعير",
-  "Set a price for your course":"حدد سعرًا لدورتك",
-  "Lorem ipsum dolor sit amet, consectetur adipiscing elit.":"لوريم إيبسوم دولور سيت أميت، إيليت.",
-  "Price":"سعر",
-    "Start Time": "وقت البدء",
-    "Duration (Minutes)": "المدة (بالدقائق)",
-    "Zoom Meeting ID": "معرّف اجتماع Zoom",
-    "Zoom Join URL": "رابط الانضمام Zoom",
-    "Zoom Password": "كلمة مرور Zoom",
-    "Is Instant": "فوري؟",
-    "Max Participants": "الحد الأقصى للمشاركين",
+        "Back to Dashboard": "العودة إلى لوحة المعلومات",
+        "Step": "خطوة",
+        "Curriculum": "مقرر",
+        "Delete Section": "حذف القسم",
+        "Lecture": "محاضرة",
+        "Delete Lecture": "حذف المحاضرة",
+        "Video": "فيديو",
+        "Description": "وصف",
+        "Add Section": "إضافة قسم",
+        "Delete Row": "حذف صف",
+        "Course Title": "عنوان الدورة",
+        "Section": "القسم",
+        "Section Title": "عنوان القسم",
+        "Section Description": "وصف القسم",
+        "No selected file": "لا يوجد ملف محدد",
+        "Select Video": "حدد الفيديو",
+        "+ Add Lecture": "+ إضافة محاضرة",
+        "+ Add Section": "+ إضافة قسم",
+        "Landing Page": "صفحة الهبوط",
+        "Language": "اللغة",
+        "Arabic": "عربي",
+        "English": "إنجليزي",
+        "Set Level": "تعيين المستوى",
+        "Beginner": "مبتدئ",
+        "Intermediate": "متوسط",
+        "Advanced": "متقدم",
+        "Category": "فئة",
+        "Design": "تصميم",
+        "Development": "تطوير",
+        "Offer Productivity": "عرض الإنتاجية",
+        "Health & Fitness": "الصحة واللياقة البدنية",
+        "Marketing": "تسويق",
+        "Business": "ادارة اعمال",
+        "IT & Software": "تكنولوجيا المعلومات والبرمجيات",
+        "Finance & Accounting": "المالية والمحاسبة",
+        "Course Duration": "مدة الدورة",
+        "Week_2": "من أسبوع إلى أسبوعين",
+        "Week_3": "من أسبوعين إلى 3 أسابيع",
+        "Month_2": "من شهر إلى شهرين",
+        "Month_3": "من شهرين إلى 3 شهور",
+        "Month_4": "من 3 إلى 4 شهور",
+        "Month_5": "من 4 إلى 5 شهور",
+        "Promo Video": "فيديو ترويجي",
+        "Course Photo": "صورة الكورس",
+        "Lecturer Name": "اسم المحاضر",
+        "Lecturer Description": "وصف المحاضر",
+        "Pricing": "التسعير",
+        "Set a price for your course": "حدد سعرًا لدورتك",
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit.": "لوريم إيبسوم دولور سيت أميت، إيليت.",
+        "Price": "سعر",
+        "Start Time": "وقت البدء",
+        "Duration (Minutes)": "المدة (بالدقائق)",
+        "Zoom Meeting ID": "معرّف اجتماع Zoom",
+        "Zoom Join URL": "رابط الانضمام Zoom",
+        "Zoom Password": "كلمة مرور Zoom",
+        "Is Instant": "فوري؟",
+        "Max Participants": "الحد الأقصى للمشاركين",
 
-  "SubSection": "قسم فرعي",
-  "Delete SubSection": "حذف القسم الفرعي",
-  "SubSection Name": "اسم القسم الفرعي",
-  "+ Add SubSection File": "+ إضافة ملف للقسم الفرعي",
-  "+ Add SubSection": "+ إضافة قسم فرعي",
-
-
-
-
-
-  "Currency":"عملة",
-  "Price Tier":"فئة السعر",
-  "Free":"مجانا",
-  "Premium":"مدفوع",
-  "Promotions":"العروض الترويجية",
-  "Offer Conditions":"شروط العرض",
-  "Each time a student uses this link, the instructor will receive 80%...":"في كل مرة يستخدم الطالب هذا الرابط، سيحصل المعلم على 80%...",
-  "Save":"حفظ",
-  "Purchase Vouchers": "شراء القسائم",
-    "voucher": {
-      "best_current_price": {
-        "label": "أفضل سعر حالي",
-        "features": ["سعر ثابت", "كمية غير محدودة", "فترة صلاحية محدودة"]
-      },
-      "custom_price": {
-        "label": "سعر مخصص",
-        "features": ["تحديد سعر بين رقمين", "كمية غير محدودة", "فترة صلاحية محدودة"]
-      },
-      "free_period_unlimited": {
-        "label": "فترة مجانية (كمية غير محدودة)",
-        "features": ["كمية غير محدودة", "فترة صلاحية محدودة"]
-      },
-      "free_period_limited": {
-        "label": "فترة مجانية (كمية محدودة)",
-        "features": ["كمية محدودة", "فترة صلاحية محدودة"]
-      }
-
-  },
-
-  "Coupon":"قسيمة",
-  "Coupon code":"رمز القسيمة",
-  "Coupon Status":"حالة القسيمة",
-  "Paid":"مدفوع",
-  "No of users":"عدد المستخدمين",
-  "Limited":"محدود",
-  "Unlimited":"غير محدود",
-
-    "Discount percentage": "نسبة الخصم",
-    "Active": "مفعل",
-    "Inactive": "غير مفعل",
-  "Coupon start date":"تاريخ بدء القسيمة",
-  "Coupon end date":"تاريخ انتهاء القسيمة",
-  "Remove":"ازالة",
-  "Add Coupon":"إضافة قسيمة",
-  "Next":"التالي",
-  "Submit for Review":"إرسال للمراجعة",
-  "Instructor Schedules":"جداول المدربين",
-  "Add Row":"إضافة صف",
-  "Date":"تاريخ",
-  "Time":"وقت",
-  "Lecturer":"محاضر",
-  "Registered":"مسجل",
-  "Status":"حالة",
-  "Join Link":"رابط الانضمام",
-  "Limit":"الحد الاقصى",
-  "Delete":"حزف",
-  "Section Name":"اسم القسم",
-  "Enter video description":"أدخل وصف الفيديو",
-  "Lecture Title":"عنوان المحاضرة",
-  "Copy link":"نسخ الرابط",
-  "Previous":"سابق",
-  "This course includes:":"تتضمن هذه الدورة:"
-
-
-  },
-
-
-  "my-courses": {
-    "My Courses": "كورساتي",
-    "All Courses": "كل الكورسات",
-    "Wishlist": "قائمة الرغبات",
-    "No items yet": "لا توجد عناصر بعد",
-    "complete": "مكتمل",
-    "Add to Cart": "أضف إلى السلة",
-    "Remove from Cart": "إزالة من السلة",
-    "tests":"الأختبارات"
-  },
-
-
-
-  "recently-wished":{
-  "Recently wished listed":"تم إدراجها مؤخرًا في المفضلة",
-  "Add to Cart":"أضف إلى السلة",
-  "Remove from Cart":"إزالة من عربة التسوق",
-  "Total Price:":"السعر الكلى :",
-  "Close":"اغلاق",
-  "Please Login First":"الرجاء تسجيل الدخول أولا",
-  "alert":"تنبيه",
-  "Search for a course...":"ابحث عن الدورة..."
-
-
-
-  },
-
-
-  "Similar-courses":{
-
-  "Similar courses":"دورات مماثلة",
-  "Add to Cart":"أضف إلى السلة",
-  "Remove from Cart":"إزالة من عربة التسوق"
-
-  },
-
-
-
-  "student-reviews":{
-  "Student feedback":"تعليقات الطلاب",
-  "Course Rating":"تصنيف الدورة",
-  "Rate Your Instructor":"قم بتقييم معلمك",
-  "Submit Rating":"إرسال التقييم",
-  "Add Your Review":"أضف تقييمك",
-  "stars":"النجوم",
-  "Submit Review":"إرسال المراجعة",
-  "Reviews":"المراجعات",
-  "Filter ratings":"تصنيفات الفلتر",
-  "Show More":"عرض المزيد",
-  "No reviews matched your search. Try searching with another term.":"لم تتطابق أي تقييمات مع بحثك. حاول البحث باستخدام مصطلح آخر.",
-  "All Ratings":"جميع التقييمات",
-  "Search reviews":"بحث المراجعات",
-  "Write your review...":"اكتب رأيك..."
-  },
-  "successMessage": "تم إرسال تقييمك بنجاح!",
-
-  "wishlist":{
-
-  "Course":"دورة",
-  "Price":"سعر",
-  "Action":"فعل",
-  "Preview":"معاينة",
-  "Cart":"عربة التسوق",
-  "Remove":"ازالة",
-  "No items yet":"لا يوجد عناصر حتى الآن"
-  },
+        "SubSection": "قسم فرعي",
+        "Delete SubSection": "حذف القسم الفرعي",
+        "SubSection Name": "اسم القسم الفرعي",
+        "+ Add SubSection File": "+ إضافة ملف للقسم الفرعي",
+        "+ Add SubSection": "+ إضافة قسم فرعي",
 
 
 
 
-"warnings": {
-    "fillFirstSection": "برجاء ملء جميع بيانات القسم الأول قبل المتابعة.",
-    "fillCourseData": "برجاء ملء جميع بيانات الكورس قبل المتابعة.",
-    "fillPriceData": "برجاء إدخال السعر."
-  },
+
+        "Currency": "عملة",
+        "Price Tier": "فئة السعر",
+        "Free": "مجانا",
+        "Premium": "مدفوع",
+        "Promotions": "العروض الترويجية",
+        "Offer Conditions": "شروط العرض",
+        "Each time a student uses this link, the instructor will receive 80%...": "في كل مرة يستخدم الطالب هذا الرابط، سيحصل المعلم على 80%...",
+        "Save": "حفظ",
+        "Purchase Vouchers": "شراء القسائم",
+        "voucher": {
+            "best_current_price": {
+                "label": "أفضل سعر حالي",
+                "features": ["سعر ثابت", "كمية غير محدودة", "فترة صلاحية محدودة"]
+            },
+            "custom_price": {
+                "label": "سعر مخصص",
+                "features": ["تحديد سعر بين رقمين", "كمية غير محدودة", "فترة صلاحية محدودة"]
+            },
+            "free_period_unlimited": {
+                "label": "فترة مجانية (كمية غير محدودة)",
+                "features": ["كمية غير محدودة", "فترة صلاحية محدودة"]
+            },
+            "free_period_limited": {
+                "label": "فترة مجانية (كمية محدودة)",
+                "features": ["كمية محدودة", "فترة صلاحية محدودة"]
+            }
+
+        },
+
+        "Coupon": "قسيمة",
+        "Coupon code": "رمز القسيمة",
+        "Coupon Status": "حالة القسيمة",
+        "Paid": "مدفوع",
+        "No of users": "عدد المستخدمين",
+        "Limited": "محدود",
+        "Unlimited": "غير محدود",
+
+        "Discount percentage": "نسبة الخصم",
+        "Active": "مفعل",
+        "Inactive": "غير مفعل",
+        "Coupon start date": "تاريخ بدء القسيمة",
+        "Coupon end date": "تاريخ انتهاء القسيمة",
+        "Remove": "ازالة",
+        "Add Coupon": "إضافة قسيمة",
+        "Next": "التالي",
+        "Submit for Review": "إرسال للمراجعة",
+        "Instructor Schedules": "جداول المدربين",
+        "Add Row": "إضافة صف",
+        "Date": "تاريخ",
+        "Time": "وقت",
+        "Lecturer": "محاضر",
+        "Registered": "مسجل",
+        "Status": "حالة",
+        "Join Link": "رابط الانضمام",
+        "Limit": "الحد الاقصى",
+        "Delete": "حزف",
+        "Section Name": "اسم القسم",
+        "Enter video description": "أدخل وصف الفيديو",
+        "Lecture Title": "عنوان المحاضرة",
+        "Copy link": "نسخ الرابط",
+        "Previous": "سابق",
+        "This course includes:": "تتضمن هذه الدورة:"
+
+
+    },
+
+
+    "my-courses": {
+        "My Courses": "كورساتي",
+        "All Courses": "كل الكورسات",
+        "Wishlist": "قائمة الرغبات",
+        "No items yet": "لا توجد عناصر بعد",
+        "complete": "مكتمل",
+        "Add to Cart": "أضف إلى السلة",
+        "Remove from Cart": "إزالة من السلة",
+        "tests": "الأختبارات"
+    },
 
 
 
-  "step 2": {
-    "course_title_required": "يجب إدخال عنوان الكورس"
-  },
-  "step 3": {
-    "category_required": "يجب اختيار فئة للكورس"
-  },
-  "step 4": {
-    "learning_objectives_required": "يجب إدخال أهداف التعلم",
-    "requirements_required": "يجب إدخال المتطلبات",
-    "target_audience_required": "يجب إدخال الجمهور المستهدف"
-  },
-
- "quiz": {
-  "create_new": "إنشاء اختبار التصنيف الفرعي",
-  "create_new1": "انشأ اختبار",
-
-  "Create Section Quiz": "إنشاء اختبار قسم",
-  "Create Course Quiz": "إنشاء اختبار الكورس",
-  "create": "إنشاء الاختبار",
-  "course_name": "اسم الأختبار",
-  "instructor_name": "اسم المحاضر",
-  "exam_datetime": "تاريخ ووقت الامتحان",
-  "duration": "المدة (بالدقائق)",
-  "attempts": "عدد المحاولات",
-  "passing_score": "نسبة النجاح (%)",
-  "description": "وصف الاختبار",
-  "question": "السؤال",
-  "options": "الخيارات",
-  "option": "الخيار",
-  "answer_explanation": "شرح الإجابة",
-  "remove_question": "حذف السؤال",
-  "add_question": "إضافة سؤال",
-  "save": "حفظ الاختبار",
-   "add_mcq_question": "إضافة سؤال اختيار من متعدد",
-  "add_essay_question": "إضافة سؤال مقالي",
-  "errors": {
-  "course_name": "اسم الكورس مطلوب.",
-  "instructor_name": "اسم المحاضر مطلوب.",
-  "exam_datetime": "تاريخ ووقت الامتحان مطلوب.",
-  "duration": "يجب أن تكون مدة الامتحان أكبر من 0.",
-  "attempts": "عدد المحاولات مطلوب.",
-  "passing_score": "درجة النجاح يجب أن تكون بين 1 و100.",
-  "questions_required": "يجب إضافة سؤال واحد على الأقل.",
-  "question_text_required": "السؤال رقم {{index}} لا يحتوي على نص.",
-  "option_required": "الخيار رقم {{optionIndex}} في السؤال رقم {{index}} فارغ.",
-  "correct_answer_required": "يجب تحديد الإجابة الصحيحة في السؤال رقم {{index}}.",
-  "quiz_type_required": "نوع الاختبار مطلوب.",
-  "is_free_required": "يجب تحديد ما إذا كان الاختبار مجانيًا أم لا.",
-  "price_required_if_paid": "السعر مطلوب إذا كان الاختبار مدفوعًا.",
-  "price_must_be_positive": "يجب أن يكون السعر أكبر من 0.",
-  "invalid_exam_datetime": "تاريخ ووقت الامتحان غير صالح.",
-  "duplicate_options": "هناك خيارات مكررة في السؤال رقم {{index}}.",
-  "min_options_required": "يجب إدخال خيارين على الأقل في السؤال رقم {{index}}.",
-  "essay_answer_required": "يجب توفير إجابة نموذجية للسؤال المقالي رقم {{index}}.",
-  "quiz_type_mismatch": "يجب أن تكون كل الأسئلة من نفس نوع الاختبار المحدد (مقالي أو اختيار من متعدد).",
-"description":"أدخل وصف لأختبارك من فضلك",
-"attach_to_required": "يرجى اختيار الجهة التي سيتم إرفاق الأسئلة بها (الكورس أو السيكشن أو المحاضرة).",
-"category_required": "يجب اختيار فئة للاختبار.",
-"no_token": "يرجى تسجيل الدخول أولاً",
-"delete_failed": "فشل في حذف الاختبار، حاول مرة أخرى"
+    "recently-wished": {
+        "Recently wished listed": "تم إدراجها مؤخرًا في المفضلة",
+        "Add to Cart": "أضف إلى السلة",
+        "Remove from Cart": "إزالة من عربة التسوق",
+        "Total Price:": "السعر الكلى :",
+        "Close": "اغلاق",
+        "Please Login First": "الرجاء تسجيل الدخول أولا",
+        "alert": "تنبيه",
+        "Search for a course...": "ابحث عن الدورة..."
 
 
-},
-  "quiz_type": "نوع الاختبار",
-  "mcq": "اختيار من متعدد (MCQ)",
-  "essay": "سؤال مقالي",
-  "is_free": "هل الاختبار مجاني؟",
-  "free": "مجاني",
-  "paid": "مدفوع",
-  "price": "السعر (ر.س)",
-  "category":"الفئة المختارة",
-  "view_details": "أنشئ أسئلة امتحانك الآن",
-  "marks": "الدرجة",
-  "submit_questions": "إرسال الأسئلة",
-  "correct_answer": "الإجابة النموذجية",
-  "show_questions": "عرض الأسئلة",
-  "questions_preview": "معاينة الأسئلة",
-    "question_label": "السؤال:",
-    "answer": "الإجابة",
-    "correct": "الإجابة الصحيحة",
-    "edit_now": "تعديل الآن",
-    "cancel": "إلغاء",
-    "attach_to": "عنوان الأسئلة سوف تُرفق على:",
-    "attach": {
-      "course": "الدورة",
-      "section": "التصنيف الرئيسي",
-      "lecture": "التصنيف الفرعي"
-    }
-,
-      "section_name":"التصنيف الرئيسي"
-,
-      "course_quiz_details":"تفاصيل الاختبار"
-,
-"select_course": "اختر الدورة",
-"select_section": "اختر التصنيف الرئيسي",
-"select_lecture": "اختر التصنيف الفرعي",
-"view_course_quiz_details": "عرض تفاصيل الاختبار المرتبط",
-"search_placeholder": "بحث باسم الاختبار..",
-"delete_quiz": "حذف الاختبار",
-    "delete_confirm_title": "تأكيد الحذف",
-    "delete_confirm_message": "هل أنت متأكد أنك تريد حذف هذا الاختبار؟",
-    "confirm_delete": "تأكيد الحذف",
-    "success": {
-      "quiz_deleted": "تم حذف الاختبار بنجاح"
+
+    },
+
+
+    "Similar-courses": {
+
+        "Similar courses": "دورات مماثلة",
+        "Add to Cart": "أضف إلى السلة",
+        "Remove from Cart": "إزالة من عربة التسوق"
+
+    },
+
+
+
+    "student-reviews": {
+        "Student feedback": "تعليقات الطلاب",
+        "Course Rating": "تصنيف الدورة",
+        "Rate Your Instructor": "قم بتقييم معلمك",
+        "Submit Rating": "إرسال التقييم",
+        "Add Your Review": "أضف تقييمك",
+        "stars": "النجوم",
+        "Submit Review": "إرسال المراجعة",
+        "Reviews": "المراجعات",
+        "Filter ratings": "تصنيفات الفلتر",
+        "Show More": "عرض المزيد",
+        "No reviews matched your search. Try searching with another term.": "لم تتطابق أي تقييمات مع بحثك. حاول البحث باستخدام مصطلح آخر.",
+        "All Ratings": "جميع التقييمات",
+        "Search reviews": "بحث المراجعات",
+        "Write your review...": "اكتب رأيك..."
+    },
+    "successMessage": "تم إرسال تقييمك بنجاح!",
+
+    "wishlist": {
+
+        "Course": "دورة",
+        "Price": "سعر",
+        "Action": "فعل",
+        "Preview": "معاينة",
+        "Cart": "عربة التسوق",
+        "Remove": "ازالة",
+        "No items yet": "لا يوجد عناصر حتى الآن"
+    },
+
+
+
+
+    "warnings": {
+        "fillFirstSection": "برجاء ملء جميع بيانات القسم الأول قبل المتابعة.",
+        "fillCourseData": "برجاء ملء جميع بيانات الكورس قبل المتابعة.",
+        "fillPriceData": "برجاء إدخال السعر.",
+        "completeStepOne": "من فضلك، أكمل بيانات الصفحة قبل الحفظ كمسودة.",
+        "draftSaveFailed": "حدث خطأ أثناء حفظ المسودة.",
+        "courseUploadFailed": "فشل في رفع بيانات الدورة."
+    },
+
+
+
+    "step 2": {
+        "course_title_required": "يجب إدخال عنوان الكورس"
+    },
+    "step 3": {
+        "category_required": "يجب اختيار فئة للكورس"
+    },
+    "step 4": {
+        "learning_objectives_required": "يجب إدخال أهداف التعلم",
+        "requirements_required": "يجب إدخال المتطلبات",
+        "target_audience_required": "يجب إدخال الجمهور المستهدف"
     }
 
+    ,
+
+
+    "quiz": {
+        "create_new": "إنشاء اختبار المحاضرة",
+        "create_new1": "إنشاء واحد",
+        "Create Section Quiz": "إنشاء اختبار القسم",
+        "Create Course Quiz": "إنشاء اختبار الدورة",
+        "create": "إنشاء اختبار",
+        "course_name": "اسم الاختبار",
+        "instructor_name": "اسم المدرب",
+        "exam_datetime": "تاريخ ووقت الامتحان",
+        "duration": "المدة (بالدقائق)",
+        "attempts": "عدد المحاولات المسموح بها",
+        "passing_score": "الدرجة المطلوبة للنجاح (%)",
+        "description": "وصف الاختبار",
+        "question": "السؤال",
+        "options": "الخيارات",
+        "option": "الخيار",
+        "answer_explanation": "شرح الإجابة",
+        "remove_question": "حذف السؤال",
+        "add_question": "إضافة سؤال",
+        "save": "حفظ الاختبار",
+        "add_mcq_question": "إضافة سؤال اختيار من متعدد",
+        "add_essay_question": "إضافة سؤال مقالي",
+        "submit_questions": "إرسال الأسئلة",
+        "correct_answer": "الإجابة الصحيحة",
+        "marks": "الدرجة",
+        "show_questions": "عرض الأسئلة",
+        "questions_preview": "معاينة الأسئلة",
+        "question_label": "السؤال:",
+        "answer": "الإجابة",
+        "correct": "صحيح",
+        "edit_now": "تعديل الآن",
+        "view_details": "أنشئ أسئلة الاختبار الآن",
+        "view_course_quiz_details": "أنشئ أسئلة الاختبار الآن",
+        "search_placeholder": "ابحث باسم الاختبار...",
+        "delete_quiz": "حذف الاختبار",
+        "delete_confirm_title": "تأكيد الحذف",
+        "delete_confirm_message": "هل أنت متأكد من حذف هذا الاختبار؟",
+        "confirm_delete": "تأكيد الحذف",
+        "cancel": "إلغاء",
+        "course_quiz_details": "تفاصيل الاختبار",
+        "section_name": "القسم",
+        "select_section": "اختر القسم",
+        "select_section_lecture": "اختر محاضرة القسم",
+        "select_lecture": "اختر المحاضرة",
+        "select_subsection": "اختر القسم الفرعي",
+        "select_subsection_lecture": "اختر محاضرة القسم الفرعي",
+        "subsection_name": "اسم القسم الفرعي",
+        "lecture_name": "اسم المحاضرة",
+        "errors": {
+            "course_name": "اسم الدورة مطلوب.",
+            "instructor_name": "اسم المدرب مطلوب.",
+            "exam_datetime": "تاريخ ووقت الامتحان مطلوبين.",
+            "duration": "يجب أن تكون مدة الامتحان أكبر من 0.",
+            "attempts": "عدد المحاولات مطلوب.",
+            "passing_score": "يجب أن تكون الدرجة المطلوبة للنجاح بين 1 و100.",
+            "questions_required": "يجب إضافة سؤال واحد على الأقل.",
+            "question_text_required": "السؤال رقم {{index}} بدون نص.",
+            "option_required": "الخيار رقم {{optionIndex}} في السؤال رقم {{index}} فارغ.",
+            "correct_answer_required": "يجب اختيار الإجابة الصحيحة في السؤال رقم {{index}}.",
+            "quiz_type_required": "نوع الاختبار مطلوب.",
+            "is_free_required": "يجب تحديد ما إذا كان الاختبار مجانيًا أو مدفوعًا.",
+            "price_required_if_paid": "السعر مطلوب إذا كان الاختبار مدفوعًا.",
+            "price_must_be_positive": "يجب أن يكون السعر أكبر من 0.",
+            "invalid_exam_datetime": "تاريخ ووقت الامتحان غير صالحين.",
+            "duplicate_options": "هناك خيارات مكررة في السؤال {{index}}.",
+            "min_options_required": "يجب أن يكون هناك خياران على الأقل في السؤال {{index}}.",
+            "essay_answer_required": "مطلوب إجابة نموذجية لسؤال المقال رقم {{index}}.",
+            "quiz_type_mismatch": "جميع الأسئلة يجب أن تتطابق مع نوع الاختبار المختار (مقالي أو اختيار من متعدد).",
+            "description": "أدخل وصف اختبارك",
+            "attach_to_required": "يرجى اختيار مكان إرفاق الاختبار (دورة، قسم، أو محاضرة).",
+            "category_required": "يجب اختيار فئة للاختبار.",
+            "no_token": "يرجى تسجيل الدخول أولاً",
+            "delete_failed": "فشل في حذف الاختبار، يرجى المحاولة مرة أخرى",
+            "no_subSections_available": "لا يوجد تصنيفات فرعية متاحة لهذا القسم",
+            "subsection_required": "القسم الفرعي مطلوب",
+            "section_required": "القسم مطلوب",
+            "lecture_required": "المحاضرة مطلوبة",
+            "question_required": "السؤال مطلوب",
+            "correct_option_required": "الخيار الصحيح مطلوب",
+            "marks_required": "الدرجات مطلوبة",
+            "marks_min": "يجب أن تكون الدرجات 1 على الأقل"
+        },
+        "quiz_type": "نوع الاختبار",
+        "mcq": "اختيار من متعدد (MCQ)",
+        "essay": "مقالي",
+        "is_free": "هل الاختبار مجاني؟",
+        "free": "مجاني",
+        "paid": "مدفوع",
+        "price": "السعر (ريال سعودي)",
+        "category": "الفئة",
+        "attach": {
+            "course": "الدورة",
+            "section": "القسم",
+            "lecture": "المحاضرة",
+            "subSection": "القسم الفرعي"
+        },
+        "attach_to": "سيتم إرفاق أسئلة الاختبار إلى:",
+        "select_course": "اختر الدورة",
+        "success": {
+            "quiz_deleted": "تم حذف الاختبار بنجاح"
+        }
+    },
+    "successMessage2": "لقد قمت بإنشاء الاختبار بنجاح!",
 
 
 
+    "instructor-courses": {
+
+        "My Draft Courses": " المسودة",
+        "My Published Courses": "كورساتي المنشورة",
+        "Recorded Educational Courses": "كورسات تعليمية مسجلة",
+        "Live Streamed Educational Courses": "كورسات تعليمية مباشرة",
+        "Unknown Type": "نوع غير معروف",
+        "Edit": "تعديل",
+        "Remove": "حذف",
+        "Show All": "عرض الكل",
+        "Show Less": "عرض أقل",
+        "There are no courses to display at the moment.": "لا توجد كورسات لعرضها حالياً.",
+        "Are you sure you want to delete this course?": "هل أنت متأكد من حذف هذا الكورس؟",
+        "Cancel": "إلغاء",
+        "Delete": "حذف",
+        "noCourses": "لا توجد كورسات لعرضها حالياً.",
+        "deleteConfirmationTitle": "هل أنت متأكد من حذف هذا الكورس؟",
+        "cancel": "إلغاء",
+        "delete": "حذف",
+        "Search Courses": "ابحث عن الكورسات",
+        "Puplish": "نشر"
 
 
+    },
+    "COURSE": {
+        "CURRENCY": "العملة",
+        "SAR": "ريال سعودي",
+        "USD": "دولار أمريكي",
+        "EGP": "جنيه مصري",
+        "DESCRIPTION": "الوصف",
+        "PREREQUISITES": "المتطلبات السابقة",
 
-}
-,
-  "successMessage2":"لقد قمت بإنشاء الاختبار بنجاح!",
+        "ATTACHMENTS": "المرفقات",
+        "SECTION_ATTACHMENTS": "مرفقات القسم",
+        "LECTURE_ATTACHMENTS": "مرفقات المحاضرة",
+        "COUPONS": "الكوبونات",
+        "EDIT_TITLE": "تعديل الدورة",
+        "TITLE": "العنوان",
+        "THUMBNAIL": "صورة الغلاف",
+        "TYPE": "النوع",
+        "RECORDED": "مسجلة",
+        "LIVE": "مباشرة",
+        "LEVEL": "المستوى",
+        "TARGET_AUDIENCE": "الجمهور المستهدف",
+        "PRICE": "السعر",
+        "LANGUAGE": "اللغة",
+        "CATEGORY": "الفئة",
+        "SECTION": "القسم",
+        "SECTION_TITLE": "عنوان القسم",
+        "LECTURE": "المحاضرة",
+        "LECTURE_TITLE": "عنوان المحاضرة",
+        "LECTURE_VIDEO": "فيديو المحاضرة",
+        "EDIT_BUTTON": "تعديل الدورة",
+        "SAVE_BUTTON": "حفظ",
+        "BACK_BUTTON": "رجوع",
+        "MY_COURSES": "دوراتي",
+        "TYPE_RECORDED": "دورات تعليمية مسجلة",
+        "TYPE_LIVE": "دورات تعليمية مباشرة",
+        "TYPE_UNKNOWN": "نوع غير معروف",
+        "REMOVE_BUTTON": "حذف",
+        "SHOW_ALL": "عرض الكل",
+        "SHOW_LESS": "عرض أقل",
+        "NO_COURSES": "لا توجد دورات لديك حتى الآن.",
+        "DELETE_CONFIRM_TITLE": "هل أنت متأكد أنك تريد حذف هذه الدورة؟",
+        "CANCEL_BUTTON": "إلغاء",
+        "DELETE_BUTTON": "حذف",
 
+        "Subsection": "القسم الفرعي",
+        "SUBSECTION_TITLE": "عنوان القسم الفرعي",
 
+        "Description": "الوصف",
 
-"instructor-courses":{
+        "PROMO_VIDEO": "الفيديو الترويجي"
 
-  "noCourses": "لا توجد كورسات لعرضها حالياً.",
-  "deleteConfirmationTitle": "هل أنت متأكد من حذف هذا الكورس؟",
-  "cancel": "إلغاء",
-  "delete": "حذف"
-},"COURSE": {
-"CURRENCY": "العملة",
-    "SAR": "ريال سعودي",
-    "USD": "دولار أمريكي",
-    "EGP": "جنيه مصري",
-    "DESCRIPTION": "الوصف",
-    "PREREQUISITES": "المتطلبات السابقة",
-
+    },
+    "Description": "الوصف",
+    "PREREQUISITES": " المتطلبات السابقة",
     "ATTACHMENTS": "المرفقات",
     "SECTION_ATTACHMENTS": "مرفقات القسم",
     "LECTURE_ATTACHMENTS": "مرفقات المحاضرة",
-    "COUPONS": "الكوبونات",
-    "EDIT_TITLE": "تعديل الدورة",
-    "TITLE": "العنوان",
-    "THUMBNAIL": "صورة الغلاف",
-    "TYPE": "النوع",
-    "RECORDED": "مسجلة",
-    "LIVE": "مباشرة",
-    "LEVEL": "المستوى",
-    "TARGET_AUDIENCE": "الجمهور المستهدف",
-    "PRICE": "السعر",
-    "LANGUAGE": "اللغة",
-    "CATEGORY": "الفئة",
-    "SECTION": "القسم",
-    "SECTION_TITLE": "عنوان القسم",
-    "LECTURE": "المحاضرة",
-    "LECTURE_TITLE": "عنوان المحاضرة",
-    "LECTURE_VIDEO": "فيديو المحاضرة",
-    "EDIT_BUTTON": "تعديل الدورة",
-    "SAVE_BUTTON": "حفظ",
-      "BACK_BUTTON": "رجوع",
-       "MY_COURSES": "دوراتي",
-    "TYPE_RECORDED": "دورات تعليمية مسجلة",
-    "TYPE_LIVE": "دورات تعليمية مباشرة",
-    "TYPE_UNKNOWN": "نوع غير معروف",
-    "REMOVE_BUTTON": "حذف",
-    "SHOW_ALL": "عرض الكل",
-    "SHOW_LESS": "عرض أقل",
-    "NO_COURSES": "لا توجد دورات لديك حتى الآن.",
-    "DELETE_CONFIRM_TITLE": "هل أنت متأكد أنك تريد حذف هذه الدورة؟",
-    "CANCEL_BUTTON": "إلغاء",
-    "DELETE_BUTTON": "حذف",
+    "LEVELS": {
+        "BEGINNER": "مبتدئ",
+        "INTERMEDIATE": "متوسط",
+        "ADVANCED": "متقدم"
+    },
 
+
+    "COUPON": {
+        "CODE": "رمز الكوبون",
+        "DISCOUNT": "الخصم",
+        "EXPIRY": "تاريخ الانتهاء"
+    },
+    "ADD": "إضافة",
+    "ADD_COUPON": "إضافة كوبون",
+    "DELETE": "حذف",
+    "CANCEL": "إلغاء",
+    "Valid": "صالح",
+    "Invalid": "غير صالح",
     "Subsection": "القسم الفرعي",
-    "SUBSECTION_TITLE": "عنوان القسم الفرعي",
+    "SUBSECTION_TITLE": " عنوان القسم الفرعي",
+    "PROMO_VIDEO": " الفيديو الترويجي",
 
-    "Description": "الوصف",
+    "COUPONS": " الكوبونات",
 
-    "PROMO_VIDEO": "الفيديو الترويجي"
+    "LECTURE": {
+        "LECTURER_NAME": "اسم المحاضر",
+        "START_TIME": "موعد البداية",
+        "ZOOM_LINK": "رابط الزوم",
+        "ZOOM_PASSWORD": "كلمة سر الزوم",
+        "IS_INSTANT": "فوري",
+        "STATUS": "الحالة",
+        "MAX_PARTICIPANTS": "أقصى عدد مشاركين"
+    },
+    "modal": {
+        "loginReminder": {
+            "title": "تنبيه",
+            "body": "برجاء التسجيل أولاً للمتابعة.",
+            "okButton": "حسنًا"
+        }
+    },
+    "student-modal": {
+        "title": "تنبيه",
+        "body": "برجاء التسجيل كطالب لاستخدام هذه الميزة.",
+        "okButton": "حسنًا"
+    },
+    "login-reminder": {
+        "title": "تنبيه",
+        "body": "برجاء تسجيل الدخول أولاً لاستخدام هذه الميزة.",
+        "okButton": "حسنًا"
+    },
+    "quizzes": {
+        "allCourses": "كل الكورسات",
+        "allSections": "كل السكاشن",
+        "allSubSections": "كل الصب سكاشن",
+        "allLectures": "كل المحاضرات",
+        "search": "ابحث عن كويز...",
+        "course": "الكورس",
+        "attempts": "عدد المحاولات",
+        "duration": "المدة",
+        "minutes": "دقيقة",
+        "start": "بدء الاختبار",
+        "noResults": "لا يوجد اختبارات متاحة بناءً على الفلاتر."
+    },
+    "exam": {
+        "timeUsed": "الوقت المستخدم",
+        "minute": "دقيقة",
+        "minutes": "دقائق",
+        "second": "ثانية",
+        "seconds": "ثواني",
+        "and": "و",
+        "resultSent": "تم إرسال الامتحان بنجاح!",
+        "answeredCount": "عدد الأسئلة المجابة",
+        "unansweredCount": "عدد الأسئلة غير المجابة",
+        "percentage": "النسبة المئوية",
+        "status": "الحالة",
+        "passed": "✔️ ناجح",
+        "failed": "❌ راسب",
+        "viewResult": "عرض النتائج",
+        "timeLimit": "المدة: {{minutes}} دقيقة",
+        "attemptsAllowed": "المحاولات: {{attempts}}",
+        "startButton": "ابدأ الامتحان"
+    },
+    "examResult": {
+        "title": "نتيجة الامتحان",
+        "lecture": "محاضرة",
+        "subSection": "صب سيكشن",
+        "subSectionLecture": "محاضرة داخل صب سيكشن",
+        "sectionQuestions": "أسئلة على السيكشن",
+        "generalQuestions": "أسئلة عامة",
+        "answeredQuestions": "تم الإجابة",
+        "question": "السؤال",
+        "featured": "سؤال مميز",
+        "studentAnswer": "إجابة الطالب",
+        "modelAnswer": "الإجابة النموذجية",
+        "noAnswer": "لم يتم الإجابة",
+        "noData": "لا توجد بيانات متاحة",
+        "sectionTitle": "عنوان السيكشن",
+        "status": "الحالة",
+        "passed": "ناجح",
+        "failed": "راسب",
+        "timeUsed": "الوقت المستخدم",
+        "totalQuestions": "عدد الأسئلة",
+        "correctAnswers": "عدد الإجابات الصحيحة",
+        "unanswered": "عدد الأسئلة غير المجابة",
+        "percentage": "النسبة المئوية"
 
-  },"Description": "الوصف",
-  "PREREQUISITES":" المتطلبات السابقة",
-  "ATTACHMENTS": "المرفقات",
-  "SECTION_ATTACHMENTS": "مرفقات القسم",
-  "LECTURE_ATTACHMENTS": "مرفقات المحاضرة",
-  "LEVELS": {
-    "BEGINNER": "مبتدئ",
-    "INTERMEDIATE": "متوسط",
-    "ADVANCED": "متقدم"
-  },
+    },
+    "courseParts": {
+        "Course Content": "محتوى الدورة",
+        "Course Attachments": "مرفقات الدورة",
+        "Course Exams": "امتحانات الدورة",
+        "Exam results for the course": "نتائج الامتحانات للدورة",
+        "Reports": "تقارير"
 
 
-"COUPON": {
-    "CODE": "رمز الكوبون",
-    "DISCOUNT": "الخصم",
-    "EXPIRY": "تاريخ الانتهاء"
-  },
-  "ADD": "إضافة",
-  "ADD_COUPON": "إضافة كوبون",
-  "DELETE": "حذف",
-  "CANCEL": "إلغاء",
-  "Valid": "صالح",
-  "Invalid": "غير صالح",
-      "Subsection": "القسم الفرعي",
-    "SUBSECTION_TITLE":" عنوان القسم الفرعي",
-    "PROMO_VIDEO":" الفيديو الترويجي",
+    },
+    "attachments": {
+        "courseTitle": "محتوى الكورس",
+        "filesTitle": "المرفقات",
+        "noFiles": "لا توجد مرفقات متاحة",
+        "download": "تحميل",
+        "exams": "الامتحانات",
+        "timeLimit": "المدة: {{minutes}} دقيقة",
+        "attemptsAllowed": "المحاولات: {{attempts}}",
+        "startButton": "ابدأ الامتحان",
+        "noExams": "لا توجد امتحانات متاحة",
+        "reviewAttempts": "ابدأ مراجعة محاولاتك"
 
-"COUPONS": " الكوبونات",
 
-"LECTURE": {
-  "LECTURER_NAME": "اسم المحاضر",
-  "START_TIME": "موعد البداية",
-  "ZOOM_LINK": "رابط الزوم",
-  "ZOOM_PASSWORD": "كلمة سر الزوم",
-  "IS_INSTANT": "فوري",
-  "STATUS": "الحالة",
-  "MAX_PARTICIPANTS": "أقصى عدد مشاركين"
-},
-"modal": {
-    "loginReminder": {
-      "title": "تنبيه",
-      "body": "برجاء التسجيل أولاً للمتابعة.",
-      "okButton": "حسنًا"
+
+
+    },
+    "course-exam": {
+
+        "quiz_name": "اسم الاختبار",
+        "allowed_attempts": "المحاولات المسموح بها",
+        "remaining_attempts": "المتبقي",
+        "time_limit": "الحد الزمني",
+        "minutes": "دقائق",
+        "evaluation_method": "طريقة التقييم",
+        "last_attempt": "المحاولة الأخيرة",
+        "passing_score": "علامة النجاح",
+        "retry_quiz": "إعادة محاولة الاختبار",
+        "no_more_attempts": "لقد استهلكت جميع المحاولات المتاحة لهذا الاختبار.",
+        "last_attempt_score": "المحاولة الأخيرة",
+        "status": "الحالة",
+        "started": "بدأ",
+        "ended": "اكتمل",
+        "duration": "الفترة",
+        "score": "العلامات",
+        "grade": "الدرجة",
+        "review": "مراجعة",
+        "finished": "منتهية",
+        "in_progress": "قيد التنفيذ",
+        "back": "عودة",
+        "loading_quiz": "جارٍ تحميل بيانات الاختبار...",
+        "attempt": "محاولة",
+        "course_content": "محتوى الكورس",
+        "loading_course_content": "جاري تحميل محتوى الكورس...",
+        "exam_title": "اختبار الفصل الأول (الاختيار من متعدد)",
+        "question_number": "سؤال",
+        "question_grade": "الدرجة من 1",
+        "flag_this_question": "علم هذا السؤال",
+        "write_answer_here": "اكتب إجابتك هنا...",
+        "clear_choice": "أخل اختياري",
+        "previous_page": "الصفحة السابقة",
+        "next_page": "الصفحة التالية",
+        "finish_attempt": "إنهاء المحاولة",
+        "remaining_time": "الوقت المتبقي",
+        "hide": "إخفاء",
+        "show": "إظهار",
+        "exam_summary": "ملخص الامتحان",
+        "your_answer": "إجابتك",
+        "answered": "تمت الإجابة",
+        "unanswered": "لم يتم الإجابة",
+        "close": "إغلاق",
+        "confirm_finish_title": "تأكيد إنهاء الامتحان",
+        "answered_questions_count": "عدد الأسئلة التي تم حلها",
+        "unanswered_questions_count": "عدد الأسئلة التي لم تُحل",
+        "cancel": "إلغاء",
+        "confirm": "تأكيد",
+        "question": "سؤال",
+    "correct": "صحيح",
+    "incorrect": "غير صحيح",
+    "flagged_question": "سؤال مميز",
+    "model_answer": "الإجابة النموذجية",
+    "answer_explanation": "توضيح",
+    "finish_review": "إنهاء المراجعة",
+    "quiz_navigation": "تنقل الاختبار",
+        "correct_answers": "الإجابات الصحيحة",
+    "submitted_at": "تاريخ التسليم"
+
+
+
     }
-  },
-   "student-modal": {
-    "title": "تنبيه",
-    "body": "برجاء التسجيل كطالب لاستخدام هذه الميزة.",
-    "okButton": "حسنًا"
-  },
-  "login-reminder": {
-    "title": "تنبيه",
-    "body": "برجاء تسجيل الدخول أولاً لاستخدام هذه الميزة.",
-    "okButton": "حسنًا"
-  }
+
 
 
 
 
 }
-
-
-
-
-
-
-

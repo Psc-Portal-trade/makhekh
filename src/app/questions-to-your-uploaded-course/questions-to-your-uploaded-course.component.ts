@@ -21,6 +21,7 @@ export class QuestionsToYourUploadedCourseComponent {
   categories: any[] = [];
   teacherCourses: any[] = [];
   availableSections: any[] = [];
+  availableSubSections: any[] = [];
   availableLectures: any[] = [];
 
   quizForm: FormGroup;
@@ -51,7 +52,8 @@ export class QuestionsToYourUploadedCourseComponent {
       questions: this.fb.array([]),
       selectedCourseId: [null],
       selectedSectionId: [null],
-      selectedLectureId: [null]
+      selectedSubSectionId: [null],
+      selectedLectureId: [null, Validators.required] // إلزامي عند اختيار lecture
     });
 
     this.quizForm.statusChanges.subscribe(() => {
@@ -72,7 +74,7 @@ export class QuestionsToYourUploadedCourseComponent {
         this.teacherCourses.forEach(course => {
           console.log('📚 Course:', course.title);
           if (course.sections && course.sections.length > 0) {
-            course.sections.forEach((section: { title: any; lectures?: any[] }) => {
+            course.sections.forEach((section: { title: any; lectures?: any[]; subSections?: any[] }) => {
               console.log('   ➤ Section:', section.title);
               if (section.lectures && section.lectures.length > 0) {
                 section.lectures.forEach(lecture => {
@@ -80,6 +82,13 @@ export class QuestionsToYourUploadedCourseComponent {
                 });
               } else {
                 console.log('     🔹 No lectures found');
+              }
+              if (section.subSections && section.subSections.length > 0) {
+                section.subSections.forEach(subSection => {
+                  console.log('     ➤ SubSection:', subSection.title);
+                });
+              } else {
+                console.log('     🔹 No subSections found');
               }
             });
           } else {
@@ -97,18 +106,54 @@ export class QuestionsToYourUploadedCourseComponent {
     const selectedCourseId = this.quizForm.get('selectedCourseId')?.value;
     const selectedCourse = this.teacherCourses.find(c => c.id === selectedCourseId);
     this.availableSections = selectedCourse?.sections || [];
+    this.availableSubSections = [];
+    this.availableLectures = [];
     console.log('📂 Sections Loaded:', this.availableSections);
     this.quizForm.get('selectedSectionId')?.setValue(null);
+    this.quizForm.get('selectedSubSectionId')?.setValue(null);
     this.quizForm.get('selectedLectureId')?.setValue(null);
+    if (this.availableSections.length === 0) {
+      this.errorMessages.push('quiz.errors.no_sections_available');
+    }
+  }
+
+  onCourseSelectForSubSections() {
+    const selectedCourseId = this.quizForm.get('selectedCourseId')?.value;
+    const selectedCourse = this.teacherCourses.find(c => c.id === selectedCourseId);
+    this.availableSections = selectedCourse?.sections || [];
+    this.availableSubSections = [];
+    this.availableLectures = [];
+    console.log('📂 Sections Loaded for SubSections:', this.availableSections);
+    this.quizForm.get('selectedSectionId')?.setValue(null);
+    this.quizForm.get('selectedSubSectionId')?.setValue(null);
+    this.quizForm.get('selectedLectureId')?.setValue(null);
+    if (this.availableSections.length === 0) {
+      this.errorMessages.push('quiz.errors.no_sections_available');
+    }
+  }
+
+  onSectionSelectForSubSections() {
+    const selectedSectionId = this.quizForm.get('selectedSectionId')?.value;
+    const selectedSection = this.availableSections.find(s => s.id === selectedSectionId);
+    this.availableSubSections = selectedSection?.subSections || [];
+    this.availableLectures = [];
+    console.log('📂 SubSections Loaded:', this.availableSubSections);
+    this.quizForm.get('selectedSubSectionId')?.setValue(null);
+    this.quizForm.get('selectedLectureId')?.setValue(null);
+    if (this.availableSubSections.length === 0) {
+      this.errorMessages.push('quiz.errors.no_subSections_available');
+    }
   }
 
   onCourseSelectForLectures() {
     const selectedCourseId = this.quizForm.get('selectedCourseId')?.value;
     const selectedCourse = this.teacherCourses.find(c => c.id === selectedCourseId);
     this.availableSections = selectedCourse?.sections || [];
+    this.availableSubSections = [];
     this.availableLectures = [];
     console.log('📂 Sections Loaded for Lectures:', this.availableSections);
     this.quizForm.get('selectedSectionId')?.setValue(null);
+    this.quizForm.get('selectedSubSectionId')?.setValue(null);
     this.quizForm.get('selectedLectureId')?.setValue(null);
     if (this.availableSections.length === 0) {
       this.errorMessages.push('quiz.errors.no_sections_available');
@@ -118,11 +163,39 @@ export class QuestionsToYourUploadedCourseComponent {
   onSectionSelectForLectures() {
     const selectedSectionId = this.quizForm.get('selectedSectionId')?.value;
     const selectedSection = this.availableSections.find(s => s.id === selectedSectionId);
+    this.availableSubSections = selectedSection?.subSections || [];
     this.availableLectures = selectedSection?.lectures || [];
+    console.log('📂 SubSections Loaded:', this.availableSubSections);
     console.log('📚 Lectures Loaded:', this.availableLectures);
+    this.quizForm.get('selectedSubSectionId')?.setValue(null);
     this.quizForm.get('selectedLectureId')?.setValue(null);
-    if (this.availableLectures.length === 0) {
+    if (this.availableLectures.length === 0 && this.availableSubSections.length === 0) {
       this.errorMessages.push('quiz.errors.no_lectures_available');
+    }
+  }
+
+  onSubSectionSelectForLectures() {
+    const selectedSubSectionId = this.quizForm.get('selectedSubSectionId')?.value;
+    if (selectedSubSectionId) {
+      const selectedSectionId = this.quizForm.get('selectedSectionId')?.value;
+      const selectedSection = this.availableSections.find(s => s.id === selectedSectionId);
+      const selectedSubSection = selectedSection?.subSections.find((sub: any) => sub.id === selectedSubSectionId);
+      this.availableLectures = selectedSubSection?.lectures || [];
+      console.log('📚 Lectures Loaded for SubSection:', this.availableLectures);
+      this.quizForm.get('selectedLectureId')?.setValue(null);
+      if (this.availableLectures.length === 0) {
+        this.errorMessages.push('quiz.errors.no_lectures_available');
+      }
+    } else {
+      // إذا لم يتم اختيار subsection، اعرض محاضرات السيكشن
+      const selectedSectionId = this.quizForm.get('selectedSectionId')?.value;
+      const selectedSection = this.availableSections.find(s => s.id === selectedSectionId);
+      this.availableLectures = selectedSection?.lectures || [];
+      console.log('📚 Lectures Loaded for Section:', this.availableLectures);
+      this.quizForm.get('selectedLectureId')?.setValue(null);
+      if (this.availableLectures.length === 0) {
+        this.errorMessages.push('quiz.errors.no_lectures_available');
+      }
     }
   }
 
@@ -150,7 +223,8 @@ export class QuestionsToYourUploadedCourseComponent {
       !!this.quizForm.get('attempts')?.valid &&
       !!this.quizForm.get('attachTo')?.valid &&
       !!this.quizForm.get('passingPercentage')?.valid &&
-      this.questions.length > 0;
+      this.questions.length > 0 &&
+      (this.quizForm.get('attachTo')?.value !== 'lecture' || !!this.quizForm.get('selectedLectureId')?.valid);
   }
 
   onSubmit() {
@@ -165,19 +239,31 @@ export class QuestionsToYourUploadedCourseComponent {
       this.errorMessages.push('quiz.errors.quiz_type_mismatch');
     }
 
-    if (!controls['quizType'].value) {
+    if (!controls['quizType'].valid) {
       this.errorMessages.push('quiz.errors.quiz_type_required');
-    }
-
-    if (controls['isFree'].value === null || controls['isFree'].value === undefined) {
-      this.errorMessages.push('quiz.errors.is_free_required');
     }
 
     if (!controls['attachTo'].valid || !controls['attachTo'].value) {
       this.errorMessages.push('quiz.errors.attach_to_required');
     }
 
+    // التحقق من الحقول المطلوبة بناءً على اختيار attachTo
+    if (controls['attachTo'].value === 'course' && !controls['selectedCourseId'].value) {
+      this.errorMessages.push('quiz.errors.course_required');
+    }
+    if (controls['attachTo'].value === 'section' && !controls['selectedSectionId'].value) {
+      this.errorMessages.push('quiz.errors.section_required');
+    }
+    if (controls['attachTo'].value === 'subSection' && !controls['selectedSubSectionId'].value) {
+      this.errorMessages.push('quiz.errors.subSection_required');
+    }
+    if (controls['attachTo'].value === 'lecture' && !controls['selectedLectureId'].value) {
+      this.errorMessages.push('quiz.errors.lecture_required');
+    }
 
+    if (controls['isFree'].value === null || controls['isFree'].value === undefined) {
+      this.errorMessages.push('quiz.errors.is_free_required');
+    }
 
     if (controls['isFree'].value === false) {
       const price = controls['price']?.value;
@@ -234,13 +320,14 @@ export class QuestionsToYourUploadedCourseComponent {
       isFree: formValue.isFree,
       price: formValue.isFree ? 0 : formValue.price,
       categoryId: formValue.categoryId,
-      subCategoryId: null, // افتراضيًا null لأننا مش بنستخدمه حاليًا
-      isStandalone: formValue.attachTo === null, // إذا كان attachTo فاضي، الكويز مستقل
+      subCategoryId: null,
+      isStandalone: formValue.attachTo === null,
       attemptsAllowed: formValue.attempts,
       timeLimitInMinutes: formValue.duration,
       courseId: formValue.attachTo === 'course' ? formValue.selectedCourseId : null,
       sectionId: formValue.attachTo === 'section' ? formValue.selectedSectionId : null,
-      lectureId: formValue.attachTo === 'lecture' ? formValue.selectedLectureId : null
+      subSectionId: formValue.attachTo === 'subSection' ? formValue.selectedSubSectionId : null,
+      lectureId: formValue.attachTo === 'lecture' ? formValue.selectedLectureId : null,
     };
     console.log('📤 Payload:', payload);
 
@@ -283,9 +370,11 @@ export class QuestionsToYourUploadedCourseComponent {
       isFree: [true, Validators.required],
       price: [0],
       quizType: ['mcq', Validators.required],
+      attachTo: [null, Validators.required],
       questions: this.fb.array([]),
       selectedCourseId: [null],
       selectedSectionId: [null],
+      selectedSubSectionId: [null],
       selectedLectureId: [null]
     });
     this.isFormValid = false;

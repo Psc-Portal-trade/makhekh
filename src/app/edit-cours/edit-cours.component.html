@@ -317,6 +317,9 @@
 
     <div class="text-end">
       <button class="btn btn-success" (click)="saveChanges()">{{ 'COURSE.SAVE_BUTTON' | transloco }}</button>
+      <div class="spinner-border text-success mx-3 pt-3" role="status" *ngIf="isLoading2">
+        <span class="visually-hidden">Loading...</span>
+      </div>
     </div>
   </div>
 </div>
@@ -602,7 +605,10 @@
 </div>
 
     <div class="text-end">
-      <button class="btn btn-success" (click)="saveChanges()">{{ 'COURSE.SAVE_BUTTON' | transloco }}</button>
+      <button class="btn btn-success " (click)="saveChanges()">{{ 'COURSE.SAVE_BUTTON' | transloco }}</button>
+      <div class="spinner-border text-success mx-3 pt-3" role="status" *ngIf="isLoading2">
+        <span class="visually-hidden">Loading...</span>
+      </div>
     </div>
   </div>
 </div>

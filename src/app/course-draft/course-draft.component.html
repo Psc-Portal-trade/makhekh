@@ -1,0 +1,849 @@
+<app-second-nav></app-second-nav>
+
+<div class="container my-4" *ngIf="courseData?.type === 2">
+  <h2 class="mb-4 text-primary">{{ 'COURSE.EDIT_TITLE' | transloco }}</h2>
+
+  <!-- عرض البيانات -->
+  <div *ngIf="!isEditing">
+      <div class="card p-3 mb-3">
+      <div class="row mb-3">
+  <div class="col-md-6  ">
+    <h4 class="mb-3">Thumbnail</h4>
+    <div class="d-flex justify-content-center   flex-column ">
+    <img [src]="courseData.thumbnailUrl" alt="Thumbnail" class="img-fluid w-100" >
+
+    </div>
+  </div>
+  <div class="col-md-6 " *ngIf="courseData.promoVideolUrl">
+    <h4 class="mb-3">promoVideo</h4>
+    <div class="d-flex justify-content-center align-items-center flex-column ">
+    <video [src]="courseData.promoVideolUrl" controls class="w-100" ></video>
+
+    </div>
+  </div>
+</div>
+      <p><strong>{{ 'COURSE.TITLE' | transloco }}:</strong> {{ courseData.title }}</p>
+      <p><strong>{{ 'COURSE.TYPE' | transloco }}:</strong> {{ courseData.type === 2 ? ('COURSE.LIVE' | transloco) : ('COURSE.RECORDED' | transloco) }}</p>
+      <p><strong>{{ 'COURSE.LEVEL' | transloco }}:</strong> {{ getLevelText(courseData.level) }}</p>
+      <p><strong>{{ 'Description' | transloco }}:</strong> {{ courseData.description }}</p>
+      <p><strong>{{ 'PREREQUISITES' | transloco }}:</strong> {{ courseData.prerequisites }}</p>
+      <p><strong>{{ 'COURSE.TARGET_AUDIENCE' | transloco }}:</strong> {{ courseData.targetAudience }}</p>
+      <p><strong>{{ 'COURSE.PRICE' | transloco }}:</strong> {{ courseData.price }} {{ courseData.currency }}</p>
+      <p><strong>{{ 'COURSE.LANGUAGE' | transloco }}:</strong> {{ courseData.language }}</p>
+      <p><strong>{{ 'COURSE.CATEGORY' | transloco }}:</strong> {{ courseData.category?.name }}</p>
+
+      <div *ngIf="courseData.summaryAttachments?.length">
+        <p><strong>{{ 'ATTACHMENTS' | transloco }}:</strong></p>
+        <div *ngFor="let file of courseData.summaryAttachments">
+          <i class="fas fa-file-alt me-2 text-secondary"></i>
+          <a [href]="file.fileUrl" target="_blank">{{ file.fileName || 'Attachment' }}</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- السكاشن والمحاضرات -->
+    <div *ngFor="let section of courseData.sections; let i = index" class="card p-3 mb-3">
+  <h5 class="text-primary">{{ 'COURSE.SECTION' | transloco }} {{ i + 1 }}: {{ section.title }}</h5>
+  <h5 class="text-success">{{ 'Description' | transloco }} {{ section.description }}</h5>
+
+  <!-- Attachments of the Section -->
+  <div *ngIf="section.summaryAttachments?.length">
+    <p><strong>{{ 'COURSE.SECTION_ATTACHMENTS' | transloco }}:</strong></p>
+    <div *ngFor="let file of section.summaryAttachments">
+      <i class="fas fa-file-alt me-2 text-secondary"></i>
+      <a [href]="file.fileUrl" target="_blank">{{ file.fileName || 'Attachment' }}</a>
+    </div>
+  </div>
+
+  <div *ngFor="let item of section.contentItems; let ci = index" class="border-top pt-3">
+
+    <!-- إذا كانت محاضرة عادية -->
+    <ng-container *ngIf="item.type === 'Lecture' && item.lecture">
+      <p><strong class="text-danger">{{ 'COURSE.LECTURE' | transloco }} {{ ci + 1 }}:</strong> {{ item.lecture.title }}</p>
+      <p><strong>{{ 'Description' | transloco }}:</strong> {{ item.lecture.description }}</p>
+      <p><strong>{{ 'LECTURE.LECTURER_NAME' | transloco }}:</strong> {{ item.lecture.lecturerName }}</p>
+      <p><strong>{{ 'LECTURE.ZOOM_LINK' | transloco }}:</strong>
+        <a *ngIf="item.lecture.zoomJoinUrl" [href]="item.lecture.zoomJoinUrl" target="_blank">{{ item.lecture.zoomJoinUrl }}</a>
+      </p>
+      <p><strong>{{ 'LECTURE.ZOOM_PASSWORD' | transloco }}:</strong> {{ item.lecture.zoomPassword }}</p>
+      <p><strong>{{ 'LECTURE.IS_INSTANT' | transloco }}:</strong> {{ item.lecture.isInstant ? ('YES' | transloco) : ('NO' | transloco) }}</p>
+      <p><strong>{{ 'LECTURE.STATUS' | transloco }}:</strong> {{ item.lecture.status }}</p>
+      <p><strong>{{ 'LECTURE.MAX_PARTICIPANTS' | transloco }}:</strong> {{ item.lecture.maxParticipants }}</p>
+
+      <!-- Attachments of the Lecture -->
+      <div *ngIf="item.lecture.summaryAttachments?.length">
+        <p class="mt-2"><strong>{{ 'COURSE.LECTURE_ATTACHMENTS' | transloco }}:</strong></p>
+        <div *ngFor="let file of item.lecture.summaryAttachments">
+          <i class="fas fa-file-alt me-2 text-secondary"></i>
+          <a [href]="file.fileUrl" target="_blank">{{ file.fileName || 'Attachment' }}</a>
+        </div>
+      </div>
+    </ng-container>
+
+    <!-- إذا كان SubSection -->
+    <ng-container *ngIf="item.type === 'SubSection' && item.subSection">
+      <h6><strong>{{ 'Subsection' | transloco }}:</strong> {{ item.subSection.title }}</h6>
+
+      <div *ngFor="let lesson of item.subSection.lectures; let li = index" class="ps-3">
+        <p><strong class="text-danger">{{ 'COURSE.LECTURE' | transloco }} {{ li + 1 }}:</strong> {{ lesson.title }}</p>
+        <p><strong>{{ 'Description' | transloco }}:</strong> {{ lesson.description }}</p>
+        <p><strong>{{ 'LECTURE.LECTURER_NAME' | transloco }}:</strong> {{ lesson.lecturerName }}</p>
+        <p><strong>{{ 'LECTURE.ZOOM_LINK' | transloco }}:</strong>
+          <a *ngIf="lesson.zoomJoinUrl" [href]="lesson.zoomJoinUrl" target="_blank">{{ lesson.zoomJoinUrl }}</a>
+        </p>
+        <p><strong>{{ 'LECTURE.ZOOM_PASSWORD' | transloco }}:</strong> {{ lesson.zoomPassword }}</p>
+        <p><strong>{{ 'LECTURE.IS_INSTANT' | transloco }}:</strong> {{ lesson.isInstant ? ('YES' | transloco) : ('NO' | transloco) }}</p>
+        <p><strong>{{ 'LECTURE.STATUS' | transloco }}:</strong> {{ lesson.status }}</p>
+        <p><strong>{{ 'LECTURE.MAX_PARTICIPANTS' | transloco }}:</strong> {{ lesson.maxParticipants }}</p>
+
+        <!-- Attachments of the Lesson inside SubSection -->
+        <div *ngIf="lesson.summaryAttachments?.length">
+          <p class="mt-2"><strong>{{ 'COURSE.LECTURE_ATTACHMENTS' | transloco }}:</strong></p>
+          <div *ngFor="let file of lesson.summaryAttachments">
+            <i class="fas fa-file-alt me-2 text-secondary"></i>
+            <a [href]="file.fileUrl" target="_blank">{{ file.fileName || 'Attachment' }}</a>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+
+  </div>
+</div>
+
+
+
+    <!-- الكوبونات -->
+    <div *ngIf="courseData.coupons?.length" class="card p-3 mb-3">
+      <h5 class="text-primary">{{ 'COUPONS' | transloco }}</h5>
+      <div *ngFor="let coupon of courseData.coupons">
+        <p><strong>{{ 'COUPON.CODE' | transloco }}:</strong> {{ coupon.code }}</p>
+        <p><strong>{{ 'COUPON.DISCOUNT' | transloco }}:</strong> {{ coupon.discountPercentage }}%</p>
+      </div>
+
+    </div>
+
+    <div class="text-end">
+      <button class="btn btn-secondary " (click)="goBack()">{{ 'COURSE.BACK_BUTTON' | transloco }}</button>
+      <button class="btn btn-outline-primary mx-2" (click)="isEditing = true">{{ 'COURSE.EDIT_BUTTON' | transloco }}</button>
+    </div>
+  </div>
+
+  <!-- وضع التعديل Edit Mode -->
+  <div *ngIf="isEditing">
+     <div class="card p-3 mb-3">
+  <!-- عنوان الكورس -->
+  <label class="my-1">{{ 'COURSE.TITLE' | transloco }}</label>
+  <input class="form-control my-2" [(ngModel)]="courseData.title">
+
+
+
+  <!-- الصورة -->
+  <label class="my-2">{{ 'COURSE.THUMBNAIL' | transloco }}</label>
+  <input type="file" class="form-control my-2" (change)="onThumbnailChange($event)">
+  <img *ngIf="courseData.thumbnailUrl" [src]="courseData.thumbnailUrl" class="img-thumbnail mt-2" style="max-width: 200px;">
+
+  <!-- الفيديو الدعائي -->
+  <label class="my-2">{{ 'PROMO_VIDEO' | transloco }}</label>
+  <input type="file" class="form-control my-2" (change)="onPromoVideoChange($event)">
+  <video *ngIf="courseData.promoVideolUrl" [src]="courseData.promoVideolUrl" controls style="max-width: 300px;" class="my-2"></video>
+
+  <!-- الوصف -->
+  <label class="my-1">{{ 'DESCRIPTION' | transloco }}</label>
+  <textarea class="form-control my-2" [(ngModel)]="courseData.description"></textarea>
+
+  <!-- المتطلبات -->
+  <label class="my-1">{{ 'PREREQUISITES' | transloco }}</label>
+  <textarea class="form-control my-2" [(ngModel)]="courseData.prerequisites"></textarea>
+
+  <!-- المستوى -->
+  <label class="my-1">{{ 'COURSE.LEVEL' | transloco }}</label>
+  <select class="form-select my-2" [(ngModel)]="courseData.level">
+    <option [ngValue]="1">Beginner</option>
+    <option [ngValue]="2">Intermediate</option>
+    <option [ngValue]="3">Advanced</option>
+  </select>
+
+  <!-- الجمهور المستهدف -->
+  <label class="my-1">{{ 'COURSE.TARGET_AUDIENCE' | transloco }}</label>
+  <input class="form-control my-2" [(ngModel)]="courseData.targetAudience">
+
+  <!-- السعر -->
+  <label class="my-1">{{ 'COURSE.PRICE' | transloco }}</label>
+  <input class="form-control my-2" [(ngModel)]="courseData.price" type="number">
+
+  <!-- العملة -->
+<label class="my-1">{{ 'COURSE.CURRENCY' | transloco }}</label>
+<select class="form-select my-2" [(ngModel)]="courseData.currency">
+  <option value="SAR">{{ 'COURSE.SAR' | transloco }}</option>
+  <option value="USD">{{ 'COURSE.USD' | transloco }}</option>
+  <option value="EGP">{{ 'COURSE.EGP' | transloco }}</option>
+</select>
+
+
+  <!-- اللغة -->
+  <label class="my-1">{{ 'COURSE.LANGUAGE' | transloco }}</label>
+  <input class="form-control my-2" [(ngModel)]="courseData.language">
+
+<!-- التصنيف -->
+<label class="my-1">{{ 'COURSE.CATEGORY' | transloco }}</label>
+
+<select class="form-select my-2" [(ngModel)]="courseData.categoryId">
+  <option *ngFor="let category of categories" [value]="category.id">
+    {{ category.name }}
+  </option>
+</select>
+
+
+
+
+</div>
+
+    <!-- Editable Sections -->
+    <div *ngFor="let section of courseData.sections; let i = index" class="card p-3 mb-3">
+  <!-- عنوان القسم والوصف -->
+  <label>{{ 'COURSE.SECTION_TITLE' | transloco }} {{ i + 1 }}</label>
+  <input class="form-control mb-2" [(ngModel)]="section.title">
+
+  <label class="my-1">{{ 'DESCRIPTION' | transloco }}</label>
+  <input class="form-control my-2" [(ngModel)]="section.description">
+
+  <!-- قراءة من contentItems فقط -->
+  <div *ngFor="let item of section.contentItems; let ci = index" class="border-top pt-3">
+
+    <!-- لو المحاضرة مباشرة -->
+    <ng-container *ngIf="item.type === 'Lecture' && item.lecture">
+      <label>{{ 'COURSE.LECTURE_TITLE' | transloco }} {{ ci + 1 }}</label>
+      <input class="form-control mb-2" [(ngModel)]="item.lecture.title">
+
+      <label>{{ 'Description' | transloco }}</label>
+      <input class="form-control mb-2" [(ngModel)]="item.lecture.description">
+
+      <label>{{ 'LECTURE.LECTURER_NAME' | transloco }}</label>
+      <input class="form-control mb-2" [(ngModel)]="item.lecture.lecturerName">
+
+      <label>{{ 'LECTURE.ZOOM_LINK' | transloco }}</label>
+      <input class="form-control mb-2" [(ngModel)]="item.lecture.zoomJoinUrl">
+
+      <label>{{ 'LECTURE.ZOOM_PASSWORD' | transloco }}</label>
+      <input class="form-control mb-2" [(ngModel)]="item.lecture.zoomPassword">
+
+      <label>{{ 'LECTURE.STATUS' | transloco }}</label>
+      <input class="form-control mb-2" [(ngModel)]="item.lecture.status" type="number">
+
+      <label>{{ 'LECTURE.MAX_PARTICIPANTS' | transloco }}</label>
+      <input class="form-control mb-2" [(ngModel)]="item.lecture.maxParticipants" type="number">
+    </ng-container>
+
+    <!-- لو SubSection -->
+    <ng-container *ngIf="item.type === 'SubSection' && item.subSection">
+      <label>{{ 'COURSE.SUBSECTION_TITLE' | transloco }} {{ ci + 1 }}</label>
+      <input class="form-control mb-2" [(ngModel)]="item.subSection.title">
+
+      <div *ngFor="let lesson of item.subSection.lectures; let li = index" class="ps-3">
+        <label>{{ 'COURSE.LECTURE_TITLE' | transloco }} {{ li + 1 }}</label>
+        <input class="form-control mb-2" [(ngModel)]="lesson.title">
+
+        <label>{{ 'Description' | transloco }}</label>
+        <input class="form-control mb-2" [(ngModel)]="lesson.description">
+
+        <label>{{ 'LECTURE.LECTURER_NAME' | transloco }}</label>
+        <input class="form-control mb-2" [(ngModel)]="lesson.lecturerName">
+
+        <label>{{ 'LECTURE.ZOOM_LINK' | transloco }}</label>
+        <input class="form-control mb-2" [(ngModel)]="lesson.zoomJoinUrl">
+
+        <label>{{ 'LECTURE.ZOOM_PASSWORD' | transloco }}</label>
+        <input class="form-control mb-2" [(ngModel)]="lesson.zoomPassword">
+
+        <label>{{ 'LECTURE.STATUS' | transloco }}</label>
+        <input class="form-control mb-2" [(ngModel)]="lesson.status" type="number">
+
+        <label>{{ 'LECTURE.MAX_PARTICIPANTS' | transloco }}</label>
+        <input class="form-control mb-2" [(ngModel)]="lesson.maxParticipants" type="number">
+      </div>
+    </ng-container>
+  </div>
+</div>
+
+<!-- الكوبونات - وضع التعديل -->
+<div class="card p-3 mb-3">
+  <h5 class="text-primary">{{ 'COUPONS' | transloco }}</h5>
+
+  <div *ngFor="let coupon of courseData.coupons; let ci = index" class="border p-2 mb-2">
+    <label class="my-1">{{ 'COUPON.CODE' | transloco }}</label>
+    <input class="form-control my-2" [(ngModel)]="coupon.code">
+
+    <label class="my-1">{{ 'COUPON.DISCOUNT' | transloco }}</label>
+    <input class="form-control my-2" [(ngModel)]="coupon.discountPercentage" type="number">
+
+
+    <div class="form-check form-switch mb-2">
+      <input class="form-check-input" type="checkbox" [(ngModel)]="coupon.isValid" [id]="'isValid'+ci">
+      <label class="form-check-label" [for]="'isValid'+ci">
+        {{ coupon.isValid ? 'Valid' : 'Invalid' }}
+      </label>
+    </div>
+
+    <button class="btn btn-sm btn-danger" (click)="deleteCoupon(ci)">
+      {{ 'DELETE' | transloco }}
+    </button>
+  </div>
+
+  <div *ngIf="addingCoupon" class="border p-2 mb-2">
+    <label class="my-1">{{ 'COUPON.CODE' | transloco }}</label>
+    <input class="form-control my-2" [(ngModel)]="newCoupon.code">
+
+    <label class="my-1">{{ 'COUPON.DISCOUNT' | transloco }}</label>
+    <input class="form-control my-2" [(ngModel)]="newCoupon.discountPercentage" type="number">
+
+
+    <div class="form-check form-switch mb-2">
+      <input class="form-check-input" type="checkbox" [(ngModel)]="newCoupon.isValid" id="newIsValid">
+      <label class="form-check-label" for="newIsValid">
+        {{ newCoupon.isValid ? 'Valid' : 'Invalid' }}
+      </label>
+    </div>
+
+
+    <button class="btn btn-sm btn-secondary "  (click)="addingCoupon=false">
+      {{ 'CANCEL' | transloco }}
+    </button>
+  </div>
+
+  <button *ngIf="!addingCoupon" class="btn btn-outline-primary mt-2" (click)="addingCoupon=true">
+    {{ 'ADD_COUPON' | transloco }}
+  </button>
+</div>
+
+    <div class="text-end">
+      <button class="btn btn-success" (click)="saveChanges()">{{ 'COURSE.SAVE_BUTTON' | transloco }}</button>
+      <div class="spinner-border text-success mx-3 pt-3" role="status" *ngIf="isLoading2">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container my-4" *ngIf="courseData?.type === 1">
+  <h2 class="mb-4 text-primary">{{ 'COURSE.EDIT_TITLE' | transloco }}</h2>
+
+  <!-- عرض البيانات -->
+  <div *ngIf="!isEditing">
+    <div class="card p-3 mb-3">
+      <div class="row mb-3">
+  <div class="col-md-6  ">
+    <h4 class="mb-3">Thumbnail</h4>
+    <div class="d-flex justify-content-center   flex-column ">
+    <img [src]="courseData.thumbnailUrl" alt="Thumbnail" class="img-fluid w-100" >
+
+    </div>
+  </div>
+  <div class="col-md-6 " *ngIf="courseData.promoVideolUrl">
+    <h4 class="mb-3">promoVideo</h4>
+    <div class="d-flex justify-content-center align-items-center flex-column ">
+    <video [src]="courseData.promoVideolUrl" controls class="w-100" ></video>
+
+    </div>
+  </div>
+</div>
+      <p><strong>{{ 'COURSE.TITLE' | transloco }}:</strong> {{ courseData.title }}</p>
+      <p><strong>{{ 'COURSE.TYPE' | transloco }}:</strong> {{ courseData.type === 2 ? ('COURSE.LIVE' | transloco) : ('COURSE.RECORDED' | transloco) }}</p>
+      <p><strong>{{ 'COURSE.LEVEL' | transloco }}:</strong> {{ getLevelText(courseData.level) }}</p>
+      <p><strong>{{ 'Description' | transloco }}:</strong> {{ courseData.description }}</p>
+      <p><strong>{{ 'PREREQUISITES' | transloco }}:</strong> {{ courseData.prerequisites }}</p>
+      <p><strong>{{ 'COURSE.TARGET_AUDIENCE' | transloco }}:</strong> {{ courseData.targetAudience }}</p>
+      <p><strong>{{ 'COURSE.PRICE' | transloco }}:</strong> {{ courseData.price }} {{ courseData.currency }}</p>
+      <p><strong>{{ 'COURSE.LANGUAGE' | transloco }}:</strong> {{ courseData.language }}</p>
+      <p><strong>{{ 'COURSE.CATEGORY' | transloco }}:</strong> {{ courseData.category?.name }}</p>
+
+      <div *ngIf="courseData.summaryAttachments?.length">
+        <p><strong>{{ 'ATTACHMENTS' | transloco }}:</strong></p>
+        <div *ngFor="let file of courseData.summaryAttachments">
+          <i class="fas fa-file-alt me-2 text-secondary"></i>
+          <a [href]="file.fileUrl" target="_blank">{{ file.fileName || 'Attachment' }}</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- السكاشن والمحاضرات -->
+   <div *ngFor="let section of courseData.sections; let i = index" class="card p-3 mb-3">
+  <!-- Section Title and Description -->
+  <h5 class="text-primary">
+    {{ 'COURSE.SECTION' | transloco }} {{ i + 1 }}: {{ section.title }}
+  </h5>
+  <h5 class="text-primary">
+    {{ 'COURSE.Description' | transloco }}: {{ section.description }}
+  </h5>
+
+  <!-- Section Attachments -->
+  <div *ngIf="section.summaryAttachments?.length">
+    <p><strong>{{ 'SECTION_ATTACHMENTS' | transloco }}:</strong></p>
+    <div *ngFor="let file of section.summaryAttachments">
+      <i class="fas fa-file-alt me-2 text-secondary"></i>
+      <a [href]="file.fileUrl" target="_blank">{{ file.fileName || 'Attachment' }}</a>
+    </div>
+  </div>
+
+  <!-- Content Items -->
+  <div *ngFor="let item of section.contentItems" class="border-top pt-3">
+
+    <!-- Lecture Type -->
+    <ng-container *ngIf="item.type === 'Lecture' && item.lecture">
+      <p><strong>{{ 'COURSE.LECTURE' | transloco }}:</strong> {{ item.lecture.title }}</p>
+      <p><strong>{{ 'Description' | transloco }}:</strong> {{ item.lecture.description }}</p>
+      <video *ngIf="item.lecture.videoUrl" [src]="item.lecture.videoUrl" controls style="max-width: 300px;"></video>
+
+      <!-- Lecture Attachments -->
+      <div *ngIf="item.lecture.summaryAttachments?.length">
+        <p class="mt-2"><strong>{{ 'LECTURE_ATTACHMENTS' | transloco }}:</strong></p>
+        <div *ngFor="let file of item.lecture.summaryAttachments">
+          <i class="fas fa-file-alt me-2 text-secondary"></i>
+          <a [href]="file.fileUrl" target="_blank">{{ file.fileName || 'Attachment' }}</a>
+        </div>
+      </div>
+    </ng-container>
+
+    <!-- SubSection Type -->
+    <ng-container *ngIf="item.type === 'SubSection' && item.subSection">
+      <h6><strong>{{ 'Subsection' | transloco }}:</strong> {{ item.subSection.title }}</h6>
+
+      <div *ngFor="let lesson of item.subSection.lectures">
+        <p><strong>{{ 'COURSE.LECTURE' | transloco }}:</strong> {{ lesson.title }}</p>
+        <p><strong>{{ 'Description' | transloco }}:</strong> {{ lesson.description }}</p>
+        <video *ngIf="lesson.videoUrl" [src]="lesson.videoUrl" controls style="max-width: 300px;"></video>
+
+        <!-- Lesson Attachments -->
+        <div *ngIf="lesson.summaryAttachments?.length">
+          <p class="mt-2"><strong>{{ 'LECTURE_ATTACHMENTS' | transloco }}:</strong></p>
+          <div *ngFor="let file of lesson.summaryAttachments">
+            <i class="fas fa-file-alt me-2 text-secondary"></i>
+            <a [href]="file.fileUrl" target="_blank">{{ file.fileName || 'Attachment' }}</a>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+
+  </div>
+</div>
+
+
+
+    <!-- الكوبونات -->
+    <div *ngIf="courseData.coupons?.length" class="card p-3 mb-3">
+      <h5 class="text-primary">{{ 'COUPONS' | transloco }}</h5>
+      <div *ngFor="let coupon of courseData.coupons">
+        <p><strong>{{ 'COUPON.CODE' | transloco }}:</strong> {{ coupon.code }}</p>
+        <p><strong>{{ 'COUPON.DISCOUNT' | transloco }}:</strong> {{ coupon.discountPercentage }}%</p>
+      </div>
+    </div>
+
+    <div class="text-end">
+      <button class="btn btn-secondary me-2" (click)="goBack()">{{ 'COURSE.BACK_BUTTON' | transloco }}</button>
+      <button class="btn btn-outline-primary" (click)="isEditing = true">{{ 'COURSE.EDIT_BUTTON' | transloco }}</button>
+    </div>
+  </div>
+
+  <!-- وضع التعديل Edit Mode -->
+  <div *ngIf="isEditing">
+   <div class="card p-3 mb-3">
+  <!-- عنوان الكورس -->
+  <label class="my-1">{{ 'COURSE.TITLE' | transloco }}</label>
+  <input class="form-control my-2" [(ngModel)]="courseData.title">
+
+
+
+  <!-- الصورة -->
+  <label class="my-2">{{ 'COURSE.THUMBNAIL' | transloco }}</label>
+  <input type="file" class="form-control my-2" (change)="onThumbnailChange($event)">
+  <img *ngIf="courseData.thumbnailUrl" [src]="courseData.thumbnailUrl" class="img-thumbnail mt-2" style="max-width: 200px;">
+
+  <!-- الفيديو الدعائي -->
+  <label class="my-2">{{ 'PROMO_VIDEO' | transloco }}</label>
+  <input type="file" class="form-control my-2" (change)="onPromoVideoChange($event)">
+  <video *ngIf="courseData.promoVideolUrl" [src]="courseData.promoVideolUrl" controls style="max-width: 300px;" class="my-2"></video>
+
+  <!-- الوصف -->
+  <label class="my-1">{{ 'DESCRIPTION' | transloco }}</label>
+  <textarea class="form-control my-2" [(ngModel)]="courseData.description"></textarea>
+
+  <!-- المتطلبات -->
+  <label class="my-1">{{ 'PREREQUISITES' | transloco }}</label>
+  <textarea class="form-control my-2" [(ngModel)]="courseData.prerequisites"></textarea>
+
+  <!-- المستوى -->
+  <label class="my-1">{{ 'COURSE.LEVEL' | transloco }}</label>
+  <select class="form-select my-2" [(ngModel)]="courseData.level">
+    <option [ngValue]="1">Beginner</option>
+    <option [ngValue]="2">Intermediate</option>
+    <option [ngValue]="3">Advanced</option>
+  </select>
+
+  <!-- الجمهور المستهدف -->
+  <label class="my-1">{{ 'COURSE.TARGET_AUDIENCE' | transloco }}</label>
+  <input class="form-control my-2" [(ngModel)]="courseData.targetAudience">
+
+  <!-- السعر -->
+  <label class="my-1">{{ 'COURSE.PRICE' | transloco }}</label>
+  <input class="form-control my-2" [(ngModel)]="courseData.price" type="number">
+
+  <!-- العملة -->
+<label class="my-1">{{ 'COURSE.CURRENCY' | transloco }}</label>
+<select class="form-select my-2" [(ngModel)]="courseData.currency">
+  <option value="SAR">{{ 'COURSE.SAR' | transloco }}</option>
+  <option value="USD">{{ 'COURSE.USD' | transloco }}</option>
+  <option value="EGP">{{ 'COURSE.EGP' | transloco }}</option>
+</select>
+
+
+  <!-- اللغة -->
+  <label class="my-1">{{ 'COURSE.LANGUAGE' | transloco }}</label>
+  <input class="form-control my-2" [(ngModel)]="courseData.language">
+
+<!-- التصنيف -->
+<label class="my-1">{{ 'COURSE.CATEGORY' | transloco }}</label>
+
+<select class="form-select my-2" [(ngModel)]="courseData.categoryId">
+  <option *ngFor="let category of categories" [value]="category.id">
+    {{ category.name }}
+  </option>
+</select>
+
+
+
+
+</div>
+
+    <!-- Editable Sections -->
+  <!-- عرض السكاشن في وضع التعديل -->
+<!-- عرض السكاشن في وضع التعديل -->
+<!-- عرض السكاشن في وضع التعديل -->
+<!-- عرض السكاشن -->
+<div *ngFor="let section of courseData.sections; let i = index" class="card p-3 mb-3">
+  <!-- عنوان السكشن مع زر الحذف -->
+    <div class="d-flex justify-content-between">
+    <label class="my-1">{{ 'COURSE.SECTION_TITLE' | transloco }} {{ i + 1 }}</label>
+    <div *ngIf="isEditing">
+      <button class="btn btn-danger btn-sm" (click)="deleteSection(i)">
+        {{ 'DELETE' | transloco }}
+      </button>
+    </div>
+  </div>
+  <input class="form-control my-2" [(ngModel)]="section.title">
+
+  <label class="my-1">{{ 'DESCRIPTION' | transloco }}</label>
+  <input class="form-control my-2" [(ngModel)]="section.description">
+
+  <!-- إضافة ملفات PDF للسكشن -->
+  <div *ngFor="let file of section.pdfFiles; let fi = index">
+    <div class="d-flex justify-content-between">
+      <input class="form-control m-2" [(ngModel)]="file.title" placeholder="Title">
+      <input class="form-control m-2" [(ngModel)]="file.description" placeholder="Description">
+      <input type="file" class="form-control m-2" accept=".pdf" (change)="onFileChange($event, i, fi)">
+
+    </div>
+  </div>
+
+  <!-- عرض المحتويات داخل السكشن -->
+  <div *ngFor="let item of section.contentItems; let ci = index" class="border-top pt-3">
+    <!-- Lecture item -->
+    <ng-container *ngIf="item.type === 'Lecture' && item.lecture">
+      <!-- عنوان المحاضرة مع زر الحذف -->
+            <div class="d-flex justify-content-between">
+        <label class="my-1">{{ 'COURSE.LECTURE_TITLE' | transloco }} {{ ci + 1 }}</label>
+        <div *ngIf="isEditing">
+          <button class="btn btn-danger btn-sm" (click)="deleteLecture(i, ci)">
+            {{ 'DELETE' | transloco }}
+          </button>
+        </div>
+      </div>
+      <input class="form-control my-2" [(ngModel)]="item.lecture.title">
+
+      <label class="my-1">{{ 'Description' | transloco }}</label>
+      <input class="form-control my-2" [(ngModel)]="item.lecture.description">
+
+      <label class="my-1">{{ 'COURSE.LECTURE_VIDEO' | transloco }}</label>
+      <input type="file" class="form-control my-2" (change)="onLectureVideoChange($event, i, ci)">
+      <video *ngIf="item.lecture.videoUrl" [src]="item.lecture.videoUrl" controls style="max-width: 300px;" class="my-1"></video>
+
+
+
+
+
+    </ng-container>
+
+    <!-- SubSection item -->
+    <ng-container *ngIf="item.type === 'SubSection' && item.subSection">
+      <!-- عنوان الصب سيكشن مع زر الحذف -->
+      <div class="d-flex justify-content-between">
+        <label class="my-1">{{ 'SUBSECTION_TITLE' | transloco }} {{ ci + 1 }}</label>
+        <div *ngIf="isEditing">
+          <button class="btn btn-danger btn-sm" (click)="deleteSubSection(i, ci)">
+            {{ 'DELETE' | transloco }}
+          </button>
+        </div>
+      </div>
+      <input class="form-control my-2" [(ngModel)]="item.subSection.title">
+
+      <label class="my-1">{{ 'Description' | transloco }}</label>
+      <input class="form-control my-2" [(ngModel)]="item.subSection.description">
+
+      <!-- إضافة محاضرات فقط داخل SubSection -->
+      <div *ngFor="let lesson of item.subSection.lectures; let li = index" class="ps-3">
+        <!-- عنوان الدرس مع زر الحذف -->
+        <div class="d-flex justify-content-between">
+          <label class="my-1">{{ 'COURSE.LECTURE_TITLE' | transloco }} {{ li + 1 }}</label>
+          <div *ngIf="isEditing">
+            <button class="btn btn-danger btn-sm" (click)="deleteLesson(i, ci, li)">
+              {{ 'DELETE' | transloco }}
+            </button>
+          </div>
+        </div>
+        <input class="form-control my-2" [(ngModel)]="lesson.title">
+
+        <label class="my-1">{{ 'Description' | transloco }}</label>
+        <input class="form-control my-2" [(ngModel)]="lesson.description">
+
+        <label class="my-1">{{ 'COURSE.LECTURE_VIDEO' | transloco }}</label>
+        <input type="file" class="form-control my-2" (change)="onSubLectureVideoChange($event, i, ci, li)">
+        <video *ngIf="lesson.videoUrl" [src]="lesson.videoUrl" controls style="max-width: 300px;" class="my-1"></video>
+
+        <!-- إضافة ملفات لكل محاضرة داخل SubSection -->
+        <div *ngFor="let file of lesson.pdfFiles; let fi = index" class="d-flex justify-content-between">
+          <input class="form-control m-2" [(ngModel)]="file.title" placeholder="Title">
+          <input class="form-control m-2" [(ngModel)]="file.description" placeholder="Description">
+          <input type="file" class="form-control m-2" accept=".pdf" (change)="onFileChange($event, i, ci)">
+          <button *ngIf="isEditing" class="btn btn-danger btn-sm" (click)="removeFileFromLesson(i, ci, li, fi)">X</button>
+        </div>
+
+
+      </div>
+
+      <!-- زر لإضافة محاضرة داخل SubSection -->
+      <div *ngIf="isEditing" class="mt-2 ps-3">
+          <button type="button" class="btn btn-outline-success btn-sm" data-bs-toggle="modal" data-bs-target="#addLectureToSubSectionModal" (click)="openAddLectureToSubSectionModal(section.id, item.subSection.id)">
+              {{ 'ADD LECTURE' | transloco }}
+          </button>
+      </div>
+
+    </ng-container>
+  </div>
+
+  <!-- إضافة محاضرة أو SubSection داخل السكشن -->
+  <div *ngIf="isEditing" class="mt-3 border-top py-3">
+    <button type="button" class="btn btn-outline-secondary btn-sm  my-2" data-bs-toggle="modal" data-bs-target="#addLectureModal" (click)="openAddLectureModal(section.id)">
+      {{ 'ADD LECTURE' | transloco }}
+    </button>
+    <button type="button" class="btn btn-outline-info btn-sm my-2 mx-2" data-bs-toggle="modal" data-bs-target="#addSubSectionModal" (click)="openAddSubSectionModal(section.id)">
+      {{ 'ADD SUBSECTION' | transloco }}
+    </button>
+  </div>
+<hr>
+
+
+<!-- Add Section Modal -->
+
+<!-- Add Lecture Modal -->
+<div class="modal fade" id="addLectureModal" tabindex="-1" aria-labelledby="addLectureModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="addLectureModalLabel">{{ 'ADD LECTURE' | transloco }}</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form #addLectureForm="ngForm">
+          <div class="mb-3">
+            <label for="lectureTitle" class="form-label">{{ 'COURSE.LECTURE_TITLE' | transloco }}</label>
+            <input type="text" class="form-control" id="lectureTitle" [(ngModel)]="newLecture.title" name="title" required>
+          </div>
+          <div class="mb-3">
+            <label for="lectureDescription" class="form-label">{{ 'DESCRIPTION' | transloco }}</label>
+            <textarea class="form-control" id="lectureDescription" rows="3" [(ngModel)]="newLecture.description" name="description" required></textarea>
+          </div>
+          <div class="mb-3">
+            <label for="lectureVideo" class="form-label">{{ 'COURSE.LECTURE_VIDEO' | transloco }}</label>
+            <input type="file" class="form-control" id="lectureVideo" (change)="onNewLectureVideoChange($event)" name="videoFile" required accept="video/*">
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{{ 'CANCEL' | transloco }}</button>
+        <button type="button" class="btn btn-primary" (click)="submitNewLecture()" [disabled]="!addLectureForm.valid">{{ 'ADD' | transloco }}</button>
+         <div class="spinner-border text-dark" role="status" *ngIf="isLoading">
+          <span class="visually-hidden">Loading...</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Add Lecture to SubSection Modal -->
+<div class="modal fade" id="addLectureToSubSectionModal" tabindex="-1" aria-labelledby="addLectureToSubSectionModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="addLectureToSubSectionModalLabel">{{ 'ADD LECTURE' | transloco }}</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form #addLectureToSubSectionForm="ngForm">
+          <div class="mb-3">
+            <label for="lectureInSubSectionTitle" class="form-label">{{ 'COURSE.LECTURE_TITLE' | transloco }}</label>
+            <input type="text" class="form-control" id="lectureInSubSectionTitle" [(ngModel)]="newLectureInSubSection.title" name="title" required>
+          </div>
+          <div class="mb-3">
+            <label for="lectureInSubSectionDescription" class="form-label">{{ 'DESCRIPTION' | transloco }}</label>
+            <textarea class="form-control" id="lectureInSubSectionDescription" rows="3" [(ngModel)]="newLectureInSubSection.description" name="description" required></textarea>
+          </div>
+          <div class="mb-3">
+            <label for="lectureInSubSectionVideo" class="form-label">{{ 'COURSE.LECTURE_VIDEO' | transloco }}</label>
+            <input type="file" class="form-control" id="lectureInSubSectionVideo" (change)="onNewLectureVideoInSubSectionChange($event)" name="videoFile" required accept="video/*">
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{{ 'CANCEL' | transloco }}</button>
+        <button type="button" class="btn btn-primary" (click)="submitNewLectureToSubSection()" [disabled]="!addLectureToSubSectionForm.valid">{{ 'ADD' | transloco }}</button>
+        <div class="spinner-border text-dark" role="status" *ngIf="isLoading">
+          <span class="visually-hidden">Loading...</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Add SubSection Modal -->
+<div class="modal fade" id="addSubSectionModal" tabindex="-1" aria-labelledby="addSubSectionModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="addSubSectionModalLabel">{{ 'ADD SUBSECTION' | transloco }}</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form #addSubSectionForm="ngForm">
+          <div class="mb-3">
+            <label for="subSectionTitle" class="form-label">{{ 'SUBSECTION_TITLE' | transloco }}</label>
+            <input type="text" class="form-control" id="subSectionTitle" [(ngModel)]="newSubSection.title" name="title" required>
+          </div>
+          <div class="mb-3">
+            <label for="subSectionDescription" class="form-label">{{ 'DESCRIPTION' | transloco }}</label>
+            <textarea class="form-control" id="subSectionDescription" rows="3" [(ngModel)]="newSubSection.description" name="description" required></textarea>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{{ 'CANCEL' | transloco }}</button>
+        <button type="button" class="btn btn-primary" (click)="submitNewSubSection()" [disabled]="!addSubSectionForm.valid">{{ 'ADD' | transloco }}</button>
+       <div class="spinner-border text-dark" role="status" *ngIf="isLoading">
+          <span class="visually-hidden">Loading...</span>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+  </div>
+<div *ngIf="isEditing" class="my-2">
+  <!-- Button to trigger modal -->
+  <button type="button" class="btn btn-outline-primary btn-sm" data-bs-toggle="modal" data-bs-target="#addSectionModal">
+    {{ 'ADD SECTION' | transloco }}
+  </button>
+
+<div class="modal fade" id="addSectionModal" tabindex="-1" aria-labelledby="addSectionModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="addSectionModalLabel">{{ 'ADD SECTION' | transloco }}</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form #addSectionForm="ngForm">
+          <div class="mb-3">
+            <label for="sectionTitle" class="form-label">{{ 'COURSE.SECTION_TITLE' | transloco }}</label>
+            <input type="text" class="form-control" id="sectionTitle" [(ngModel)]="newSection.title" name="title" required>
+          </div>
+          <div class="mb-3">
+            <label for="sectionDescription" class="form-label">{{ 'DESCRIPTION' | transloco }}</label>
+            <textarea class="form-control" id="sectionDescription" rows="3" [(ngModel)]="newSection.description" name="description" required></textarea>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{{ 'CANCEL' | transloco }}</button>
+        <button type="button" class="btn btn-primary" (click)="submitNewSection()" [disabled]="!addSectionForm.valid" data-bs-dismiss="modal">{{ 'ADD' | transloco }}</button>
+         <div class="spinner-border text-dark" role="status" *ngIf="isLoading">
+          <span class="visually-hidden">Loading...</span>
+        </div>
+
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+</div>
+
+
+<div class="card p-3 mb-3">
+  <h5 class="text-primary">{{ 'COUPONS' | transloco }}</h5>
+
+  <div *ngFor="let coupon of courseData.coupons; let ci = index" class="border p-2 mb-2">
+    <label class="my-1">{{ 'COUPON.CODE' | transloco }}</label>
+    <input class="form-control my-2" [(ngModel)]="coupon.code">
+
+    <label class="my-1">{{ 'COUPON.DISCOUNT' | transloco }}</label>
+    <input class="form-control my-2" [(ngModel)]="coupon.discountPercentage" type="number">
+
+
+    <div class="form-check form-switch mb-2">
+      <input class="form-check-input" type="checkbox" [(ngModel)]="coupon.isValid" [id]="'isValid'+ci">
+      <label class="form-check-label" [for]="'isValid'+ci">
+        {{ coupon.isValid ? 'Valid' : 'Invalid' }}
+      </label>
+    </div>
+
+    <button class="btn btn-sm btn-danger" (click)="deleteCoupon(ci)">
+      {{ 'DELETE' | transloco }}
+    </button>
+  </div>
+
+  <div *ngIf="addingCoupon" class="border p-2 mb-2">
+    <label class="my-1">{{ 'COUPON.CODE' | transloco }}</label>
+    <input class="form-control my-2" [(ngModel)]="newCoupon.code">
+
+    <label class="my-1">{{ 'COUPON.DISCOUNT' | transloco }}</label>
+    <input class="form-control my-2" [(ngModel)]="newCoupon.discountPercentage" type="number">
+
+
+    <div class="form-check form-switch mb-2">
+      <input class="form-check-input" type="checkbox" [(ngModel)]="newCoupon.isValid" id="newIsValid">
+      <label class="form-check-label" for="newIsValid">
+        {{ newCoupon.isValid ? 'Valid' : 'Invalid' }}
+      </label>
+    </div>
+
+
+    <button class="btn btn-sm btn-secondary "  (click)="addingCoupon=false">
+      {{ 'CANCEL' | transloco }}
+    </button>
+  </div>
+
+  <button *ngIf="!addingCoupon" class="btn btn-outline-primary mt-2" (click)="addingCoupon=true">
+    {{ 'ADD_COUPON' | transloco }}
+  </button>
+</div>
+
+ <div class="text-end">
+      <button class="btn btn-success" (click)="saveChanges()">{{ 'COURSE.SAVE_BUTTON' | transloco }}</button>
+      <div class="spinner-border text-success mx-3 pt-3" role="status" *ngIf="isLoading2">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+    </div>
+</div>
+</div>

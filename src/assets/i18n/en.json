@@ -1,140 +1,139 @@
 {
 
-"navbar":{
+    "navbar": {
 
-  "register":"Register",
-  "login":"Login",
-  "teach in Makhekh":"teach in Makhekh",
-  "about us":"About us",
-  "home":"Home",
-  "search":"Search",
-  "explore":"Explore"
-},
-"footer":{
-  "discover more skills and learn with us":"Discover more skills and learn with us",
-  "hurry up and get your certificate":"Hurry up and get your certificate",
-  "legal and Accessibility":"Legal and Accessibility",
-  "terms and Conditions":"Terms and Conditions",
-  "privacy policy":"privacy policy",
-  "about makhekh":"About Makhekh",
-  "about us":"About us",
-  "customer Reviews":"Customer Reviews",
-  "contact Us":"Contact Us"
-},
-"second-navbar":{
-  "register":"Register",
-  "login":"Login",
-  "instructor":"Instructor",
-  "student":"Student",
-  "explore":"Explore",
-  "home":"Home",
-  "search":"Search",
-  "my courses":"My courses",
-  "My Cart":"My Cart",
-"Wishlist":"Wishlist",
-"Instructor Dashboard":"Instructor Dashboard",
-"Notifications":"Notifications",
-"Messages":"Messages",
-"Account Settings":"Account Settings",
-"Payment Methods":"Payment Methods",
-"Language":"Language",
-"Help and Support":"Help and Support",
-"Log out":"Log out",
-"Student Profile":"Student Profile",
-"Instructor Profile":"Instructor Profile"
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-}
-,
-
-"home":{
-
-  "header-section":{
-  "discover our variety of courses.":"discover our variety of courses.",
-  "lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ultricies sapien a nibh scelerisque scelerisque":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ultricies sapien a nibh scelerisque scelerisque",
-  "find Courses":"Find Courses"
-  },
-  "secondary-section-home":{
-    "all the skills you need in one place.":"All the skills you need in one place.",
-    "development":"Development",
-    "delivering productivity":"Delivering productivity",
-    "health and Fitness":"Health and Fitness",
-    "marketing":"Marketing",
-    "administration":"Administration",
-    "design":"Design",
-    "information Technology and Software":"Information Technology and Software",
-    "finance and Accounting":"Finance and Accounting",
-    "view all JavaScript courses":"View all JavaScript courses",
-    "view all React courses":"view all React courses",
-    "view all Angular courses":"View all Angular courses",
-    "view all Java courses":"View all Java courses",
-    "view all Android courses":"View all Android courses",
-    "view all CSS  courses":"View all CSS  courses",
-    "view all Web Development courses":"View all Web Development courses"
+        "register": "Register",
+        "login": "Login",
+        "teach in Makhekh": "teach in Makhekh",
+        "about us": "About us",
+        "home": "Home",
+        "search": "Search",
+        "explore": "Explore"
     },
-    "third-section-home":{
-    "invest in your career with us":"Invest in your career with us",
-    "writing an English paragraph":"Writing an English paragraph is one of the most important ways to teach an English language learner to write. Writing an English paragraph is one of the most important ways to teach an English language learner to write. Writing an English paragraph is one of the most important ways to teach an English language learner to write.",
-    "get Offers":"Get Offers",
-    "flexible Learning":"Flexible Learning",
-    "get Your Certificate":"Get Your Certificate",
-    "explore Courses":"Explore Courses",
-    "writing an English Paragraph is one of the most important ways to teach English learners to write":"Writing an English Paragraph is one of the most important ways to teach English learners to write"
+    "footer": {
+        "discover more skills and learn with us": "Discover more skills and learn with us",
+        "hurry up and get your certificate": "Hurry up and get your certificate",
+        "legal and Accessibility": "Legal and Accessibility",
+        "terms and Conditions": "Terms and Conditions",
+        "privacy policy": "privacy policy",
+        "about makhekh": "About Makhekh",
+        "about us": "About us",
+        "customer Reviews": "Customer Reviews",
+        "contact Us": "Contact Us"
     },
-    "fourth-section-home":{
-    "join thousands of learners achieving their goals.":"Join thousands of learners achieving their goals.",
-    "daniela Turk":"Daniela Turk",
-    "business Administration":"business Administration",
-    "lorem Ipsum is simply dummy text of the printing industry.":"Lorem Ipsum is simply dummy text of the printing industry.",
-    "ahmed Raouf":"Ahmed Raouf",
-    "engineering University":"Engineering University",
-    "lydia Anas":"Lydia Anas",
-    "frontend Engineer":"Frontend Engineer",
-    "omar Khaled":"Omar Khaled",
-    "software Engineer":"Software Engineer",
-    "sara Mahmoud":"Sara Mahmoud",
-    "uI/UX Designer":"UI/UX Designer"
-    }
-
-},
-
-
-
-
-
-
-
+    "second-navbar": {
+        "register": "Register",
+        "login": "Login",
+        "instructor": "Instructor",
+        "student": "Student",
+        "explore": "Explore",
+        "home": "Home",
+        "search": "Search",
+        "my courses": "My courses",
+        "My Cart": "My Cart",
+        "Wishlist": "Wishlist",
+        "Instructor Dashboard": "Instructor Dashboard",
+        "Notifications": "Notifications",
+        "Messages": "Messages",
+        "Account Settings": "Account Settings",
+        "Payment Methods": "Payment Methods",
+        "Language": "Language",
+        "Help and Support": "Help and Support",
+        "Log out": "Log out",
+        "Student Profile": "Student Profile",
+        "Instructor Profile": "Instructor Profile"
 
 
-  "login":{
-    "login in to your account":"login in to your account",
-    "email":"Email",
-    "password":"Password",
-    "log in":"log in",
-    "Forget password":"Do you forget password?",
-    "dont have account":"Don’t have an account?",
-    "Other login options":"Other login options",
-     "sign up Student":"sign up Student",
-  "sign up Teacher":"sign up Teacher",
 
-    "email required":"Email required",
-    "enter a valid email address.":"Enter a valid email address.",
-    "password required":"Password required",
-    "enter a valid password.":"Enter a valid password.",
-  "password must contain at least one letter, one number, and one special character.":"Password must contain at least one letter, one number, and one special character."
+
+
+
+
+
+
+
+
+
+
+
+
+    },
+
+    "home": {
+
+        "header-section": {
+            "discover our variety of courses.": "discover our variety of courses.",
+            "lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ultricies sapien a nibh scelerisque scelerisque": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ultricies sapien a nibh scelerisque scelerisque",
+            "find Courses": "Find Courses"
+        },
+        "secondary-section-home": {
+            "all the skills you need in one place.": "All the skills you need in one place.",
+            "development": "Development",
+            "delivering productivity": "Delivering productivity",
+            "health and Fitness": "Health and Fitness",
+            "marketing": "Marketing",
+            "administration": "Administration",
+            "design": "Design",
+            "information Technology and Software": "Information Technology and Software",
+            "finance and Accounting": "Finance and Accounting",
+            "view all JavaScript courses": "View all JavaScript courses",
+            "view all React courses": "view all React courses",
+            "view all Angular courses": "View all Angular courses",
+            "view all Java courses": "View all Java courses",
+            "view all Android courses": "View all Android courses",
+            "view all CSS  courses": "View all CSS  courses",
+            "view all Web Development courses": "View all Web Development courses"
+        },
+        "third-section-home": {
+            "invest in your career with us": "Invest in your career with us",
+            "writing an English paragraph": "Writing an English paragraph is one of the most important ways to teach an English language learner to write. Writing an English paragraph is one of the most important ways to teach an English language learner to write. Writing an English paragraph is one of the most important ways to teach an English language learner to write.",
+            "get Offers": "Get Offers",
+            "flexible Learning": "Flexible Learning",
+            "get Your Certificate": "Get Your Certificate",
+            "explore Courses": "Explore Courses",
+            "writing an English Paragraph is one of the most important ways to teach English learners to write": "Writing an English Paragraph is one of the most important ways to teach English learners to write"
+        },
+        "fourth-section-home": {
+            "join thousands of learners achieving their goals.": "Join thousands of learners achieving their goals.",
+            "daniela Turk": "Daniela Turk",
+            "business Administration": "business Administration",
+            "lorem Ipsum is simply dummy text of the printing industry.": "Lorem Ipsum is simply dummy text of the printing industry.",
+            "ahmed Raouf": "Ahmed Raouf",
+            "engineering University": "Engineering University",
+            "lydia Anas": "Lydia Anas",
+            "frontend Engineer": "Frontend Engineer",
+            "omar Khaled": "Omar Khaled",
+            "software Engineer": "Software Engineer",
+            "sara Mahmoud": "Sara Mahmoud",
+            "uI/UX Designer": "UI/UX Designer"
+        }
+
+    },
+
+
+
+
+
+
+
+
+
+    "login": {
+        "login in to your account": "login in to your account",
+        "email": "Email",
+        "password": "Password",
+        "log in": "log in",
+        "Forget password": "Do you forget password?",
+        "dont have account": "Don’t have an account?",
+        "Other login options": "Other login options",
+        "sign up Student": "sign up Student",
+        "sign up Teacher": "sign up Teacher",
+
+        "email required": "Email required",
+        "enter a valid email address.": "Enter a valid email address.",
+        "password required": "Password required",
+        "enter a valid password.": "Enter a valid password.",
+        "password must contain at least one letter, one number, and one special character.": "Password must contain at least one letter, one number, and one special character."
     },
 
 
@@ -142,1070 +141,1164 @@
 
 
     "register": {
-      "Register with us and start learning now": "Register with us and start learning now",
-      "Full Name": "Full Name",
-      "Full Name is required":"Full Name is required",
-      "Email": "Email",
-      "Password": "Password",
-      "Email is required": "Email is required",
-      "Enter a valid email": "Enter a valid email",
-      "Password is required": "Password is required",
-      "Enter a valid password": "Enter a valid password",
-      "Password must contain at least one letter, one number, and one special character": "Password must contain at least one letter, one number, and one special character",
-      "Send me special offers, personalized recommendations, and learning tips": "Send me special offers, personalized recommendations, and learning tips",
-      "Sign Up": "Sign Up",
-      "Already have an account?": "Already have an account?",
-      "Login": "Login"
+        "Register with us and start learning now": "Register with us and start learning now",
+        "Full Name": "Full Name",
+        "Full Name is required": "Full Name is required",
+        "Email": "Email",
+        "Password": "Password",
+        "Email is required": "Email is required",
+        "Enter a valid email": "Enter a valid email",
+        "Password is required": "Password is required",
+        "Enter a valid password": "Enter a valid password",
+        "Password must contain at least one letter, one number, and one special character": "Password must contain at least one letter, one number, and one special character",
+        "Send me special offers, personalized recommendations, and learning tips": "Send me special offers, personalized recommendations, and learning tips",
+        "Sign Up": "Sign Up",
+        "Already have an account?": "Already have an account?",
+        "Login": "Login"
     },
 
 
 
 
-    "about":{
-    "start teaching with us":"Start teaching with us",
-    "be a teacher and help learners":"Be a teacher and help learners",
-    "start now":"start now",
-    "why_join_us": "Why join us?",
-    "get_rewards": "Get Rewards",
-    "get_rewards_desc": "Expand your network, build your experience, and earn money.",
-    "motivate_learners": "Motivate Learners",
-    "motivate_learners_desc": "Help learners achieve their goals, expand their knowledge, and develop their career.",
-    "teach_your_way": "Teach Your Way",
-    "teach_your_way_desc": "Upload your recorded videos or start live streaming. Add your own content.",
-    "explain_courses": "Let us explain the types of courses you will create",
-    "online_questions": "Online / Downloadable Questions",
-    "live_recorded_courses": "Live Recorded Courses",
-    "live_courses": "Live Courses",
-    "recorded_courses": "Recorded Courses",
-    "recorded_courses_desc": "You can upload a recorded video on our site and increase the number of learners. Define your target audience, choose a promising topic, and provide value to other learners.",
-    "testimonial_quote_1": "I am proud to be here. Although working as a full-time teacher is hard work, it allows you to work whenever, wherever, and however you want.",
-    "testimonial_author_1": "Nady Mohsen",
-    "testimonial_role_1": "UX/UI Designer",
-    "testimonial_quote_2": "I am proud to be here. Although working as a full-time teacher is hard work, it allows you to work whenever, wherever, and however you want.",
-    "testimonial_author_2": "Nady Mohsen",
-    "testimonial_role_2": "UX/UI Designer",
-    "previous": "Previous"
+    "about": {
+        "start teaching with us": "Start teaching with us",
+        "be a teacher and help learners": "Be a teacher and help learners",
+        "start now": "start now",
+        "why_join_us": "Why join us?",
+        "get_rewards": "Get Rewards",
+        "get_rewards_desc": "Expand your network, build your experience, and earn money.",
+        "motivate_learners": "Motivate Learners",
+        "motivate_learners_desc": "Help learners achieve their goals, expand their knowledge, and develop their career.",
+        "teach_your_way": "Teach Your Way",
+        "teach_your_way_desc": "Upload your recorded videos or start live streaming. Add your own content.",
+        "explain_courses": "Let us explain the types of courses you will create",
+        "online_questions": "Online / Downloadable Questions",
+        "live_recorded_courses": "Live Recorded Courses",
+        "live_courses": "Live Courses",
+        "recorded_courses": "Recorded Courses",
+        "recorded_courses_desc": "You can upload a recorded video on our site and increase the number of learners. Define your target audience, choose a promising topic, and provide value to other learners.",
+        "testimonial_quote_1": "I am proud to be here. Although working as a full-time teacher is hard work, it allows you to work whenever, wherever, and however you want.",
+        "testimonial_author_1": "Nady Mohsen",
+        "testimonial_role_1": "UX/UI Designer",
+        "testimonial_quote_2": "I am proud to be here. Although working as a full-time teacher is hard work, it allows you to work whenever, wherever, and however you want.",
+        "testimonial_author_2": "Nady Mohsen",
+        "testimonial_role_2": "UX/UI Designer",
+        "previous": "Previous"
 
 
-},
-
-
-
-
-"secondHome":{
-
-  "Welcome, Name":"Welcome , ",
-  "UX Designer":"UX Designer",
-"Development":"Development",
-"Finance & Accounting":"Finance & Accounting",
-"IT & Software":"IT & Software",
-"Design":"Design",
-"Business":"Business",
-"Marketing":"Marketing",
-"Health & Fitness":"Health & Fitness",
-"Offer Productivity":"Offer Productivity",
-"recommended videos":"Recommended videos",
-"Featured Courses":"Featured Courses",
-"Continue learning":"Continue learning"
+    },
 
 
 
 
+    "secondHome": {
 
-},
+        "Welcome, Name": "Welcome , ",
+        "UX Designer": "UX Designer",
+        "Development": "Development",
+        "Finance & Accounting": "Finance & Accounting",
+        "IT & Software": "IT & Software",
+        "Design": "Design",
+        "Business": "Business",
+        "Marketing": "Marketing",
+        "Health & Fitness": "Health & Fitness",
+        "Offer Productivity": "Offer Productivity",
+        "recommended videos": "Recommended videos",
+        "Featured Courses": "Featured Courses",
+        "Continue learning": "Continue learning"
 
 
 
 
 
+    },
 
 
-"navigation": {
-  "internalNav": "Internal Navigation",
-  "sidebar": "Sidebar",
-  "student-view":"student view",
-  "letter":"H",
-  "communication": "Communication",
-  "performance": "Performance",
-  "messages": "Messages",
-  "suggestions": "Student Suggestions",
-  "overview": "Overview",
-  "students": "Students",
-  "reviews": "Reviews",
-  "courses":"Courses",
-  "createCourses":"Create Courses",
-  "Profile":"Profile",
-  "Quizes":"Quizzes"
-
-},
-"dashboard": {
-  "createCourse": "Create your own course",
-  "createQuiz": "Create your own Quiz",
-  "getStarted": "Get Started"
-},
-"resources": {
-  "title": "These resources will help to answer all your questions and concerns",
-  "courseType": "What type of courses you can create?",
-  "seeMore": "See more →",
-  "engageLearners": "How to engage more learners?"
-},
-"benefits": {
-  "title": "Many Benefits",
-  "coursePrice": "Adding Course Price",
-  "createCoupons": "Create Coupons",
-  "promoPrices": "Promotional Prices"
-},
-"cta": {
-  "question": "Are you ready to Begin?",
-  "createCourse": "Create your course"
-},
-"Q&A": "Q&A",
-"AllCourses": "All Courses",
-"Question": "Question",
-"Answer": "Answer",
-"Action": "Action",
-"noAnswerYet": "No questions yet.",
-"noQuestionsYet":"No questions yet",
-
-"Edit": "Edit",
-"Send an Answer": "Send an Answer",
-"Save": "Save",
-"course1":"course 1",
-"course2":"course 2",
-"course3": "course 3",
-
-"messages": {
-"title": "Messages",
-"all_courses": "All Courses",
-"course1": "Course 1",
-"course2": "Course 2",
-"course3": "Course 3",
-"compose": "Compose",
-"read": "Read",
-"unread": "Unread",
-"time_ago": "3 years ago",
-"type_message": "Type your message...",
-"send": "Send",
-"new_message": "New Message",
-"to": "To:",
-"instructor_name": "Instructor Name",
-"message":"message"
-},
-"suggestions": {
-"title": "Students Suggestions",
-"reply": "Reply",
-"write_reply": "Write your reply...",
-"send": "Send",
-"show_more": "Show More Suggestions",
-"no_suggestions": "No suggestions available"
-},
-"overview": {
-"title": "Overview",
-"All-Courses": "All Courses",
-"course 1": "Course 1",
-"course 2": "Course 2",
-"course 3": "Course 3",
-"extract_report": "Extract Report",
-"total_revenue": "Total Revenue",
-"total_enrollments": "Total Enrollments",
-"total_sales": "Total Sales"
-},
-
-"course 1": "Course 1",
-"course 2": "Course 2",
-"course 3": "Course 3",
-"LE":"LE" ,"students": {
-  "title": "Students",
-  "all_courses": "All Courses",
-  "no_of_student": "No of students",
-  "no_of_student_completed": "No of students completed the course",
-  "suggestions": "Students' suggestions",
-  "no_of_questions": "No of questions",
-  "noDataAvailable": "No data available for the report"
-
-},
-"reviews": {
-  "title": "Reviews",
-  "InstructorRating":"Instructor Rating"
-},
 
 
-"step": "Step",
-"of": "of",
-"exit": "Exit",
-"continue": "Continue",
-"previous": "Previous",
-"step2_title": "How about your course title?",
-"enter_course_title": "Enter your course title",
-"step3_title": "What category best fits the knowledge you'll share?",
-"select_category": "Select a category",
-"step4_learning": "What will students learn in your course?",
-"step4_requirements": "What are the requirements for taking your course?",
-"step4_target": "Who is this course for?",
-"create_course": "Create your course",
-  "step1_title": "Firstly, let us find out what type of course you’ll create",
-  "course1_title": "Recorded Educational Courses",
-  "course1_description": "You can upload a recorded made video on our website and increase the no of learners.Define your target audience, pick a promising topic and benefit other learners.",
-  "course2_title": "Live-Streamed Educational Courses",
-  "course2_description": "Upload live videos and will help you to reserve your class with the capacity you need. Calendar schedule where you can adjust all your data. Submit your course link.",
-  "course3_title": "Recorded Live - Streamed Educational Courses",
-  "course3_description": "Upload recorded videos but with scheduled live streamed. Adjust your schedule with date and time, number of students and set up your live link.",
-  "course4_title": "Online / Offline Questions",
-  "course4_description": "You can prepare type of questions and quizzes. Online where learners can submit their answers or Offline as PDF where learners can download the questions."
-  ,"step3": {
-    "title": "Choose a Category",
-    "selectCategory": "Select a Category"
-  },
-  "categories": {
-    "development": "Development",
-    "business": "Business",
-    "finance": "Finance & Accounting",
-    "itSoftware": "IT & Software",
-    "officeProductivity": "Office Productivity",
-    "personalDevelopment": "Personal Development",
-    "design": "Design",
-    "marketing": "Marketing",
-    "lifestyle": "Lifestyle",
-    "music": "Music",
-    "photography": "Photography & Video",
-    "healthFitness": "Health & Fitness",
-    "teachingAcademics": "Teaching & Academics",
-    "other": "Other"
-  },
-
-  "step1": {
-    "title": "Choose the Type of Educational Course"
-  },
-  "quiz-component":{
-    "title": "Choose the Type of Quistion Bank",
-    "title1": "Question Bank for Any Topic",
-    "description1": "You can create a question bank on any subject or field of your choice. Whether it's academic, professional, or just a topic you’re passionate about — help learners practice, test their knowledge, and grow.",
-    "title2": "Add Questions to Your Uploaded Course",
-    "description2": "Already uploaded your course? Now you can build a dedicated question bank around it. Create tailored questions for your learners to reinforce what they’ve watched and assess their understanding effectively.",
-    "category":"category"
 
 
-  },
-"quiz-form": {
-  "title": "Quiz Title",
-  "description": "Description",
-  "time": "Time ",
-  "duration": "Duration (e.g., 30 minutes)",
-  "passingGrade": "Passing Grade (%)",
-  "questionOrder": "Question Order",
-  "order": {
-    "sequential": "Sequential",
-    "random": "Random"
-  }
-}
 
-  ,
-  "course": {
-    "webDevelopment": "Web Development Course",
-    "progress": "Your progress",
+    "navigation": {
+        "internalNav": "Internal Navigation",
+        "sidebar": "Sidebar",
+        "student-view": "student view",
+        "letter": "H",
+        "communication": "Communication",
+        "performance": "Performance",
+        "messages": "Messages",
+        "suggestions": "Student Suggestions",
+        "overview": "Overview",
+        "students": "Students",
+        "reviews": "Reviews",
+        "courses": "Courses",
+        "createCourses": "Create Courses",
+        "Profile": "Profile",
+        "Quizes": "Quizzes",
+        "orders": "Orders"
+    },
+    "dashboard": {
+        "createCourse": "Create your own course",
+        "createQuiz": "Create your own Quiz",
+        "getStarted": "Get Started"
+    },
+    "orders": {
+        "studentName": "Student Name",
+        "courseName": "Course Name",
+        "subscriptionDate": "Subscription Date"
+    },
+    "resources": {
+        "title": "These resources will help to answer all your questions and concerns",
+        "courseType": "What type of courses you can create?",
+        "seeMore": "See more →",
+        "engageLearners": "How to engage more learners?"
+    },
+    "benefits": {
+        "title": "Many Benefits",
+        "coursePrice": "Adding Course Price",
+        "createCoupons": "Create Coupons",
+        "promoPrices": "Promotional Prices"
+    },
+    "cta": {
+        "question": "Are you ready to Begin?",
+        "createCourse": "Create your course"
+    },
+    "Q&A": "Q&A",
+    "AllCourses": "All Courses",
+    "Question": "Question",
+    "Answer": "Answer",
+    "Action": "Action",
+    "noAnswerYet": "No questions yet.",
+    "noQuestionsYet": "No questions yet",
+
+    "Edit": "Edit",
+    "Send an Answer": "Send an Answer",
+    "Save": "Save",
+    "course1": "course 1",
+    "course2": "course 2",
+    "course3": "course 3",
+
+    "messages": {
+        "title": "Messages",
+        "all_courses": "All Courses",
+        "course1": "Course 1",
+        "course2": "Course 2",
+        "course3": "Course 3",
+        "compose": "Compose",
+        "read": "Read",
+        "unread": "Unread",
+        "time_ago": "3 years ago",
+        "type_message": "Type your message...",
+        "send": "Send",
+        "new_message": "New Message",
+        "to": "To:",
+        "instructor_name": "Instructor Name",
+        "message": "message"
+    },
+    "suggestions": {
+        "title": "Students Suggestions",
+        "reply": "Reply",
+        "write_reply": "Write your reply...",
+        "send": "Send",
+        "show_more": "Show More Suggestions",
+        "no_suggestions": "No suggestions available"
+    },
+    "overview": {
+        "title": "Overview",
+        "All-Courses": "All Courses",
+        "course 1": "Course 1",
+        "course 2": "Course 2",
+        "course 3": "Course 3",
+        "extract_report": "Extract Report",
+        "total_revenue": "Total Revenue",
+        "total_enrollments": "Total Enrollments",
+        "total_sales": "Total Sales"
+    },
+
+    "course 1": "Course 1",
+    "course 2": "Course 2",
+    "course 3": "Course 3",
+    "LE": "LE",
+    "students": {
+        "title": "Students",
+        "all_courses": "All Courses",
+        "no_of_student": "No of students",
+        "no_of_student_completed": "No of students completed the course",
+        "suggestions": "Students' suggestions",
+        "no_of_questions": "No of questions",
+        "noDataAvailable": "No data available for the report"
+
+    },
+    "reviews": {
+        "title": "Reviews",
+        "InstructorRating": "Instructor Rating"
+    },
+
+
+    "step": "Step",
     "of": "of",
-    "complete": "complete",
-    "finishToGetCertificate": "Finish course to get your certificate",
-    "imageAlt": "Course Image",
-    "overview": "Overview",
-    "notes": "Notes",
-    "qAndA": "Q&A",
-    "reviews": "Reviews",
-    "resources": "Resources",
-    "certification": "Certification",
-    "instructor": "Instructor",
-    "instructorDesc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-    "getCertificate": "Get Certificate",
-    "complete75": "You need to complete at least 75% of the course to get the certificate."
-  }
-  ,
-  "instructor": {
-    "becomeInstructor": "Become an Instructor",
-    "signupTitle": "Sign up and become an instructor",
-    "fullName": "Full Name",
-    "email": "Email",
-    "password": "Password",
-    "terms": "Send me special offers, personalized recommendations, learning tips.",
-    "signup": "Sign up",
-    "alreadyHaveAccount": "Already have an account?",
-    "login": "Login",
-    "knowledgeTitle": "Tell us your knowledge",
-    "teachingExperience": "What kind of teaching have you practiced before?",
-    "personal": "Personal/Informally",
-    "professional": "Professional",
-    "online": "Online",
-    "others": "Others",
+    "exit": "Exit",
+    "continue": "Continue",
     "previous": "Previous",
-    "next": "Next",
-      "nameRequired": "Name is required",
-      "emailRequired": "Email is required",
-      "validEmail": "Enter a valid email",
-      "passwordRequired": "Password is required",
-      "validPassword": "Enter a valid password",
-      "passwordHint": "Password must contain at least one letter, one number, and one special character."
+    "step2_title": "How about your course title?",
+    "enter_course_title": "Enter your course title",
+    "step3_title": "What category best fits the knowledge you'll share?",
+    "select_category": "Select a category",
+    "step4_learning": "What will students learn in your course?",
+    "step4_requirements": "What are the requirements for taking your course?",
+    "step4_target": "Who is this course for?",
+    "create_course": "Create your course",
+    "step1_title": "Firstly, let us find out what type of course you’ll create",
+    "course1_title": "Recorded Educational Courses",
+    "course1_description": "You can upload a recorded made video on our website and increase the no of learners.Define your target audience, pick a promising topic and benefit other learners.",
+    "course2_title": "Live-Streamed Educational Courses",
+    "course2_description": "Upload live videos and will help you to reserve your class with the capacity you need. Calendar schedule where you can adjust all your data. Submit your course link.",
+    "course3_title": "Recorded Live - Streamed Educational Courses",
+    "course3_description": "Upload recorded videos but with scheduled live streamed. Adjust your schedule with date and time, number of students and set up your live link.",
+    "course4_title": "Online / Offline Questions",
+    "course4_description": "You can prepare type of questions and quizzes. Online where learners can submit their answers or Offline as PDF where learners can download the questions.",
+    "step3": {
+        "title": "Choose a Category",
+        "selectCategory": "Select a Category"
+    },
+    "categories": {
+        "development": "Development",
+        "business": "Business",
+        "finance": "Finance & Accounting",
+        "itSoftware": "IT & Software",
+        "officeProductivity": "Office Productivity",
+        "personalDevelopment": "Personal Development",
+        "design": "Design",
+        "marketing": "Marketing",
+        "lifestyle": "Lifestyle",
+        "music": "Music",
+        "photography": "Photography & Video",
+        "healthFitness": "Health & Fitness",
+        "teachingAcademics": "Teaching & Academics",
+        "other": "Other"
+    },
 
-  },
-  "auth": {
-    "alreadyHaveAccount": "Already have an account?",
-    "login": "Login"
-  }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-,"profile": {
-  "instructorView": "Instructor View",
-  "fullName": "Name",
-  "email": "Email",
-  "Experience Years":"Experience Years",
-    "Teaching Type":"Teaching Type",
-        "CV URL":"CV URL",
-    "Facebook":"Facebook",
-    "LinkedIn":"LinkedIn",
-    "Twitter":"Twitter",
-    "YouTube":"YouTube",
-    "done":"Done",
-
-  "studentView": "Student View",
-  "instructorProfile": "Instructor Profile",
-  "uploadPhoto": "Upload Photo",
-  "edit": "Edit",
-  "firstName": "First Name",
-  "lastName": "Last Name",
-  "mainAddress": "Main Address",
-  "emailAddress": "Email Address",
-  "save": "Save",
-  "pageTitle": "Profile",
-  "profileTab": "Profile",
-  "suggestionsTab": "Students Suggestions",
-  "photoAlt": "Profile Photo",
-  "occupation": "Occupation",
-  "facebook": "Facebook",
-  "linkedin": "LinkedIn",
-  "copyLink": "Copy Link",
-  "language": "Language",
-  "english": "English",
-  "arabic": "Arabic",
-  "address": "Address",
-  "file": "File",
-  "addProposal": "Add Proposal",
-  "proposalDescription": "Proposal Description",
-  "category": "Category",
-  "courses": "Courses",
-  "design": "Design",
-  "development": "Development",
-  "marketing": "Marketing",
-  "webDesign": "Web Design",
-  "uxUi": "UX/UI",
-  "fullStack": "Full Stack Web Development"
-}
-
-,
-"content2":{
- "title1":"Tell us your knowledge",
- "title2":"What kind of teaching have you practiced before?",
- "Personal":"Personal/Informally",
- "Professional":"Professional",
- "Online":"Online",
- "Others":"Others",
- "text":"Please specify your kind of teaching ...",
- "Previous":"Previous",
- "Next":"Next"
-
-}
-,
-"content3":{
- "title1":"Tell us your knowledge",
- "title2":"How professional are you in content creation?",
- "Beginner":"Beginner",
- "knowledge":"I have some knowledge",
- "experienced":"experienced",
- "videos":"I have videos ready to upload",
-  "Previous":"Previous",
- "Next":"Next"
-
-}
-,
-"content4":{
- "title1":"Tell us your knowledge",
- "title2":"Do you have an audience to share your course with?",
- "Beginner":"Not at the moment",
- "knowledge":"I have a few follower",
- "experienced":"I have a large number of followers",
- "videos":"I have videos ready to upload",
- "Previous":"Previous",
- "Done":"Done"
-}
-,
+    "step1": {
+        "title": "Choose the Type of Educational Course"
+    },
+    "quiz-component": {
+        "title": "Choose the Type of Quistion Bank",
+        "title1": "Question Bank for Any Topic",
+        "description1": "You can create a question bank on any subject or field of your choice. Whether it's academic, professional, or just a topic you’re passionate about — help learners practice, test their knowledge, and grow.",
+        "title2": "Add Questions to Your Uploaded Course",
+        "description2": "Already uploaded your course? Now you can build a dedicated question bank around it. Create tailored questions for your learners to reinforce what they’ve watched and assess their understanding effectively.",
+        "category": "category"
 
 
-  "Course": {
-    "name": "Web Development Course"
-  },
-  "progress": {
-    "yourProgress": "Your progress",
-    "of": "of",
-    "complete": "complete",
-    "finishCourse": "Finish course to get your certificate"
-  },
-  "tabs": {
-    "overview": "Overview",
-    "notes": "Notes",
-    "qna": "Q&A",
-    "reviews": "Reviews",
-    "resources": "Resources",
-    "certification": "Certification"
-  },
-  "Instructor": {
-    "title": "Instructor",
-    "rating": "Instructor Rating",
-    "courses": "Courses",
-    "students": "Students",
-    "reviews": "Reviews",
-    "description":"Experienced instructor in web development."
-  },"ratings": {
-    "total": "Rating"
-  },
-  "Students": {
-    "total": "Students"
-  },
-  "duration": {
-    "total": "Duration"
-  },
-  "notes": {
-    "placeholder": "Enter your note..."
-  },
-  "buttons": {
-    "cancel": "Cancel",
-    "save": "Save"
-  },
-  "actions": {
-    "saveNote": "Save note",
-    "cancel": "Cancel",
-    "sendQuestion": "Send Question"
-  } ,
-  "qna": {
-    "addQuestion": "Add your question and get an answer",
-    "placeholder": "Enter your question...",
-    "send": "Send Question",
-    "questions": "Questions",
-    "question": "Question",
-    "answer": "Answer",
-    "noAnswer": "No answer yet",
-    "noQuestions": "No questions available."
-  },
- "Resources": {
-    "challenge": "Challenge yourself and practice what you have learned",
-    "onlineQuestions": "Online Questions",
-    "downloadPDF": "Download Questions (PDF)",
-    "webDevQuestions": "Web Development Questions"
-  },
-  "certification": {
-    "get": "Get Certificate",
-    "warning": "⚠️ You need to complete at least 75% of the course to get the certificate.",
-    "save": "Save as",
-    "print": "Print"
-  },
-  "content": {
-    "content": "Course Content",
-    "lectures": "Lectures",
-    "hours":"h",
-    "minutes":"minutes"
+    },
+    "quiz-form": {
+        "title": "Quiz Title",
+        "description": "Description",
+        "time": "Time ",
+        "duration": "Duration (e.g., 30 minutes)",
+        "passingGrade": "Passing Grade (%)",
+        "questionOrder": "Question Order",
+        "order": {
+            "sequential": "Sequential",
+            "random": "Random"
+        }
+    }
 
-  },
-  "lectures": {
-    "allLectures": "All Lectures",
-    "currentLecture": "Current Lecture",
-    "selectLecture": "Select a Lecture",
-    "count": "Lectures"
+    ,
+    "course": {
+        "webDevelopment": "Web Development Course",
+        "progress": "Your progress",
+        "of": "of",
+        "complete": "complete",
+        "finishToGetCertificate": "Finish course to get your certificate",
+        "imageAlt": "Course Image",
+        "overview": "Overview",
+        "notes": "Notes",
+        "qAndA": "Q&A",
+        "reviews": "Reviews",
+        "resources": "Resources",
+        "certification": "Certification",
+        "instructor": "Instructor",
+        "instructorDesc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        "getCertificate": "Get Certificate",
+        "complete75": "You need to complete at least 75% of the course to get the certificate."
+    },
+    "instructor": {
+        "becomeInstructor": "Become an Instructor",
+        "signupTitle": "Sign up and become an instructor",
+        "fullName": "Full Name",
+        "email": "Email",
+        "password": "Password",
+        "terms": "Send me special offers, personalized recommendations, learning tips.",
+        "signup": "Sign up",
+        "alreadyHaveAccount": "Already have an account?",
+        "login": "Login",
+        "knowledgeTitle": "Tell us your knowledge",
+        "teachingExperience": "What kind of teaching have you practiced before?",
+        "personal": "Personal/Informally",
+        "professional": "Professional",
+        "online": "Online",
+        "others": "Others",
+        "previous": "Previous",
+        "next": "Next",
+        "nameRequired": "Name is required",
+        "emailRequired": "Email is required",
+        "validEmail": "Enter a valid email",
+        "passwordRequired": "Password is required",
+        "validPassword": "Enter a valid password",
+        "passwordHint": "Password must contain at least one letter, one number, and one special character."
 
-  },
-  "sections": {
-    "title": "Section"
-  },
+    },
+    "auth": {
+        "alreadyHaveAccount": "Already have an account?",
+        "login": "Login"
+    }
 
 
 
- "cart":
-  {
-  "Shopping Cart":"Shopping Cart",
-  "courses in cart":"courses in cart",
-  "Remove":"Remove",
-  "Move to wishlist":"Move to wishlist",
-  "Remove from wishlist":"Remove from wishlist",
-  "Continue Shopping":"Continue Shopping",
-  "Checkout":"Checkout",
-  "Total Price:":"Total Price:",
-  "Close":"Close",
-  "Please Login First":"Please Login First",
-  "alert":"alert",
-  "needStudentAccount": "To purchase this course, you need to have a student account."
-  },
 
 
-  "cours-details":{
-    "Title:": "Title :",
-  "Description:": "Description :",
-  "No description": " No description ",
-      "promoVideo":"Promo Video",
+
+
+
+
+
+
+
+
+
+
+    ,
+    "profile": {
+        "instructorView": "Instructor View",
+        "fullName": "Name",
+        "email": "Email",
+        "Experience Years": "Experience Years",
+        "Teaching Type": "Teaching Type",
+        "CV URL": "CV URL",
+        "Facebook": "Facebook",
+        "LinkedIn": "LinkedIn",
+        "Twitter": "Twitter",
+        "YouTube": "YouTube",
+        "done": "Done",
+
+        "studentView": "Student View",
+        "instructorProfile": "Instructor Profile",
+        "uploadPhoto": "Upload Photo",
+        "edit": "Edit",
+        "firstName": "First Name",
+        "lastName": "Last Name",
+        "mainAddress": "Main Address",
+        "emailAddress": "Email Address",
+        "save": "Save",
+        "pageTitle": "Profile",
+        "profileTab": "Profile",
+        "suggestionsTab": "Students Suggestions",
+        "photoAlt": "Profile Photo",
+        "occupation": "Occupation",
+        "facebook": "Facebook",
+        "linkedin": "LinkedIn",
+        "copyLink": "Copy Link",
+        "language": "Language",
+        "english": "English",
+        "arabic": "Arabic",
+        "address": "Address",
+        "file": "File",
+        "addProposal": "Add Proposal",
+        "proposalDescription": "Proposal Description",
+        "category": "Category",
+        "courses": "Courses",
+        "design": "Design",
+        "development": "Development",
+        "marketing": "Marketing",
+        "webDesign": "Web Design",
+        "uxUi": "UX/UI",
+        "fullStack": "Full Stack Web Development"
+    }
+
+    ,
+    "content2": {
+        "title1": "Tell us your knowledge",
+        "title2": "What kind of teaching have you practiced before?",
+        "Personal": "Personal/Informally",
+        "Professional": "Professional",
+        "Online": "Online",
+        "Others": "Others",
+        "text": "Please specify your kind of teaching ...",
+        "Previous": "Previous",
+        "Next": "Next"
+
+    },
+    "content3": {
+        "title1": "Tell us your knowledge",
+        "title2": "How professional are you in content creation?",
+        "Beginner": "Beginner",
+        "knowledge": "I have some knowledge",
+        "experienced": "experienced",
+        "videos": "I have videos ready to upload",
+        "Previous": "Previous",
+        "Next": "Next"
+
+    },
+    "content4": {
+        "title1": "Tell us your knowledge",
+        "title2": "Do you have an audience to share your course with?",
+        "Beginner": "Not at the moment",
+        "knowledge": "I have a few follower",
+        "experienced": "I have a large number of followers",
+        "videos": "I have videos ready to upload",
+        "Previous": "Previous",
+        "Done": "Done"
+    },
+
+
+    "Course": {
+        "name": "Web Development Course"
+    },
+    "progress": {
+        "yourProgress": "Your progress",
+        "of": "of",
+        "complete": "complete",
+        "finishCourse": "Finish course to get your certificate"
+    },
+    "tabs": {
+        "overview": "Overview",
+        "notes": "Notes",
+        "qna": "Q&A",
+        "reviews": "Reviews",
+        "resources": "Resources",
+        "certification": "Certification"
+    },
+    "Instructor": {
+        "title": "Instructor",
+        "rating": "Instructor Rating",
+        "courses": "Courses",
+        "students": "Students",
+        "reviews": "Reviews",
+        "description": "Experienced instructor in web development."
+    },
+    "ratings": {
+        "total": "Rating"
+    },
+    "Students": {
+        "total": "Students"
+    },
+    "duration": {
+        "total": "Duration"
+    },
+    "notes": {
+        "placeholder": "Enter your note..."
+    },
+    "buttons": {
+        "cancel": "Cancel",
+        "save": "Save"
+    },
+    "actions": {
+        "saveNote": "Save note",
+        "cancel": "Cancel",
+        "sendQuestion": "Send Question"
+    },
+    "qna": {
+        "addQuestion": "Add your question and get an answer",
+        "placeholder": "Enter your question...",
+        "send": "Send Question",
+        "questions": "Questions",
+        "question": "Question",
+        "answer": "Answer",
+        "noAnswer": "No answer yet",
+        "noQuestions": "No questions available."
+    },
+    "Resources": {
+        "challenge": "Challenge yourself and practice what you have learned",
+        "onlineQuestions": "Online Questions",
+        "downloadPDF": "Download Questions (PDF)",
+        "webDevQuestions": "Web Development Questions"
+    },
+    "certification": {
+        "get": "Get Certificate",
+        "warning": "⚠️ You need to complete at least 75% of the course to get the certificate.",
+        "save": "Save as",
+        "print": "Print"
+    },
+    "content": {
+        "content": "Course Content",
+        "lectures": "Lectures",
+        "hours": "h",
+        "minutes": "minutes"
+
+    },
+    "lectures": {
+        "allLectures": "All Lectures",
+        "currentLecture": "Current Lecture",
+        "selectLecture": "Select a Lecture",
+        "count": "Lectures"
+
+    },
+    "sections": {
+        "title": "Section"
+    },
+
+
+
+    "cart": {
+        "Shopping Cart": "Shopping Cart",
+        "courses in cart": "courses in cart",
+        "Remove": "Remove",
+        "Move to wishlist": "Move to wishlist",
+        "Remove from wishlist": "Remove from wishlist",
+        "Continue Shopping": "Continue Shopping",
+        "Checkout": "Checkout",
+        "Total Price:": "Total Price:",
+        "Close": "Close",
+        "Please Login First": "Please Login First",
+        "alert": "alert",
+        "needStudentAccount": "To purchase this course, you need to have a student account."
+    },
+
+
+    "cours-details": {
+        "Title:": "Title :",
+        "Description:": "Description :",
+        "No description": " No description ",
+        "promoVideo": "Promo Video",
         "Your browser does not support video playback.": "Your browser does not support video playback.",
 
         "Section": "Section",
         "SubSection": "SubSection",
         "Lecture Title": "Lecture Title",
         "Description": "Description",
-  "Students":"Students",
-  "ratings":"ratings",
-  "Created by":"Created by",
-  "Last updates":"Last updates",
-  "Live Course":"Live Course",
-  "Book your spot":"Book your spot",
-  "What will you learn":"What will you learn",
-  "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer sed porttitor nisl.":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer sed porttitor nisl.",
-  "seats left":"seats left",
-  "Add to Cart":"Add to Cart",
-  "Remove From Cart":"Remove From Cart",
-  "Add to wishlist":"Add to wishlist",
-  "Remove from list":"Remove from list",
-  "Buy Now":"Buy Now",
-  "Assignments & quizzes":"Assignments & quizzes",
-  "Certification":"Certification",
-  "Course Content":"Course Content",
-  "sections":"sections",
-  "Lectures":"Lectures",
-  "total length":"total length",
-  "Instructor":"Instructor",
-  "Lorem ipsum dolor sit amet, consectetur adipiscing elit.":"Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-  "Instructor Rating":"Instructor Rating",
-  "Courses":"Courses",
-  "Reviews":"Reviews",
-  "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Itaque optio consequuntur voluptates ipsa illum rem laudantium fugit modi saepe numquam perferendis, expedita porro quo, dolorum iure repellendus. Non culpa minus explicabo deserunt ab odit labore deleniti similique esse obcaecati perspiciatis corporis sed minima facilis quidem quibusdam, iusto omnis laudantium iure assumenda officiis consequatur nihil. Laudantium, enim, nisi error minus reprehenderit earum itaque alias ad ea numquam accusantium praesentium vel eveniet nihil, rem debitis rerum eaque quo nemo? Error, hic ratione autem deserunt doloribus aperiam rem quo nemo ab quaerat, provident expedita nesciunt distinctio ex dignissimos natus odit maiores soluta nisi.":"Lorem ipsum, dolor sit amet consectetur adipisicing elit. Itaque optio consequuntur voluptates ipsa illum rem laudantium fugit modi saepe numquam perferendis, expedita porro quo, dolorum iure repellendus. Non culpa minus explicabo deserunt ab odit labore deleniti similique esse obcaecati perspiciatis corporis sed minima facilis quidem quibusdam, iusto omnis laudantium iure assumenda officiis consequatur nihil. Laudantium, enim, nisi error minus reprehenderit earum itaque alias ad ea numquam accusantium praesentium vel eveniet nihil, rem debitis rerum eaque quo nemo? Error, hic ratione autem deserunt doloribus aperiam rem quo nemo ab quaerat, provident expedita nesciunt distinctio ex dignissimos natus odit maiores soluta nisi.",
-  "Price:":"Price:",
-  "Online Live Videos":"Online Live Videos",
-  "Reserve your seat and schedule the available time for you. Enjoy learning online from anywhere as if you are in class. Try the experience. Ask all questions and get your answers.":"Reserve your seat and schedule the available time for you. Enjoy learning online from anywhere as if you are in class. Try the experience. Ask all questions and get your answers.",
-  "Course Schedules and Timings":"Course Schedules and Timings",
-  "Search by":"Search by",
-  "Course Title":"Course Title",
-  "Date":"Date",
-  "Time":"Time",
-  "Lecturer name":"Lecturer name",
-  "Status":"Status",
-  "Join Link":"Join Link",
-  "Reserve":"Reserve",
-  "This course includes:":"This course includes:",
-  "Month":"Month"
+        "Students": "Students",
+        "ratings": "ratings",
+        "Created by": "Created by",
+        "Last updates": "Last updates",
+        "Live Course": "Live Course",
+        "Book your spot": "Book your spot",
+        "What will you learn": "What will you learn",
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer sed porttitor nisl.": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer sed porttitor nisl.",
+        "seats left": "seats left",
+        "Add to Cart": "Add to Cart",
+        "Remove From Cart": "Remove From Cart",
+        "Add to wishlist": "Add to wishlist",
+        "Remove from list": "Remove from list",
+        "Buy Now": "Buy Now",
+        "Assignments & quizzes": "Assignments & quizzes",
+        "Certification": "Certification",
+        "Course Content": "Course Content",
+        "sections": "sections",
+        "Lectures": "Lectures",
+        "total length": "total length",
+        "Instructor": "Instructor",
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit.": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        "Instructor Rating": "Instructor Rating",
+        "Courses": "Courses",
+        "Reviews": "Reviews",
+        "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Itaque optio consequuntur voluptates ipsa illum rem laudantium fugit modi saepe numquam perferendis, expedita porro quo, dolorum iure repellendus. Non culpa minus explicabo deserunt ab odit labore deleniti similique esse obcaecati perspiciatis corporis sed minima facilis quidem quibusdam, iusto omnis laudantium iure assumenda officiis consequatur nihil. Laudantium, enim, nisi error minus reprehenderit earum itaque alias ad ea numquam accusantium praesentium vel eveniet nihil, rem debitis rerum eaque quo nemo? Error, hic ratione autem deserunt doloribus aperiam rem quo nemo ab quaerat, provident expedita nesciunt distinctio ex dignissimos natus odit maiores soluta nisi.": "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Itaque optio consequuntur voluptates ipsa illum rem laudantium fugit modi saepe numquam perferendis, expedita porro quo, dolorum iure repellendus. Non culpa minus explicabo deserunt ab odit labore deleniti similique esse obcaecati perspiciatis corporis sed minima facilis quidem quibusdam, iusto omnis laudantium iure assumenda officiis consequatur nihil. Laudantium, enim, nisi error minus reprehenderit earum itaque alias ad ea numquam accusantium praesentium vel eveniet nihil, rem debitis rerum eaque quo nemo? Error, hic ratione autem deserunt doloribus aperiam rem quo nemo ab quaerat, provident expedita nesciunt distinctio ex dignissimos natus odit maiores soluta nisi.",
+        "Price:": "Price:",
+        "Online Live Videos": "Online Live Videos",
+        "Reserve your seat and schedule the available time for you. Enjoy learning online from anywhere as if you are in class. Try the experience. Ask all questions and get your answers.": "Reserve your seat and schedule the available time for you. Enjoy learning online from anywhere as if you are in class. Try the experience. Ask all questions and get your answers.",
+        "Course Schedules and Timings": "Course Schedules and Timings",
+        "Search by": "Search by",
+        "Course Title": "Course Title",
+        "Date": "Date",
+        "Time": "Time",
+        "Lecturer name": "Lecturer name",
+        "Status": "Status",
+        "Join Link": "Join Link",
+        "Reserve": "Reserve",
+        "This course includes:": "This course includes:",
+        "Month": "Month"
 
-
-  },
-
-
-  "course-header":{
-    "Book Title":"Book Title",
-    "Book Description":"Book Description",
-    "+ Add Lecture File": "+ Add Lecture File",
-    "+ Add Section File": "+ Add Section File",
-    "File Name": "File Name",
-    "File Description": "File Description",
-    "Course Book (PDF)":"Course Book (PDF)",
-"isPaid":"Paid",
-"This course is free":"This course is free",
-  "Back to Dashboard":"Back to Dashboard",
-  "Step":"Step",
-  "Curriculum":"Curriculum",
-  "Delete Section":"Delete Section",
-  "Lecture":"Lecture",
-  "Delete Lecture":"Delete Lecture",
-  "Video":"Video",
-  "Description":"Description",
-  "No selected file":"No selected file",
-  "Select Video":"Select Video",
-  "+ Add Lecture":"+ Add Lecture",
-  "+ Add Section":"+ Add Section",
-  "Landing Page":"Landing Page",
-  "Course Title":"Course Title",
-  "Language":"Language",
-  "Arabic":"Arabic",
-  "English":"English",
-  "Set Level":"Set Level",
-  "Beginner":"Beginner",
-  "Intermediate":"Intermediate",
-  "Advanced":"Advanced",
-  "Category":"Category",
-  "Design":"Design",
-  "Development":"Development",
-  "Offer Productivity":"Offer Productivity",
-  "Health & Fitness":"Health & Fitness",
-  "Marketing":"Marketing",
-  "Business":"Business",
-  "IT & Software":"IT & Software",
-  "Finance & Accounting":"Finance & Accounting",
-  "Course Duration":"Course Duration",
-  "Week_2": "1 to 2 weeks",
-    "Week_3": "2 to 3 weeks",
-    "Month_2": "1 to 2 months",
-    "Month_3": "2 to 3 months",
-    "Month_4": "3 to 4 months",
-    "Month_5": "4 to 5 months",
-  "Promo Video":"Promo Video",
-  "Course Photo":"Course Photo",
-  "Lecturer Name":"Lecturer Name",
-  "Lecturer Description":"Lecturer Description",
-  "Pricing":"Pricing",
-  "Set a price for your course":"Set a price for your course",
-  "Lorem ipsum dolor sit amet, consectetur adipiscing elit.":"Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-  "Price":"Price",
-  "Currency":"Currency",
-  "Price Tier":"Price Tier",
-  "Free":"Free",
-  "Premium":"Premium",
-  "SubSection": "SubSection",
-  "Delete SubSection": "Delete SubSection",
-  "SubSection Name": "SubSection Name",
-  "+ Add SubSection File": "+ Add SubSection File",
-  "+ Add SubSection": "+ Add SubSection",
-
-    "Start Time": "Start Time",
-    "Duration (Minutes)": "Duration (Minutes)",
-    "Zoom Meeting ID": "Zoom Meeting ID",
-    "Zoom Join URL": "Zoom Join URL",
-    "Zoom Password": "Zoom Password",
-    "Is Instant": "Is Instant",
-    "Max Participants": "Max Participants",
-
-  "Promotions":"Promotions",
-  "Offer Conditions":"Offer Conditions",
-  "Each time a student uses this link, the instructor will receive 80%...":"Each time a student uses this link, the instructor will receive 80%...",
-  "Save":"Save",
-    "Add Section": "Add Section",
-    "Delete Row": "Delete Row",
-    "Section": "Section",
-    "Section Title": "Section Title",
-    "Section Description": "Section Description",
-  "Purchase Vouchers": "Purchase Vouchers",
-  "voucher": {
-      "best_current_price": {
-        "label": "Best current price",
-        "features": ["Fixed price", "Unlimited quantity", "Limited validity period"]
-      },
-      "custom_price": {
-        "label": "Custom price",
-        "features": ["Select a price between two numbers", "Unlimited quantity", "Limited validity period"]
-      },
-      "free_period_unlimited": {
-        "label": "Free period (Unlimited quantity)",
-        "features": ["Unlimited quantity", "Limited validity period"]
-      },
-      "free_period_limited": {
-        "label": "Free period (Limited quantity)",
-        "features": ["Limited quantity", "Limited validity period"]
-      }
 
     },
-    "Coupon":"Coupon",
-    "Coupon code":"Coupon code",
-    "Coupon Status":"Coupon Status",
-    "Paid":"Paid",
-    "No of users":"No of users",
-    "Limited":"Limited",
-    "Unlimited":"Unlimited",
-    "Coupon start date":"Coupon start date",
-    "Coupon end date":"Coupon end date",
-    "Discount percentage": "Discount Percentage",
-    "Active": "Active",
-    "Inactive": "Inactive",
-    "Remove": "Remove",
-    "Add Coupon":"Add Coupon",
-    "Next":"Next",
-    "Submit for Review":"Submit for Review",
-    "Instructor Schedules":"Instructor Schedules",
-    "Add Row":"Add Row",
-    "Date":"Date",
-    "Time":"Time",
-    "Lecturer":"Lecturer",
-    "Registered":"Registered",
-    "Status":"Status",
-    "Join Link":"Join Link",
-    "Limit":"Limit",
-    "Delete":"Delete",
-   "Section Name":"Section Name",
-   "Enter video description":"Enter video description",
-   "Lecture Title":"Lecture Title",
-   "Copy link":"Copy link",
-   "Previous":"Previous"
-  },
-
-  "my-courses":{
-
-  "My Courses":"My Courses",
-  "All Courses":"All Courses",
-  "Wishlist":"Wishlist",
-  "No items yet":"No items yet",
-  "complete":"complete",
-  "Add to Cart":"Add to Cart",
-  "Remove from Cart":"Remove from Cart",
-  "tests":"tests"
 
 
-  },
+    "course-header": {
+        "Save as Draft": " Save as Draft",
+        "Book Title": "Book Title",
+        "Book Description": "Book Description",
+        "+ Add Lecture File": "+ Add Lecture File",
+        "+ Add Section File": "+ Add Section File",
+        "File Name": "File Name",
+        "File Description": "File Description",
+        "Course Book (PDF)": "Course Book (PDF)",
+        "isPaid": "Paid",
+        "This course is free": "This course is free",
+        "Back to Dashboard": "Back to Dashboard",
+        "Step": "Step",
+        "Curriculum": "Curriculum",
+        "Delete Section": "Delete Section",
+        "Lecture": "Lecture",
+        "Delete Lecture": "Delete Lecture",
+        "Video": "Video",
+        "Description": "Description",
+        "No selected file": "No selected file",
+        "Select Video": "Select Video",
+        "+ Add Lecture": "+ Add Lecture",
+        "+ Add Section": "+ Add Section",
+        "Landing Page": "Landing Page",
+        "Course Title": "Course Title",
+        "Language": "Language",
+        "Arabic": "Arabic",
+        "English": "English",
+        "Set Level": "Set Level",
+        "Beginner": "Beginner",
+        "Intermediate": "Intermediate",
+        "Advanced": "Advanced",
+        "Category": "Category",
+        "Design": "Design",
+        "Development": "Development",
+        "Offer Productivity": "Offer Productivity",
+        "Health & Fitness": "Health & Fitness",
+        "Marketing": "Marketing",
+        "Business": "Business",
+        "IT & Software": "IT & Software",
+        "Finance & Accounting": "Finance & Accounting",
+        "Course Duration": "Course Duration",
+        "Week_2": "1 to 2 weeks",
+        "Week_3": "2 to 3 weeks",
+        "Month_2": "1 to 2 months",
+        "Month_3": "2 to 3 months",
+        "Month_4": "3 to 4 months",
+        "Month_5": "4 to 5 months",
+        "Promo Video": "Promo Video",
+        "Course Photo": "Course Photo",
+        "Lecturer Name": "Lecturer Name",
+        "Lecturer Description": "Lecturer Description",
+        "Pricing": "Pricing",
+        "Set a price for your course": "Set a price for your course",
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit.": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        "Price": "Price",
+        "Currency": "Currency",
+        "Price Tier": "Price Tier",
+        "Free": "Free",
+        "Premium": "Premium",
+        "SubSection": "SubSection",
+        "Delete SubSection": "Delete SubSection",
+        "SubSection Name": "SubSection Name",
+        "+ Add SubSection File": "+ Add SubSection File",
+        "+ Add SubSection": "+ Add SubSection",
+
+        "Start Time": "Start Time",
+        "Duration (Minutes)": "Duration (Minutes)",
+        "Zoom Meeting ID": "Zoom Meeting ID",
+        "Zoom Join URL": "Zoom Join URL",
+        "Zoom Password": "Zoom Password",
+        "Is Instant": "Is Instant",
+        "Max Participants": "Max Participants",
+
+        "Promotions": "Promotions",
+        "Offer Conditions": "Offer Conditions",
+        "Each time a student uses this link, the instructor will receive 80%...": "Each time a student uses this link, the instructor will receive 80%...",
+        "Save": "Save",
+        "Add Section": "Add Section",
+        "Delete Row": "Delete Row",
+        "Section": "Section",
+        "Section Title": "Section Title",
+        "Section Description": "Section Description",
+        "Purchase Vouchers": "Purchase Vouchers",
+        "voucher": {
+            "best_current_price": {
+                "label": "Best current price",
+                "features": ["Fixed price", "Unlimited quantity", "Limited validity period"]
+            },
+            "custom_price": {
+                "label": "Custom price",
+                "features": ["Select a price between two numbers", "Unlimited quantity", "Limited validity period"]
+            },
+            "free_period_unlimited": {
+                "label": "Free period (Unlimited quantity)",
+                "features": ["Unlimited quantity", "Limited validity period"]
+            },
+            "free_period_limited": {
+                "label": "Free period (Limited quantity)",
+                "features": ["Limited quantity", "Limited validity period"]
+            }
+
+        },
+        "Coupon": "Coupon",
+        "Coupon code": "Coupon code",
+        "Coupon Status": "Coupon Status",
+        "Paid": "Paid",
+        "No of users": "No of users",
+        "Limited": "Limited",
+        "Unlimited": "Unlimited",
+        "Coupon start date": "Coupon start date",
+        "Coupon end date": "Coupon end date",
+        "Discount percentage": "Discount Percentage",
+        "Active": "Active",
+        "Inactive": "Inactive",
+        "Remove": "Remove",
+        "Add Coupon": "Add Coupon",
+        "Next": "Next",
+        "Submit for Review": "Submit for Review",
+        "Instructor Schedules": "Instructor Schedules",
+        "Add Row": "Add Row",
+        "Date": "Date",
+        "Time": "Time",
+        "Lecturer": "Lecturer",
+        "Registered": "Registered",
+        "Status": "Status",
+        "Join Link": "Join Link",
+        "Limit": "Limit",
+        "Delete": "Delete",
+        "Section Name": "Section Name",
+        "Enter video description": "Enter video description",
+        "Lecture Title": "Lecture Title",
+        "Copy link": "Copy link",
+        "Previous": "Previous"
+    },
+
+    "my-courses": {
+
+        "My Courses": "My Courses",
+        "All Courses": "All Courses",
+        "Wishlist": "Wishlist",
+        "No items yet": "No items yet",
+        "complete": "complete",
+        "Add to Cart": "Add to Cart",
+        "Remove from Cart": "Remove from Cart",
+        "tests": "tests"
 
 
-  "recently-wished":{
-
-  "Recently wished listed":"Recently wished listed",
-  "Add to Cart":"Add to Cart",
-  "Remove from Cart":"Remove from Cart",
-  "Total Price:":"Total Price:",
-  "Close":"Close",
-  "Please Login First":"Please Login First",
-  "alert":"alert",
-  "Search for a course...":"Search for a course..."
-
-  },
+    },
 
 
-  "Similar-courses":{
+    "recently-wished": {
 
-  "Similar courses":"Similar courses",
-  "Add to Cart":"Add to Cart",
-  "Remove from Cart":"Remove from Cart"
+        "Recently wished listed": "Recently wished listed",
+        "Add to Cart": "Add to Cart",
+        "Remove from Cart": "Remove from Cart",
+        "Total Price:": "Total Price:",
+        "Close": "Close",
+        "Please Login First": "Please Login First",
+        "alert": "alert",
+        "Search for a course...": "Search for a course..."
 
-  },
-
-
-  "student-reviews":{
-
-  "Student feedback":"Student feedback",
-  "Course Rating":"Course Rating",
-  "Rate Your Instructor":"Rate Your Instructor",
-  "Submit Rating":"Submit Rating",
-  "Add Your Review":"Add Your Review",
-  "stars":"stars",
-  "Submit Review":"Submit Review",
-  "Reviews":"Reviews",
-  "Filter ratings":"Filter ratings",
-  "Show More":"Show More",
-  "No reviews matched your search. Try searching with another term.":"No reviews matched your search. Try searching with another term.",
-  "All Ratings":"All Ratings",
-  "Search reviews":"Search reviews",
-  "Write your review...":"Write your review..."
-  },
+    },
 
 
-  "successMessage": "You submitted your rate successfully!",
+    "Similar-courses": {
+
+        "Similar courses": "Similar courses",
+        "Add to Cart": "Add to Cart",
+        "Remove from Cart": "Remove from Cart"
+
+    },
 
 
-  "wishlist":{
+    "student-reviews": {
 
-  "Course":"Course",
-  "Price":"Price",
-  "Action":"Action",
-  "Preview":"Preview",
-  "Cart":"Cart",
-  "Remove":"Remove",
-  "No items yet":"No items yet"
-  },
-
-"warnings": {
-    "fillFirstSection": "Please fill in all first section data before proceeding.",
-    "fillCourseData": "Please fill in all course details before proceeding.",
-    "fillPriceData": "Please enter the price ."
-  }
-  ,
-  "step 2": {
-    "course_title_required": "Course title is required"
-  },
-  "step 3": {
-    "category_required": "You must select a category"
-  },
-  "step 4": {
-    "learning_objectives_required": "Learning objectives are required",
-    "requirements_required": "Requirements are required",
-    "target_audience_required": "Target audience is required"
-  }
+        "Student feedback": "Student feedback",
+        "Course Rating": "Course Rating",
+        "Rate Your Instructor": "Rate Your Instructor",
+        "Submit Rating": "Submit Rating",
+        "Add Your Review": "Add Your Review",
+        "stars": "stars",
+        "Submit Review": "Submit Review",
+        "Reviews": "Reviews",
+        "Filter ratings": "Filter ratings",
+        "Show More": "Show More",
+        "No reviews matched your search. Try searching with another term.": "No reviews matched your search. Try searching with another term.",
+        "All Ratings": "All Ratings",
+        "Search reviews": "Search reviews",
+        "Write your review...": "Write your review..."
+    },
 
 
+    "successMessage": "You submitted your rate successfully!",
 
-  ,
+
+    "wishlist": {
+
+        "Course": "Course",
+        "Price": "Price",
+        "Action": "Action",
+        "Preview": "Preview",
+        "Cart": "Cart",
+        "Remove": "Remove",
+        "No items yet": "No items yet"
+    },
+
+    "warnings": {
+        "fillFirstSection": "Please fill in all first section data before proceeding.",
+        "fillCourseData": "Please fill in all course details before proceeding.",
+        "fillPriceData": "Please enter the price .",
+        "completeStepOne": "Please complete step one before proceeding.",
+        "draftSaveFailed": "Failed to save draft, please try again.",
+        "courseUploadFailed": "Failed to upload course, please try again."
+    },
+    "step 2": {
+        "course_title_required": "Course title is required"
+    },
+    "step 3": {
+        "category_required": "You must select a category"
+    },
+    "step 4": {
+        "learning_objectives_required": "Learning objectives are required",
+        "requirements_required": "Requirements are required",
+        "target_audience_required": "Target audience is required"
+    },
+
+
+
+
+
+
     "quiz": {
-    "create_new": "Create Lecture Quiz",
+        "create_new": "Create Lecture Quiz",
         "create_new1": "Create one",
-
-    "Create Section Quiz": "Create Section Quiz",
-    "Create Course Quiz": "Create Course Quiz",
-    "create": "Create Quiz",
-    "course_name": "Quiz Name",
-    "instructor_name": "Instructor Name",
-    "exam_datetime": "Exam Date & Time",
-    "duration": "Duration (minutes)",
-    "attempts": "Attempts Allowed",
-    "passing_score": "Passing Score (%)",
-    "description": "Quiz Description",
-    "question": "Question",
-    "options": "Options",
-    "option": "Option",
-    "answer_explanation": "Answer Explanation",
-    "remove_question": "Remove Question",
-    "add_question": "Add Question",
-    "save": "Save Quiz",
-     "add_mcq_question": "Add Multiple Choice Question",
-    "add_essay_question": "Add Essay Question",
-    "errors": {
-    "course_name": "Course name is required.",
-    "instructor_name": "Instructor name is required.",
-    "exam_datetime": "Exam date and time are required.",
-    "duration": "The exam duration must be greater than 0.",
-    "attempts": "Number of attempts is required.",
-    "passing_score": "Passing score must be between 1 and 100.",
-    "questions_required": "At least one question must be added.",
-    "question_text_required": "Question number {{index}} is missing text.",
-    "option_required": "Option number {{optionIndex}} in question number {{index}} is empty.",
-    "correct_answer_required": "You must select the correct answer in question number {{index}}.",
-  "quiz_type_required": "Quiz type is required.",
-  "is_free_required": "You must specify whether the quiz is free or paid.",
-  "price_required_if_paid": "Price is required if the quiz is paid.",
-  "price_must_be_positive": "Price must be greater than 0.",
-  "invalid_exam_datetime": "Invalid exam date and time.",
-  "duplicate_options": "There are duplicate options in question {{index}}.",
-  "min_options_required": "At least two options are required in question {{index}}.",
-  "essay_answer_required": "A sample answer is required for essay question {{index}}.",
-"quiz_type_mismatch": "All questions must match the selected quiz type (essay or multiple choice).",
-"description":"Enter Your Quizz's Description",
-"attach_to_required": "Please select where to attach the quiz (course, section, or lecture).",
-"category_required": "You must select a category for the quiz.",
-"no_token": "Please log in first",
-"delete_failed": "Failed to delete quiz, please try again"
-
-
-},
-    "quiz_type": "Quiz Type",
-    "mcq": "Multiple Choice (MCQ)",
-    "essay": "Essay",
-    "is_free": "Is the quiz free?",
-    "free": "Free",
-    "paid": "Paid",
-    "price": "Price (SAR)",
-    "category":"Category",
-
-        "view_details": "Create your quiz questions now",
-        "marks": "Mark",
+        "Create Section Quiz": "Create Section Quiz",
+        "Create Course Quiz": "Create Course Quiz",
+        "create": "Create Quiz",
+        "course_name": "Quiz Name",
+        "instructor_name": "Instructor Name",
+        "exam_datetime": "Exam Date & Time",
+        "duration": "Duration (minutes)",
+        "attempts": "Attempts Allowed",
+        "passing_score": "Passing Score (%)",
+        "description": "Quiz Description",
+        "question": "Question",
+        "options": "Options",
+        "option": "Option",
+        "answer_explanation": "Answer Explanation",
+        "remove_question": "Remove Question",
+        "add_question": "Add Question",
+        "save": "Save Quiz",
+        "add_mcq_question": "Add Multiple Choice Question",
+        "add_essay_question": "Add Essay Question",
         "submit_questions": "Submit Questions",
         "correct_answer": "Correct Answer",
+        "marks": "Mark",
         "show_questions": "Show Questions",
         "questions_preview": "Questions Preview",
         "question_label": "Question:",
         "answer": "Answer",
         "correct": "Correct",
         "edit_now": "Edit Now",
+        "view_details": "Create your quiz questions now",
+        "view_course_quiz_details": "Create your quiz questions now",
+        "search_placeholder": "Search by quiz name...",
+        "delete_quiz": "Delete Quiz",
+        "delete_confirm_title": "Confirm Deletion",
+        "delete_confirm_message": "Are you sure you want to delete this quiz?",
+        "confirm_delete": "Confirm Delete",
+        "cancel": "Cancel",
+        "course_quiz_details": "Quiz Details",
+        "section_name": "Section",
+        "select_section": "Select Section",
+        "select_section_lecture": "Select Section Lecture",
+        "select_lecture": "Select Lecture",
+        "select_subsection": "Select SubSection",
+        "select_subsection_lecture": "Select Subsection Lecture",
+        "subsection_name": "SubSection Name",
+        "lecture_name": "Lecture Name",
+        "errors": {
+            "course_name": "Course name is required.",
+            "instructor_name": "Instructor name is required.",
+            "exam_datetime": "Exam date and time are required.",
+            "duration": "The exam duration must be greater than 0.",
+            "attempts": "Number of attempts is required.",
+            "passing_score": "Passing score must be between 1 and 100.",
+            "questions_required": "At least one question must be added.",
+            "question_text_required": "Question number {{index}} is missing text.",
+            "option_required": "Option number {{optionIndex}} in question number {{index}} is empty.",
+            "correct_answer_required": "You must select the correct answer in question number {{index}}.",
+            "quiz_type_required": "Quiz type is required.",
+            "is_free_required": "You must specify whether the quiz is free or paid.",
+            "price_required_if_paid": "Price is required if the quiz is paid.",
+            "price_must_be_positive": "Price must be greater than 0.",
+            "invalid_exam_datetime": "Invalid exam date and time.",
+            "duplicate_options": "There are duplicate options in question {{index}}.",
+            "min_options_required": "At least two options are required in question {{index}}.",
+            "essay_answer_required": "A sample answer is required for essay question {{index}}.",
+            "quiz_type_mismatch": "All questions must match the selected quiz type (essay or multiple choice).",
+            "description": "Enter Your Quizz's Description",
+            "attach_to_required": "Please select where to attach the quiz (course, section, or lecture).",
+            "category_required": "You must select a category for the quiz.",
+            "no_token": "Please log in first",
+            "delete_failed": "Failed to delete quiz, please try again",
+            "no_subSections_available": "No subSections available for this section",
+            "subsection_required": "SubSection is required",
+            "section_required": "Section is required",
+            "lecture_required": "Lecture is required",
+            "question_required": "Question is required",
+            "correct_option_required": "Correct option is required",
+            "marks_required": "Marks are required",
+            "marks_min": "Marks must be at least 1"
+        },
+        "quiz_type": "Quiz Type",
+        "mcq": "Multiple Choice (MCQ)",
+        "essay": "Essay",
+        "is_free": "Is the quiz free?",
+        "free": "Free",
+        "paid": "Paid",
+        "price": "Price (SAR)",
+        "category": "Category",
+        "attach": {
+            "course": "Course",
+            "section": "Section",
+            "lecture": "Lecture",
+            "subSection": "SubSection"
+        },
         "attach_to": "The quiz questions will be attached to:",
-  "attach": {
-    "course": "Course",
-    "section": "Section",
-    "lecture": "Lecture"
+        "select_course": "Select Course",
+        "success": {
+            "quiz_deleted": "Quiz deleted successfully"
+        }
+    },
+    "Description": "Description",
+    "PREREQUISITES": "PREREQUISITES",
+    "ATTACHMENTS": "ATTACHMENTS",
+    "SECTION_ATTACHMENTS": "SECTION ATTACHMENTS",
+    "LECTURE_ATTACHMENTS": "LECTURE ATTACHMENTS",
+    "successMessage2": "You created your quiz successfully!",
+    "SUBSECTION_TITLE": "SUBSECTION TITLE",
+    "PROMO_VIDEO": "PROMO VIDEO",
+    "LECTURE": {
+        "LECTURER_NAME": "Lecturer Name",
+        "START_TIME": "Start Time",
+        "ZOOM_LINK": "Zoom Link",
+        "ZOOM_PASSWORD": "Zoom Password",
+        "IS_INSTANT": "Instant",
+        "STATUS": "Status",
+        "MAX_PARTICIPANTS": "Max Participants"
+    },
+    "instructor-courses": {
+        "My Draft Courses": "Draft Courses",
+        "My Published Courses": "Published Courses",
+        "Recorded Educational Courses": "Recorded Educational Courses",
+        "Live Streamed Educational Courses": "Live Streamed Educational Courses",
+        "Unknown Type": "Unknown Type",
+        "Edit": "Edit",
+        "Remove": "Remove",
+        "Show All": "Show All",
+        "Show Less": "Show Less",
+        "There are no courses to display at the moment.": "There are no courses to display at the moment.",
+        "Are you sure you want to delete this course?": "Are you sure you want to delete this course?",
+        "Cancel": "Cancel",
+        "Delete": "Delete",
+        "noCourses": "There are no courses to display currently.",
+        "deleteConfirmationTitle": "Are you sure you want to delete this course?",
+        "cancel": "Cancel",
+        "delete": "Delete",
+        "Search Courses": "Search Courses",
+        "Puplish": "Puplish"
 
+    },
+    "COURSE": {
+        "CURRENCY": "Currency",
+        "SAR": "Saudi Riyal",
+        "USD": "US Dollar",
+        "EGP": "Egyptian Pound",
+        "Description": "Description",
+        "EDIT_TITLE": "Edit Course",
+        "TITLE": "Title",
+        "THUMBNAIL": "Thumbnail",
+        "TYPE": "Type",
+        "RECORDED": "Recorded",
+        "LIVE": "Live",
+        "LEVEL": "Level",
+        "TARGET_AUDIENCE": "Target Audience",
+        "PRICE": "Price",
+        "LANGUAGE": "Language",
+        "CATEGORY": "Category",
+        "SECTION": "Section",
+        "SECTION_TITLE": "Section Title",
+        "LECTURE": "Lecture",
+        "LECTURE_TITLE": "Lecture Title",
+        "LECTURE_VIDEO": "Lecture Video",
+        "EDIT_BUTTON": "Edit Course",
+        "SAVE_BUTTON": "Save",
+        "BACK_BUTTON": "Back",
+        "MY_COURSES": "My Courses",
+        "TYPE_RECORDED": "Recorded Educational Courses",
+        "TYPE_LIVE": "Live Streamed Educational Courses",
+        "TYPE_UNKNOWN": "Unknown Type",
+        "REMOVE_BUTTON": "Remove",
+        "SHOW_ALL": "Show All",
+        "SHOW_LESS": "Show Less",
+        "NO_COURSES": "You don’t have any courses yet.",
+        "DELETE_CONFIRM_TITLE": "Are you sure you want to delete this course?",
+        "CANCEL_BUTTON": "Cancel",
+        "DELETE_BUTTON": "Delete"
+    },
 
-  },
-  "select_course": "Select Course",
-  "select_section": "Select Section",
-  "select_lecture": "Select Lecture",
-  "view_course_quiz_details": "Create your quiz questions now",
-  "search_placeholder": "Search by quiz name...",
-  "delete_quiz": "Delete Quiz",
-    "delete_confirm_title": "Confirm Deletion",
-    "delete_confirm_message": "Are you sure you want to delete this quiz?",
-    "confirm_delete": "Confirm Delete",
-    "cancel": "Cancel",
-    "success": {
-      "quiz_deleted": "Quiz deleted successfully",
-      "section_name":"Section",
-      "course_quiz_details":"Quiz Details"
-
-
-},
-    "successMessage2":"You created your quiz successfully!",
-
-
-
-
-"instructor-courses":{
-
-  "noCourses": "There are no courses to display currently.",
-  "deleteConfirmationTitle": "Are you sure you want to delete this course?",
-  "cancel": "Cancel",
-  "delete": "Delete"
-},"COURSE": {
-
-
-    "DESCRIPTION": "Description",
-    "PREREQUISITES": "Prerequisites",
-
-    "ATTACHMENTS": "Attachments",
-    "SECTION_ATTACHMENTS": "Section Attachments",
-    "LECTURE_ATTACHMENTS": "Lecture Attachments",
-
-    "COUPONS": "Coupons",
-
-
-    "EDIT_TITLE": "Edit Course",
-    "TITLE": "Title",
-    "THUMBNAIL": "Thumbnail",
-    "TYPE": "Type",
-    "RECORDED": "Recorded",
-    "LIVE": "Live",
-    "LEVEL": "Level",
-    "TARGET_AUDIENCE": "Target Audience",
-    "PRICE": "Price",
-    "LANGUAGE": "Language",
-    "CATEGORY": "Category",
-    "SECTION": "Section",
-    "SECTION_TITLE": "Section Title",
-    "LECTURE": "Lecture",
-    "LECTURE_TITLE": "Lecture Title",
-    "LECTURE_VIDEO": "Lecture Video",
-    "EDIT_BUTTON": "Edit Course",
-    "SAVE_BUTTON": "Save",
-    "BACK_BUTTON": "Back",
-    "MY_COURSES": "My Courses",
-    "TYPE_RECORDED": "Recorded Educational Courses",
-    "TYPE_LIVE": "Live Streamed Educational Courses",
-    "TYPE_UNKNOWN": "Unknown Type",
-    "REMOVE_BUTTON": "Remove",
-    "SHOW_ALL": "Show All",
-    "SHOW_LESS": "Show Less",
-    "NO_COURSES": "You don’t have any courses yet.",
-    "DELETE_CONFIRM_TITLE": "Are you sure you want to delete this course?",
-    "CANCEL_BUTTON": "Cancel",
-    "DELETE_BUTTON": "Delete",
-
+    "LEVELS": {
+        "BEGINNER": "Beginner",
+        "INTERMEDIATE": "Intermediate",
+        "ADVANCED": "Advanced"
+    },
+    "COUPON": {
+        "CODE": "Coupon Code",
+        "DISCOUNT": "Discount",
+        "EXPIRY": "Expiry Date"
+    },
+    "ADD": "Add",
+    "ADD_COUPON": "Add Coupon",
+    "DELETE": "Delete",
+    "CANCEL": "Cancel",
+    "Valid": "Valid",
+    "Invalid": "Invalid",
     "Subsection": "Subsection",
-    "SUBSECTION_TITLE": "Subsection Title",
-
-    "Description": "Description",
-
-    "PROMO_VIDEO": "Promotional Video"
-
-  },
-
-"LEVELS": {
-    "BEGINNER": "Beginner",
-    "INTERMEDIATE": "Intermediate",
-    "ADVANCED": "Advanced"
-  }
 
 
+    "modal": {
+        "loginReminder": {
+            "title": "Alert",
+            "body": "Please log in first to continue.",
+            "okButton": "OK"
+        }
+    },
+    "student-modal": {
+        "title": "Notice",
+        "body": "Please register as a student to use this feature.",
+        "okButton": "OK"
+    },
+    "login-reminder": {
+        "title": "Notice",
+        "body": "Please log in first to use this feature.",
+        "okButton": "OK"
+    },
+    "quizzes": {
+        "allCourses": "All Courses",
+        "allSections": "All Sections",
+        "allSubSections": "All Sub-Sections",
+        "allLectures": "All Lectures",
+        "search": "Search for a quiz...",
+        "course": "Course",
+        "attempts": "Attempts",
+        "duration": "Duration",
+        "minutes": "minutes",
+        "start": "Start Quiz",
+        "noResults": "No quizzes available based on current filters."
+
+    },
+    "exam": {
+        "timeUsed": "Time Used",
+        "minute": "minute",
+        "minutes": "minutes",
+        "second": "second",
+        "seconds": "seconds",
+        "and": "and",
+        "resultSent": "Exam submitted successfully!",
+        "answeredCount": "Answered Questions",
+        "unansweredCount": "Unanswered Questions",
+        "percentage": "Score Percentage",
+        "status": "Status",
+        "passed": "✔️ Passed",
+        "failed": "❌ Failed",
+        "viewResult": "View Results",
+        "timeLimit": "Time Limit: {{minutes}} minutes",
+        "attemptsAllowed": "Attempts Allowed: {{attempts}}",
+        "startButton": "Start Exam"
+    },
+    "examResult": {
+        "title": "Exam Result",
+        "lecture": "Lecture",
+        "subSection": "Subsection",
+        "subSectionLecture": "Lecture Inside Subsection",
+        "sectionQuestions": "Section Questions",
+        "generalQuestions": "General Questions",
+        "totalQuestions": "Total Questions",
+        "answeredQuestions": "Answered",
+        "question": "Question",
+        "featured": "Featured Question",
+        "studentAnswer": "Student Answer",
+        "modelAnswer": "Model Answer",
+        "noAnswer": "Not Answered",
+        "noData": "No Data Available",
+        "sectionTitle": "Section Title",
+        "status": "Status",
+        "passed": "Passed",
+        "failed": "Failed",
+        "timeUsed": "Time Used",
+        "correctAnswers": "Correct Answers",
+        "unanswered": "Unanswered",
+        "percentage": "Percentage"
+    },
+    "courseParts": {
+        "Course Content": "Course Content",
+        "Course Attachments": "Course Attachments",
+        "Course Exams": "Course Exams",
+        "Exam results for the course": "Exam results for the course",
+        "Reports": "Reports"
+    },
+    "attachments": {
+        "courseTitle": "Course Content",
+        "filesTitle": "Attachments",
+        "noFiles": "No attachments available",
+        "download": "Download",
+        "exams": "Exams",
+        "timeLimit": "Time Limit: {{minutes}} minutes",
+        "attemptsAllowed": "Attempts Allowed: {{attempts}}",
+        "startButton": "Start Exam",
+        "noExams": "No available exams.",
+        "reviewAttempts": "Start Reviewing Your Attempts"
+    },
+    "course-exam": {
+
+
+        "quiz_name": "Quiz Name",
+        "allowed_attempts": "Allowed Attempts",
+        "remaining_attempts": "Remaining",
+        "time_limit": "Time Limit",
+        "minutes": "minutes",
+        "evaluation_method": "Evaluation Method",
+        "last_attempt": "Last Attempt",
+        "passing_score": "Passing Score",
+        "retry_quiz": "Retry Quiz",
+        "no_more_attempts": "You have used all available attempts for this quiz.",
+        "last_attempt_score": "Last Attempt",
+        "status": "Status",
+        "started": "Started",
+        "ended": "Ended",
+        "duration": "Duration",
+        "score": "Score",
+        "grade": "Grade",
+        "review": "Review",
+        "finished": "Finished",
+        "in_progress": "In Progress",
+        "back": "Back",
+        "loading_quiz": "Loading quiz data...",
+        "attempt": "Attempt",
+        "course_content": "Course Content",
+        "loading_course_content": "Loading course content...",
+        "exam_title": "Chapter 1 Exam (Multiple Choice)",
+        "question_number": "Question",
+        "question_grade": "Grade: 1 point",
+        "flag_this_question": "Flag this question",
+        "write_answer_here": "Write your answer here...",
+        "clear_choice": "Clear My Answer",
+        "previous_page": "Previous Page",
+        "next_page": "Next Page",
+        "finish_attempt": "Finish Attempt",
+        "remaining_time": "Remaining Time",
+        "hide": "Hide",
+        "show": "Show",
+        "exam_summary": "Exam Summary",
+        "your_answer": "Your Answer",
+        "answered": "Answered",
+        "unanswered": "Unanswered",
+        "close": "Close",
+        "confirm_finish_title": "Confirm Finish Exam",
+        "answered_questions_count": "Answered questions",
+        "unanswered_questions_count": "Unanswered questions",
+        "cancel": "Cancel",
+        "confirm": "Confirm",
+        "question": "Question",
+    "correct": "Correct",
+    "incorrect": "Incorrect",
+    "flagged_question": "Flagged Question",
+    "model_answer": "Model Answer",
+    "answer_explanation": "Explanation",
+    "finish_review": "Finish Review",
+    "quiz_navigation": "Quiz Navigation",
+        "submitted_at": "Submitted At",
+    "correct_answers": "Correct Answers"
 
     }
-,
-"Description": "Description"
-,
-"PREREQUISITES":"PREREQUISITES",
-"ATTACHMENTS":"ATTACHMENTS",
-"SECTION_ATTACHMENTS":"SECTION ATTACHMENTS",
-"LECTURE_ATTACHMENTS":"LECTURE ATTACHMENTS",
-    "successMessage2":"You created your quiz successfully!",
-    "SUBSECTION_TITLE":"SUBSECTION TITLE",
-"PROMO_VIDEO":"PROMO VIDEO",
- "LECTURE": {
-    "LECTURER_NAME": "Lecturer Name",
-    "START_TIME": "Start Time",
-    "ZOOM_LINK": "Zoom Link",
-    "ZOOM_PASSWORD": "Zoom Password",
-    "IS_INSTANT": "Instant",
-    "STATUS": "Status",
-    "MAX_PARTICIPANTS": "Max Participants"
-  }
-,
-"instructor-courses":{
-
-  "noCourses": "There are no courses to display currently.",
-  "deleteConfirmationTitle": "Are you sure you want to delete this course?",
-  "cancel": "Cancel",
-  "delete": "Delete"
-},"COURSE": {
-  "CURRENCY": "Currency",
-    "SAR": "Saudi Riyal",
-    "USD": "US Dollar",
-    "EGP": "Egyptian Pound",
-    "Description": "Description",
-    "EDIT_TITLE": "Edit Course",
-    "TITLE": "Title",
-    "THUMBNAIL": "Thumbnail",
-    "TYPE": "Type",
-    "RECORDED": "Recorded",
-    "LIVE": "Live",
-    "LEVEL": "Level",
-    "TARGET_AUDIENCE": "Target Audience",
-    "PRICE": "Price",
-    "LANGUAGE": "Language",
-    "CATEGORY": "Category",
-    "SECTION": "Section",
-    "SECTION_TITLE": "Section Title",
-    "LECTURE": "Lecture",
-    "LECTURE_TITLE": "Lecture Title",
-    "LECTURE_VIDEO": "Lecture Video",
-    "EDIT_BUTTON": "Edit Course",
-    "SAVE_BUTTON": "Save",
-    "BACK_BUTTON": "Back",
-    "MY_COURSES": "My Courses",
-    "TYPE_RECORDED": "Recorded Educational Courses",
-    "TYPE_LIVE": "Live Streamed Educational Courses",
-    "TYPE_UNKNOWN": "Unknown Type",
-    "REMOVE_BUTTON": "Remove",
-    "SHOW_ALL": "Show All",
-    "SHOW_LESS": "Show Less",
-    "NO_COURSES": "You don’t have any courses yet.",
-    "DELETE_CONFIRM_TITLE": "Are you sure you want to delete this course?",
-    "CANCEL_BUTTON": "Cancel",
-    "DELETE_BUTTON": "Delete"
-  },
-
-"LEVELS": {
-    "BEGINNER": "Beginner",
-    "INTERMEDIATE": "Intermediate",
-    "ADVANCED": "Advanced"
-  }
-,
-  "COUPON": {
-    "CODE": "Coupon Code",
-    "DISCOUNT": "Discount",
-    "EXPIRY": "Expiry Date"
-  },
-  "ADD": "Add",
-  "ADD_COUPON": "Add Coupon",
-  "DELETE": "Delete",
-  "CANCEL": "Cancel",
-  "Valid": "Valid",
-  "Invalid": "Invalid",
-      "Subsection": "Subsection",
 
 
-"modal": {
-    "loginReminder": {
-      "title": "Alert",
-      "body": "Please log in first to continue.",
-      "okButton": "OK"
-    }
-  },
-   "student-modal": {
-    "title": "Notice",
-    "body": "Please register as a student to use this feature.",
-    "okButton": "OK"
-  },
-  "login-reminder": {
-    "title": "Notice",
-    "body": "Please log in first to use this feature.",
-    "okButton": "OK"
-  }
 
 
 

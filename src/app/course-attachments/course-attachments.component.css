@@ -1,0 +1,23 @@
+.fw-bold {
+  font-weight: bold !important;
+}
+.text-primary {
+  color: #0d6efd;
+}
+section{
+  height: 100vh;
+}
+
+@media (max-width: 600px) {
+  .col-md-4 {
+    height: auto !important;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #dee2e6  ;
+  }
+}
+
+@media (min-width: 601px) {
+  .col-md-4 {
+    height: 100vh ;
+  }
+}
